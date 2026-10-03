@@ -1,0 +1,187 @@
+# Generated with runic (docs/DECISIONS.md). Adapted from odin-gtk (MIT, docs/LICENSE-odin-gtk.md).
+# build/gtk4 is a symlink to amber-gtk4's staged tree (scripts/generate.sh); build/sys to /.
+version: 0
+platforms:
+  - Linux x86_64
+from:
+  language: c
+  shared.linux: 'libgtk-4.so'
+  headers: ../build/gtk4/usr/include/gtk-4.0/gtk/gtk.h
+  includedirs:
+    - ../stdinc/
+    - ../build/gtk4/usr/include/gtk-4.0/
+    - ../build/sys/usr/include/glib-2.0/
+    - ../build/sys/usr/lib/x86_64-linux-gnu/glib-2.0/include/
+    - ../build/sys/usr/include/cairo/
+    - ../build/sys/usr/include/pango-1.0/
+    - ../build/sys/usr/include/harfbuzz/
+    - ../build/sys/usr/include/gdk-pixbuf-2.0/
+    - ../build/sys/usr/include/graphene-1.0/
+    - ../build/sys/usr/lib/x86_64-linux-gnu/graphene-1.0/include/
+  defines:
+    GLIB_DISABLE_DEPRECATION_WARNINGS: 1
+    GDK_DISABLE_DEPRECATION_WARNINGS: 1
+    GTK_DISABLE_DEPRECATION_WARNINGS: 1
+  load_all_includes: true
+  extern:
+    - "../stdinc/*"
+    - "../stdinc/sys/*"
+    - "../build/sys/usr/include/glib-2.0/glib/*"
+    - "../build/sys/usr/include/glib-2.0/glib/deprecated/*"
+    - "../build/sys/usr/include/glib-2.0/glib.h"
+    - "../build/sys/usr/include/glib-2.0/gobject/*"
+    - "../build/sys/usr/include/glib-2.0/glib-object.h"
+    - "../build/sys/usr/include/glib-2.0/gio/*"
+    - "../build/sys/usr/include/glib-2.0/gio.h"
+    - "../build/sys/usr/include/glib-2.0/gmodule/*"
+    - "../build/sys/usr/include/glib-2.0/gmodule.h"
+    - "../build/sys/usr/lib/x86_64-linux-gnu/glib-2.0/include/*"
+    - "../build/sys/usr/include/cairo/*"
+    - "../build/sys/usr/include/pango-1.0/pango/*"
+    - "../build/sys/usr/include/harfbuzz/*"
+    - "../build/sys/usr/include/gdk-pixbuf-2.0/gdk-pixbuf/*"
+    - "../build/sys/usr/include/graphene-1.0/*"
+    - "../build/sys/usr/lib/x86_64-linux-gnu/graphene-1.0/include/*"
+  ignore:
+    types:
+      - '*autoptr*'
+      - va_list
+    constants:
+      - 'GDK_DEPRECATED*'
+      - 'GTK_DEPRECATED*'
+      - 'GSK_DEPRECATED*'
+      - '*AVAILABLE*'
+      - '_*'
+      - 'GDK_VAR'
+      - 'GTK_VAR'
+      - 'GSK_VAR'
+      - 'GDK_CAIRO_ERROR'
+      - 'GTK_INTERFACE_AGE'
+      - 'GTK_BINARY_AGE'
+      - 'GTK_TYPE_TREE_ROW_DATA'
+    functions:
+      - 'gtk_init_abi_check'
+      - 'gtk_init_check_abi_check'
+      - '*autoptr*'
+      - '*auto_cleanup*'
+  overwrite:
+    types:
+      'GtkSnapshot': '_GdkSnapshot'
+      'GtkSnapshotClass': '_GdkSnapshotClass'
+    constants:
+      'GTK_TYPE_SNAPSHOT': '"(gdk_snapshot_get_type ())" #Untyped'
+to:
+  language: odin
+  package: gtk4
+  out: gtk4.odin
+  no_build_tag: true
+  detect:
+    parameters: declared
+    arrays:
+      about_dialog_set_artists: [artists]
+      about_dialog_set_authors: [authors]
+      about_dialog_set_documenters: [documenters]
+      accelerator_parse_with_keycode: [accelerator_codes]
+      accessible_list_new_from_array: [accessibles]
+      accessible_update_property_value: [properties, values]
+      accessible_update_relation_value: [relations, values]
+      accessible_update_state_value: [states, values]
+      alert_dialog_set_buttons: [labels]
+      application_set_accels_for_action: [accels]
+      builder_add_objects_from_file: [object_ids]
+      builder_add_objects_from_resource: [object_ids]
+      builder_add_objects_from_string: [object_ids]
+      cclosure_expression_new: [params]
+      closure_expression_new: [params]
+      color_chooser_add_palette: [colors]
+      constraint_layout_add_constraints_from_description: [lines]
+      constraint_layout_add_constraints_from_descriptionv: [lines]
+      distribute_natural_allocation: [sizes]
+      drop_down_new_from_strings: [strings]
+      drop_target_set_gtypes: [types]
+      file_chooser_add_choice: [options, option_labels]
+      gdk_clipboard_read_async: [mime_types]
+      gdk_content_formats_new: [mime_types]
+      gdk_content_provider_new_union: [providers]
+      gdk_display_map_keycode: [keys, keyvals]
+      gdk_display_map_keyval: [keys]
+      gdk_drop_read_async: [mime_types]
+      gdk_event_get_axes: [axes]
+      gdk_file_list_new_from_array: [files]
+      gdk_pango_layout_get_clip_region: [index_ranges]
+      gdk_pango_layout_line_get_clip_region: [index_ranges]
+      gesture_stylus_get_axes: [axes, values]
+      gsk_conic_gradient_node_new: [color_stops]
+      gsk_linear_gradient_node_new: [color_stops]
+      gsk_radial_gradient_node_new: [color_stops]
+      gsk_repeating_linear_gradient_node_new: [color_stops]
+      gsk_repeating_radial_gradient_node_new: [color_stops]
+      gsk_shadow_node_new: [shadows]
+      icon_theme_lookup_icon: [fallbacks]
+      list_store_insert_with_valuesv: [columns, values]
+      list_store_newv: [types]
+      list_store_set_column_types: [types]
+      list_store_set_valuesv: [columns, values]
+      pad_controller_set_action_entries: [entries]
+      print_settings_set_page_ranges: [page_ranges]
+      scale_button_new: [icons]
+      scale_button_set_icons: [icons]
+      snapshot_append_conic_gradient: [stops]
+      snapshot_append_linear_gradient: [stops]
+      snapshot_append_radial_gradient: [stops]
+      snapshot_append_repeating_linear_gradient: [stops]
+      snapshot_append_repeating_radial_gradient: [stops]
+      string_list_new: [strings]
+      string_list_splice: [additions]
+      symbolic_paintable_snapshot_symbolic: [colors]
+      tree_model_filter_set_modify_func: [types]
+      tree_path_new_from_indicesv: [indices]
+      tree_store_insert_with_valuesv: [columns, values]
+      tree_store_newv: [types]
+      tree_store_set_column_types: [types]
+      tree_store_set_valuesv: [columns, values]
+      widget_set_css_classes: [classes]
+  trim_prefix:
+    types:
+      - g
+      - G
+      - tk
+      - dk
+      - sk
+      - 'raphene_'
+      - 'cairo_'
+      - Pango
+    functions:
+      - gtk_
+      - glib_
+      - GTK_
+    variables:
+      - gtk_
+    constants:
+      - GTK_
+      - GDK_
+      - GSK_
+      - GL_API_
+    enum_type_name: true
+  extern:
+    sources:
+      "../stdinc/stdarg.h": "core:c/libc"
+      "../stdinc/stdio.h": "core:c/libc"
+      "../stdinc/pthread.h": "core:c/libc"
+      "../stdinc/sys/types.h": "core:sys/linux"
+      "../build/sys/usr/include/glib-2.0/glib/*": "glib glib:glib"
+      "../build/sys/usr/include/glib-2.0/glib.h": "glib glib:glib"
+      "../build/sys/usr/include/glib-2.0/glib/deprecated/*": "glib glib:glib"
+      "../build/sys/usr/lib/x86_64-linux-gnu/glib-2.0/include/*": "glib glib:glib"
+      "../build/sys/usr/include/glib-2.0/gobject/*": "gobj glib:gobject"
+      "../build/sys/usr/include/glib-2.0/glib-object.h": "gobj glib:gobject"
+      "../build/sys/usr/include/glib-2.0/gio/*": "gio glib:gio"
+      "../build/sys/usr/include/glib-2.0/gio.h": "gio glib:gio"
+      "../build/sys/usr/include/glib-2.0/gmodule/*": "gobj glib:gobject"
+      "../build/sys/usr/include/glib-2.0/gmodule.h": "gobj glib:gobject"
+      "../build/sys/usr/include/cairo/*": "cairo cairo:cairo"
+      "../build/sys/usr/include/pango-1.0/pango/*": "pango pango:pango"
+      "../build/sys/usr/include/gdk-pixbuf-2.0/gdk-pixbuf/*": "pixbuf pixbuf:gdkpixbuf"
+      "../build/sys/usr/include/graphene-1.0/*": "graphene graphene:graphene"
+      "../build/sys/usr/lib/x86_64-linux-gnu/graphene-1.0/include/*": "graphene graphene:graphene"
+    trim_prefix: true

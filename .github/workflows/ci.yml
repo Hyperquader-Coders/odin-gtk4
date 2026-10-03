@@ -1,0 +1,68 @@
+# `make ci` is the whole gate: the same steps, in the same order.
+name: ci
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+  workflow_dispatch:
+
+# The jobs only read the repository.
+permissions:
+  contents: read
+
+jobs:
+  ci:
+    runs-on: ubuntu-24.04
+    # Sibling bindings are checked out inside the workspace, not beside it as on a dev machine.
+    env:
+      GLIB: odin-glib
+      CAIRO: odin-cairo
+      PANGO: odin-pango
+      GRAPHENE: odin-graphene
+      PIXBUF: odin-gdk-pixbuf
+    steps:
+      - uses: actions/checkout@v4
+
+      # Public sibling binding.
+      - name: odin-glib
+        uses: actions/checkout@v4
+        with:
+          repository: Hyperquader-Coders/odin-glib
+          path: odin-glib
+
+      # Public sibling binding.
+      - name: odin-cairo
+        uses: actions/checkout@v4
+        with:
+          repository: Hyperquader-Coders/odin-cairo
+          path: odin-cairo
+
+      # Public sibling binding.
+      - name: odin-pango
+        uses: actions/checkout@v4
+        with:
+          repository: Hyperquader-Coders/odin-pango
+          path: odin-pango
+
+      # Public sibling binding.
+      - name: odin-graphene
+        uses: actions/checkout@v4
+        with:
+          repository: Hyperquader-Coders/odin-graphene
+          path: odin-graphene
+
+      # Public sibling binding.
+      - name: odin-gdk-pixbuf
+        uses: actions/checkout@v4
+        with:
+          repository: Hyperquader-Coders/odin-gdk-pixbuf
+          path: odin-gdk-pixbuf
+
+      - name: system packages
+        run: sudo apt-get update && sudo apt-get install -y libgtk-4-dev pkg-config shellcheck
+
+      - uses: Hyperquader-Coders/setup-amber-odin@v1
+
+      - name: make ci
+        run: make ci
