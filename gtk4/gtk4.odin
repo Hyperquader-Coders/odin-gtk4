@@ -1,0 +1,21139 @@
+package gtk4
+
+import cairo "cairo:cairo"
+import gio "glib:gio"
+import glib "glib:glib"
+import gobj "glib:gobject"
+import graphene "graphene:graphene"
+import pango "pango:pango"
+import pixbuf "pixbuf:gdkpixbuf"
+
+MAJOR_VERSION :: (4)
+MINOR_VERSION :: (16)
+MICRO_VERSION :: (13)
+VERSION_4_0 :: (((4) << 16 | (0) << 8))
+VERSION_4_2 :: (((4) << 16 | (2) << 8))
+VERSION_4_4 :: (((4) << 16 | (4) << 8))
+VERSION_4_6 :: (((4) << 16 | (6) << 8))
+VERSION_4_8 :: (((4) << 16 | (8) << 8))
+VERSION_4_10 :: (((4) << 16 | (10) << 8))
+VERSION_4_12 :: (((4) << 16 | (12) << 8))
+VERSION_4_14 :: (((4) << 16 | (14) << 8))
+VERSION_4_16 :: (((4) << 16 | (16) << 8))
+VERSION_CUR_STABLE :: ((((4)) << 16 | ((16)) << 8))
+VERSION_PREV_STABLE :: ((((4)) << 16 | ((16) - 2) << 8))
+VERSION_MIN_REQUIRED :: (((((4)) << 16 | ((16)) << 8)))
+VERSION_MAX_ALLOWED :: (((((4)) << 16 | ((16)) << 8)))
+TYPE_CSS_PARSER_ERROR :: css_parser_error_get_type
+TYPE_CSS_PARSER_WARNING :: css_parser_warning_get_type
+CSS_PARSER_ERROR :: css_parser_error_quark
+CSS_PARSER_WARNING :: css_parser_warning_quark
+TYPE_CSS_SECTION :: css_section_get_type
+MODIFIER_MASK :: ModifierType{.SHIFT_MASK, .LOCK_MASK, .CONTROL_MASK, .ALT_MASK, .SUPER_MASK, .HYPER_MASK, .META_MASK, .BUTTON1_MASK, .BUTTON2_MASK, .BUTTON3_MASK, .BUTTON4_MASK, .BUTTON5_MASK}
+ACTION_ALL :: DragAction{.ACTION_COPY, .ACTION_MOVE, .ACTION_LINK}
+CURRENT_TIME :: 0
+TYPE_APP_LAUNCH_CONTEXT :: gdk_app_launch_context_get_type
+TYPE_CAIRO_CONTEXT :: gdk_cairo_context_get_type
+TYPE_CICP_PARAMS :: gdk_cicp_params_get_type
+TYPE_CLIPBOARD :: gdk_clipboard_get_type
+TYPE_COLOR_STATE :: gdk_color_state_get_type
+TYPE_CONTENT_DESERIALIZER :: gdk_content_deserializer_get_type
+TYPE_CONTENT_FORMATS :: gdk_content_formats_get_type
+TYPE_CONTENT_FORMATS_BUILDER :: gdk_content_formats_builder_get_type
+TYPE_FILE_LIST :: gdk_file_list_get_type
+TYPE_CONTENT_PROVIDER :: gdk_content_provider_get_type
+TYPE_CONTENT_SERIALIZER :: gdk_content_serializer_get_type
+TYPE_CURSOR :: gdk_cursor_get_type
+TYPE_DEVICE_TOOL :: gdk_device_tool_get_type
+TYPE_DEVICE :: gdk_device_get_type
+TYPE_DEVICE_PAD :: gdk_device_pad_get_type
+TYPE_DRAG :: gdk_drag_get_type
+TYPE_EVENT :: gdk_event_get_type
+TYPE_EVENT_SEQUENCE :: gdk_event_sequence_get_type
+PRIORITY_EVENTS :: 0
+PRIORITY_REDRAW :: (100 + 20)
+EVENT_PROPAGATE :: false
+EVENT_STOP :: true
+BUTTON_PRIMARY :: 1
+BUTTON_MIDDLE :: 2
+BUTTON_SECONDARY :: 3
+TYPE_BUTTON_EVENT :: gdk_button_event_get_type
+TYPE_CROSSING_EVENT :: gdk_crossing_event_get_type
+TYPE_DELETE_EVENT :: gdk_delete_event_get_type
+TYPE_DND_EVENT :: gdk_dnd_event_get_type
+TYPE_FOCUS_EVENT :: gdk_focus_event_get_type
+TYPE_GRAB_BROKEN_EVENT :: gdk_grab_broken_event_get_type
+TYPE_KEY_EVENT :: gdk_key_event_get_type
+TYPE_MOTION_EVENT :: gdk_motion_event_get_type
+TYPE_PAD_EVENT :: gdk_pad_event_get_type
+TYPE_PROXIMITY_EVENT :: gdk_proximity_event_get_type
+TYPE_SCROLL_EVENT :: gdk_scroll_event_get_type
+TYPE_TOUCH_EVENT :: gdk_touch_event_get_type
+TYPE_TOUCHPAD_EVENT :: gdk_touchpad_event_get_type
+TYPE_FRAME_CLOCK :: gdk_frame_clock_get_type
+TYPE_MONITOR :: gdk_monitor_get_type
+TYPE_POPUP_LAYOUT :: gdk_popup_layout_get_type
+TYPE_SURFACE :: gdk_surface_get_type
+TYPE_SEAT :: gdk_seat_get_type
+TYPE_DISPLAY :: gdk_display_get_type
+TYPE_DISPLAY_MANAGER :: gdk_display_manager_get_type
+TYPE_DMABUF_FORMATS :: gdk_dmabuf_formats_get_type
+TYPE_TEXTURE :: gdk_texture_get_type
+TEXTURE_ERROR :: gdk_texture_error_quark
+TYPE_DMABUF_TEXTURE :: gdk_dmabuf_texture_get_type
+DMABUF_ERROR :: gdk_dmabuf_error_quark
+TYPE_DMABUF_TEXTURE_BUILDER :: gdk_dmabuf_texture_builder_get_type
+TYPE_DRAG_SURFACE :: gdk_drag_surface_get_type
+TYPE_DRAG_SURFACE_SIZE :: gdk_drag_surface_size_get_type
+TYPE_DRAW_CONTEXT :: gdk_draw_context_get_type
+TYPE_DROP :: gdk_drop_get_type
+TYPE_CICP_RANGE :: gdk_cicp_range_get_type
+TYPE_INPUT_SOURCE :: gdk_input_source_get_type
+TYPE_DEVICE_PAD_FEATURE :: gdk_device_pad_feature_get_type
+TYPE_DEVICE_TOOL_TYPE :: gdk_device_tool_type_get_type
+TYPE_DRAG_CANCEL_REASON :: gdk_drag_cancel_reason_get_type
+TYPE_GL_API :: gdk_gl_api_get_type
+TYPE_GRAVITY :: gdk_gravity_get_type
+TYPE_MODIFIER_TYPE :: gdk_modifier_type_get_type
+TYPE_DMABUF_ERROR :: gdk_dmabuf_error_get_type
+TYPE_GL_ERROR :: gdk_gl_error_get_type
+TYPE_VULKAN_ERROR :: gdk_vulkan_error_get_type
+TYPE_AXIS_USE :: gdk_axis_use_get_type
+TYPE_AXIS_FLAGS :: gdk_axis_flags_get_type
+TYPE_DRAG_ACTION :: gdk_drag_action_get_type
+TYPE_MEMORY_FORMAT :: gdk_memory_format_get_type
+TYPE_EVENT_TYPE :: gdk_event_type_get_type
+TYPE_TOUCHPAD_GESTURE_PHASE :: gdk_touchpad_gesture_phase_get_type
+TYPE_SCROLL_DIRECTION :: gdk_scroll_direction_get_type
+TYPE_SCROLL_UNIT :: gdk_scroll_unit_get_type
+TYPE_NOTIFY_TYPE :: gdk_notify_type_get_type
+TYPE_CROSSING_MODE :: gdk_crossing_mode_get_type
+TYPE_KEY_MATCH :: gdk_key_match_get_type
+TYPE_FRAME_CLOCK_PHASE :: gdk_frame_clock_phase_get_type
+TYPE_SUBPIXEL_LAYOUT :: gdk_subpixel_layout_get_type
+TYPE_PAINTABLE_FLAGS :: gdk_paintable_flags_get_type
+TYPE_ANCHOR_HINTS :: gdk_anchor_hints_get_type
+TYPE_SEAT_CAPABILITIES :: gdk_seat_capabilities_get_type
+TYPE_TEXTURE_ERROR :: gdk_texture_error_get_type
+TYPE_SURFACE_EDGE :: gdk_surface_edge_get_type
+TYPE_FULLSCREEN_MODE :: gdk_fullscreen_mode_get_type
+TYPE_TOPLEVEL_STATE :: gdk_toplevel_state_get_type
+TYPE_TITLEBAR_GESTURE :: gdk_titlebar_gesture_get_type
+TYPE_GL_CONTEXT :: gdk_gl_context_get_type
+GL_ERROR :: gdk_gl_error_quark
+TYPE_GL_TEXTURE :: gdk_gl_texture_get_type
+TYPE_GL_TEXTURE_BUILDER :: gdk_gl_texture_builder_get_type
+KEY_VoidSymbol :: 16777215
+KEY_BackSpace :: 65288
+KEY_Tab :: 65289
+KEY_Linefeed :: 65290
+KEY_Clear :: 65291
+KEY_Return :: 65293
+KEY_Pause :: 65299
+KEY_Scroll_Lock :: 65300
+KEY_Sys_Req :: 65301
+KEY_Escape :: 65307
+KEY_Delete :: 65535
+KEY_Multi_key :: 65312
+KEY_Codeinput :: 65335
+KEY_SingleCandidate :: 65340
+KEY_MultipleCandidate :: 65341
+KEY_PreviousCandidate :: 65342
+KEY_Kanji :: 65313
+KEY_Muhenkan :: 65314
+KEY_Henkan_Mode :: 65315
+KEY_Henkan :: 65315
+KEY_Romaji :: 65316
+KEY_Hiragana :: 65317
+KEY_Katakana :: 65318
+KEY_Hiragana_Katakana :: 65319
+KEY_Zenkaku :: 65320
+KEY_Hankaku :: 65321
+KEY_Zenkaku_Hankaku :: 65322
+KEY_Touroku :: 65323
+KEY_Massyo :: 65324
+KEY_Kana_Lock :: 65325
+KEY_Kana_Shift :: 65326
+KEY_Eisu_Shift :: 65327
+KEY_Eisu_toggle :: 65328
+KEY_Kanji_Bangou :: 65335
+KEY_Zen_Koho :: 65341
+KEY_Mae_Koho :: 65342
+KEY_Home :: 65360
+KEY_Left :: 65361
+KEY_Up :: 65362
+KEY_Right :: 65363
+KEY_Down :: 65364
+KEY_Prior :: 65365
+KEY_Page_Up :: 65365
+KEY_Next :: 65366
+KEY_Page_Down :: 65366
+KEY_End :: 65367
+KEY_Begin :: 65368
+KEY_Select :: 65376
+KEY_Print :: 65377
+KEY_Execute :: 65378
+KEY_Insert :: 65379
+KEY_Undo :: 65381
+KEY_Redo :: 65382
+KEY_Menu :: 65383
+KEY_Find :: 65384
+KEY_Cancel :: 65385
+KEY_Help :: 65386
+KEY_Break :: 65387
+KEY_Mode_switch :: 65406
+KEY_script_switch :: 65406
+KEY_Num_Lock :: 65407
+KEY_KP_Space :: 65408
+KEY_KP_Tab :: 65417
+KEY_KP_Enter :: 65421
+KEY_KP_F1 :: 65425
+KEY_KP_F2 :: 65426
+KEY_KP_F3 :: 65427
+KEY_KP_F4 :: 65428
+KEY_KP_Home :: 65429
+KEY_KP_Left :: 65430
+KEY_KP_Up :: 65431
+KEY_KP_Right :: 65432
+KEY_KP_Down :: 65433
+KEY_KP_Prior :: 65434
+KEY_KP_Page_Up :: 65434
+KEY_KP_Next :: 65435
+KEY_KP_Page_Down :: 65435
+KEY_KP_End :: 65436
+KEY_KP_Begin :: 65437
+KEY_KP_Insert :: 65438
+KEY_KP_Delete :: 65439
+KEY_KP_Equal :: 65469
+KEY_KP_Multiply :: 65450
+KEY_KP_Add :: 65451
+KEY_KP_Separator :: 65452
+KEY_KP_Subtract :: 65453
+KEY_KP_Decimal :: 65454
+KEY_KP_Divide :: 65455
+KEY_KP_0 :: 65456
+KEY_KP_1 :: 65457
+KEY_KP_2 :: 65458
+KEY_KP_3 :: 65459
+KEY_KP_4 :: 65460
+KEY_KP_5 :: 65461
+KEY_KP_6 :: 65462
+KEY_KP_7 :: 65463
+KEY_KP_8 :: 65464
+KEY_KP_9 :: 65465
+KEY_F1 :: 65470
+KEY_F2 :: 65471
+KEY_F3 :: 65472
+KEY_F4 :: 65473
+KEY_F5 :: 65474
+KEY_F6 :: 65475
+KEY_F7 :: 65476
+KEY_F8 :: 65477
+KEY_F9 :: 65478
+KEY_F10 :: 65479
+KEY_F11 :: 65480
+KEY_L1 :: 65480
+KEY_F12 :: 65481
+KEY_L2 :: 65481
+KEY_F13 :: 65482
+KEY_L3 :: 65482
+KEY_F14 :: 65483
+KEY_L4 :: 65483
+KEY_F15 :: 65484
+KEY_L5 :: 65484
+KEY_F16 :: 65485
+KEY_L6 :: 65485
+KEY_F17 :: 65486
+KEY_L7 :: 65486
+KEY_F18 :: 65487
+KEY_L8 :: 65487
+KEY_F19 :: 65488
+KEY_L9 :: 65488
+KEY_F20 :: 65489
+KEY_L10 :: 65489
+KEY_F21 :: 65490
+KEY_R1 :: 65490
+KEY_F22 :: 65491
+KEY_R2 :: 65491
+KEY_F23 :: 65492
+KEY_R3 :: 65492
+KEY_F24 :: 65493
+KEY_R4 :: 65493
+KEY_F25 :: 65494
+KEY_R5 :: 65494
+KEY_F26 :: 65495
+KEY_R6 :: 65495
+KEY_F27 :: 65496
+KEY_R7 :: 65496
+KEY_F28 :: 65497
+KEY_R8 :: 65497
+KEY_F29 :: 65498
+KEY_R9 :: 65498
+KEY_F30 :: 65499
+KEY_R10 :: 65499
+KEY_F31 :: 65500
+KEY_R11 :: 65500
+KEY_F32 :: 65501
+KEY_R12 :: 65501
+KEY_F33 :: 65502
+KEY_R13 :: 65502
+KEY_F34 :: 65503
+KEY_R14 :: 65503
+KEY_F35 :: 65504
+KEY_R15 :: 65504
+KEY_Shift_L :: 65505
+KEY_Shift_R :: 65506
+KEY_Control_L :: 65507
+KEY_Control_R :: 65508
+KEY_Caps_Lock :: 65509
+KEY_Shift_Lock :: 65510
+KEY_Meta_L :: 65511
+KEY_Meta_R :: 65512
+KEY_Alt_L :: 65513
+KEY_Alt_R :: 65514
+KEY_Super_L :: 65515
+KEY_Super_R :: 65516
+KEY_Hyper_L :: 65517
+KEY_Hyper_R :: 65518
+KEY_ISO_Lock :: 65025
+KEY_ISO_Level2_Latch :: 65026
+KEY_ISO_Level3_Shift :: 65027
+KEY_ISO_Level3_Latch :: 65028
+KEY_ISO_Level3_Lock :: 65029
+KEY_ISO_Level5_Shift :: 65041
+KEY_ISO_Level5_Latch :: 65042
+KEY_ISO_Level5_Lock :: 65043
+KEY_ISO_Group_Shift :: 65406
+KEY_ISO_Group_Latch :: 65030
+KEY_ISO_Group_Lock :: 65031
+KEY_ISO_Next_Group :: 65032
+KEY_ISO_Next_Group_Lock :: 65033
+KEY_ISO_Prev_Group :: 65034
+KEY_ISO_Prev_Group_Lock :: 65035
+KEY_ISO_First_Group :: 65036
+KEY_ISO_First_Group_Lock :: 65037
+KEY_ISO_Last_Group :: 65038
+KEY_ISO_Last_Group_Lock :: 65039
+KEY_ISO_Left_Tab :: 65056
+KEY_ISO_Move_Line_Up :: 65057
+KEY_ISO_Move_Line_Down :: 65058
+KEY_ISO_Partial_Line_Up :: 65059
+KEY_ISO_Partial_Line_Down :: 65060
+KEY_ISO_Partial_Space_Left :: 65061
+KEY_ISO_Partial_Space_Right :: 65062
+KEY_ISO_Set_Margin_Left :: 65063
+KEY_ISO_Set_Margin_Right :: 65064
+KEY_ISO_Release_Margin_Left :: 65065
+KEY_ISO_Release_Margin_Right :: 65066
+KEY_ISO_Release_Both_Margins :: 65067
+KEY_ISO_Fast_Cursor_Left :: 65068
+KEY_ISO_Fast_Cursor_Right :: 65069
+KEY_ISO_Fast_Cursor_Up :: 65070
+KEY_ISO_Fast_Cursor_Down :: 65071
+KEY_ISO_Continuous_Underline :: 65072
+KEY_ISO_Discontinuous_Underline :: 65073
+KEY_ISO_Emphasize :: 65074
+KEY_ISO_Center_Object :: 65075
+KEY_ISO_Enter :: 65076
+KEY_dead_grave :: 65104
+KEY_dead_acute :: 65105
+KEY_dead_circumflex :: 65106
+KEY_dead_tilde :: 65107
+KEY_dead_perispomeni :: 65107
+KEY_dead_macron :: 65108
+KEY_dead_breve :: 65109
+KEY_dead_abovedot :: 65110
+KEY_dead_diaeresis :: 65111
+KEY_dead_abovering :: 65112
+KEY_dead_doubleacute :: 65113
+KEY_dead_caron :: 65114
+KEY_dead_cedilla :: 65115
+KEY_dead_ogonek :: 65116
+KEY_dead_iota :: 65117
+KEY_dead_voiced_sound :: 65118
+KEY_dead_semivoiced_sound :: 65119
+KEY_dead_belowdot :: 65120
+KEY_dead_hook :: 65121
+KEY_dead_horn :: 65122
+KEY_dead_stroke :: 65123
+KEY_dead_abovecomma :: 65124
+KEY_dead_psili :: 65124
+KEY_dead_abovereversedcomma :: 65125
+KEY_dead_dasia :: 65125
+KEY_dead_doublegrave :: 65126
+KEY_dead_belowring :: 65127
+KEY_dead_belowmacron :: 65128
+KEY_dead_belowcircumflex :: 65129
+KEY_dead_belowtilde :: 65130
+KEY_dead_belowbreve :: 65131
+KEY_dead_belowdiaeresis :: 65132
+KEY_dead_invertedbreve :: 65133
+KEY_dead_belowcomma :: 65134
+KEY_dead_currency :: 65135
+KEY_dead_lowline :: 65168
+KEY_dead_aboveverticalline :: 65169
+KEY_dead_belowverticalline :: 65170
+KEY_dead_longsolidusoverlay :: 65171
+KEY_dead_a :: 65152
+KEY_dead_A :: 65153
+KEY_dead_e :: 65154
+KEY_dead_E :: 65155
+KEY_dead_i :: 65156
+KEY_dead_I :: 65157
+KEY_dead_o :: 65158
+KEY_dead_O :: 65159
+KEY_dead_u :: 65160
+KEY_dead_U :: 65161
+KEY_dead_small_schwa :: 65162
+KEY_dead_schwa :: 65162
+KEY_dead_capital_schwa :: 65163
+KEY_dead_SCHWA :: 65163
+KEY_dead_greek :: 65164
+KEY_dead_hamza :: 65165
+KEY_First_Virtual_Screen :: 65232
+KEY_Prev_Virtual_Screen :: 65233
+KEY_Next_Virtual_Screen :: 65234
+KEY_Last_Virtual_Screen :: 65236
+KEY_Terminate_Server :: 65237
+KEY_AccessX_Enable :: 65136
+KEY_AccessX_Feedback_Enable :: 65137
+KEY_RepeatKeys_Enable :: 65138
+KEY_SlowKeys_Enable :: 65139
+KEY_BounceKeys_Enable :: 65140
+KEY_StickyKeys_Enable :: 65141
+KEY_MouseKeys_Enable :: 65142
+KEY_MouseKeys_Accel_Enable :: 65143
+KEY_Overlay1_Enable :: 65144
+KEY_Overlay2_Enable :: 65145
+KEY_AudibleBell_Enable :: 65146
+KEY_Pointer_Left :: 65248
+KEY_Pointer_Right :: 65249
+KEY_Pointer_Up :: 65250
+KEY_Pointer_Down :: 65251
+KEY_Pointer_UpLeft :: 65252
+KEY_Pointer_UpRight :: 65253
+KEY_Pointer_DownLeft :: 65254
+KEY_Pointer_DownRight :: 65255
+KEY_Pointer_Button_Dflt :: 65256
+KEY_Pointer_Button1 :: 65257
+KEY_Pointer_Button2 :: 65258
+KEY_Pointer_Button3 :: 65259
+KEY_Pointer_Button4 :: 65260
+KEY_Pointer_Button5 :: 65261
+KEY_Pointer_DblClick_Dflt :: 65262
+KEY_Pointer_DblClick1 :: 65263
+KEY_Pointer_DblClick2 :: 65264
+KEY_Pointer_DblClick3 :: 65265
+KEY_Pointer_DblClick4 :: 65266
+KEY_Pointer_DblClick5 :: 65267
+KEY_Pointer_Drag_Dflt :: 65268
+KEY_Pointer_Drag1 :: 65269
+KEY_Pointer_Drag2 :: 65270
+KEY_Pointer_Drag3 :: 65271
+KEY_Pointer_Drag4 :: 65272
+KEY_Pointer_Drag5 :: 65277
+KEY_Pointer_EnableKeys :: 65273
+KEY_Pointer_Accelerate :: 65274
+KEY_Pointer_DfltBtnNext :: 65275
+KEY_Pointer_DfltBtnPrev :: 65276
+KEY_ch :: 65184
+KEY_Ch :: 65185
+KEY_CH :: 65186
+KEY_c_h :: 65187
+KEY_C_h :: 65188
+KEY_C_H :: 65189
+KEY_3270_Duplicate :: 64769
+KEY_3270_FieldMark :: 64770
+KEY_3270_Right2 :: 64771
+KEY_3270_Left2 :: 64772
+KEY_3270_BackTab :: 64773
+KEY_3270_EraseEOF :: 64774
+KEY_3270_EraseInput :: 64775
+KEY_3270_Reset :: 64776
+KEY_3270_Quit :: 64777
+KEY_3270_PA1 :: 64778
+KEY_3270_PA2 :: 64779
+KEY_3270_PA3 :: 64780
+KEY_3270_Test :: 64781
+KEY_3270_Attn :: 64782
+KEY_3270_CursorBlink :: 64783
+KEY_3270_AltCursor :: 64784
+KEY_3270_KeyClick :: 64785
+KEY_3270_Jump :: 64786
+KEY_3270_Ident :: 64787
+KEY_3270_Rule :: 64788
+KEY_3270_Copy :: 64789
+KEY_3270_Play :: 64790
+KEY_3270_Setup :: 64791
+KEY_3270_Record :: 64792
+KEY_3270_ChangeScreen :: 64793
+KEY_3270_DeleteWord :: 64794
+KEY_3270_ExSelect :: 64795
+KEY_3270_CursorSelect :: 64796
+KEY_3270_PrintScreen :: 64797
+KEY_3270_Enter :: 64798
+KEY_space :: 32
+KEY_exclam :: 33
+KEY_quotedbl :: 34
+KEY_numbersign :: 35
+KEY_dollar :: 36
+KEY_percent :: 37
+KEY_ampersand :: 38
+KEY_apostrophe :: 39
+KEY_quoteright :: 39
+KEY_parenleft :: 40
+KEY_parenright :: 41
+KEY_asterisk :: 42
+KEY_plus :: 43
+KEY_comma :: 44
+KEY_minus :: 45
+KEY_period :: 46
+KEY_slash :: 47
+KEY_0 :: 48
+KEY_1 :: 49
+KEY_2 :: 50
+KEY_3 :: 51
+KEY_4 :: 52
+KEY_5 :: 53
+KEY_6 :: 54
+KEY_7 :: 55
+KEY_8 :: 56
+KEY_9 :: 57
+KEY_colon :: 58
+KEY_semicolon :: 59
+KEY_less :: 60
+KEY_equal :: 61
+KEY_greater :: 62
+KEY_question :: 63
+KEY_at :: 64
+KEY_A :: 65
+KEY_B :: 66
+KEY_C :: 67
+KEY_D :: 68
+KEY_E :: 69
+KEY_F :: 70
+KEY_G :: 71
+KEY_H :: 72
+KEY_I :: 73
+KEY_J :: 74
+KEY_K :: 75
+KEY_L :: 76
+KEY_M :: 77
+KEY_N :: 78
+KEY_O :: 79
+KEY_P :: 80
+KEY_Q :: 81
+KEY_R :: 82
+KEY_S :: 83
+KEY_T :: 84
+KEY_U :: 85
+KEY_V :: 86
+KEY_W :: 87
+KEY_X :: 88
+KEY_Y :: 89
+KEY_Z :: 90
+KEY_bracketleft :: 91
+KEY_backslash :: 92
+KEY_bracketright :: 93
+KEY_asciicircum :: 94
+KEY_underscore :: 95
+KEY_grave :: 96
+KEY_quoteleft :: 96
+KEY_a :: 97
+KEY_b :: 98
+KEY_c :: 99
+KEY_d :: 100
+KEY_e :: 101
+KEY_f :: 102
+KEY_g :: 103
+KEY_h :: 104
+KEY_i :: 105
+KEY_j :: 106
+KEY_k :: 107
+KEY_l :: 108
+KEY_m :: 109
+KEY_n :: 110
+KEY_o :: 111
+KEY_p :: 112
+KEY_q :: 113
+KEY_r :: 114
+KEY_s :: 115
+KEY_t :: 116
+KEY_u :: 117
+KEY_v :: 118
+KEY_w :: 119
+KEY_x :: 120
+KEY_y :: 121
+KEY_z :: 122
+KEY_braceleft :: 123
+KEY_bar :: 124
+KEY_braceright :: 125
+KEY_asciitilde :: 126
+KEY_nobreakspace :: 160
+KEY_exclamdown :: 161
+KEY_cent :: 162
+KEY_sterling :: 163
+KEY_currency :: 164
+KEY_yen :: 165
+KEY_brokenbar :: 166
+KEY_section :: 167
+KEY_diaeresis :: 168
+KEY_copyright :: 169
+KEY_ordfeminine :: 170
+KEY_guillemotleft :: 171
+KEY_guillemetleft :: 171
+KEY_notsign :: 172
+KEY_hyphen :: 173
+KEY_registered :: 174
+KEY_macron :: 175
+KEY_degree :: 176
+KEY_plusminus :: 177
+KEY_twosuperior :: 178
+KEY_threesuperior :: 179
+KEY_acute :: 180
+KEY_mu :: 181
+KEY_paragraph :: 182
+KEY_periodcentered :: 183
+KEY_cedilla :: 184
+KEY_onesuperior :: 185
+KEY_masculine :: 186
+KEY_ordmasculine :: 186
+KEY_guillemotright :: 187
+KEY_guillemetright :: 187
+KEY_onequarter :: 188
+KEY_onehalf :: 189
+KEY_threequarters :: 190
+KEY_questiondown :: 191
+KEY_Agrave :: 192
+KEY_Aacute :: 193
+KEY_Acircumflex :: 194
+KEY_Atilde :: 195
+KEY_Adiaeresis :: 196
+KEY_Aring :: 197
+KEY_AE :: 198
+KEY_Ccedilla :: 199
+KEY_Egrave :: 200
+KEY_Eacute :: 201
+KEY_Ecircumflex :: 202
+KEY_Ediaeresis :: 203
+KEY_Igrave :: 204
+KEY_Iacute :: 205
+KEY_Icircumflex :: 206
+KEY_Idiaeresis :: 207
+KEY_ETH :: 208
+KEY_Eth :: 208
+KEY_Ntilde :: 209
+KEY_Ograve :: 210
+KEY_Oacute :: 211
+KEY_Ocircumflex :: 212
+KEY_Otilde :: 213
+KEY_Odiaeresis :: 214
+KEY_multiply :: 215
+KEY_Oslash :: 216
+KEY_Ooblique :: 216
+KEY_Ugrave :: 217
+KEY_Uacute :: 218
+KEY_Ucircumflex :: 219
+KEY_Udiaeresis :: 220
+KEY_Yacute :: 221
+KEY_THORN :: 222
+KEY_Thorn :: 222
+KEY_ssharp :: 223
+KEY_agrave :: 224
+KEY_aacute :: 225
+KEY_acircumflex :: 226
+KEY_atilde :: 227
+KEY_adiaeresis :: 228
+KEY_aring :: 229
+KEY_ae :: 230
+KEY_ccedilla :: 231
+KEY_egrave :: 232
+KEY_eacute :: 233
+KEY_ecircumflex :: 234
+KEY_ediaeresis :: 235
+KEY_igrave :: 236
+KEY_iacute :: 237
+KEY_icircumflex :: 238
+KEY_idiaeresis :: 239
+KEY_eth :: 240
+KEY_ntilde :: 241
+KEY_ograve :: 242
+KEY_oacute :: 243
+KEY_ocircumflex :: 244
+KEY_otilde :: 245
+KEY_odiaeresis :: 246
+KEY_division :: 247
+KEY_oslash :: 248
+KEY_ooblique :: 248
+KEY_ugrave :: 249
+KEY_uacute :: 250
+KEY_ucircumflex :: 251
+KEY_udiaeresis :: 252
+KEY_yacute :: 253
+KEY_thorn :: 254
+KEY_ydiaeresis :: 255
+KEY_Aogonek :: 417
+KEY_breve :: 418
+KEY_Lstroke :: 419
+KEY_Lcaron :: 421
+KEY_Sacute :: 422
+KEY_Scaron :: 425
+KEY_Scedilla :: 426
+KEY_Tcaron :: 427
+KEY_Zacute :: 428
+KEY_Zcaron :: 430
+KEY_Zabovedot :: 431
+KEY_aogonek :: 433
+KEY_ogonek :: 434
+KEY_lstroke :: 435
+KEY_lcaron :: 437
+KEY_sacute :: 438
+KEY_caron :: 439
+KEY_scaron :: 441
+KEY_scedilla :: 442
+KEY_tcaron :: 443
+KEY_zacute :: 444
+KEY_doubleacute :: 445
+KEY_zcaron :: 446
+KEY_zabovedot :: 447
+KEY_Racute :: 448
+KEY_Abreve :: 451
+KEY_Lacute :: 453
+KEY_Cacute :: 454
+KEY_Ccaron :: 456
+KEY_Eogonek :: 458
+KEY_Ecaron :: 460
+KEY_Dcaron :: 463
+KEY_Dstroke :: 464
+KEY_Nacute :: 465
+KEY_Ncaron :: 466
+KEY_Odoubleacute :: 469
+KEY_Rcaron :: 472
+KEY_Uring :: 473
+KEY_Udoubleacute :: 475
+KEY_Tcedilla :: 478
+KEY_racute :: 480
+KEY_abreve :: 483
+KEY_lacute :: 485
+KEY_cacute :: 486
+KEY_ccaron :: 488
+KEY_eogonek :: 490
+KEY_ecaron :: 492
+KEY_dcaron :: 495
+KEY_dstroke :: 496
+KEY_nacute :: 497
+KEY_ncaron :: 498
+KEY_odoubleacute :: 501
+KEY_rcaron :: 504
+KEY_uring :: 505
+KEY_udoubleacute :: 507
+KEY_tcedilla :: 510
+KEY_abovedot :: 511
+KEY_Hstroke :: 673
+KEY_Hcircumflex :: 678
+KEY_Iabovedot :: 681
+KEY_Gbreve :: 683
+KEY_Jcircumflex :: 684
+KEY_hstroke :: 689
+KEY_hcircumflex :: 694
+KEY_idotless :: 697
+KEY_gbreve :: 699
+KEY_jcircumflex :: 700
+KEY_Cabovedot :: 709
+KEY_Ccircumflex :: 710
+KEY_Gabovedot :: 725
+KEY_Gcircumflex :: 728
+KEY_Ubreve :: 733
+KEY_Scircumflex :: 734
+KEY_cabovedot :: 741
+KEY_ccircumflex :: 742
+KEY_gabovedot :: 757
+KEY_gcircumflex :: 760
+KEY_ubreve :: 765
+KEY_scircumflex :: 766
+KEY_kra :: 930
+KEY_kappa :: 930
+KEY_Rcedilla :: 931
+KEY_Itilde :: 933
+KEY_Lcedilla :: 934
+KEY_Emacron :: 938
+KEY_Gcedilla :: 939
+KEY_Tslash :: 940
+KEY_rcedilla :: 947
+KEY_itilde :: 949
+KEY_lcedilla :: 950
+KEY_emacron :: 954
+KEY_gcedilla :: 955
+KEY_tslash :: 956
+KEY_ENG :: 957
+KEY_eng :: 959
+KEY_Amacron :: 960
+KEY_Iogonek :: 967
+KEY_Eabovedot :: 972
+KEY_Imacron :: 975
+KEY_Ncedilla :: 977
+KEY_Omacron :: 978
+KEY_Kcedilla :: 979
+KEY_Uogonek :: 985
+KEY_Utilde :: 989
+KEY_Umacron :: 990
+KEY_amacron :: 992
+KEY_iogonek :: 999
+KEY_eabovedot :: 1004
+KEY_imacron :: 1007
+KEY_ncedilla :: 1009
+KEY_omacron :: 1010
+KEY_kcedilla :: 1011
+KEY_uogonek :: 1017
+KEY_utilde :: 1021
+KEY_umacron :: 1022
+KEY_Wcircumflex :: 16777588
+KEY_wcircumflex :: 16777589
+KEY_Ycircumflex :: 16777590
+KEY_ycircumflex :: 16777591
+KEY_Babovedot :: 16784898
+KEY_babovedot :: 16784899
+KEY_Dabovedot :: 16784906
+KEY_dabovedot :: 16784907
+KEY_Fabovedot :: 16784926
+KEY_fabovedot :: 16784927
+KEY_Mabovedot :: 16784960
+KEY_mabovedot :: 16784961
+KEY_Pabovedot :: 16784982
+KEY_pabovedot :: 16784983
+KEY_Sabovedot :: 16784992
+KEY_sabovedot :: 16784993
+KEY_Tabovedot :: 16785002
+KEY_tabovedot :: 16785003
+KEY_Wgrave :: 16785024
+KEY_wgrave :: 16785025
+KEY_Wacute :: 16785026
+KEY_wacute :: 16785027
+KEY_Wdiaeresis :: 16785028
+KEY_wdiaeresis :: 16785029
+KEY_Ygrave :: 16785138
+KEY_ygrave :: 16785139
+KEY_OE :: 5052
+KEY_oe :: 5053
+KEY_Ydiaeresis :: 5054
+KEY_overline :: 1150
+KEY_kana_fullstop :: 1185
+KEY_kana_openingbracket :: 1186
+KEY_kana_closingbracket :: 1187
+KEY_kana_comma :: 1188
+KEY_kana_conjunctive :: 1189
+KEY_kana_middledot :: 1189
+KEY_kana_WO :: 1190
+KEY_kana_a :: 1191
+KEY_kana_i :: 1192
+KEY_kana_u :: 1193
+KEY_kana_e :: 1194
+KEY_kana_o :: 1195
+KEY_kana_ya :: 1196
+KEY_kana_yu :: 1197
+KEY_kana_yo :: 1198
+KEY_kana_tsu :: 1199
+KEY_kana_tu :: 1199
+KEY_prolongedsound :: 1200
+KEY_kana_A :: 1201
+KEY_kana_I :: 1202
+KEY_kana_U :: 1203
+KEY_kana_E :: 1204
+KEY_kana_O :: 1205
+KEY_kana_KA :: 1206
+KEY_kana_KI :: 1207
+KEY_kana_KU :: 1208
+KEY_kana_KE :: 1209
+KEY_kana_KO :: 1210
+KEY_kana_SA :: 1211
+KEY_kana_SHI :: 1212
+KEY_kana_SU :: 1213
+KEY_kana_SE :: 1214
+KEY_kana_SO :: 1215
+KEY_kana_TA :: 1216
+KEY_kana_CHI :: 1217
+KEY_kana_TI :: 1217
+KEY_kana_TSU :: 1218
+KEY_kana_TU :: 1218
+KEY_kana_TE :: 1219
+KEY_kana_TO :: 1220
+KEY_kana_NA :: 1221
+KEY_kana_NI :: 1222
+KEY_kana_NU :: 1223
+KEY_kana_NE :: 1224
+KEY_kana_NO :: 1225
+KEY_kana_HA :: 1226
+KEY_kana_HI :: 1227
+KEY_kana_FU :: 1228
+KEY_kana_HU :: 1228
+KEY_kana_HE :: 1229
+KEY_kana_HO :: 1230
+KEY_kana_MA :: 1231
+KEY_kana_MI :: 1232
+KEY_kana_MU :: 1233
+KEY_kana_ME :: 1234
+KEY_kana_MO :: 1235
+KEY_kana_YA :: 1236
+KEY_kana_YU :: 1237
+KEY_kana_YO :: 1238
+KEY_kana_RA :: 1239
+KEY_kana_RI :: 1240
+KEY_kana_RU :: 1241
+KEY_kana_RE :: 1242
+KEY_kana_RO :: 1243
+KEY_kana_WA :: 1244
+KEY_kana_N :: 1245
+KEY_voicedsound :: 1246
+KEY_semivoicedsound :: 1247
+KEY_kana_switch :: 65406
+KEY_Farsi_0 :: 16778992
+KEY_Farsi_1 :: 16778993
+KEY_Farsi_2 :: 16778994
+KEY_Farsi_3 :: 16778995
+KEY_Farsi_4 :: 16778996
+KEY_Farsi_5 :: 16778997
+KEY_Farsi_6 :: 16778998
+KEY_Farsi_7 :: 16778999
+KEY_Farsi_8 :: 16779000
+KEY_Farsi_9 :: 16779001
+KEY_Arabic_percent :: 16778858
+KEY_Arabic_superscript_alef :: 16778864
+KEY_Arabic_tteh :: 16778873
+KEY_Arabic_peh :: 16778878
+KEY_Arabic_tcheh :: 16778886
+KEY_Arabic_ddal :: 16778888
+KEY_Arabic_rreh :: 16778897
+KEY_Arabic_comma :: 1452
+KEY_Arabic_fullstop :: 16778964
+KEY_Arabic_0 :: 16778848
+KEY_Arabic_1 :: 16778849
+KEY_Arabic_2 :: 16778850
+KEY_Arabic_3 :: 16778851
+KEY_Arabic_4 :: 16778852
+KEY_Arabic_5 :: 16778853
+KEY_Arabic_6 :: 16778854
+KEY_Arabic_7 :: 16778855
+KEY_Arabic_8 :: 16778856
+KEY_Arabic_9 :: 16778857
+KEY_Arabic_semicolon :: 1467
+KEY_Arabic_question_mark :: 1471
+KEY_Arabic_hamza :: 1473
+KEY_Arabic_maddaonalef :: 1474
+KEY_Arabic_hamzaonalef :: 1475
+KEY_Arabic_hamzaonwaw :: 1476
+KEY_Arabic_hamzaunderalef :: 1477
+KEY_Arabic_hamzaonyeh :: 1478
+KEY_Arabic_alef :: 1479
+KEY_Arabic_beh :: 1480
+KEY_Arabic_tehmarbuta :: 1481
+KEY_Arabic_teh :: 1482
+KEY_Arabic_theh :: 1483
+KEY_Arabic_jeem :: 1484
+KEY_Arabic_hah :: 1485
+KEY_Arabic_khah :: 1486
+KEY_Arabic_dal :: 1487
+KEY_Arabic_thal :: 1488
+KEY_Arabic_ra :: 1489
+KEY_Arabic_zain :: 1490
+KEY_Arabic_seen :: 1491
+KEY_Arabic_sheen :: 1492
+KEY_Arabic_sad :: 1493
+KEY_Arabic_dad :: 1494
+KEY_Arabic_tah :: 1495
+KEY_Arabic_zah :: 1496
+KEY_Arabic_ain :: 1497
+KEY_Arabic_ghain :: 1498
+KEY_Arabic_tatweel :: 1504
+KEY_Arabic_feh :: 1505
+KEY_Arabic_qaf :: 1506
+KEY_Arabic_kaf :: 1507
+KEY_Arabic_lam :: 1508
+KEY_Arabic_meem :: 1509
+KEY_Arabic_noon :: 1510
+KEY_Arabic_ha :: 1511
+KEY_Arabic_heh :: 1511
+KEY_Arabic_waw :: 1512
+KEY_Arabic_alefmaksura :: 1513
+KEY_Arabic_yeh :: 1514
+KEY_Arabic_fathatan :: 1515
+KEY_Arabic_dammatan :: 1516
+KEY_Arabic_kasratan :: 1517
+KEY_Arabic_fatha :: 1518
+KEY_Arabic_damma :: 1519
+KEY_Arabic_kasra :: 1520
+KEY_Arabic_shadda :: 1521
+KEY_Arabic_sukun :: 1522
+KEY_Arabic_madda_above :: 16778835
+KEY_Arabic_hamza_above :: 16778836
+KEY_Arabic_hamza_below :: 16778837
+KEY_Arabic_jeh :: 16778904
+KEY_Arabic_veh :: 16778916
+KEY_Arabic_keheh :: 16778921
+KEY_Arabic_gaf :: 16778927
+KEY_Arabic_noon_ghunna :: 16778938
+KEY_Arabic_heh_doachashmee :: 16778942
+KEY_Farsi_yeh :: 16778956
+KEY_Arabic_farsi_yeh :: 16778956
+KEY_Arabic_yeh_baree :: 16778962
+KEY_Arabic_heh_goal :: 16778945
+KEY_Arabic_switch :: 65406
+KEY_Cyrillic_GHE_bar :: 16778386
+KEY_Cyrillic_ghe_bar :: 16778387
+KEY_Cyrillic_ZHE_descender :: 16778390
+KEY_Cyrillic_zhe_descender :: 16778391
+KEY_Cyrillic_KA_descender :: 16778394
+KEY_Cyrillic_ka_descender :: 16778395
+KEY_Cyrillic_KA_vertstroke :: 16778396
+KEY_Cyrillic_ka_vertstroke :: 16778397
+KEY_Cyrillic_EN_descender :: 16778402
+KEY_Cyrillic_en_descender :: 16778403
+KEY_Cyrillic_U_straight :: 16778414
+KEY_Cyrillic_u_straight :: 16778415
+KEY_Cyrillic_U_straight_bar :: 16778416
+KEY_Cyrillic_u_straight_bar :: 16778417
+KEY_Cyrillic_HA_descender :: 16778418
+KEY_Cyrillic_ha_descender :: 16778419
+KEY_Cyrillic_CHE_descender :: 16778422
+KEY_Cyrillic_che_descender :: 16778423
+KEY_Cyrillic_CHE_vertstroke :: 16778424
+KEY_Cyrillic_che_vertstroke :: 16778425
+KEY_Cyrillic_SHHA :: 16778426
+KEY_Cyrillic_shha :: 16778427
+KEY_Cyrillic_SCHWA :: 16778456
+KEY_Cyrillic_schwa :: 16778457
+KEY_Cyrillic_I_macron :: 16778466
+KEY_Cyrillic_i_macron :: 16778467
+KEY_Cyrillic_O_bar :: 16778472
+KEY_Cyrillic_o_bar :: 16778473
+KEY_Cyrillic_U_macron :: 16778478
+KEY_Cyrillic_u_macron :: 16778479
+KEY_Serbian_dje :: 1697
+KEY_Macedonia_gje :: 1698
+KEY_Cyrillic_io :: 1699
+KEY_Ukrainian_ie :: 1700
+KEY_Ukranian_je :: 1700
+KEY_Macedonia_dse :: 1701
+KEY_Ukrainian_i :: 1702
+KEY_Ukranian_i :: 1702
+KEY_Ukrainian_yi :: 1703
+KEY_Ukranian_yi :: 1703
+KEY_Cyrillic_je :: 1704
+KEY_Serbian_je :: 1704
+KEY_Cyrillic_lje :: 1705
+KEY_Serbian_lje :: 1705
+KEY_Cyrillic_nje :: 1706
+KEY_Serbian_nje :: 1706
+KEY_Serbian_tshe :: 1707
+KEY_Macedonia_kje :: 1708
+KEY_Ukrainian_ghe_with_upturn :: 1709
+KEY_Byelorussian_shortu :: 1710
+KEY_Cyrillic_dzhe :: 1711
+KEY_Serbian_dze :: 1711
+KEY_numerosign :: 1712
+KEY_Serbian_DJE :: 1713
+KEY_Macedonia_GJE :: 1714
+KEY_Cyrillic_IO :: 1715
+KEY_Ukrainian_IE :: 1716
+KEY_Ukranian_JE :: 1716
+KEY_Macedonia_DSE :: 1717
+KEY_Ukrainian_I :: 1718
+KEY_Ukranian_I :: 1718
+KEY_Ukrainian_YI :: 1719
+KEY_Ukranian_YI :: 1719
+KEY_Cyrillic_JE :: 1720
+KEY_Serbian_JE :: 1720
+KEY_Cyrillic_LJE :: 1721
+KEY_Serbian_LJE :: 1721
+KEY_Cyrillic_NJE :: 1722
+KEY_Serbian_NJE :: 1722
+KEY_Serbian_TSHE :: 1723
+KEY_Macedonia_KJE :: 1724
+KEY_Ukrainian_GHE_WITH_UPTURN :: 1725
+KEY_Byelorussian_SHORTU :: 1726
+KEY_Cyrillic_DZHE :: 1727
+KEY_Serbian_DZE :: 1727
+KEY_Cyrillic_yu :: 1728
+KEY_Cyrillic_a :: 1729
+KEY_Cyrillic_be :: 1730
+KEY_Cyrillic_tse :: 1731
+KEY_Cyrillic_de :: 1732
+KEY_Cyrillic_ie :: 1733
+KEY_Cyrillic_ef :: 1734
+KEY_Cyrillic_ghe :: 1735
+KEY_Cyrillic_ha :: 1736
+KEY_Cyrillic_i :: 1737
+KEY_Cyrillic_shorti :: 1738
+KEY_Cyrillic_ka :: 1739
+KEY_Cyrillic_el :: 1740
+KEY_Cyrillic_em :: 1741
+KEY_Cyrillic_en :: 1742
+KEY_Cyrillic_o :: 1743
+KEY_Cyrillic_pe :: 1744
+KEY_Cyrillic_ya :: 1745
+KEY_Cyrillic_er :: 1746
+KEY_Cyrillic_es :: 1747
+KEY_Cyrillic_te :: 1748
+KEY_Cyrillic_u :: 1749
+KEY_Cyrillic_zhe :: 1750
+KEY_Cyrillic_ve :: 1751
+KEY_Cyrillic_softsign :: 1752
+KEY_Cyrillic_yeru :: 1753
+KEY_Cyrillic_ze :: 1754
+KEY_Cyrillic_sha :: 1755
+KEY_Cyrillic_e :: 1756
+KEY_Cyrillic_shcha :: 1757
+KEY_Cyrillic_che :: 1758
+KEY_Cyrillic_hardsign :: 1759
+KEY_Cyrillic_YU :: 1760
+KEY_Cyrillic_A :: 1761
+KEY_Cyrillic_BE :: 1762
+KEY_Cyrillic_TSE :: 1763
+KEY_Cyrillic_DE :: 1764
+KEY_Cyrillic_IE :: 1765
+KEY_Cyrillic_EF :: 1766
+KEY_Cyrillic_GHE :: 1767
+KEY_Cyrillic_HA :: 1768
+KEY_Cyrillic_I :: 1769
+KEY_Cyrillic_SHORTI :: 1770
+KEY_Cyrillic_KA :: 1771
+KEY_Cyrillic_EL :: 1772
+KEY_Cyrillic_EM :: 1773
+KEY_Cyrillic_EN :: 1774
+KEY_Cyrillic_O :: 1775
+KEY_Cyrillic_PE :: 1776
+KEY_Cyrillic_YA :: 1777
+KEY_Cyrillic_ER :: 1778
+KEY_Cyrillic_ES :: 1779
+KEY_Cyrillic_TE :: 1780
+KEY_Cyrillic_U :: 1781
+KEY_Cyrillic_ZHE :: 1782
+KEY_Cyrillic_VE :: 1783
+KEY_Cyrillic_SOFTSIGN :: 1784
+KEY_Cyrillic_YERU :: 1785
+KEY_Cyrillic_ZE :: 1786
+KEY_Cyrillic_SHA :: 1787
+KEY_Cyrillic_E :: 1788
+KEY_Cyrillic_SHCHA :: 1789
+KEY_Cyrillic_CHE :: 1790
+KEY_Cyrillic_HARDSIGN :: 1791
+KEY_Greek_ALPHAaccent :: 1953
+KEY_Greek_EPSILONaccent :: 1954
+KEY_Greek_ETAaccent :: 1955
+KEY_Greek_IOTAaccent :: 1956
+KEY_Greek_IOTAdieresis :: 1957
+KEY_Greek_IOTAdiaeresis :: 1957
+KEY_Greek_OMICRONaccent :: 1959
+KEY_Greek_UPSILONaccent :: 1960
+KEY_Greek_UPSILONdieresis :: 1961
+KEY_Greek_OMEGAaccent :: 1963
+KEY_Greek_accentdieresis :: 1966
+KEY_Greek_horizbar :: 1967
+KEY_Greek_alphaaccent :: 1969
+KEY_Greek_epsilonaccent :: 1970
+KEY_Greek_etaaccent :: 1971
+KEY_Greek_iotaaccent :: 1972
+KEY_Greek_iotadieresis :: 1973
+KEY_Greek_iotaaccentdieresis :: 1974
+KEY_Greek_omicronaccent :: 1975
+KEY_Greek_upsilonaccent :: 1976
+KEY_Greek_upsilondieresis :: 1977
+KEY_Greek_upsilonaccentdieresis :: 1978
+KEY_Greek_omegaaccent :: 1979
+KEY_Greek_ALPHA :: 1985
+KEY_Greek_BETA :: 1986
+KEY_Greek_GAMMA :: 1987
+KEY_Greek_DELTA :: 1988
+KEY_Greek_EPSILON :: 1989
+KEY_Greek_ZETA :: 1990
+KEY_Greek_ETA :: 1991
+KEY_Greek_THETA :: 1992
+KEY_Greek_IOTA :: 1993
+KEY_Greek_KAPPA :: 1994
+KEY_Greek_LAMDA :: 1995
+KEY_Greek_LAMBDA :: 1995
+KEY_Greek_MU :: 1996
+KEY_Greek_NU :: 1997
+KEY_Greek_XI :: 1998
+KEY_Greek_OMICRON :: 1999
+KEY_Greek_PI :: 2000
+KEY_Greek_RHO :: 2001
+KEY_Greek_SIGMA :: 2002
+KEY_Greek_TAU :: 2004
+KEY_Greek_UPSILON :: 2005
+KEY_Greek_PHI :: 2006
+KEY_Greek_CHI :: 2007
+KEY_Greek_PSI :: 2008
+KEY_Greek_OMEGA :: 2009
+KEY_Greek_alpha :: 2017
+KEY_Greek_beta :: 2018
+KEY_Greek_gamma :: 2019
+KEY_Greek_delta :: 2020
+KEY_Greek_epsilon :: 2021
+KEY_Greek_zeta :: 2022
+KEY_Greek_eta :: 2023
+KEY_Greek_theta :: 2024
+KEY_Greek_iota :: 2025
+KEY_Greek_kappa :: 2026
+KEY_Greek_lamda :: 2027
+KEY_Greek_lambda :: 2027
+KEY_Greek_mu :: 2028
+KEY_Greek_nu :: 2029
+KEY_Greek_xi :: 2030
+KEY_Greek_omicron :: 2031
+KEY_Greek_pi :: 2032
+KEY_Greek_rho :: 2033
+KEY_Greek_sigma :: 2034
+KEY_Greek_finalsmallsigma :: 2035
+KEY_Greek_tau :: 2036
+KEY_Greek_upsilon :: 2037
+KEY_Greek_phi :: 2038
+KEY_Greek_chi :: 2039
+KEY_Greek_psi :: 2040
+KEY_Greek_omega :: 2041
+KEY_Greek_switch :: 65406
+KEY_leftradical :: 2209
+KEY_topleftradical :: 2210
+KEY_horizconnector :: 2211
+KEY_topintegral :: 2212
+KEY_botintegral :: 2213
+KEY_vertconnector :: 2214
+KEY_topleftsqbracket :: 2215
+KEY_botleftsqbracket :: 2216
+KEY_toprightsqbracket :: 2217
+KEY_botrightsqbracket :: 2218
+KEY_topleftparens :: 2219
+KEY_botleftparens :: 2220
+KEY_toprightparens :: 2221
+KEY_botrightparens :: 2222
+KEY_leftmiddlecurlybrace :: 2223
+KEY_rightmiddlecurlybrace :: 2224
+KEY_topleftsummation :: 2225
+KEY_botleftsummation :: 2226
+KEY_topvertsummationconnector :: 2227
+KEY_botvertsummationconnector :: 2228
+KEY_toprightsummation :: 2229
+KEY_botrightsummation :: 2230
+KEY_rightmiddlesummation :: 2231
+KEY_lessthanequal :: 2236
+KEY_notequal :: 2237
+KEY_greaterthanequal :: 2238
+KEY_integral :: 2239
+KEY_therefore :: 2240
+KEY_variation :: 2241
+KEY_infinity :: 2242
+KEY_nabla :: 2245
+KEY_approximate :: 2248
+KEY_similarequal :: 2249
+KEY_ifonlyif :: 2253
+KEY_implies :: 2254
+KEY_identical :: 2255
+KEY_radical :: 2262
+KEY_includedin :: 2266
+KEY_includes :: 2267
+KEY_intersection :: 2268
+KEY_union :: 2269
+KEY_logicaland :: 2270
+KEY_logicalor :: 2271
+KEY_partialderivative :: 2287
+KEY_function :: 2294
+KEY_leftarrow :: 2299
+KEY_uparrow :: 2300
+KEY_rightarrow :: 2301
+KEY_downarrow :: 2302
+KEY_blank :: 2527
+KEY_soliddiamond :: 2528
+KEY_checkerboard :: 2529
+KEY_ht :: 2530
+KEY_ff :: 2531
+KEY_cr :: 2532
+KEY_lf :: 2533
+KEY_nl :: 2536
+KEY_vt :: 2537
+KEY_lowrightcorner :: 2538
+KEY_uprightcorner :: 2539
+KEY_upleftcorner :: 2540
+KEY_lowleftcorner :: 2541
+KEY_crossinglines :: 2542
+KEY_horizlinescan1 :: 2543
+KEY_horizlinescan3 :: 2544
+KEY_horizlinescan5 :: 2545
+KEY_horizlinescan7 :: 2546
+KEY_horizlinescan9 :: 2547
+KEY_leftt :: 2548
+KEY_rightt :: 2549
+KEY_bott :: 2550
+KEY_topt :: 2551
+KEY_vertbar :: 2552
+KEY_emspace :: 2721
+KEY_enspace :: 2722
+KEY_em3space :: 2723
+KEY_em4space :: 2724
+KEY_digitspace :: 2725
+KEY_punctspace :: 2726
+KEY_thinspace :: 2727
+KEY_hairspace :: 2728
+KEY_emdash :: 2729
+KEY_endash :: 2730
+KEY_signifblank :: 2732
+KEY_ellipsis :: 2734
+KEY_doubbaselinedot :: 2735
+KEY_onethird :: 2736
+KEY_twothirds :: 2737
+KEY_onefifth :: 2738
+KEY_twofifths :: 2739
+KEY_threefifths :: 2740
+KEY_fourfifths :: 2741
+KEY_onesixth :: 2742
+KEY_fivesixths :: 2743
+KEY_careof :: 2744
+KEY_figdash :: 2747
+KEY_leftanglebracket :: 2748
+KEY_decimalpoint :: 2749
+KEY_rightanglebracket :: 2750
+KEY_marker :: 2751
+KEY_oneeighth :: 2755
+KEY_threeeighths :: 2756
+KEY_fiveeighths :: 2757
+KEY_seveneighths :: 2758
+KEY_trademark :: 2761
+KEY_signaturemark :: 2762
+KEY_trademarkincircle :: 2763
+KEY_leftopentriangle :: 2764
+KEY_rightopentriangle :: 2765
+KEY_emopencircle :: 2766
+KEY_emopenrectangle :: 2767
+KEY_leftsinglequotemark :: 2768
+KEY_rightsinglequotemark :: 2769
+KEY_leftdoublequotemark :: 2770
+KEY_rightdoublequotemark :: 2771
+KEY_prescription :: 2772
+KEY_permille :: 2773
+KEY_minutes :: 2774
+KEY_seconds :: 2775
+KEY_latincross :: 2777
+KEY_hexagram :: 2778
+KEY_filledrectbullet :: 2779
+KEY_filledlefttribullet :: 2780
+KEY_filledrighttribullet :: 2781
+KEY_emfilledcircle :: 2782
+KEY_emfilledrect :: 2783
+KEY_enopencircbullet :: 2784
+KEY_enopensquarebullet :: 2785
+KEY_openrectbullet :: 2786
+KEY_opentribulletup :: 2787
+KEY_opentribulletdown :: 2788
+KEY_openstar :: 2789
+KEY_enfilledcircbullet :: 2790
+KEY_enfilledsqbullet :: 2791
+KEY_filledtribulletup :: 2792
+KEY_filledtribulletdown :: 2793
+KEY_leftpointer :: 2794
+KEY_rightpointer :: 2795
+KEY_club :: 2796
+KEY_diamond :: 2797
+KEY_heart :: 2798
+KEY_maltesecross :: 2800
+KEY_dagger :: 2801
+KEY_doubledagger :: 2802
+KEY_checkmark :: 2803
+KEY_ballotcross :: 2804
+KEY_musicalsharp :: 2805
+KEY_musicalflat :: 2806
+KEY_malesymbol :: 2807
+KEY_femalesymbol :: 2808
+KEY_telephone :: 2809
+KEY_telephonerecorder :: 2810
+KEY_phonographcopyright :: 2811
+KEY_caret :: 2812
+KEY_singlelowquotemark :: 2813
+KEY_doublelowquotemark :: 2814
+KEY_cursor :: 2815
+KEY_leftcaret :: 2979
+KEY_rightcaret :: 2982
+KEY_downcaret :: 2984
+KEY_upcaret :: 2985
+KEY_overbar :: 3008
+KEY_downtack :: 3010
+KEY_upshoe :: 3011
+KEY_downstile :: 3012
+KEY_underbar :: 3014
+KEY_jot :: 3018
+KEY_quad :: 3020
+KEY_uptack :: 3022
+KEY_circle :: 3023
+KEY_upstile :: 3027
+KEY_downshoe :: 3030
+KEY_rightshoe :: 3032
+KEY_leftshoe :: 3034
+KEY_lefttack :: 3036
+KEY_righttack :: 3068
+KEY_hebrew_doublelowline :: 3295
+KEY_hebrew_aleph :: 3296
+KEY_hebrew_bet :: 3297
+KEY_hebrew_beth :: 3297
+KEY_hebrew_gimel :: 3298
+KEY_hebrew_gimmel :: 3298
+KEY_hebrew_dalet :: 3299
+KEY_hebrew_daleth :: 3299
+KEY_hebrew_he :: 3300
+KEY_hebrew_waw :: 3301
+KEY_hebrew_zain :: 3302
+KEY_hebrew_zayin :: 3302
+KEY_hebrew_chet :: 3303
+KEY_hebrew_het :: 3303
+KEY_hebrew_tet :: 3304
+KEY_hebrew_teth :: 3304
+KEY_hebrew_yod :: 3305
+KEY_hebrew_finalkaph :: 3306
+KEY_hebrew_kaph :: 3307
+KEY_hebrew_lamed :: 3308
+KEY_hebrew_finalmem :: 3309
+KEY_hebrew_mem :: 3310
+KEY_hebrew_finalnun :: 3311
+KEY_hebrew_nun :: 3312
+KEY_hebrew_samech :: 3313
+KEY_hebrew_samekh :: 3313
+KEY_hebrew_ayin :: 3314
+KEY_hebrew_finalpe :: 3315
+KEY_hebrew_pe :: 3316
+KEY_hebrew_finalzade :: 3317
+KEY_hebrew_finalzadi :: 3317
+KEY_hebrew_zade :: 3318
+KEY_hebrew_zadi :: 3318
+KEY_hebrew_qoph :: 3319
+KEY_hebrew_kuf :: 3319
+KEY_hebrew_resh :: 3320
+KEY_hebrew_shin :: 3321
+KEY_hebrew_taw :: 3322
+KEY_hebrew_taf :: 3322
+KEY_Hebrew_switch :: 65406
+KEY_Thai_kokai :: 3489
+KEY_Thai_khokhai :: 3490
+KEY_Thai_khokhuat :: 3491
+KEY_Thai_khokhwai :: 3492
+KEY_Thai_khokhon :: 3493
+KEY_Thai_khorakhang :: 3494
+KEY_Thai_ngongu :: 3495
+KEY_Thai_chochan :: 3496
+KEY_Thai_choching :: 3497
+KEY_Thai_chochang :: 3498
+KEY_Thai_soso :: 3499
+KEY_Thai_chochoe :: 3500
+KEY_Thai_yoying :: 3501
+KEY_Thai_dochada :: 3502
+KEY_Thai_topatak :: 3503
+KEY_Thai_thothan :: 3504
+KEY_Thai_thonangmontho :: 3505
+KEY_Thai_thophuthao :: 3506
+KEY_Thai_nonen :: 3507
+KEY_Thai_dodek :: 3508
+KEY_Thai_totao :: 3509
+KEY_Thai_thothung :: 3510
+KEY_Thai_thothahan :: 3511
+KEY_Thai_thothong :: 3512
+KEY_Thai_nonu :: 3513
+KEY_Thai_bobaimai :: 3514
+KEY_Thai_popla :: 3515
+KEY_Thai_phophung :: 3516
+KEY_Thai_fofa :: 3517
+KEY_Thai_phophan :: 3518
+KEY_Thai_fofan :: 3519
+KEY_Thai_phosamphao :: 3520
+KEY_Thai_moma :: 3521
+KEY_Thai_yoyak :: 3522
+KEY_Thai_rorua :: 3523
+KEY_Thai_ru :: 3524
+KEY_Thai_loling :: 3525
+KEY_Thai_lu :: 3526
+KEY_Thai_wowaen :: 3527
+KEY_Thai_sosala :: 3528
+KEY_Thai_sorusi :: 3529
+KEY_Thai_sosua :: 3530
+KEY_Thai_hohip :: 3531
+KEY_Thai_lochula :: 3532
+KEY_Thai_oang :: 3533
+KEY_Thai_honokhuk :: 3534
+KEY_Thai_paiyannoi :: 3535
+KEY_Thai_saraa :: 3536
+KEY_Thai_maihanakat :: 3537
+KEY_Thai_saraaa :: 3538
+KEY_Thai_saraam :: 3539
+KEY_Thai_sarai :: 3540
+KEY_Thai_saraii :: 3541
+KEY_Thai_saraue :: 3542
+KEY_Thai_sarauee :: 3543
+KEY_Thai_sarau :: 3544
+KEY_Thai_sarauu :: 3545
+KEY_Thai_phinthu :: 3546
+KEY_Thai_maihanakat_maitho :: 3550
+KEY_Thai_baht :: 3551
+KEY_Thai_sarae :: 3552
+KEY_Thai_saraae :: 3553
+KEY_Thai_sarao :: 3554
+KEY_Thai_saraaimaimuan :: 3555
+KEY_Thai_saraaimaimalai :: 3556
+KEY_Thai_lakkhangyao :: 3557
+KEY_Thai_maiyamok :: 3558
+KEY_Thai_maitaikhu :: 3559
+KEY_Thai_maiek :: 3560
+KEY_Thai_maitho :: 3561
+KEY_Thai_maitri :: 3562
+KEY_Thai_maichattawa :: 3563
+KEY_Thai_thanthakhat :: 3564
+KEY_Thai_nikhahit :: 3565
+KEY_Thai_leksun :: 3568
+KEY_Thai_leknung :: 3569
+KEY_Thai_leksong :: 3570
+KEY_Thai_leksam :: 3571
+KEY_Thai_leksi :: 3572
+KEY_Thai_lekha :: 3573
+KEY_Thai_lekhok :: 3574
+KEY_Thai_lekchet :: 3575
+KEY_Thai_lekpaet :: 3576
+KEY_Thai_lekkao :: 3577
+KEY_Hangul :: 65329
+KEY_Hangul_Start :: 65330
+KEY_Hangul_End :: 65331
+KEY_Hangul_Hanja :: 65332
+KEY_Hangul_Jamo :: 65333
+KEY_Hangul_Romaja :: 65334
+KEY_Hangul_Codeinput :: 65335
+KEY_Hangul_Jeonja :: 65336
+KEY_Hangul_Banja :: 65337
+KEY_Hangul_PreHanja :: 65338
+KEY_Hangul_PostHanja :: 65339
+KEY_Hangul_SingleCandidate :: 65340
+KEY_Hangul_MultipleCandidate :: 65341
+KEY_Hangul_PreviousCandidate :: 65342
+KEY_Hangul_Special :: 65343
+KEY_Hangul_switch :: 65406
+KEY_Hangul_Kiyeog :: 3745
+KEY_Hangul_SsangKiyeog :: 3746
+KEY_Hangul_KiyeogSios :: 3747
+KEY_Hangul_Nieun :: 3748
+KEY_Hangul_NieunJieuj :: 3749
+KEY_Hangul_NieunHieuh :: 3750
+KEY_Hangul_Dikeud :: 3751
+KEY_Hangul_SsangDikeud :: 3752
+KEY_Hangul_Rieul :: 3753
+KEY_Hangul_RieulKiyeog :: 3754
+KEY_Hangul_RieulMieum :: 3755
+KEY_Hangul_RieulPieub :: 3756
+KEY_Hangul_RieulSios :: 3757
+KEY_Hangul_RieulTieut :: 3758
+KEY_Hangul_RieulPhieuf :: 3759
+KEY_Hangul_RieulHieuh :: 3760
+KEY_Hangul_Mieum :: 3761
+KEY_Hangul_Pieub :: 3762
+KEY_Hangul_SsangPieub :: 3763
+KEY_Hangul_PieubSios :: 3764
+KEY_Hangul_Sios :: 3765
+KEY_Hangul_SsangSios :: 3766
+KEY_Hangul_Ieung :: 3767
+KEY_Hangul_Jieuj :: 3768
+KEY_Hangul_SsangJieuj :: 3769
+KEY_Hangul_Cieuc :: 3770
+KEY_Hangul_Khieuq :: 3771
+KEY_Hangul_Tieut :: 3772
+KEY_Hangul_Phieuf :: 3773
+KEY_Hangul_Hieuh :: 3774
+KEY_Hangul_A :: 3775
+KEY_Hangul_AE :: 3776
+KEY_Hangul_YA :: 3777
+KEY_Hangul_YAE :: 3778
+KEY_Hangul_EO :: 3779
+KEY_Hangul_E :: 3780
+KEY_Hangul_YEO :: 3781
+KEY_Hangul_YE :: 3782
+KEY_Hangul_O :: 3783
+KEY_Hangul_WA :: 3784
+KEY_Hangul_WAE :: 3785
+KEY_Hangul_OE :: 3786
+KEY_Hangul_YO :: 3787
+KEY_Hangul_U :: 3788
+KEY_Hangul_WEO :: 3789
+KEY_Hangul_WE :: 3790
+KEY_Hangul_WI :: 3791
+KEY_Hangul_YU :: 3792
+KEY_Hangul_EU :: 3793
+KEY_Hangul_YI :: 3794
+KEY_Hangul_I :: 3795
+KEY_Hangul_J_Kiyeog :: 3796
+KEY_Hangul_J_SsangKiyeog :: 3797
+KEY_Hangul_J_KiyeogSios :: 3798
+KEY_Hangul_J_Nieun :: 3799
+KEY_Hangul_J_NieunJieuj :: 3800
+KEY_Hangul_J_NieunHieuh :: 3801
+KEY_Hangul_J_Dikeud :: 3802
+KEY_Hangul_J_Rieul :: 3803
+KEY_Hangul_J_RieulKiyeog :: 3804
+KEY_Hangul_J_RieulMieum :: 3805
+KEY_Hangul_J_RieulPieub :: 3806
+KEY_Hangul_J_RieulSios :: 3807
+KEY_Hangul_J_RieulTieut :: 3808
+KEY_Hangul_J_RieulPhieuf :: 3809
+KEY_Hangul_J_RieulHieuh :: 3810
+KEY_Hangul_J_Mieum :: 3811
+KEY_Hangul_J_Pieub :: 3812
+KEY_Hangul_J_PieubSios :: 3813
+KEY_Hangul_J_Sios :: 3814
+KEY_Hangul_J_SsangSios :: 3815
+KEY_Hangul_J_Ieung :: 3816
+KEY_Hangul_J_Jieuj :: 3817
+KEY_Hangul_J_Cieuc :: 3818
+KEY_Hangul_J_Khieuq :: 3819
+KEY_Hangul_J_Tieut :: 3820
+KEY_Hangul_J_Phieuf :: 3821
+KEY_Hangul_J_Hieuh :: 3822
+KEY_Hangul_RieulYeorinHieuh :: 3823
+KEY_Hangul_SunkyeongeumMieum :: 3824
+KEY_Hangul_SunkyeongeumPieub :: 3825
+KEY_Hangul_PanSios :: 3826
+KEY_Hangul_KkogjiDalrinIeung :: 3827
+KEY_Hangul_SunkyeongeumPhieuf :: 3828
+KEY_Hangul_YeorinHieuh :: 3829
+KEY_Hangul_AraeA :: 3830
+KEY_Hangul_AraeAE :: 3831
+KEY_Hangul_J_PanSios :: 3832
+KEY_Hangul_J_KkogjiDalrinIeung :: 3833
+KEY_Hangul_J_YeorinHieuh :: 3834
+KEY_Korean_Won :: 3839
+KEY_Armenian_ligature_ew :: 16778631
+KEY_Armenian_full_stop :: 16778633
+KEY_Armenian_verjaket :: 16778633
+KEY_Armenian_separation_mark :: 16778589
+KEY_Armenian_but :: 16778589
+KEY_Armenian_hyphen :: 16778634
+KEY_Armenian_yentamna :: 16778634
+KEY_Armenian_exclam :: 16778588
+KEY_Armenian_amanak :: 16778588
+KEY_Armenian_accent :: 16778587
+KEY_Armenian_shesht :: 16778587
+KEY_Armenian_question :: 16778590
+KEY_Armenian_paruyk :: 16778590
+KEY_Armenian_AYB :: 16778545
+KEY_Armenian_ayb :: 16778593
+KEY_Armenian_BEN :: 16778546
+KEY_Armenian_ben :: 16778594
+KEY_Armenian_GIM :: 16778547
+KEY_Armenian_gim :: 16778595
+KEY_Armenian_DA :: 16778548
+KEY_Armenian_da :: 16778596
+KEY_Armenian_YECH :: 16778549
+KEY_Armenian_yech :: 16778597
+KEY_Armenian_ZA :: 16778550
+KEY_Armenian_za :: 16778598
+KEY_Armenian_E :: 16778551
+KEY_Armenian_e :: 16778599
+KEY_Armenian_AT :: 16778552
+KEY_Armenian_at :: 16778600
+KEY_Armenian_TO :: 16778553
+KEY_Armenian_to :: 16778601
+KEY_Armenian_ZHE :: 16778554
+KEY_Armenian_zhe :: 16778602
+KEY_Armenian_INI :: 16778555
+KEY_Armenian_ini :: 16778603
+KEY_Armenian_LYUN :: 16778556
+KEY_Armenian_lyun :: 16778604
+KEY_Armenian_KHE :: 16778557
+KEY_Armenian_khe :: 16778605
+KEY_Armenian_TSA :: 16778558
+KEY_Armenian_tsa :: 16778606
+KEY_Armenian_KEN :: 16778559
+KEY_Armenian_ken :: 16778607
+KEY_Armenian_HO :: 16778560
+KEY_Armenian_ho :: 16778608
+KEY_Armenian_DZA :: 16778561
+KEY_Armenian_dza :: 16778609
+KEY_Armenian_GHAT :: 16778562
+KEY_Armenian_ghat :: 16778610
+KEY_Armenian_TCHE :: 16778563
+KEY_Armenian_tche :: 16778611
+KEY_Armenian_MEN :: 16778564
+KEY_Armenian_men :: 16778612
+KEY_Armenian_HI :: 16778565
+KEY_Armenian_hi :: 16778613
+KEY_Armenian_NU :: 16778566
+KEY_Armenian_nu :: 16778614
+KEY_Armenian_SHA :: 16778567
+KEY_Armenian_sha :: 16778615
+KEY_Armenian_VO :: 16778568
+KEY_Armenian_vo :: 16778616
+KEY_Armenian_CHA :: 16778569
+KEY_Armenian_cha :: 16778617
+KEY_Armenian_PE :: 16778570
+KEY_Armenian_pe :: 16778618
+KEY_Armenian_JE :: 16778571
+KEY_Armenian_je :: 16778619
+KEY_Armenian_RA :: 16778572
+KEY_Armenian_ra :: 16778620
+KEY_Armenian_SE :: 16778573
+KEY_Armenian_se :: 16778621
+KEY_Armenian_VEV :: 16778574
+KEY_Armenian_vev :: 16778622
+KEY_Armenian_TYUN :: 16778575
+KEY_Armenian_tyun :: 16778623
+KEY_Armenian_RE :: 16778576
+KEY_Armenian_re :: 16778624
+KEY_Armenian_TSO :: 16778577
+KEY_Armenian_tso :: 16778625
+KEY_Armenian_VYUN :: 16778578
+KEY_Armenian_vyun :: 16778626
+KEY_Armenian_PYUR :: 16778579
+KEY_Armenian_pyur :: 16778627
+KEY_Armenian_KE :: 16778580
+KEY_Armenian_ke :: 16778628
+KEY_Armenian_O :: 16778581
+KEY_Armenian_o :: 16778629
+KEY_Armenian_FE :: 16778582
+KEY_Armenian_fe :: 16778630
+KEY_Armenian_apostrophe :: 16778586
+KEY_Georgian_an :: 16781520
+KEY_Georgian_ban :: 16781521
+KEY_Georgian_gan :: 16781522
+KEY_Georgian_don :: 16781523
+KEY_Georgian_en :: 16781524
+KEY_Georgian_vin :: 16781525
+KEY_Georgian_zen :: 16781526
+KEY_Georgian_tan :: 16781527
+KEY_Georgian_in :: 16781528
+KEY_Georgian_kan :: 16781529
+KEY_Georgian_las :: 16781530
+KEY_Georgian_man :: 16781531
+KEY_Georgian_nar :: 16781532
+KEY_Georgian_on :: 16781533
+KEY_Georgian_par :: 16781534
+KEY_Georgian_zhar :: 16781535
+KEY_Georgian_rae :: 16781536
+KEY_Georgian_san :: 16781537
+KEY_Georgian_tar :: 16781538
+KEY_Georgian_un :: 16781539
+KEY_Georgian_phar :: 16781540
+KEY_Georgian_khar :: 16781541
+KEY_Georgian_ghan :: 16781542
+KEY_Georgian_qar :: 16781543
+KEY_Georgian_shin :: 16781544
+KEY_Georgian_chin :: 16781545
+KEY_Georgian_can :: 16781546
+KEY_Georgian_jil :: 16781547
+KEY_Georgian_cil :: 16781548
+KEY_Georgian_char :: 16781549
+KEY_Georgian_xan :: 16781550
+KEY_Georgian_jhan :: 16781551
+KEY_Georgian_hae :: 16781552
+KEY_Georgian_he :: 16781553
+KEY_Georgian_hie :: 16781554
+KEY_Georgian_we :: 16781555
+KEY_Georgian_har :: 16781556
+KEY_Georgian_hoe :: 16781557
+KEY_Georgian_fi :: 16781558
+KEY_Xabovedot :: 16785034
+KEY_Ibreve :: 16777516
+KEY_Zstroke :: 16777653
+KEY_Gcaron :: 16777702
+KEY_Ocaron :: 16777681
+KEY_Obarred :: 16777631
+KEY_xabovedot :: 16785035
+KEY_ibreve :: 16777517
+KEY_zstroke :: 16777654
+KEY_gcaron :: 16777703
+KEY_ocaron :: 16777682
+KEY_obarred :: 16777845
+KEY_SCHWA :: 16777615
+KEY_schwa :: 16777817
+KEY_EZH :: 16777655
+KEY_ezh :: 16777874
+KEY_Lbelowdot :: 16784950
+KEY_lbelowdot :: 16784951
+KEY_Abelowdot :: 16785056
+KEY_abelowdot :: 16785057
+KEY_Ahook :: 16785058
+KEY_ahook :: 16785059
+KEY_Acircumflexacute :: 16785060
+KEY_acircumflexacute :: 16785061
+KEY_Acircumflexgrave :: 16785062
+KEY_acircumflexgrave :: 16785063
+KEY_Acircumflexhook :: 16785064
+KEY_acircumflexhook :: 16785065
+KEY_Acircumflextilde :: 16785066
+KEY_acircumflextilde :: 16785067
+KEY_Acircumflexbelowdot :: 16785068
+KEY_acircumflexbelowdot :: 16785069
+KEY_Abreveacute :: 16785070
+KEY_abreveacute :: 16785071
+KEY_Abrevegrave :: 16785072
+KEY_abrevegrave :: 16785073
+KEY_Abrevehook :: 16785074
+KEY_abrevehook :: 16785075
+KEY_Abrevetilde :: 16785076
+KEY_abrevetilde :: 16785077
+KEY_Abrevebelowdot :: 16785078
+KEY_abrevebelowdot :: 16785079
+KEY_Ebelowdot :: 16785080
+KEY_ebelowdot :: 16785081
+KEY_Ehook :: 16785082
+KEY_ehook :: 16785083
+KEY_Etilde :: 16785084
+KEY_etilde :: 16785085
+KEY_Ecircumflexacute :: 16785086
+KEY_ecircumflexacute :: 16785087
+KEY_Ecircumflexgrave :: 16785088
+KEY_ecircumflexgrave :: 16785089
+KEY_Ecircumflexhook :: 16785090
+KEY_ecircumflexhook :: 16785091
+KEY_Ecircumflextilde :: 16785092
+KEY_ecircumflextilde :: 16785093
+KEY_Ecircumflexbelowdot :: 16785094
+KEY_ecircumflexbelowdot :: 16785095
+KEY_Ihook :: 16785096
+KEY_ihook :: 16785097
+KEY_Ibelowdot :: 16785098
+KEY_ibelowdot :: 16785099
+KEY_Obelowdot :: 16785100
+KEY_obelowdot :: 16785101
+KEY_Ohook :: 16785102
+KEY_ohook :: 16785103
+KEY_Ocircumflexacute :: 16785104
+KEY_ocircumflexacute :: 16785105
+KEY_Ocircumflexgrave :: 16785106
+KEY_ocircumflexgrave :: 16785107
+KEY_Ocircumflexhook :: 16785108
+KEY_ocircumflexhook :: 16785109
+KEY_Ocircumflextilde :: 16785110
+KEY_ocircumflextilde :: 16785111
+KEY_Ocircumflexbelowdot :: 16785112
+KEY_ocircumflexbelowdot :: 16785113
+KEY_Ohornacute :: 16785114
+KEY_ohornacute :: 16785115
+KEY_Ohorngrave :: 16785116
+KEY_ohorngrave :: 16785117
+KEY_Ohornhook :: 16785118
+KEY_ohornhook :: 16785119
+KEY_Ohorntilde :: 16785120
+KEY_ohorntilde :: 16785121
+KEY_Ohornbelowdot :: 16785122
+KEY_ohornbelowdot :: 16785123
+KEY_Ubelowdot :: 16785124
+KEY_ubelowdot :: 16785125
+KEY_Uhook :: 16785126
+KEY_uhook :: 16785127
+KEY_Uhornacute :: 16785128
+KEY_uhornacute :: 16785129
+KEY_Uhorngrave :: 16785130
+KEY_uhorngrave :: 16785131
+KEY_Uhornhook :: 16785132
+KEY_uhornhook :: 16785133
+KEY_Uhorntilde :: 16785134
+KEY_uhorntilde :: 16785135
+KEY_Uhornbelowdot :: 16785136
+KEY_uhornbelowdot :: 16785137
+KEY_Ybelowdot :: 16785140
+KEY_ybelowdot :: 16785141
+KEY_Yhook :: 16785142
+KEY_yhook :: 16785143
+KEY_Ytilde :: 16785144
+KEY_ytilde :: 16785145
+KEY_Ohorn :: 16777632
+KEY_ohorn :: 16777633
+KEY_Uhorn :: 16777647
+KEY_uhorn :: 16777648
+KEY_combining_tilde :: 16777987
+KEY_combining_grave :: 16777984
+KEY_combining_acute :: 16777985
+KEY_combining_hook :: 16777993
+KEY_combining_belowdot :: 16778019
+KEY_EcuSign :: 16785568
+KEY_ColonSign :: 16785569
+KEY_CruzeiroSign :: 16785570
+KEY_FFrancSign :: 16785571
+KEY_LiraSign :: 16785572
+KEY_MillSign :: 16785573
+KEY_NairaSign :: 16785574
+KEY_PesetaSign :: 16785575
+KEY_RupeeSign :: 16785576
+KEY_WonSign :: 16785577
+KEY_NewSheqelSign :: 16785578
+KEY_DongSign :: 16785579
+KEY_EuroSign :: 8364
+KEY_zerosuperior :: 16785520
+KEY_foursuperior :: 16785524
+KEY_fivesuperior :: 16785525
+KEY_sixsuperior :: 16785526
+KEY_sevensuperior :: 16785527
+KEY_eightsuperior :: 16785528
+KEY_ninesuperior :: 16785529
+KEY_zerosubscript :: 16785536
+KEY_onesubscript :: 16785537
+KEY_twosubscript :: 16785538
+KEY_threesubscript :: 16785539
+KEY_foursubscript :: 16785540
+KEY_fivesubscript :: 16785541
+KEY_sixsubscript :: 16785542
+KEY_sevensubscript :: 16785543
+KEY_eightsubscript :: 16785544
+KEY_ninesubscript :: 16785545
+KEY_partdifferential :: 16785922
+KEY_emptyset :: 16785925
+KEY_elementof :: 16785928
+KEY_notelementof :: 16785929
+KEY_containsas :: 16785931
+KEY_squareroot :: 16785946
+KEY_cuberoot :: 16785947
+KEY_fourthroot :: 16785948
+KEY_dintegral :: 16785964
+KEY_tintegral :: 16785965
+KEY_because :: 16785973
+KEY_approxeq :: 16785992
+KEY_notapproxeq :: 16785991
+KEY_notidentical :: 16786018
+KEY_stricteq :: 16786019
+KEY_braille_dot_1 :: 65521
+KEY_braille_dot_2 :: 65522
+KEY_braille_dot_3 :: 65523
+KEY_braille_dot_4 :: 65524
+KEY_braille_dot_5 :: 65525
+KEY_braille_dot_6 :: 65526
+KEY_braille_dot_7 :: 65527
+KEY_braille_dot_8 :: 65528
+KEY_braille_dot_9 :: 65529
+KEY_braille_dot_10 :: 65530
+KEY_braille_blank :: 16787456
+KEY_braille_dots_1 :: 16787457
+KEY_braille_dots_2 :: 16787458
+KEY_braille_dots_12 :: 16787459
+KEY_braille_dots_3 :: 16787460
+KEY_braille_dots_13 :: 16787461
+KEY_braille_dots_23 :: 16787462
+KEY_braille_dots_123 :: 16787463
+KEY_braille_dots_4 :: 16787464
+KEY_braille_dots_14 :: 16787465
+KEY_braille_dots_24 :: 16787466
+KEY_braille_dots_124 :: 16787467
+KEY_braille_dots_34 :: 16787468
+KEY_braille_dots_134 :: 16787469
+KEY_braille_dots_234 :: 16787470
+KEY_braille_dots_1234 :: 16787471
+KEY_braille_dots_5 :: 16787472
+KEY_braille_dots_15 :: 16787473
+KEY_braille_dots_25 :: 16787474
+KEY_braille_dots_125 :: 16787475
+KEY_braille_dots_35 :: 16787476
+KEY_braille_dots_135 :: 16787477
+KEY_braille_dots_235 :: 16787478
+KEY_braille_dots_1235 :: 16787479
+KEY_braille_dots_45 :: 16787480
+KEY_braille_dots_145 :: 16787481
+KEY_braille_dots_245 :: 16787482
+KEY_braille_dots_1245 :: 16787483
+KEY_braille_dots_345 :: 16787484
+KEY_braille_dots_1345 :: 16787485
+KEY_braille_dots_2345 :: 16787486
+KEY_braille_dots_12345 :: 16787487
+KEY_braille_dots_6 :: 16787488
+KEY_braille_dots_16 :: 16787489
+KEY_braille_dots_26 :: 16787490
+KEY_braille_dots_126 :: 16787491
+KEY_braille_dots_36 :: 16787492
+KEY_braille_dots_136 :: 16787493
+KEY_braille_dots_236 :: 16787494
+KEY_braille_dots_1236 :: 16787495
+KEY_braille_dots_46 :: 16787496
+KEY_braille_dots_146 :: 16787497
+KEY_braille_dots_246 :: 16787498
+KEY_braille_dots_1246 :: 16787499
+KEY_braille_dots_346 :: 16787500
+KEY_braille_dots_1346 :: 16787501
+KEY_braille_dots_2346 :: 16787502
+KEY_braille_dots_12346 :: 16787503
+KEY_braille_dots_56 :: 16787504
+KEY_braille_dots_156 :: 16787505
+KEY_braille_dots_256 :: 16787506
+KEY_braille_dots_1256 :: 16787507
+KEY_braille_dots_356 :: 16787508
+KEY_braille_dots_1356 :: 16787509
+KEY_braille_dots_2356 :: 16787510
+KEY_braille_dots_12356 :: 16787511
+KEY_braille_dots_456 :: 16787512
+KEY_braille_dots_1456 :: 16787513
+KEY_braille_dots_2456 :: 16787514
+KEY_braille_dots_12456 :: 16787515
+KEY_braille_dots_3456 :: 16787516
+KEY_braille_dots_13456 :: 16787517
+KEY_braille_dots_23456 :: 16787518
+KEY_braille_dots_123456 :: 16787519
+KEY_braille_dots_7 :: 16787520
+KEY_braille_dots_17 :: 16787521
+KEY_braille_dots_27 :: 16787522
+KEY_braille_dots_127 :: 16787523
+KEY_braille_dots_37 :: 16787524
+KEY_braille_dots_137 :: 16787525
+KEY_braille_dots_237 :: 16787526
+KEY_braille_dots_1237 :: 16787527
+KEY_braille_dots_47 :: 16787528
+KEY_braille_dots_147 :: 16787529
+KEY_braille_dots_247 :: 16787530
+KEY_braille_dots_1247 :: 16787531
+KEY_braille_dots_347 :: 16787532
+KEY_braille_dots_1347 :: 16787533
+KEY_braille_dots_2347 :: 16787534
+KEY_braille_dots_12347 :: 16787535
+KEY_braille_dots_57 :: 16787536
+KEY_braille_dots_157 :: 16787537
+KEY_braille_dots_257 :: 16787538
+KEY_braille_dots_1257 :: 16787539
+KEY_braille_dots_357 :: 16787540
+KEY_braille_dots_1357 :: 16787541
+KEY_braille_dots_2357 :: 16787542
+KEY_braille_dots_12357 :: 16787543
+KEY_braille_dots_457 :: 16787544
+KEY_braille_dots_1457 :: 16787545
+KEY_braille_dots_2457 :: 16787546
+KEY_braille_dots_12457 :: 16787547
+KEY_braille_dots_3457 :: 16787548
+KEY_braille_dots_13457 :: 16787549
+KEY_braille_dots_23457 :: 16787550
+KEY_braille_dots_123457 :: 16787551
+KEY_braille_dots_67 :: 16787552
+KEY_braille_dots_167 :: 16787553
+KEY_braille_dots_267 :: 16787554
+KEY_braille_dots_1267 :: 16787555
+KEY_braille_dots_367 :: 16787556
+KEY_braille_dots_1367 :: 16787557
+KEY_braille_dots_2367 :: 16787558
+KEY_braille_dots_12367 :: 16787559
+KEY_braille_dots_467 :: 16787560
+KEY_braille_dots_1467 :: 16787561
+KEY_braille_dots_2467 :: 16787562
+KEY_braille_dots_12467 :: 16787563
+KEY_braille_dots_3467 :: 16787564
+KEY_braille_dots_13467 :: 16787565
+KEY_braille_dots_23467 :: 16787566
+KEY_braille_dots_123467 :: 16787567
+KEY_braille_dots_567 :: 16787568
+KEY_braille_dots_1567 :: 16787569
+KEY_braille_dots_2567 :: 16787570
+KEY_braille_dots_12567 :: 16787571
+KEY_braille_dots_3567 :: 16787572
+KEY_braille_dots_13567 :: 16787573
+KEY_braille_dots_23567 :: 16787574
+KEY_braille_dots_123567 :: 16787575
+KEY_braille_dots_4567 :: 16787576
+KEY_braille_dots_14567 :: 16787577
+KEY_braille_dots_24567 :: 16787578
+KEY_braille_dots_124567 :: 16787579
+KEY_braille_dots_34567 :: 16787580
+KEY_braille_dots_134567 :: 16787581
+KEY_braille_dots_234567 :: 16787582
+KEY_braille_dots_1234567 :: 16787583
+KEY_braille_dots_8 :: 16787584
+KEY_braille_dots_18 :: 16787585
+KEY_braille_dots_28 :: 16787586
+KEY_braille_dots_128 :: 16787587
+KEY_braille_dots_38 :: 16787588
+KEY_braille_dots_138 :: 16787589
+KEY_braille_dots_238 :: 16787590
+KEY_braille_dots_1238 :: 16787591
+KEY_braille_dots_48 :: 16787592
+KEY_braille_dots_148 :: 16787593
+KEY_braille_dots_248 :: 16787594
+KEY_braille_dots_1248 :: 16787595
+KEY_braille_dots_348 :: 16787596
+KEY_braille_dots_1348 :: 16787597
+KEY_braille_dots_2348 :: 16787598
+KEY_braille_dots_12348 :: 16787599
+KEY_braille_dots_58 :: 16787600
+KEY_braille_dots_158 :: 16787601
+KEY_braille_dots_258 :: 16787602
+KEY_braille_dots_1258 :: 16787603
+KEY_braille_dots_358 :: 16787604
+KEY_braille_dots_1358 :: 16787605
+KEY_braille_dots_2358 :: 16787606
+KEY_braille_dots_12358 :: 16787607
+KEY_braille_dots_458 :: 16787608
+KEY_braille_dots_1458 :: 16787609
+KEY_braille_dots_2458 :: 16787610
+KEY_braille_dots_12458 :: 16787611
+KEY_braille_dots_3458 :: 16787612
+KEY_braille_dots_13458 :: 16787613
+KEY_braille_dots_23458 :: 16787614
+KEY_braille_dots_123458 :: 16787615
+KEY_braille_dots_68 :: 16787616
+KEY_braille_dots_168 :: 16787617
+KEY_braille_dots_268 :: 16787618
+KEY_braille_dots_1268 :: 16787619
+KEY_braille_dots_368 :: 16787620
+KEY_braille_dots_1368 :: 16787621
+KEY_braille_dots_2368 :: 16787622
+KEY_braille_dots_12368 :: 16787623
+KEY_braille_dots_468 :: 16787624
+KEY_braille_dots_1468 :: 16787625
+KEY_braille_dots_2468 :: 16787626
+KEY_braille_dots_12468 :: 16787627
+KEY_braille_dots_3468 :: 16787628
+KEY_braille_dots_13468 :: 16787629
+KEY_braille_dots_23468 :: 16787630
+KEY_braille_dots_123468 :: 16787631
+KEY_braille_dots_568 :: 16787632
+KEY_braille_dots_1568 :: 16787633
+KEY_braille_dots_2568 :: 16787634
+KEY_braille_dots_12568 :: 16787635
+KEY_braille_dots_3568 :: 16787636
+KEY_braille_dots_13568 :: 16787637
+KEY_braille_dots_23568 :: 16787638
+KEY_braille_dots_123568 :: 16787639
+KEY_braille_dots_4568 :: 16787640
+KEY_braille_dots_14568 :: 16787641
+KEY_braille_dots_24568 :: 16787642
+KEY_braille_dots_124568 :: 16787643
+KEY_braille_dots_34568 :: 16787644
+KEY_braille_dots_134568 :: 16787645
+KEY_braille_dots_234568 :: 16787646
+KEY_braille_dots_1234568 :: 16787647
+KEY_braille_dots_78 :: 16787648
+KEY_braille_dots_178 :: 16787649
+KEY_braille_dots_278 :: 16787650
+KEY_braille_dots_1278 :: 16787651
+KEY_braille_dots_378 :: 16787652
+KEY_braille_dots_1378 :: 16787653
+KEY_braille_dots_2378 :: 16787654
+KEY_braille_dots_12378 :: 16787655
+KEY_braille_dots_478 :: 16787656
+KEY_braille_dots_1478 :: 16787657
+KEY_braille_dots_2478 :: 16787658
+KEY_braille_dots_12478 :: 16787659
+KEY_braille_dots_3478 :: 16787660
+KEY_braille_dots_13478 :: 16787661
+KEY_braille_dots_23478 :: 16787662
+KEY_braille_dots_123478 :: 16787663
+KEY_braille_dots_578 :: 16787664
+KEY_braille_dots_1578 :: 16787665
+KEY_braille_dots_2578 :: 16787666
+KEY_braille_dots_12578 :: 16787667
+KEY_braille_dots_3578 :: 16787668
+KEY_braille_dots_13578 :: 16787669
+KEY_braille_dots_23578 :: 16787670
+KEY_braille_dots_123578 :: 16787671
+KEY_braille_dots_4578 :: 16787672
+KEY_braille_dots_14578 :: 16787673
+KEY_braille_dots_24578 :: 16787674
+KEY_braille_dots_124578 :: 16787675
+KEY_braille_dots_34578 :: 16787676
+KEY_braille_dots_134578 :: 16787677
+KEY_braille_dots_234578 :: 16787678
+KEY_braille_dots_1234578 :: 16787679
+KEY_braille_dots_678 :: 16787680
+KEY_braille_dots_1678 :: 16787681
+KEY_braille_dots_2678 :: 16787682
+KEY_braille_dots_12678 :: 16787683
+KEY_braille_dots_3678 :: 16787684
+KEY_braille_dots_13678 :: 16787685
+KEY_braille_dots_23678 :: 16787686
+KEY_braille_dots_123678 :: 16787687
+KEY_braille_dots_4678 :: 16787688
+KEY_braille_dots_14678 :: 16787689
+KEY_braille_dots_24678 :: 16787690
+KEY_braille_dots_124678 :: 16787691
+KEY_braille_dots_34678 :: 16787692
+KEY_braille_dots_134678 :: 16787693
+KEY_braille_dots_234678 :: 16787694
+KEY_braille_dots_1234678 :: 16787695
+KEY_braille_dots_5678 :: 16787696
+KEY_braille_dots_15678 :: 16787697
+KEY_braille_dots_25678 :: 16787698
+KEY_braille_dots_125678 :: 16787699
+KEY_braille_dots_35678 :: 16787700
+KEY_braille_dots_135678 :: 16787701
+KEY_braille_dots_235678 :: 16787702
+KEY_braille_dots_1235678 :: 16787703
+KEY_braille_dots_45678 :: 16787704
+KEY_braille_dots_145678 :: 16787705
+KEY_braille_dots_245678 :: 16787706
+KEY_braille_dots_1245678 :: 16787707
+KEY_braille_dots_345678 :: 16787708
+KEY_braille_dots_1345678 :: 16787709
+KEY_braille_dots_2345678 :: 16787710
+KEY_braille_dots_12345678 :: 16787711
+KEY_Sinh_ng :: 16780674
+KEY_Sinh_h2 :: 16780675
+KEY_Sinh_a :: 16780677
+KEY_Sinh_aa :: 16780678
+KEY_Sinh_ae :: 16780679
+KEY_Sinh_aee :: 16780680
+KEY_Sinh_i :: 16780681
+KEY_Sinh_ii :: 16780682
+KEY_Sinh_u :: 16780683
+KEY_Sinh_uu :: 16780684
+KEY_Sinh_ri :: 16780685
+KEY_Sinh_rii :: 16780686
+KEY_Sinh_lu :: 16780687
+KEY_Sinh_luu :: 16780688
+KEY_Sinh_e :: 16780689
+KEY_Sinh_ee :: 16780690
+KEY_Sinh_ai :: 16780691
+KEY_Sinh_o :: 16780692
+KEY_Sinh_oo :: 16780693
+KEY_Sinh_au :: 16780694
+KEY_Sinh_ka :: 16780698
+KEY_Sinh_kha :: 16780699
+KEY_Sinh_ga :: 16780700
+KEY_Sinh_gha :: 16780701
+KEY_Sinh_ng2 :: 16780702
+KEY_Sinh_nga :: 16780703
+KEY_Sinh_ca :: 16780704
+KEY_Sinh_cha :: 16780705
+KEY_Sinh_ja :: 16780706
+KEY_Sinh_jha :: 16780707
+KEY_Sinh_nya :: 16780708
+KEY_Sinh_jnya :: 16780709
+KEY_Sinh_nja :: 16780710
+KEY_Sinh_tta :: 16780711
+KEY_Sinh_ttha :: 16780712
+KEY_Sinh_dda :: 16780713
+KEY_Sinh_ddha :: 16780714
+KEY_Sinh_nna :: 16780715
+KEY_Sinh_ndda :: 16780716
+KEY_Sinh_tha :: 16780717
+KEY_Sinh_thha :: 16780718
+KEY_Sinh_dha :: 16780719
+KEY_Sinh_dhha :: 16780720
+KEY_Sinh_na :: 16780721
+KEY_Sinh_ndha :: 16780723
+KEY_Sinh_pa :: 16780724
+KEY_Sinh_pha :: 16780725
+KEY_Sinh_ba :: 16780726
+KEY_Sinh_bha :: 16780727
+KEY_Sinh_ma :: 16780728
+KEY_Sinh_mba :: 16780729
+KEY_Sinh_ya :: 16780730
+KEY_Sinh_ra :: 16780731
+KEY_Sinh_la :: 16780733
+KEY_Sinh_va :: 16780736
+KEY_Sinh_sha :: 16780737
+KEY_Sinh_ssha :: 16780738
+KEY_Sinh_sa :: 16780739
+KEY_Sinh_ha :: 16780740
+KEY_Sinh_lla :: 16780741
+KEY_Sinh_fa :: 16780742
+KEY_Sinh_al :: 16780746
+KEY_Sinh_aa2 :: 16780751
+KEY_Sinh_ae2 :: 16780752
+KEY_Sinh_aee2 :: 16780753
+KEY_Sinh_i2 :: 16780754
+KEY_Sinh_ii2 :: 16780755
+KEY_Sinh_u2 :: 16780756
+KEY_Sinh_uu2 :: 16780758
+KEY_Sinh_ru2 :: 16780760
+KEY_Sinh_e2 :: 16780761
+KEY_Sinh_ee2 :: 16780762
+KEY_Sinh_ai2 :: 16780763
+KEY_Sinh_o2 :: 16780764
+KEY_Sinh_oo2 :: 16780765
+KEY_Sinh_au2 :: 16780766
+KEY_Sinh_lu2 :: 16780767
+KEY_Sinh_ruu2 :: 16780786
+KEY_Sinh_luu2 :: 16780787
+KEY_Sinh_kunddaliya :: 16780788
+KEY_ModeLock :: 269025025
+KEY_MonBrightnessUp :: 269025026
+KEY_MonBrightnessDown :: 269025027
+KEY_KbdLightOnOff :: 269025028
+KEY_KbdBrightnessUp :: 269025029
+KEY_KbdBrightnessDown :: 269025030
+KEY_Standby :: 269025040
+KEY_AudioLowerVolume :: 269025041
+KEY_AudioMute :: 269025042
+KEY_AudioRaiseVolume :: 269025043
+KEY_AudioPlay :: 269025044
+KEY_AudioStop :: 269025045
+KEY_AudioPrev :: 269025046
+KEY_AudioNext :: 269025047
+KEY_HomePage :: 269025048
+KEY_Mail :: 269025049
+KEY_Start :: 269025050
+KEY_Search :: 269025051
+KEY_AudioRecord :: 269025052
+KEY_Calculator :: 269025053
+KEY_Memo :: 269025054
+KEY_ToDoList :: 269025055
+KEY_Calendar :: 269025056
+KEY_PowerDown :: 269025057
+KEY_ContrastAdjust :: 269025058
+KEY_RockerUp :: 269025059
+KEY_RockerDown :: 269025060
+KEY_RockerEnter :: 269025061
+KEY_Back :: 269025062
+KEY_Forward :: 269025063
+KEY_Stop :: 269025064
+KEY_Refresh :: 269025065
+KEY_PowerOff :: 269025066
+KEY_WakeUp :: 269025067
+KEY_Eject :: 269025068
+KEY_ScreenSaver :: 269025069
+KEY_WWW :: 269025070
+KEY_Sleep :: 269025071
+KEY_Favorites :: 269025072
+KEY_AudioPause :: 269025073
+KEY_AudioMedia :: 269025074
+KEY_MyComputer :: 269025075
+KEY_VendorHome :: 269025076
+KEY_LightBulb :: 269025077
+KEY_Shop :: 269025078
+KEY_History :: 269025079
+KEY_OpenURL :: 269025080
+KEY_AddFavorite :: 269025081
+KEY_HotLinks :: 269025082
+KEY_BrightnessAdjust :: 269025083
+KEY_Finance :: 269025084
+KEY_Community :: 269025085
+KEY_AudioRewind :: 269025086
+KEY_BackForward :: 269025087
+KEY_Launch0 :: 269025088
+KEY_Launch1 :: 269025089
+KEY_Launch2 :: 269025090
+KEY_Launch3 :: 269025091
+KEY_Launch4 :: 269025092
+KEY_Launch5 :: 269025093
+KEY_Launch6 :: 269025094
+KEY_Launch7 :: 269025095
+KEY_Launch8 :: 269025096
+KEY_Launch9 :: 269025097
+KEY_LaunchA :: 269025098
+KEY_LaunchB :: 269025099
+KEY_LaunchC :: 269025100
+KEY_LaunchD :: 269025101
+KEY_LaunchE :: 269025102
+KEY_LaunchF :: 269025103
+KEY_ApplicationLeft :: 269025104
+KEY_ApplicationRight :: 269025105
+KEY_Book :: 269025106
+KEY_CD :: 269025107
+KEY_WindowClear :: 269025109
+KEY_Close :: 269025110
+KEY_Copy :: 269025111
+KEY_Cut :: 269025112
+KEY_Display :: 269025113
+KEY_DOS :: 269025114
+KEY_Documents :: 269025115
+KEY_Excel :: 269025116
+KEY_Explorer :: 269025117
+KEY_Game :: 269025118
+KEY_Go :: 269025119
+KEY_iTouch :: 269025120
+KEY_LogOff :: 269025121
+KEY_Market :: 269025122
+KEY_Meeting :: 269025123
+KEY_MenuKB :: 269025125
+KEY_MenuPB :: 269025126
+KEY_MySites :: 269025127
+KEY_New :: 269025128
+KEY_News :: 269025129
+KEY_OfficeHome :: 269025130
+KEY_Open :: 269025131
+KEY_Option :: 269025132
+KEY_Paste :: 269025133
+KEY_Phone :: 269025134
+KEY_Reply :: 269025138
+KEY_Reload :: 269025139
+KEY_RotateWindows :: 269025140
+KEY_RotationPB :: 269025141
+KEY_RotationKB :: 269025142
+KEY_Save :: 269025143
+KEY_ScrollUp :: 269025144
+KEY_ScrollDown :: 269025145
+KEY_ScrollClick :: 269025146
+KEY_Send :: 269025147
+KEY_Spell :: 269025148
+KEY_SplitScreen :: 269025149
+KEY_Support :: 269025150
+KEY_TaskPane :: 269025151
+KEY_Terminal :: 269025152
+KEY_Tools :: 269025153
+KEY_Travel :: 269025154
+KEY_UserPB :: 269025156
+KEY_User1KB :: 269025157
+KEY_User2KB :: 269025158
+KEY_Video :: 269025159
+KEY_WheelButton :: 269025160
+KEY_Word :: 269025161
+KEY_Xfer :: 269025162
+KEY_ZoomIn :: 269025163
+KEY_ZoomOut :: 269025164
+KEY_Away :: 269025165
+KEY_Messenger :: 269025166
+KEY_WebCam :: 269025167
+KEY_MailForward :: 269025168
+KEY_Pictures :: 269025169
+KEY_Music :: 269025170
+KEY_Battery :: 269025171
+KEY_Bluetooth :: 269025172
+KEY_WLAN :: 269025173
+KEY_UWB :: 269025174
+KEY_AudioForward :: 269025175
+KEY_AudioRepeat :: 269025176
+KEY_AudioRandomPlay :: 269025177
+KEY_Subtitle :: 269025178
+KEY_AudioCycleTrack :: 269025179
+KEY_CycleAngle :: 269025180
+KEY_FrameBack :: 269025181
+KEY_FrameForward :: 269025182
+KEY_Time :: 269025183
+KEY_SelectButton :: 269025184
+KEY_View :: 269025185
+KEY_TopMenu :: 269025186
+KEY_Red :: 269025187
+KEY_Green :: 269025188
+KEY_Yellow :: 269025189
+KEY_Blue :: 269025190
+KEY_Suspend :: 269025191
+KEY_Hibernate :: 269025192
+KEY_TouchpadToggle :: 269025193
+KEY_TouchpadOn :: 269025200
+KEY_TouchpadOff :: 269025201
+KEY_AudioMicMute :: 269025202
+KEY_Keyboard :: 269025203
+KEY_WWAN :: 269025204
+KEY_RFKill :: 269025205
+KEY_AudioPreset :: 269025206
+KEY_Switch_VT_1 :: 269024769
+KEY_Switch_VT_2 :: 269024770
+KEY_Switch_VT_3 :: 269024771
+KEY_Switch_VT_4 :: 269024772
+KEY_Switch_VT_5 :: 269024773
+KEY_Switch_VT_6 :: 269024774
+KEY_Switch_VT_7 :: 269024775
+KEY_Switch_VT_8 :: 269024776
+KEY_Switch_VT_9 :: 269024777
+KEY_Switch_VT_10 :: 269024778
+KEY_Switch_VT_11 :: 269024779
+KEY_Switch_VT_12 :: 269024780
+KEY_Ungrab :: 269024800
+KEY_ClearGrab :: 269024801
+KEY_Next_VMode :: 269024802
+KEY_Prev_VMode :: 269024803
+KEY_LogWindowTree :: 269024804
+KEY_LogGrabInfo :: 269024805
+MEMORY_DEFAULT :: MemoryFormat.MEMORY_B8G8R8A8_PREMULTIPLIED
+TYPE_MEMORY_TEXTURE :: gdk_memory_texture_get_type
+TYPE_MEMORY_TEXTURE_BUILDER :: gdk_memory_texture_builder_get_type
+TYPE_PAINTABLE :: gdk_paintable_get_type
+TYPE_POPUP :: gdk_popup_get_type
+TYPE_RECTANGLE :: gdk_rectangle_get_type
+TYPE_RGBA :: gdk_rgba_get_type
+TYPE_SNAPSHOT :: gdk_snapshot_get_type
+TYPE_TEXTURE_DOWNLOADER :: gdk_texture_downloader_get_type
+TYPE_TOPLEVEL_LAYOUT :: gdk_toplevel_layout_get_type
+TYPE_TOPLEVEL :: gdk_toplevel_get_type
+TYPE_TOPLEVEL_SIZE :: gdk_toplevel_size_get_type
+TYPE_VULKAN_CONTEXT :: gdk_vulkan_context_get_type
+VULKAN_ERROR :: gdk_vulkan_error_quark
+TYPE_PATH :: gsk_path_get_type
+TYPE_PATH_BUILDER :: gsk_path_builder_get_type
+TYPE_PATH_POINT :: gsk_path_point_get_type
+TYPE_PATH_MEASURE :: gsk_path_measure_get_type
+TYPE_SHADER_ARGS_BUILDER :: gsk_shader_args_builder_get_type
+TYPE_GL_SHADER :: gsk_gl_shader_get_type
+TYPE_RENDER_NODE :: gsk_render_node_get_type
+SERIALIZATION_ERROR :: gsk_serialization_error_quark
+TYPE_DEBUG_NODE :: gsk_debug_node_get_type
+TYPE_COLOR_NODE :: gsk_color_node_get_type
+TYPE_TEXTURE_NODE :: gsk_texture_node_get_type
+TYPE_TEXTURE_SCALE_NODE :: gsk_texture_scale_node_get_type
+TYPE_LINEAR_GRADIENT_NODE :: gsk_linear_gradient_node_get_type
+TYPE_REPEATING_LINEAR_GRADIENT_NODE :: gsk_repeating_linear_gradient_node_get_type
+TYPE_RADIAL_GRADIENT_NODE :: gsk_radial_gradient_node_get_type
+TYPE_REPEATING_RADIAL_GRADIENT_NODE :: gsk_repeating_radial_gradient_node_get_type
+TYPE_CONIC_GRADIENT_NODE :: gsk_conic_gradient_node_get_type
+TYPE_BORDER_NODE :: gsk_border_node_get_type
+TYPE_INSET_SHADOW_NODE :: gsk_inset_shadow_node_get_type
+TYPE_OUTSET_SHADOW_NODE :: gsk_outset_shadow_node_get_type
+TYPE_CAIRO_NODE :: gsk_cairo_node_get_type
+TYPE_CONTAINER_NODE :: gsk_container_node_get_type
+TYPE_TRANSFORM_NODE :: gsk_transform_node_get_type
+TYPE_OPACITY_NODE :: gsk_opacity_node_get_type
+TYPE_COLOR_MATRIX_NODE :: gsk_color_matrix_node_get_type
+TYPE_REPEAT_NODE :: gsk_repeat_node_get_type
+TYPE_CLIP_NODE :: gsk_clip_node_get_type
+TYPE_ROUNDED_CLIP_NODE :: gsk_rounded_clip_node_get_type
+TYPE_FILL_NODE :: gsk_fill_node_get_type
+TYPE_STROKE_NODE :: gsk_stroke_node_get_type
+TYPE_SHADOW_NODE :: gsk_shadow_node_get_type
+TYPE_BLEND_NODE :: gsk_blend_node_get_type
+TYPE_CROSS_FADE_NODE :: gsk_cross_fade_node_get_type
+TYPE_TEXT_NODE :: gsk_text_node_get_type
+TYPE_BLUR_NODE :: gsk_blur_node_get_type
+TYPE_MASK_NODE :: gsk_mask_node_get_type
+TYPE_GL_SHADER_NODE :: gsk_gl_shader_node_get_type
+TYPE_SUBSURFACE_NODE :: gsk_subsurface_node_get_type
+TYPE_RENDERER :: gsk_renderer_get_type
+TYPE_STROKE :: gsk_stroke_get_type
+TYPE_TRANSFORM :: gsk_transform_get_type
+TYPE_CAIRO_RENDERER :: gsk_cairo_renderer_get_type
+TYPE_GL_RENDERER :: gsk_gl_renderer_get_type
+TYPE_VULKAN_RENDERER :: gsk_vulkan_renderer_get_type
+TYPE_RENDER_NODE_TYPE :: gsk_render_node_type_get_type
+TYPE_SCALING_FILTER :: gsk_scaling_filter_get_type
+TYPE_BLEND_MODE :: gsk_blend_mode_get_type
+TYPE_CORNER :: gsk_corner_get_type
+TYPE_FILL_RULE :: gsk_fill_rule_get_type
+TYPE_LINE_CAP :: gsk_line_cap_get_type
+TYPE_LINE_JOIN :: gsk_line_join_get_type
+TYPE_PATH_OPERATION :: gsk_path_operation_get_type
+TYPE_PATH_DIRECTION :: gsk_path_direction_get_type
+TYPE_SERIALIZATION_ERROR :: gsk_serialization_error_get_type
+TYPE_TRANSFORM_CATEGORY :: gsk_transform_category_get_type
+TYPE_GL_UNIFORM_TYPE :: gsk_gl_uniform_type_get_type
+TYPE_MASK_MODE :: gsk_mask_mode_get_type
+TYPE_PATH_FOREACH_FLAGS :: gsk_path_foreach_flags_get_type
+UNIT_PIXEL :: Unit.NONE
+ACCESSIBLE_VALUE_UNDEFINED :: -1
+INVALID_LIST_POSITION :: 0xffffffff
+TYPE_SHORTCUT :: shortcut_get_type
+TYPE_SHORTCUT_ACTION :: shortcut_action_get_type
+TYPE_NOTHING_ACTION :: nothing_action_get_type
+TYPE_CALLBACK_ACTION :: callback_action_get_type
+TYPE_MNEMONIC_ACTION :: mnemonic_action_get_type
+TYPE_ACTIVATE_ACTION :: activate_action_get_type
+TYPE_SIGNAL_ACTION :: signal_action_get_type
+TYPE_NAMED_ACTION :: named_action_get_type
+TYPE_WIDGET :: widget_get_type
+TYPE_REQUISITION :: requisition_get_type
+TYPE_APPLICATION :: application_get_type
+TYPE_WINDOW :: window_get_type
+TYPE_ABOUT_DIALOG :: about_dialog_get_type
+TYPE_ACCESSIBLE :: accessible_get_type
+ACCESSIBLE_LIST :: accessible_list_get_type
+TYPE_ACCESSIBLE_RANGE :: accessible_range_get_type
+TYPE_ACCESSIBLE_TEXT :: accessible_text_get_type
+ACCESSIBLE_ATTRIBUTE_FAMILY :: "family-name"
+ACCESSIBLE_ATTRIBUTE_STYLE :: "style"
+ACCESSIBLE_ATTRIBUTE_WEIGHT :: "weight"
+ACCESSIBLE_ATTRIBUTE_VARIANT :: "variant"
+ACCESSIBLE_ATTRIBUTE_STRETCH :: "stretch"
+ACCESSIBLE_ATTRIBUTE_SIZE :: "size"
+ACCESSIBLE_ATTRIBUTE_FOREGROUND :: "fg-color"
+ACCESSIBLE_ATTRIBUTE_BACKGROUND :: "bg-color"
+ACCESSIBLE_ATTRIBUTE_UNDERLINE :: "underline"
+ACCESSIBLE_ATTRIBUTE_OVERLINE :: "overline"
+ACCESSIBLE_ATTRIBUTE_STRIKETHROUGH :: "strikethrough"
+ACCESSIBLE_ATTRIBUTE_STYLE_NORMAL :: "normal"
+ACCESSIBLE_ATTRIBUTE_STYLE_OBLIQUE :: "oblique"
+ACCESSIBLE_ATTRIBUTE_STYLE_ITALIC :: "italic"
+ACCESSIBLE_ATTRIBUTE_VARIANT_SMALL_CAPS :: "small-caps"
+ACCESSIBLE_ATTRIBUTE_VARIANT_ALL_SMALL_CAPS :: "all-small-caps"
+ACCESSIBLE_ATTRIBUTE_VARIANT_PETITE_CAPS :: "petite-caps"
+ACCESSIBLE_ATTRIBUTE_VARIANT_ALL_PETITE_CAPS :: "all-petite-caps"
+ACCESSIBLE_ATTRIBUTE_VARIANT_UNICASE :: "unicase"
+ACCESSIBLE_ATTRIBUTE_VARIANT_TITLE_CAPS :: "title-caps"
+ACCESSIBLE_ATTRIBUTE_STRETCH_ULTRA_CONDENSED :: "ultra_condensed"
+ACCESSIBLE_ATTRIBUTE_STRETCH_EXTRA_CONDENSED :: "extra_condensed"
+ACCESSIBLE_ATTRIBUTE_STRETCH_CONDENSED :: "condensed"
+ACCESSIBLE_ATTRIBUTE_STRETCH_SEMI_CONDENSED :: "semi_condensed"
+ACCESSIBLE_ATTRIBUTE_STRETCH_NORMAL :: "normal"
+ACCESSIBLE_ATTRIBUTE_STRETCH_SEMI_EXPANDED :: "semi_expanded"
+ACCESSIBLE_ATTRIBUTE_STRETCH_EXPANDED :: "expanded"
+ACCESSIBLE_ATTRIBUTE_STRETCH_EXTRA_EXPANDED :: "extra_expanded"
+ACCESSIBLE_ATTRIBUTE_STRETCH_ULTRA_EXPANDED :: "ultra_expanded"
+ACCESSIBLE_ATTRIBUTE_UNDERLINE_NONE :: "none"
+ACCESSIBLE_ATTRIBUTE_UNDERLINE_SINGLE :: "single"
+ACCESSIBLE_ATTRIBUTE_UNDERLINE_DOUBLE :: "double"
+ACCESSIBLE_ATTRIBUTE_UNDERLINE_ERROR :: "error"
+ACCESSIBLE_ATTRIBUTE_OVERLINE_NONE :: "none"
+ACCESSIBLE_ATTRIBUTE_OVERLINE_SINGLE :: "single"
+TYPE_ACTIONABLE :: actionable_get_type
+TYPE_ACTION_BAR :: action_bar_get_type
+TYPE_ADJUSTMENT :: adjustment_get_type
+TYPE_ALERT_DIALOG :: alert_dialog_get_type
+TYPE_APP_CHOOSER :: app_chooser_get_type
+TYPE_DIALOG :: dialog_get_type
+TYPE_APP_CHOOSER_DIALOG :: app_chooser_dialog_get_type
+TYPE_APP_CHOOSER_WIDGET :: app_chooser_widget_get_type
+TYPE_APP_CHOOSER_BUTTON :: app_chooser_button_get_type
+TYPE_SHORTCUTS_SHORTCUT :: shortcuts_shortcut_get_type
+TYPE_SHORTCUTS_GROUP :: shortcuts_group_get_type
+TYPE_SHORTCUTS_SECTION :: shortcuts_section_get_type
+TYPE_SHORTCUTS_WINDOW :: shortcuts_window_get_type
+TYPE_APPLICATION_WINDOW :: application_window_get_type
+TYPE_ASPECT_FRAME :: aspect_frame_get_type
+TYPE_ASSISTANT :: assistant_get_type
+TYPE_ASSISTANT_PAGE :: assistant_page_get_type
+TYPE_AT_CONTEXT :: at_context_get_type
+TYPE_LAYOUT_CHILD :: layout_child_get_type
+TYPE_LAYOUT_MANAGER :: layout_manager_get_type
+TYPE_BIN_LAYOUT :: bin_layout_get_type
+TYPE_BITSET :: bitset_get_type
+TYPE_BOOKMARK_LIST :: bookmark_list_get_type
+TYPE_EXPRESSION :: expression_get_type
+TYPE_EXPRESSION_WATCH :: expression_watch_get_type
+TYPE_PROPERTY_EXPRESSION :: property_expression_get_type
+TYPE_CONSTANT_EXPRESSION :: constant_expression_get_type
+TYPE_OBJECT_EXPRESSION :: object_expression_get_type
+TYPE_CLOSURE_EXPRESSION :: closure_expression_get_type
+TYPE_CCLOSURE_EXPRESSION :: cclosure_expression_get_type
+TYPE_PARAM_SPEC_EXPRESSION :: param_expression_get_type
+TYPE_FILTER :: filter_get_type
+TYPE_BOOL_FILTER :: bool_filter_get_type
+TYPE_BORDER :: border_get_type
+TYPE_BOX_LAYOUT :: box_layout_get_type
+TYPE_BOX :: box_get_type
+TYPE_BUILDER_SCOPE :: builder_scope_get_type
+TYPE_BUILDER_CSCOPE :: builder_cscope_get_type
+TYPE_BUILDER :: builder_get_type
+BUILDER_ERROR :: builder_error_quark
+TYPE_BUILDABLE :: buildable_get_type
+TYPE_LIST_ITEM_FACTORY :: list_item_factory_get_type
+TYPE_BUILDER_LIST_ITEM_FACTORY :: builder_list_item_factory_get_type
+TYPE_BUTTON :: button_get_type
+TYPE_CALENDAR :: calendar_get_type
+TYPE_CELL_EDITABLE :: cell_editable_get_type
+TYPE_CELL_RENDERER :: cell_renderer_get_type
+TYPE_TREE_MODEL :: tree_model_get_type
+TYPE_TREE_ITER :: tree_iter_get_type
+TYPE_TREE_PATH :: tree_path_get_type
+TYPE_TREE_ROW_REFERENCE :: tree_row_reference_get_type
+TYPE_CELL_AREA :: cell_area_get_type
+TYPE_CELL_AREA_BOX :: cell_area_box_get_type
+TYPE_CELL_AREA_CONTEXT :: cell_area_context_get_type
+TYPE_CELL_LAYOUT :: cell_layout_get_type
+TYPE_CELL_RENDERER_TEXT :: cell_renderer_text_get_type
+TYPE_CELL_RENDERER_ACCEL :: cell_renderer_accel_get_type
+TYPE_CELL_RENDERER_COMBO :: cell_renderer_combo_get_type
+TYPE_CELL_RENDERER_PIXBUF :: cell_renderer_pixbuf_get_type
+TYPE_CELL_RENDERER_PROGRESS :: cell_renderer_progress_get_type
+TYPE_CELL_RENDERER_SPIN :: cell_renderer_spin_get_type
+TYPE_CELL_RENDERER_SPINNER :: cell_renderer_spinner_get_type
+TYPE_CELL_RENDERER_TOGGLE :: cell_renderer_toggle_get_type
+TYPE_CELL_VIEW :: cell_view_get_type
+TYPE_CENTER_BOX :: center_box_get_type
+TYPE_CENTER_LAYOUT :: center_layout_get_type
+TYPE_TOGGLE_BUTTON :: toggle_button_get_type
+TYPE_CHECK_BUTTON :: check_button_get_type
+TYPE_COLOR_BUTTON :: color_button_get_type
+TYPE_COLOR_CHOOSER :: color_chooser_get_type
+TYPE_COLOR_CHOOSER_DIALOG :: color_chooser_dialog_get_type
+TYPE_COLOR_CHOOSER_WIDGET :: color_chooser_widget_get_type
+TYPE_COLOR_DIALOG :: color_dialog_get_type
+TYPE_COLOR_DIALOG_BUTTON :: color_dialog_button_get_type
+TYPE_SORTER :: sorter_get_type
+TYPE_SORT_LIST_MODEL :: sort_list_model_get_type
+TYPE_SELECTION_MODEL :: selection_model_get_type
+TYPE_COLUMN_VIEW :: column_view_get_type
+TYPE_LIST_ITEM :: list_item_get_type
+TYPE_COLUMN_VIEW_CELL :: column_view_cell_get_type
+TYPE_COLUMN_VIEW_COLUMN :: column_view_column_get_type
+TYPE_COLUMN_VIEW_ROW :: column_view_row_get_type
+TYPE_COLUMN_VIEW_SORTER :: column_view_sorter_get_type
+TYPE_TREE_SORTABLE :: tree_sortable_get_type
+TREE_SORTABLE_DEFAULT_SORT_COLUMN_ID :: -1
+TREE_SORTABLE_UNSORTED_SORT_COLUMN_ID :: -2
+TYPE_TREE_VIEW_COLUMN :: tree_view_column_get_type
+TYPE_EDITABLE :: editable_get_type
+TYPE_IM_CONTEXT :: im_context_get_type
+ENTRY_BUFFER_MAX_SIZE :: 65535
+TYPE_ENTRY_BUFFER :: entry_buffer_get_type
+TYPE_LIST_STORE :: list_store_get_type
+TYPE_TREE_MODEL_FILTER :: tree_model_filter_get_type
+TYPE_ENTRY_COMPLETION :: entry_completion_get_type
+TYPE_IMAGE :: image_get_type
+TYPE_ENTRY :: entry_get_type
+TYPE_TREE_VIEW :: tree_view_get_type
+TYPE_COMBO_BOX :: combo_box_get_type
+TYPE_COMBO_BOX_TEXT :: combo_box_text_get_type
+TYPE_CONSTRAINT_TARGET :: constraint_target_get_type
+TYPE_CONSTRAINT :: constraint_get_type
+TYPE_ASSISTANT_PAGE_TYPE :: assistant_page_type_get_type
+TYPE_CELL_RENDERER_STATE :: cell_renderer_state_get_type
+TYPE_CELL_RENDERER_MODE :: cell_renderer_mode_get_type
+TYPE_CELL_RENDERER_ACCEL_MODE :: cell_renderer_accel_mode_get_type
+TYPE_DIALOG_FLAGS :: dialog_flags_get_type
+TYPE_RESPONSE_TYPE :: response_type_get_type
+TYPE_FILE_CHOOSER_ACTION :: file_chooser_action_get_type
+TYPE_FILE_CHOOSER_ERROR :: file_chooser_error_get_type
+TYPE_FONT_CHOOSER_LEVEL :: font_chooser_level_get_type
+TYPE_ICON_VIEW_DROP_POSITION :: icon_view_drop_position_get_type
+TYPE_BUTTONS_TYPE :: buttons_type_get_type
+TYPE_STYLE_CONTEXT_PRINT_FLAGS :: style_context_print_flags_get_type
+TYPE_TREE_MODEL_FLAGS :: tree_model_flags_get_type
+TYPE_TREE_VIEW_DROP_POSITION :: tree_view_drop_position_get_type
+TYPE_TREE_VIEW_COLUMN_SIZING :: tree_view_column_sizing_get_type
+TYPE_LICENSE :: license_get_type
+TYPE_ACCESSIBLE_PLATFORM_STATE :: accessible_platform_state_get_type
+TYPE_ACCESSIBLE_TEXT_GRANULARITY :: accessible_text_granularity_get_type
+TYPE_ACCESSIBLE_TEXT_CONTENT_CHANGE :: accessible_text_content_change_get_type
+TYPE_APPLICATION_INHIBIT_FLAGS :: application_inhibit_flags_get_type
+TYPE_BUILDER_ERROR :: builder_error_get_type
+TYPE_BUILDER_CLOSURE_FLAGS :: builder_closure_flags_get_type
+TYPE_DEBUG_FLAGS :: debug_flags_get_type
+TYPE_DIALOG_ERROR :: dialog_error_get_type
+TYPE_EDITABLE_PROPERTIES :: editable_properties_get_type
+TYPE_ENTRY_ICON_POSITION :: entry_icon_position_get_type
+TYPE_ALIGN :: align_get_type
+TYPE_ARROW_TYPE :: arrow_type_get_type
+TYPE_BASELINE_POSITION :: baseline_position_get_type
+TYPE_CONTENT_FIT :: content_fit_get_type
+TYPE_DELETE_TYPE :: delete_type_get_type
+TYPE_DIRECTION_TYPE :: direction_type_get_type
+TYPE_ICON_SIZE :: icon_size_get_type
+TYPE_SENSITIVITY_TYPE :: sensitivity_type_get_type
+TYPE_TEXT_DIRECTION :: text_direction_get_type
+TYPE_JUSTIFICATION :: justification_get_type
+TYPE_LIST_TAB_BEHAVIOR :: list_tab_behavior_get_type
+TYPE_LIST_SCROLL_FLAGS :: list_scroll_flags_get_type
+TYPE_MESSAGE_TYPE :: message_type_get_type
+TYPE_MOVEMENT_STEP :: movement_step_get_type
+TYPE_NATURAL_WRAP_MODE :: natural_wrap_mode_get_type
+TYPE_SCROLL_STEP :: scroll_step_get_type
+TYPE_ORIENTATION :: orientation_get_type
+TYPE_OVERFLOW :: overflow_get_type
+TYPE_PACK_TYPE :: pack_type_get_type
+TYPE_POSITION_TYPE :: position_type_get_type
+TYPE_SCROLL_TYPE :: scroll_type_get_type
+TYPE_SELECTION_MODE :: selection_mode_get_type
+TYPE_WRAP_MODE :: wrap_mode_get_type
+TYPE_SORT_TYPE :: sort_type_get_type
+TYPE_PRINT_PAGES :: print_pages_get_type
+TYPE_PAGE_SET :: page_set_get_type
+TYPE_NUMBER_UP_LAYOUT :: number_up_layout_get_type
+TYPE_ORDERING :: ordering_get_type
+TYPE_PAGE_ORIENTATION :: page_orientation_get_type
+TYPE_PRINT_QUALITY :: print_quality_get_type
+TYPE_PRINT_DUPLEX :: print_duplex_get_type
+TYPE_UNIT :: unit_get_type
+TYPE_TREE_VIEW_GRID_LINES :: tree_view_grid_lines_get_type
+TYPE_SIZE_GROUP_MODE :: size_group_mode_get_type
+TYPE_SIZE_REQUEST_MODE :: size_request_mode_get_type
+TYPE_SCROLLABLE_POLICY :: scrollable_policy_get_type
+TYPE_STATE_FLAGS :: state_flags_get_type
+TYPE_BORDER_STYLE :: border_style_get_type
+TYPE_LEVEL_BAR_MODE :: level_bar_mode_get_type
+TYPE_INPUT_PURPOSE :: input_purpose_get_type
+TYPE_INPUT_HINTS :: input_hints_get_type
+TYPE_PROPAGATION_PHASE :: propagation_phase_get_type
+TYPE_PROPAGATION_LIMIT :: propagation_limit_get_type
+TYPE_EVENT_SEQUENCE_STATE :: event_sequence_state_get_type
+TYPE_PAN_DIRECTION :: pan_direction_get_type
+TYPE_SHORTCUT_SCOPE :: shortcut_scope_get_type
+TYPE_PICK_FLAGS :: pick_flags_get_type
+TYPE_CONSTRAINT_RELATION :: constraint_relation_get_type
+TYPE_CONSTRAINT_STRENGTH :: constraint_strength_get_type
+TYPE_CONSTRAINT_ATTRIBUTE :: constraint_attribute_get_type
+TYPE_CONSTRAINT_VFL_PARSER_ERROR :: constraint_vfl_parser_error_get_type
+TYPE_SYSTEM_SETTING :: system_setting_get_type
+TYPE_SYMBOLIC_COLOR :: symbolic_color_get_type
+TYPE_ACCESSIBLE_ROLE :: accessible_role_get_type
+TYPE_ACCESSIBLE_STATE :: accessible_state_get_type
+TYPE_ACCESSIBLE_PROPERTY :: accessible_property_get_type
+TYPE_ACCESSIBLE_RELATION :: accessible_relation_get_type
+TYPE_ACCESSIBLE_TRISTATE :: accessible_tristate_get_type
+TYPE_ACCESSIBLE_INVALID_STATE :: accessible_invalid_state_get_type
+TYPE_ACCESSIBLE_AUTOCOMPLETE :: accessible_autocomplete_get_type
+TYPE_ACCESSIBLE_SORT :: accessible_sort_get_type
+TYPE_ACCESSIBLE_ANNOUNCEMENT_PRIORITY :: accessible_announcement_priority_get_type
+TYPE_POPOVER_MENU_FLAGS :: popover_menu_flags_get_type
+TYPE_FONT_RENDERING :: font_rendering_get_type
+TYPE_TEXT_BUFFER_NOTIFY_FLAGS :: text_buffer_notify_flags_get_type
+TYPE_EVENT_CONTROLLER_SCROLL_FLAGS :: event_controller_scroll_flags_get_type
+TYPE_FILTER_MATCH :: filter_match_get_type
+TYPE_FILTER_CHANGE :: filter_change_get_type
+TYPE_FONT_LEVEL :: font_level_get_type
+TYPE_GRAPHICS_OFFLOAD_ENABLED :: graphics_offload_enabled_get_type
+TYPE_ICON_LOOKUP_FLAGS :: icon_lookup_flags_get_type
+TYPE_ICON_THEME_ERROR :: icon_theme_error_get_type
+TYPE_IMAGE_TYPE :: image_type_get_type
+TYPE_INSCRIPTION_OVERFLOW :: inscription_overflow_get_type
+TYPE_NOTEBOOK_TAB :: notebook_tab_get_type
+TYPE_PAD_ACTION_TYPE :: pad_action_type_get_type
+TYPE_RECENT_MANAGER_ERROR :: recent_manager_error_get_type
+TYPE_REVEALER_TRANSITION_TYPE :: revealer_transition_type_get_type
+TYPE_CORNER_TYPE :: corner_type_get_type
+TYPE_POLICY_TYPE :: policy_type_get_type
+TYPE_SHORTCUT_ACTION_FLAGS :: shortcut_action_flags_get_type
+TYPE_SHORTCUT_TYPE :: shortcut_type_get_type
+TYPE_SORTER_ORDER :: sorter_order_get_type
+TYPE_SORTER_CHANGE :: sorter_change_get_type
+TYPE_SPIN_BUTTON_UPDATE_POLICY :: spin_button_update_policy_get_type
+TYPE_SPIN_TYPE :: spin_type_get_type
+TYPE_STACK_TRANSITION_TYPE :: stack_transition_type_get_type
+TYPE_STRING_FILTER_MATCH_MODE :: string_filter_match_mode_get_type
+TYPE_COLLATION :: collation_get_type
+TYPE_TEXT_SEARCH_FLAGS :: text_search_flags_get_type
+TYPE_TEXT_WINDOW_TYPE :: text_window_type_get_type
+TYPE_TEXT_VIEW_LAYER :: text_view_layer_get_type
+TYPE_TEXT_EXTEND_SELECTION :: text_extend_selection_get_type
+TYPE_PRINT_STATUS :: print_status_get_type
+TYPE_PRINT_OPERATION_RESULT :: print_operation_result_get_type
+TYPE_PRINT_OPERATION_ACTION :: print_operation_action_get_type
+TYPE_PRINT_ERROR :: print_error_get_type
+TYPE_CONSTRAINT_GUIDE :: constraint_guide_get_type
+TYPE_CONSTRAINT_LAYOUT :: constraint_layout_get_type
+TYPE_CONSTRAINT_LAYOUT_CHILD :: constraint_layout_child_get_type
+CONSTRAINT_VFL_PARSER_ERROR :: constraint_vfl_parser_error_quark
+TYPE_CSS_PROVIDER :: css_provider_get_type
+TYPE_CUSTOM_LAYOUT :: custom_layout_get_type
+TYPE_CUSTOM_SORTER :: custom_sorter_get_type
+DIALOG_ERROR :: dialog_error_quark
+TYPE_DIRECTORY_LIST :: directory_list_get_type
+TYPE_DRAG_ICON :: drag_icon_get_type
+TYPE_DRAG_SOURCE :: drag_source_get_type
+TYPE_DRAWING_AREA :: drawing_area_get_type
+TYPE_EVENT_CONTROLLER :: event_controller_get_type
+TYPE_DROP_CONTROLLER_MOTION :: drop_controller_motion_get_type
+TYPE_DROP_TARGET :: drop_target_get_type
+TYPE_DROP_TARGET_ASYNC :: drop_target_async_get_type
+TYPE_STRING_FILTER :: string_filter_get_type
+TYPE_DROP_DOWN :: drop_down_get_type
+TYPE_EDITABLE_LABEL :: editable_label_get_type
+TYPE_EMOJI_CHOOSER :: emoji_chooser_get_type
+TYPE_EVENT_CONTROLLER_FOCUS :: event_controller_focus_get_type
+TYPE_EVENT_CONTROLLER_KEY :: event_controller_key_get_type
+TYPE_EVENT_CONTROLLER_LEGACY :: event_controller_legacy_get_type
+TYPE_EVENT_CONTROLLER_MOTION :: event_controller_motion_get_type
+TYPE_EVENT_CONTROLLER_SCROLL :: event_controller_scroll_get_type
+TYPE_EXPANDER :: expander_get_type
+TYPE_FIXED :: fixed_get_type
+TYPE_FIXED_LAYOUT :: fixed_layout_get_type
+TYPE_FIXED_LAYOUT_CHILD :: fixed_layout_child_get_type
+TYPE_FILE_FILTER :: file_filter_get_type
+TYPE_FILE_CHOOSER :: file_chooser_get_type
+FILE_CHOOSER_ERROR :: file_chooser_error_quark
+TYPE_FILE_CHOOSER_DIALOG :: file_chooser_dialog_get_type
+TYPE_NATIVE_DIALOG :: native_dialog_get_type
+TYPE_FILE_CHOOSER_NATIVE :: file_chooser_native_get_type
+TYPE_FILE_CHOOSER_WIDGET :: file_chooser_widget_get_type
+TYPE_FILE_DIALOG :: file_dialog_get_type
+TYPE_FILE_LAUNCHER :: file_launcher_get_type
+TYPE_FILTER_LIST_MODEL :: filter_list_model_get_type
+TYPE_CUSTOM_FILTER :: custom_filter_get_type
+TYPE_FLATTEN_LIST_MODEL :: flatten_list_model_get_type
+TYPE_FLOW_BOX :: flow_box_get_type
+TYPE_FLOW_BOX_CHILD :: flow_box_child_get_type
+TYPE_FONT_BUTTON :: font_button_get_type
+TYPE_FONT_CHOOSER :: font_chooser_get_type
+TYPE_FONT_CHOOSER_DIALOG :: font_chooser_dialog_get_type
+TYPE_FONT_CHOOSER_WIDGET :: font_chooser_widget_get_type
+TYPE_FONT_DIALOG :: font_dialog_get_type
+TYPE_FONT_DIALOG_BUTTON :: font_dialog_button_get_type
+TYPE_FRAME :: frame_get_type
+TYPE_GESTURE :: gesture_get_type
+TYPE_GESTURE_SINGLE :: gesture_single_get_type
+TYPE_GESTURE_CLICK :: gesture_click_get_type
+TYPE_GESTURE_DRAG :: gesture_drag_get_type
+TYPE_GESTURE_LONG_PRESS :: gesture_long_press_get_type
+TYPE_GESTURE_PAN :: gesture_pan_get_type
+TYPE_GESTURE_ROTATE :: gesture_rotate_get_type
+TYPE_GESTURE_STYLUS :: gesture_stylus_get_type
+TYPE_GESTURE_SWIPE :: gesture_swipe_get_type
+TYPE_GESTURE_ZOOM :: gesture_zoom_get_type
+TYPE_GL_AREA :: gl_area_get_type
+TYPE_GRAPHICS_OFFLOAD :: graphics_offload_get_type
+TYPE_GRID :: grid_get_type
+TYPE_GRID_LAYOUT :: grid_layout_get_type
+TYPE_GRID_LAYOUT_CHILD :: grid_layout_child_get_type
+TYPE_LIST_BASE :: list_base_get_type
+TYPE_GRID_VIEW :: grid_view_get_type
+TYPE_HEADER_BAR :: header_bar_get_type
+TYPE_ICON_PAINTABLE :: icon_paintable_get_type
+TYPE_ICON_THEME :: icon_theme_get_type
+ICON_THEME_ERROR :: icon_theme_error_quark
+TYPE_TOOLTIP :: tooltip_get_type
+TYPE_ICON_VIEW :: icon_view_get_type
+MAX_COMPOSE_LEN :: 7
+TYPE_IM_CONTEXT_SIMPLE :: im_context_simple_get_type
+TYPE_IM_MULTICONTEXT :: im_multicontext_get_type
+TYPE_INFO_BAR :: info_bar_get_type
+TYPE_INSCRIPTION :: inscription_get_type
+TYPE_LABEL :: label_get_type
+TYPE_LEVEL_BAR :: level_bar_get_type
+LEVEL_BAR_OFFSET_LOW :: "low"
+LEVEL_BAR_OFFSET_HIGH :: "high"
+LEVEL_BAR_OFFSET_FULL :: "full"
+TYPE_LINK_BUTTON :: link_button_get_type
+TYPE_LIST_BOX :: list_box_get_type
+TYPE_LIST_BOX_ROW :: list_box_row_get_type
+TYPE_LIST_HEADER :: list_header_get_type
+TYPE_LIST_VIEW :: list_view_get_type
+TYPE_LOCK_BUTTON :: lock_button_get_type
+PRIORITY_RESIZE :: (100 + 10)
+TYPE_MAP_LIST_MODEL :: map_list_model_get_type
+TYPE_MEDIA_STREAM :: media_stream_get_type
+TYPE_MEDIA_CONTROLS :: media_controls_get_type
+MEDIA_FILE_EXTENSION_POINT_NAME :: "gtk-media-file"
+TYPE_MEDIA_FILE :: media_file_get_type
+TYPE_POPOVER :: popover_get_type
+TYPE_MENU_BUTTON :: menu_button_get_type
+TYPE_MESSAGE_DIALOG :: message_dialog_get_type
+TYPE_MOUNT_OPERATION :: mount_operation_get_type
+TYPE_MULTI_FILTER :: multi_filter_get_type
+TYPE_ANY_FILTER :: any_filter_get_type
+TYPE_EVERY_FILTER :: every_filter_get_type
+TYPE_MULTI_SELECTION :: multi_selection_get_type
+TYPE_MULTI_SORTER :: multi_sorter_get_type
+TYPE_NATIVE :: native_get_type
+TYPE_NO_SELECTION :: no_selection_get_type
+TYPE_NOTEBOOK :: notebook_get_type
+TYPE_NOTEBOOK_PAGE :: notebook_page_get_type
+TYPE_NUMERIC_SORTER :: numeric_sorter_get_type
+TYPE_ORIENTABLE :: orientable_get_type
+TYPE_OVERLAY :: overlay_get_type
+TYPE_OVERLAY_LAYOUT :: overlay_layout_get_type
+TYPE_OVERLAY_LAYOUT_CHILD :: overlay_layout_child_get_type
+TYPE_PAD_CONTROLLER :: pad_controller_get_type
+TYPE_PAPER_SIZE :: paper_size_get_type
+PAPER_NAME_A3 :: "iso_a3"
+PAPER_NAME_A4 :: "iso_a4"
+PAPER_NAME_A5 :: "iso_a5"
+PAPER_NAME_B5 :: "iso_b5"
+PAPER_NAME_LETTER :: "na_letter"
+PAPER_NAME_EXECUTIVE :: "na_executive"
+PAPER_NAME_LEGAL :: "na_legal"
+TYPE_PAGE_SETUP :: page_setup_get_type
+TYPE_PANED :: paned_get_type
+TYPE_PASSWORD_ENTRY :: password_entry_get_type
+TYPE_PASSWORD_ENTRY_BUFFER :: password_entry_buffer_get_type
+TYPE_PICTURE :: picture_get_type
+TYPE_POPOVER_MENU :: popover_menu_get_type
+TYPE_POPOVER_MENU_BAR :: popover_menu_bar_get_type
+TYPE_PRINT_SETTINGS :: print_settings_get_type
+PRINT_SETTINGS_PRINTER :: "printer"
+PRINT_SETTINGS_ORIENTATION :: "orientation"
+PRINT_SETTINGS_PAPER_FORMAT :: "paper-format"
+PRINT_SETTINGS_PAPER_WIDTH :: "paper-width"
+PRINT_SETTINGS_PAPER_HEIGHT :: "paper-height"
+PRINT_SETTINGS_N_COPIES :: "n-copies"
+PRINT_SETTINGS_DEFAULT_SOURCE :: "default-source"
+PRINT_SETTINGS_QUALITY :: "quality"
+PRINT_SETTINGS_RESOLUTION :: "resolution"
+PRINT_SETTINGS_USE_COLOR :: "use-color"
+PRINT_SETTINGS_DUPLEX :: "duplex"
+PRINT_SETTINGS_COLLATE :: "collate"
+PRINT_SETTINGS_REVERSE :: "reverse"
+PRINT_SETTINGS_MEDIA_TYPE :: "media-type"
+PRINT_SETTINGS_DITHER :: "dither"
+PRINT_SETTINGS_SCALE :: "scale"
+PRINT_SETTINGS_PRINT_PAGES :: "print-pages"
+PRINT_SETTINGS_PAGE_RANGES :: "page-ranges"
+PRINT_SETTINGS_PAGE_SET :: "page-set"
+PRINT_SETTINGS_FINISHINGS :: "finishings"
+PRINT_SETTINGS_NUMBER_UP :: "number-up"
+PRINT_SETTINGS_NUMBER_UP_LAYOUT :: "number-up-layout"
+PRINT_SETTINGS_OUTPUT_BIN :: "output-bin"
+PRINT_SETTINGS_RESOLUTION_X :: "resolution-x"
+PRINT_SETTINGS_RESOLUTION_Y :: "resolution-y"
+PRINT_SETTINGS_PRINTER_LPI :: "printer-lpi"
+PRINT_SETTINGS_OUTPUT_DIR :: "output-dir"
+PRINT_SETTINGS_OUTPUT_BASENAME :: "output-basename"
+PRINT_SETTINGS_OUTPUT_FILE_FORMAT :: "output-file-format"
+PRINT_SETTINGS_OUTPUT_URI :: "output-uri"
+PRINT_SETTINGS_WIN32_DRIVER_VERSION :: "win32-driver-version"
+PRINT_SETTINGS_WIN32_DRIVER_EXTRA :: "win32-driver-extra"
+TYPE_PRINT_SETUP :: print_setup_get_type
+TYPE_PRINT_DIALOG :: print_dialog_get_type
+TYPE_PRINT_CONTEXT :: print_context_get_type
+TYPE_PRINT_OPERATION_PREVIEW :: print_operation_preview_get_type
+TYPE_PRINT_OPERATION :: print_operation_get_type
+PRINT_ERROR :: print_error_quark
+TYPE_PROGRESS_BAR :: progress_bar_get_type
+TYPE_RANGE :: range_get_type
+TYPE_RECENT_INFO :: recent_info_get_type
+TYPE_RECENT_MANAGER :: recent_manager_get_type
+RECENT_MANAGER_ERROR :: recent_manager_error_quark
+TYPE_REVEALER :: revealer_get_type
+TYPE_ROOT :: root_get_type
+TYPE_SCALE :: scale_get_type
+TYPE_SCALE_BUTTON :: scale_button_get_type
+TYPE_SCROLLABLE :: scrollable_get_type
+TYPE_SCROLLBAR :: scrollbar_get_type
+TYPE_SCROLL_INFO :: scroll_info_get_type
+TYPE_SCROLLED_WINDOW :: scrolled_window_get_type
+TYPE_SEARCH_BAR :: search_bar_get_type
+TYPE_SEARCH_ENTRY :: search_entry_get_type
+TYPE_SECTION_MODEL :: section_model_get_type
+TYPE_SELECTION_FILTER_MODEL :: selection_filter_model_get_type
+TYPE_SEPARATOR :: separator_get_type
+TYPE_SETTINGS :: settings_get_type
+TYPE_SHORTCUT_CONTROLLER :: shortcut_controller_get_type
+TYPE_SHORTCUT_LABEL :: shortcut_label_get_type
+TYPE_SHORTCUT_MANAGER :: shortcut_manager_get_type
+TYPE_SHORTCUT_TRIGGER :: shortcut_trigger_get_type
+TYPE_NEVER_TRIGGER :: never_trigger_get_type
+TYPE_KEYVAL_TRIGGER :: keyval_trigger_get_type
+TYPE_MNEMONIC_TRIGGER :: mnemonic_trigger_get_type
+TYPE_ALTERNATIVE_TRIGGER :: alternative_trigger_get_type
+TYPE_SIGNAL_LIST_ITEM_FACTORY :: signal_list_item_factory_get_type
+TYPE_SINGLE_SELECTION :: single_selection_get_type
+TYPE_SLICE_LIST_MODEL :: slice_list_model_get_type
+TYPE_STACK :: stack_get_type
+TYPE_STACK_PAGE :: stack_page_get_type
+TYPE_STACK_SIDEBAR :: stack_sidebar_get_type
+TYPE_SIZE_GROUP :: size_group_get_type
+TYPE_SPIN_BUTTON :: spin_button_get_type
+INPUT_ERROR :: -1
+TYPE_SPINNER :: spinner_get_type
+TYPE_STACK_SWITCHER :: stack_switcher_get_type
+TYPE_STATUSBAR :: statusbar_get_type
+TYPE_STRING_OBJECT :: string_object_get_type
+TYPE_STRING_LIST :: string_list_get_type
+TYPE_STRING_SORTER :: string_sorter_get_type
+TYPE_STYLE_PROVIDER :: style_provider_get_type
+STYLE_PROVIDER_PRIORITY_FALLBACK :: 1
+STYLE_PROVIDER_PRIORITY_THEME :: 200
+STYLE_PROVIDER_PRIORITY_SETTINGS :: 400
+STYLE_PROVIDER_PRIORITY_APPLICATION :: 600
+STYLE_PROVIDER_PRIORITY_USER :: 800
+TYPE_STYLE_CONTEXT :: style_context_get_type
+TYPE_SWITCH :: switch_get_type
+TYPE_SYMBOLIC_PAINTABLE :: symbolic_paintable_get_type
+TYPE_TEXT :: text_get_type
+TYPE_TEXT_TAG :: text_tag_get_type
+TYPE_TEXT_TAG_TABLE :: text_tag_table_get_type
+TYPE_TEXT_CHILD_ANCHOR :: text_child_anchor_get_type
+TYPE_TEXT_ITER :: text_iter_get_type
+TYPE_TEXT_MARK :: text_mark_get_type
+TYPE_TEXT_BUFFER :: text_buffer_get_type
+TYPE_TEXT_VIEW :: text_view_get_type
+TEXT_VIEW_PRIORITY_VALIDATE :: ((100 + 20) + 5)
+TYPE_TREE_DRAG_SOURCE :: tree_drag_source_get_type
+TYPE_TREE_DRAG_DEST :: tree_drag_dest_get_type
+TYPE_TREE_LIST_MODEL :: tree_list_model_get_type
+TYPE_TREE_LIST_ROW :: tree_list_row_get_type
+TYPE_TREE_EXPANDER :: tree_expander_get_type
+TYPE_TREE_LIST_ROW_SORTER :: tree_list_row_sorter_get_type
+TYPE_TREE_MODEL_SORT :: tree_model_sort_get_type
+TYPE_TREE_SELECTION :: tree_selection_get_type
+TYPE_TREE_STORE :: tree_store_get_type
+TYPE_URI_LAUNCHER :: uri_launcher_get_type
+TYPE_VIDEO :: video_get_type
+TYPE_VIEWPORT :: viewport_get_type
+TYPE_VOLUME_BUTTON :: volume_button_get_type
+TYPE_WIDGET_PAINTABLE :: widget_paintable_get_type
+TYPE_WINDOW_CONTROLS :: window_controls_get_type
+TYPE_WINDOW_GROUP :: window_group_get_type
+TYPE_WINDOW_HANDLE :: window_handle_get_type
+
+CssParserError :: enum u32 {FAILED = 0, SYNTAX = 1, IMPORT = 2, NAME = 3, UNKNOWN_VALUE = 4 }
+CssParserWarning :: enum u32 {DEPRECATED = 0, SYNTAX = 1, UNIMPLEMENTED = 2 }
+CssLocation :: struct {
+    bytes: glib.size,
+    chars: glib.size,
+    lines: glib.size,
+    line_bytes: glib.size,
+    line_chars: glib.size,
+}
+
+CssSection :: struct #packed {}
+
+GLAPIBit :: enum u32 {GL = 0, GLES = 1}
+GLAPI :: bit_set[GLAPIBit; u32]
+Gravity :: enum u32 {NORTH_WEST = 1, NORTH = 2, NORTH_EAST = 3, WEST = 4, CENTER = 5, EAST = 6, SOUTH_WEST = 7, SOUTH = 8, SOUTH_EAST = 9, STATIC = 10 }
+ModifierTypeBit :: enum u32 {SHIFT_MASK = 0, LOCK_MASK = 1, CONTROL_MASK = 2, ALT_MASK = 3, BUTTON1_MASK = 8, BUTTON2_MASK = 9, BUTTON3_MASK = 10, BUTTON4_MASK = 11, BUTTON5_MASK = 12, SUPER_MASK = 26, HYPER_MASK = 27, META_MASK = 28}
+ModifierType :: bit_set[ModifierTypeBit; u32]
+NO_MODIFIER_MASK :: ModifierType{}
+DmabufError :: enum u32 {NOT_AVAILABLE = 0, UNSUPPORTED_FORMAT = 1, CREATION_FAILED = 2 }
+GLError :: enum u32 {NOT_AVAILABLE = 0, UNSUPPORTED_FORMAT = 1, UNSUPPORTED_PROFILE = 2, COMPILATION_FAILED = 3, LINK_FAILED = 4 }
+VulkanError :: enum u32 {UNSUPPORTED = 0, NOT_AVAILABLE = 1 }
+AxisUse :: enum u32 {AXIS_IGNORE = 0, AXIS_X = 1, AXIS_Y = 2, AXIS_DELTA_X = 3, AXIS_DELTA_Y = 4, AXIS_PRESSURE = 5, AXIS_XTILT = 6, AXIS_YTILT = 7, AXIS_WHEEL = 8, AXIS_DISTANCE = 9, AXIS_ROTATION = 10, AXIS_SLIDER = 11, AXIS_LAST = 12 }
+AxisFlagsBit :: enum u32 {AXIS_FLAG_X = 1, AXIS_FLAG_Y = 2, AXIS_FLAG_DELTA_X = 3, AXIS_FLAG_DELTA_Y = 4, AXIS_FLAG_PRESSURE = 5, AXIS_FLAG_XTILT = 6, AXIS_FLAG_YTILT = 7, AXIS_FLAG_WHEEL = 8, AXIS_FLAG_DISTANCE = 9, AXIS_FLAG_ROTATION = 10, AXIS_FLAG_SLIDER = 11}
+AxisFlags :: bit_set[AxisFlagsBit; u32]
+DragActionBit :: enum u32 {ACTION_COPY = 0, ACTION_MOVE = 1, ACTION_LINK = 2, ACTION_ASK = 3}
+DragAction :: bit_set[DragActionBit; u32]
+MemoryFormat :: enum u32 {MEMORY_B8G8R8A8_PREMULTIPLIED = 0, MEMORY_A8R8G8B8_PREMULTIPLIED = 1, MEMORY_R8G8B8A8_PREMULTIPLIED = 2, MEMORY_B8G8R8A8 = 3, MEMORY_A8R8G8B8 = 4, MEMORY_R8G8B8A8 = 5, MEMORY_A8B8G8R8 = 6, MEMORY_R8G8B8 = 7, MEMORY_B8G8R8 = 8, MEMORY_R16G16B16 = 9, MEMORY_R16G16B16A16_PREMULTIPLIED = 10, MEMORY_R16G16B16A16 = 11, MEMORY_R16G16B16_FLOAT = 12, MEMORY_R16G16B16A16_FLOAT_PREMULTIPLIED = 13, MEMORY_R16G16B16A16_FLOAT = 14, MEMORY_R32G32B32_FLOAT = 15, MEMORY_R32G32B32A32_FLOAT_PREMULTIPLIED = 16, MEMORY_R32G32B32A32_FLOAT = 17, MEMORY_G8A8_PREMULTIPLIED = 18, MEMORY_G8A8 = 19, MEMORY_G8 = 20, MEMORY_G16A16_PREMULTIPLIED = 21, MEMORY_G16A16 = 22, MEMORY_G16 = 23, MEMORY_A8 = 24, MEMORY_A16 = 25, MEMORY_A16_FLOAT = 26, MEMORY_A32_FLOAT = 27, MEMORY_A8B8G8R8_PREMULTIPLIED = 28, MEMORY_B8G8R8X8 = 29, MEMORY_X8R8G8B8 = 30, MEMORY_R8G8B8X8 = 31, MEMORY_X8B8G8R8 = 32, MEMORY_N_FORMATS = 33 }
+Rectangle :: cairo.rectangle_int_t
+RGBA :: struct {
+    red: f32,
+    green: f32,
+    blue: f32,
+    alpha: f32,
+}
+
+CicpParams :: struct #packed {}
+
+ColorState :: struct #packed {}
+
+ContentFormats :: struct #packed {}
+
+ContentProvider :: struct {
+    parent: gobj.Object,
+}
+
+Cursor :: struct #packed {}
+
+Texture :: struct #packed {}
+
+TextureDownloader :: struct #packed {}
+
+Device :: struct #packed {}
+
+Drag :: struct #packed {}
+
+Drop :: struct #packed {}
+
+Clipboard :: struct #packed {}
+
+DisplayManager :: struct #packed {}
+
+Display :: struct #packed {}
+
+Surface :: struct #packed {}
+
+AppLaunchContext :: struct #packed {}
+
+Seat :: struct {
+    parent_instance: gobj.Object,
+}
+
+Snapshot :: struct #packed {}
+
+DrawContext :: struct #packed {}
+
+CairoContext :: struct #packed {}
+
+GLContext :: struct #packed {}
+
+VulkanContext :: struct #packed {}
+
+DmabufFormats :: struct #packed {}
+
+DmabufTexture :: struct #packed {}
+
+KeymapKey :: struct {
+    keycode: glib.uint_,
+    group: i32,
+    level: i32,
+}
+
+CicpParamsClass :: struct #packed {}
+
+CicpRange :: enum u32 {NARROW = 0, FULL = 1 }
+ContentDeserializer :: struct #packed {}
+
+ContentDeserializeFunc :: #type proc "c" (deserializer: ^ContentDeserializer)
+ContentFormatsBuilder :: struct #packed {}
+
+FileList :: struct #packed {}
+
+content_changed_func_ptr_anon_0 :: #type proc "c" (provider: ^ContentProvider)
+attach_clipboard_func_ptr_anon_1 :: #type proc "c" (provider: ^ContentProvider, clipboard: ^Clipboard)
+detach_clipboard_func_ptr_anon_2 :: #type proc "c" (provider: ^ContentProvider, clipboard: ^Clipboard)
+ref_formats_func_ptr_anon_3 :: #type proc "c" (provider: ^ContentProvider) -> ^ContentFormats
+ref_storable_formats_func_ptr_anon_4 :: #type proc "c" (provider: ^ContentProvider) -> ^ContentFormats
+write_mime_type_async_func_ptr_anon_5 :: #type proc "c" (provider: ^ContentProvider, mime_type: cstring, stream: ^gio.OutputStream, io_priority: i32, cancellable: ^gio.Cancellable, callback: gio.AsyncReadyCallback, user_data: glib.pointer)
+write_mime_type_finish_func_ptr_anon_6 :: #type proc "c" (provider: ^ContentProvider, result: ^gio.AsyncResult, error: ^^glib.Error) -> glib.boolean
+et_value_func_ptr_anon_7 :: #type proc "c" (provider: ^ContentProvider, value: ^gobj.Value, error: ^^glib.Error) -> glib.boolean
+ContentProviderClass :: struct {
+    parent_class: gobj.ObjectClass,
+    content_changed: content_changed_func_ptr_anon_0,
+    attach_clipboard: attach_clipboard_func_ptr_anon_1,
+    detach_clipboard: detach_clipboard_func_ptr_anon_2,
+    ref_formats: ref_formats_func_ptr_anon_3,
+    ref_storable_formats: ref_storable_formats_func_ptr_anon_4,
+    write_mime_type_async: write_mime_type_async_func_ptr_anon_5,
+    write_mime_type_finish: write_mime_type_finish_func_ptr_anon_6,
+    get_value: et_value_func_ptr_anon_7,
+    padding: [8]glib.pointer,
+}
+
+ContentSerializer :: struct #packed {}
+
+ContentSerializeFunc :: #type proc "c" (serializer: ^ContentSerializer)
+CursorGetTextureCallback :: #type proc "c" (cursor: ^Cursor, cursor_size: i32, scale: f64, width: ^i32, height: ^i32, hotspot_x: ^i32, hotspot_y: ^i32, data: glib.pointer) -> ^Texture
+DeviceTool :: struct #packed {}
+
+DeviceToolType :: enum u32 {UNKNOWN = 0, PEN = 1, ERASER = 2, BRUSH = 3, PENCIL = 4, AIRBRUSH = 5, MOUSE = 6, LENS = 7 }
+TimeCoord :: struct {
+    time: glib.uint32,
+    flags: AxisFlags,
+    axes: [12]f64,
+}
+
+InputSource :: enum u32 {SOURCE_MOUSE = 0, SOURCE_PEN = 1, SOURCE_KEYBOARD = 2, SOURCE_TOUCHSCREEN = 3, SOURCE_TOUCHPAD = 4, SOURCE_TRACKPOINT = 5, SOURCE_TABLET_PAD = 6 }
+DevicePad :: struct #packed {}
+
+DevicePadInterface :: struct #packed {}
+
+DevicePadFeature :: enum u32 {BUTTON = 0, RING = 1, STRIP = 2 }
+DragCancelReason :: enum u32 {DRAG_CANCEL_NO_TARGET = 0, DRAG_CANCEL_USER_CANCELLED = 1, DRAG_CANCEL_ERROR = 2 }
+EventSequence :: struct #packed {}
+
+Event :: struct #packed {}
+
+ButtonEvent :: struct #packed {}
+
+CrossingEvent :: struct #packed {}
+
+DeleteEvent :: struct #packed {}
+
+DNDEvent :: struct #packed {}
+
+FocusEvent :: struct #packed {}
+
+GrabBrokenEvent :: struct #packed {}
+
+KeyEvent :: struct #packed {}
+
+MotionEvent :: struct #packed {}
+
+PadEvent :: struct #packed {}
+
+ProximityEvent :: struct #packed {}
+
+ScrollEvent :: struct #packed {}
+
+TouchEvent :: struct #packed {}
+
+TouchpadEvent :: struct #packed {}
+
+EventType :: enum u32 {DELETE = 0, MOTION_NOTIFY = 1, BUTTON_PRESS = 2, BUTTON_RELEASE = 3, KEY_PRESS = 4, KEY_RELEASE = 5, ENTER_NOTIFY = 6, LEAVE_NOTIFY = 7, FOCUS_CHANGE = 8, PROXIMITY_IN = 9, PROXIMITY_OUT = 10, DRAG_ENTER = 11, DRAG_LEAVE = 12, DRAG_MOTION = 13, DROP_START = 14, SCROLL = 15, GRAB_BROKEN = 16, TOUCH_BEGIN = 17, TOUCH_UPDATE = 18, TOUCH_END = 19, TOUCH_CANCEL = 20, TOUCHPAD_SWIPE = 21, TOUCHPAD_PINCH = 22, PAD_BUTTON_PRESS = 23, PAD_BUTTON_RELEASE = 24, PAD_RING = 25, PAD_STRIP = 26, PAD_GROUP_MODE = 27, TOUCHPAD_HOLD = 28, EVENT_LAST = 29 }
+TouchpadGesturePhase :: enum u32 {BEGIN = 0, UPDATE = 1, END = 2, CANCEL = 3 }
+ScrollDirection :: enum u32 {SCROLL_UP = 0, SCROLL_DOWN = 1, SCROLL_LEFT = 2, SCROLL_RIGHT = 3, SCROLL_SMOOTH = 4 }
+ScrollUnit :: enum u32 {WHEEL = 0, SURFACE = 1 }
+NotifyType :: enum u32 {NOTIFY_ANCESTOR = 0, NOTIFY_VIRTUAL = 1, NOTIFY_INFERIOR = 2, NOTIFY_NONLINEAR = 3, NOTIFY_NONLINEAR_VIRTUAL = 4, NOTIFY_UNKNOWN = 5 }
+CrossingMode :: enum u32 {CROSSING_NORMAL = 0, CROSSING_GRAB = 1, CROSSING_UNGRAB = 2, CROSSING_GTK_GRAB = 3, CROSSING_GTK_UNGRAB = 4, CROSSING_STATE_CHANGED = 5, CROSSING_TOUCH_BEGIN = 6, CROSSING_TOUCH_END = 7, CROSSING_DEVICE_SWITCH = 8 }
+KeyMatch :: enum u32 {NONE = 0, PARTIAL = 1, EXACT = 2 }
+FrameTimings :: struct #packed {}
+
+FrameClock :: struct #packed {}
+
+FrameClockPrivate :: struct #packed {}
+
+FrameClockClass :: struct #packed {}
+
+FrameClockPhaseBit :: enum u32 {FLUSH_EVENTS = 0, BEFORE_PAINT = 1, UPDATE = 2, LAYOUT = 3, PAINT = 4, RESUME_EVENTS = 5, AFTER_PAINT = 6}
+FrameClockPhase :: bit_set[FrameClockPhaseBit; u32]
+FRAME_CLOCK_PHASE_NONE :: FrameClockPhase{}
+Monitor :: struct #packed {}
+
+MonitorClass :: struct #packed {}
+
+SubpixelLayout :: enum u32 {UNKNOWN = 0, NONE = 1, HORIZONTAL_RGB = 2, HORIZONTAL_BGR = 3, VERTICAL_RGB = 4, VERTICAL_BGR = 5 }
+AnchorHintsBit :: enum u32 {ANCHOR_FLIP_X = 0, ANCHOR_FLIP_Y = 1, ANCHOR_SLIDE_X = 2, ANCHOR_SLIDE_Y = 3, ANCHOR_RESIZE_X = 4, ANCHOR_RESIZE_Y = 5}
+AnchorHints :: bit_set[AnchorHintsBit; u32]
+ANCHOR_FLIP :: AnchorHints{.ANCHOR_FLIP_X, .ANCHOR_FLIP_Y}
+ANCHOR_SLIDE :: AnchorHints{.ANCHOR_SLIDE_X, .ANCHOR_SLIDE_Y}
+ANCHOR_RESIZE :: AnchorHints{.ANCHOR_RESIZE_X, .ANCHOR_RESIZE_Y}
+PopupLayout :: struct #packed {}
+
+SurfaceClass :: struct #packed {}
+
+SeatCapabilitiesBit :: enum u32 {SEAT_CAPABILITY_POINTER = 0, SEAT_CAPABILITY_TOUCH = 1, SEAT_CAPABILITY_TABLET_STYLUS = 2, SEAT_CAPABILITY_KEYBOARD = 3, SEAT_CAPABILITY_TABLET_PAD = 4}
+SeatCapabilities :: bit_set[SeatCapabilitiesBit; u32]
+SEAT_CAPABILITY_NONE :: SeatCapabilities{}
+SEAT_CAPABILITY_ALL_POINTING :: SeatCapabilities{.SEAT_CAPABILITY_POINTER, .SEAT_CAPABILITY_TOUCH, .SEAT_CAPABILITY_TABLET_STYLUS}
+SEAT_CAPABILITY_ALL :: SeatCapabilities{.SEAT_CAPABILITY_POINTER, .SEAT_CAPABILITY_TOUCH, .SEAT_CAPABILITY_TABLET_STYLUS, .SEAT_CAPABILITY_KEYBOARD, .SEAT_CAPABILITY_TABLET_PAD}
+TextureClass :: struct #packed {}
+
+TextureError :: enum u32 {TOO_LARGE = 0, CORRUPT_IMAGE = 1, UNSUPPORTED_CONTENT = 2, UNSUPPORTED_FORMAT = 3 }
+DmabufTextureClass :: struct #packed {}
+
+DmabufTextureBuilder :: struct #packed {}
+
+DmabufTextureBuilderClass :: struct #packed {}
+
+DragSurface :: struct #packed {}
+
+DragSurfaceInterface :: struct #packed {}
+
+DragSurfaceSize :: struct #packed {}
+
+GLTexture :: struct #packed {}
+
+GLTextureClass :: struct #packed {}
+
+GLTextureBuilder :: struct #packed {}
+
+GLTextureBuilderClass :: struct #packed {}
+
+MemoryTexture :: struct #packed {}
+
+MemoryTextureClass :: struct #packed {}
+
+MemoryTextureBuilder :: struct #packed {}
+
+MemoryTextureBuilderClass :: struct #packed {}
+
+Paintable :: struct #packed {}
+
+snapshot_func_ptr_anon_8 :: #type proc "c" (paintable: ^Paintable, snapshot: ^Snapshot, width: f64, height: f64)
+et_current_image_func_ptr_anon_9 :: #type proc "c" (paintable: ^Paintable) -> ^Paintable
+PaintableFlagsBit :: enum u32 {PAINTABLE_STATIC_SIZE = 0, PAINTABLE_STATIC_CONTENTS = 1}
+PaintableFlags :: bit_set[PaintableFlagsBit; u32]
+et_flags_func_ptr_anon_10 :: #type proc "c" (paintable: ^Paintable) -> PaintableFlags
+et_intrinsic_width_func_ptr_anon_11 :: #type proc "c" (paintable: ^Paintable) -> i32
+et_intrinsic_height_func_ptr_anon_12 :: #type proc "c" (paintable: ^Paintable) -> i32
+et_intrinsic_aspect_ratio_func_ptr_anon_13 :: #type proc "c" (paintable: ^Paintable) -> f64
+PaintableInterface :: struct {
+    g_iface: gobj.TypeInterface,
+    snapshot: snapshot_func_ptr_anon_8,
+    get_current_image: et_current_image_func_ptr_anon_9,
+    get_flags: et_flags_func_ptr_anon_10,
+    get_intrinsic_width: et_intrinsic_width_func_ptr_anon_11,
+    get_intrinsic_height: et_intrinsic_height_func_ptr_anon_12,
+    get_intrinsic_aspect_ratio: et_intrinsic_aspect_ratio_func_ptr_anon_13,
+}
+
+Popup :: struct #packed {}
+
+PopupInterface :: struct #packed {}
+
+SnapshotClass :: struct #packed {}
+
+ToplevelLayout :: struct #packed {}
+
+SurfaceEdge :: enum u32 {NORTH_WEST = 0, NORTH = 1, NORTH_EAST = 2, WEST = 3, EAST = 4, SOUTH_WEST = 5, SOUTH = 6, SOUTH_EAST = 7 }
+FullscreenMode :: enum u32 {FULLSCREEN_ON_CURRENT_MONITOR = 0, FULLSCREEN_ON_ALL_MONITORS = 1 }
+ToplevelStateBit :: enum u32 {MINIMIZED = 0, MAXIMIZED = 1, STICKY = 2, FULLSCREEN = 3, ABOVE = 4, BELOW = 5, FOCUSED = 6, TILED = 7, TOP_TILED = 8, TOP_RESIZABLE = 9, RIGHT_TILED = 10, RIGHT_RESIZABLE = 11, BOTTOM_TILED = 12, BOTTOM_RESIZABLE = 13, LEFT_TILED = 14, LEFT_RESIZABLE = 15, SUSPENDED = 16}
+ToplevelState :: bit_set[ToplevelStateBit; u32]
+TitlebarGesture :: enum u32 {DOUBLE_CLICK = 1, RIGHT_CLICK = 2, MIDDLE_CLICK = 3 }
+Toplevel :: struct #packed {}
+
+ToplevelInterface :: struct #packed {}
+
+ToplevelSize :: struct #packed {}
+
+RenderNodeType :: enum u32 {NOT_A_RENDER_NODE = 0, CONTAINER_NODE = 1, CAIRO_NODE = 2, COLOR_NODE = 3, LINEAR_GRADIENT_NODE = 4, REPEATING_LINEAR_GRADIENT_NODE = 5, RADIAL_GRADIENT_NODE = 6, REPEATING_RADIAL_GRADIENT_NODE = 7, CONIC_GRADIENT_NODE = 8, BORDER_NODE = 9, TEXTURE_NODE = 10, INSET_SHADOW_NODE = 11, OUTSET_SHADOW_NODE = 12, TRANSFORM_NODE = 13, OPACITY_NODE = 14, COLOR_MATRIX_NODE = 15, REPEAT_NODE = 16, CLIP_NODE = 17, ROUNDED_CLIP_NODE = 18, SHADOW_NODE = 19, BLEND_NODE = 20, CROSS_FADE_NODE = 21, TEXT_NODE = 22, BLUR_NODE = 23, DEBUG_NODE = 24, GL_SHADER_NODE = 25, TEXTURE_SCALE_NODE = 26, MASK_NODE = 27, FILL_NODE = 28, STROKE_NODE = 29, SUBSURFACE_NODE = 30 }
+ScalingFilter :: enum u32 {LINEAR = 0, NEAREST = 1, TRILINEAR = 2 }
+BlendMode :: enum u32 {DEFAULT = 0, MULTIPLY = 1, SCREEN = 2, OVERLAY = 3, DARKEN = 4, LIGHTEN = 5, COLOR_DODGE = 6, COLOR_BURN = 7, HARD_LIGHT = 8, SOFT_LIGHT = 9, DIFFERENCE = 10, EXCLUSION = 11, COLOR = 12, HUE = 13, SATURATION = 14, LUMINOSITY = 15 }
+Corner :: enum u32 {TOP_LEFT = 0, TOP_RIGHT = 1, BOTTOM_RIGHT = 2, BOTTOM_LEFT = 3 }
+FillRule :: enum u32 {WINDING = 0, EVEN_ODD = 1 }
+LineCap :: enum u32 {BUTT = 0, ROUND = 1, SQUARE = 2 }
+LineJoin :: enum u32 {MITER = 0, ROUND = 1, BEVEL = 2 }
+PathOperation :: enum u32 {PATH_MOVE = 0, PATH_CLOSE = 1, PATH_LINE = 2, PATH_QUAD = 3, PATH_CUBIC = 4, PATH_CONIC = 5 }
+PathDirection :: enum u32 {PATH_FROM_START = 0, PATH_TO_START = 1, PATH_TO_END = 2, PATH_FROM_END = 3 }
+SerializationError :: enum u32 {SERIALIZATION_UNSUPPORTED_FORMAT = 0, SERIALIZATION_UNSUPPORTED_VERSION = 1, SERIALIZATION_INVALID_DATA = 2 }
+TransformCategory :: enum u32 {UNKNOWN = 0, ANY = 1, _3D = 2, _2D = 3, _2D_AFFINE = 4, _2D_TRANSLATE = 5, IDENTITY = 6 }
+GLUniformType :: enum u32 {NONE = 0, FLOAT = 1, INT = 2, UINT = 3, BOOL = 4, VEC2 = 5, VEC3 = 6, VEC4 = 7 }
+MaskMode :: enum u32 {ALPHA = 0, INVERTED_ALPHA = 1, LUMINANCE = 2, INVERTED_LUMINANCE = 3 }
+Path :: struct #packed {}
+
+PathBuilder :: struct #packed {}
+
+PathMeasure :: struct #packed {}
+
+PathPoint :: struct #packed {}
+
+Renderer :: struct #packed {}
+
+RenderNode :: struct #packed {}
+
+RoundedRect :: struct {
+    bounds: graphene.rect_t,
+    corner: [4]graphene.size_t,
+}
+
+Stroke :: struct #packed {}
+
+Transform :: struct #packed {}
+
+PathForeachFlagsBit :: enum u32 {PATH_FOREACH_ALLOW_QUAD = 0, PATH_FOREACH_ALLOW_CUBIC = 1, PATH_FOREACH_ALLOW_CONIC = 2}
+PathForeachFlags :: bit_set[PathForeachFlagsBit; u32]
+PATH_FOREACH_ALLOW_ONLY_LINES :: PathForeachFlags{}
+PathForeachFunc :: #type proc "c" (op: PathOperation, pts: [^]graphene.point_t, n_pts: glib.size, weight: f32, user_data: glib.pointer) -> glib.boolean
+GLShader :: struct #packed {}
+
+ShaderArgsBuilder :: struct #packed {}
+
+GLShaderClass :: struct {
+    parent_class: gobj.ObjectClass,
+}
+ColorStop :: struct {
+    offset: f32,
+    color: RGBA,
+}
+
+Shadow :: struct {
+    color: RGBA,
+    dx: f32,
+    dy: f32,
+    radius: f32,
+}
+
+ParseLocation :: struct {
+    bytes: glib.size,
+    chars: glib.size,
+    lines: glib.size,
+    line_bytes: glib.size,
+    line_chars: glib.size,
+}
+
+ParseErrorFunc :: #type proc "c" (start: ^ParseLocation, end: ^ParseLocation, error: ^glib.Error, user_data: glib.pointer)
+DebugNode :: struct #packed {}
+
+ColorNode :: struct #packed {}
+
+TextureNode :: struct #packed {}
+
+TextureScaleNode :: struct #packed {}
+
+LinearGradientNode :: struct #packed {}
+
+RepeatingLinearGradientNode :: struct #packed {}
+
+RadialGradientNode :: struct #packed {}
+
+RepeatingRadialGradientNode :: struct #packed {}
+
+ConicGradientNode :: struct #packed {}
+
+BorderNode :: struct #packed {}
+
+InsetShadowNode :: struct #packed {}
+
+OutsetShadowNode :: struct #packed {}
+
+CairoNode :: struct #packed {}
+
+ContainerNode :: struct #packed {}
+
+TransformNode :: struct #packed {}
+
+OpacityNode :: struct #packed {}
+
+ColorMatrixNode :: struct #packed {}
+
+RepeatNode :: struct #packed {}
+
+ClipNode :: struct #packed {}
+
+RoundedClipNode :: struct #packed {}
+
+FillNode :: struct #packed {}
+
+StrokeNode :: struct #packed {}
+
+ShadowNode :: struct #packed {}
+
+BlendNode :: struct #packed {}
+
+CrossFadeNode :: struct #packed {}
+
+TextNode :: struct #packed {}
+
+BlurNode :: struct #packed {}
+
+MaskNode :: struct #packed {}
+
+GLShaderNode :: struct #packed {}
+
+SubsurfaceNode :: struct #packed {}
+
+RendererClass :: struct #packed {}
+
+CairoRenderer :: struct #packed {}
+
+CairoRendererClass :: struct #packed {}
+
+GLRenderer :: struct #packed {}
+
+GLRendererClass :: struct #packed {}
+
+VulkanRenderer :: struct #packed {}
+
+VulkanRendererClass :: struct #packed {}
+
+Align :: enum u32 {FILL = 0, START = 1, END = 2, CENTER = 3, BASELINE_FILL = 4, BASELINE = 4, BASELINE_CENTER = 5 }
+ArrowType :: enum u32 {ARROW_UP = 0, ARROW_DOWN = 1, ARROW_LEFT = 2, ARROW_RIGHT = 3, ARROW_NONE = 4 }
+BaselinePosition :: enum u32 {TOP = 0, CENTER = 1, BOTTOM = 2 }
+ContentFit :: enum u32 {FILL = 0, CONTAIN = 1, COVER = 2, SCALE_DOWN = 3 }
+DeleteType :: enum u32 {DELETE_CHARS = 0, DELETE_WORD_ENDS = 1, DELETE_WORDS = 2, DELETE_DISPLAY_LINES = 3, DELETE_DISPLAY_LINE_ENDS = 4, DELETE_PARAGRAPH_ENDS = 5, DELETE_PARAGRAPHS = 6, DELETE_WHITESPACE = 7 }
+DirectionType :: enum u32 {DIR_TAB_FORWARD = 0, DIR_TAB_BACKWARD = 1, DIR_UP = 2, DIR_DOWN = 3, DIR_LEFT = 4, DIR_RIGHT = 5 }
+IconSize :: enum u32 {INHERIT = 0, NORMAL = 1, LARGE = 2 }
+SensitivityType :: enum u32 {SENSITIVITY_AUTO = 0, SENSITIVITY_ON = 1, SENSITIVITY_OFF = 2 }
+TextDirection :: enum u32 {TEXT_DIR_NONE = 0, TEXT_DIR_LTR = 1, TEXT_DIR_RTL = 2 }
+Justification :: enum u32 {JUSTIFY_LEFT = 0, JUSTIFY_RIGHT = 1, JUSTIFY_CENTER = 2, JUSTIFY_FILL = 3 }
+ListTabBehavior :: enum u32 {LIST_TAB_ALL = 0, LIST_TAB_ITEM = 1, LIST_TAB_CELL = 2 }
+ListScrollFlagsBit :: enum u32 {LIST_SCROLL_FOCUS = 0, LIST_SCROLL_SELECT = 1}
+ListScrollFlags :: bit_set[ListScrollFlagsBit; u32]
+LIST_SCROLL_NONE :: ListScrollFlags{}
+MessageType :: enum u32 {MESSAGE_INFO = 0, MESSAGE_WARNING = 1, MESSAGE_QUESTION = 2, MESSAGE_ERROR = 3, MESSAGE_OTHER = 4 }
+MovementStep :: enum u32 {MOVEMENT_LOGICAL_POSITIONS = 0, MOVEMENT_VISUAL_POSITIONS = 1, MOVEMENT_WORDS = 2, MOVEMENT_DISPLAY_LINES = 3, MOVEMENT_DISPLAY_LINE_ENDS = 4, MOVEMENT_PARAGRAPHS = 5, MOVEMENT_PARAGRAPH_ENDS = 6, MOVEMENT_PAGES = 7, MOVEMENT_BUFFER_ENDS = 8, MOVEMENT_HORIZONTAL_PAGES = 9 }
+NaturalWrapMode :: enum u32 {NATURAL_WRAP_INHERIT = 0, NATURAL_WRAP_NONE = 1, NATURAL_WRAP_WORD = 2 }
+ScrollStep :: enum u32 {S = 0, SCROLL_PAGES = 1, SCROLL_ENDS = 2, SCROLL_HORIZONTAL_STEPS = 3, SCROLL_HORIZONTAL_PAGES = 4, SCROLL_HORIZONTAL_ENDS = 5 }
+Orientation :: enum u32 {HORIZONTAL = 0, VERTICAL = 1 }
+Overflow :: enum u32 {VISIBLE = 0, HIDDEN = 1 }
+PackType :: enum u32 {PACK_START = 0, PACK_END = 1 }
+PositionType :: enum u32 {POS_LEFT = 0, POS_RIGHT = 1, POS_TOP = 2, POS_BOTTOM = 3 }
+ScrollType :: enum u32 {SCROLL_NONE = 0, SCROLL_JUMP = 1, SCROLL_STEP_BACKWARD = 2, SCROLL_STEP_FORWARD = 3, SCROLL_PAGE_BACKWARD = 4, SCROLL_PAGE_FORWARD = 5, SCROLL_STEP_UP = 6, SCROLL_STEP_DOWN = 7, SCROLL_PAGE_UP = 8, SCROLL_PAGE_DOWN = 9, SCROLL_STEP_LEFT = 10, SCROLL_STEP_RIGHT = 11, SCROLL_PAGE_LEFT = 12, SCROLL_PAGE_RIGHT = 13, SCROLL_START = 14, SCROLL_END = 15 }
+SelectionMode :: enum u32 {SELECTION_NONE = 0, SELECTION_SINGLE = 1, SELECTION_BROWSE = 2, SELECTION_MULTIPLE = 3 }
+WrapMode :: enum u32 {WRAP_NONE = 0, WRAP_CHAR = 1, WRAP_WORD = 2, WRAP_WORD_CHAR = 3 }
+SortType :: enum u32 {SORT_ASCENDING = 0, SORT_DESCENDING = 1 }
+PrintPages :: enum u32 {ALL = 0, CURRENT = 1, RANGES = 2, SELECTION = 3 }
+PageSet :: enum u32 {ALL = 0, EVEN = 1, ODD = 2 }
+NumberUpLayout :: enum u32 {LEFT_TO_RIGHT_TOP_TO_BOTTOM = 0, LEFT_TO_RIGHT_BOTTOM_TO_TOP = 1, RIGHT_TO_LEFT_TOP_TO_BOTTOM = 2, RIGHT_TO_LEFT_BOTTOM_TO_TOP = 3, TOP_TO_BOTTOM_LEFT_TO_RIGHT = 4, TOP_TO_BOTTOM_RIGHT_TO_LEFT = 5, BOTTOM_TO_TOP_LEFT_TO_RIGHT = 6, BOTTOM_TO_TOP_RIGHT_TO_LEFT = 7 }
+Ordering :: enum i32 {SMALLER = -1, EQUAL = 0, LARGER = 1 }
+PageOrientation :: enum u32 {PORTRAIT = 0, LANDSCAPE = 1, REVERSE_PORTRAIT = 2, REVERSE_LANDSCAPE = 3 }
+PrintQuality :: enum u32 {LOW = 0, NORMAL = 1, HIGH = 2, DRAFT = 3 }
+PrintDuplex :: enum u32 {SIMPLEX = 0, HORIZONTAL = 1, VERTICAL = 2 }
+Unit :: enum u32 {NONE = 0, POINTS = 1, INCH = 2, MM = 3 }
+TreeViewGridLines :: enum u32 {NONE = 0, HORIZONTAL = 1, VERTICAL = 2, BOTH = 3 }
+SizeGroupMode :: enum u32 {SIZE_GROUP_NONE = 0, SIZE_GROUP_HORIZONTAL = 1, SIZE_GROUP_VERTICAL = 2, SIZE_GROUP_BOTH = 3 }
+SizeRequestMode :: enum u32 {SIZE_REQUEST_HEIGHT_FOR_WIDTH = 0, SIZE_REQUEST_WIDTH_FOR_HEIGHT = 1, SIZE_REQUEST_CONSTANT_SIZE = 2 }
+ScrollablePolicy :: enum u32 {SCROLL_MINIMUM = 0, SCROLL_NATURAL = 1 }
+StateFlagsBit :: enum u32 {STATE_FLAG_ACTIVE = 0, STATE_FLAG_PRELIGHT = 1, STATE_FLAG_SELECTED = 2, STATE_FLAG_INSENSITIVE = 3, STATE_FLAG_INCONSISTENT = 4, STATE_FLAG_FOCUSED = 5, STATE_FLAG_BACKDROP = 6, STATE_FLAG_DIR_LTR = 7, STATE_FLAG_DIR_RTL = 8, STATE_FLAG_LINK = 9, STATE_FLAG_VISITED = 10, STATE_FLAG_CHECKED = 11, STATE_FLAG_DROP_ACTIVE = 12, STATE_FLAG_FOCUS_VISIBLE = 13, STATE_FLAG_FOCUS_WITHIN = 14}
+StateFlags :: bit_set[StateFlagsBit; u32]
+STATE_FLAG_NORMAL :: StateFlags{}
+BorderStyle :: enum u32 {NONE = 0, HIDDEN = 1, SOLID = 2, INSET = 3, OUTSET = 4, DOTTED = 5, DASHED = 6, DOUBLE = 7, GROOVE = 8, RIDGE = 9 }
+LevelBarMode :: enum u32 {CONTINUOUS = 0, DISCRETE = 1 }
+InputPurpose :: enum u32 {FREE_FORM = 0, ALPHA = 1, DIGITS = 2, NUMBER = 3, PHONE = 4, URL = 5, EMAIL = 6, NAME = 7, PASSWORD = 8, PIN = 9, TERMINAL = 10 }
+InputHintsBit :: enum u32 {INPUT_HINT_SPELLCHECK = 0, INPUT_HINT_NO_SPELLCHECK = 1, INPUT_HINT_WORD_COMPLETION = 2, INPUT_HINT_LOWERCASE = 3, INPUT_HINT_UPPERCASE_CHARS = 4, INPUT_HINT_UPPERCASE_WORDS = 5, INPUT_HINT_UPPERCASE_SENTENCES = 6, INPUT_HINT_INHIBIT_OSK = 7, INPUT_HINT_VERTICAL_WRITING = 8, INPUT_HINT_EMOJI = 9, INPUT_HINT_NO_EMOJI = 10, INPUT_HINT_PRIVATE = 11}
+InputHints :: bit_set[InputHintsBit; u32]
+INPUT_HINT_NONE :: InputHints{}
+PropagationPhase :: enum u32 {PHASE_NONE = 0, PHASE_CAPTURE = 1, PHASE_BUBBLE = 2, PHASE_TARGET = 3 }
+PropagationLimit :: enum u32 {LIMIT_NONE = 0, LIMIT_SAME_NATIVE = 1 }
+EventSequenceState :: enum u32 {EVENT_SEQUENCE_NONE = 0, EVENT_SEQUENCE_CLAIMED = 1, EVENT_SEQUENCE_DENIED = 2 }
+PanDirection :: enum u32 {LEFT = 0, RIGHT = 1, UP = 2, DOWN = 3 }
+ShortcutScope :: enum u32 {LOCAL = 0, MANAGED = 1, GLOBAL = 2 }
+PickFlagsBit :: enum u32 {PICK_INSENSITIVE = 0, PICK_NON_TARGETABLE = 1}
+PickFlags :: bit_set[PickFlagsBit; u32]
+PICK_DEFAULT :: PickFlags{}
+ConstraintRelation :: enum i32 {LE = -1, EQ = 0, GE = 1 }
+ConstraintStrength :: enum u32 {REQUIRED = 1001001000, STRONG = 1000000000, MEDIUM = 1000, WEAK = 1 }
+ConstraintAttribute :: enum u32 {NONE = 0, LEFT = 1, RIGHT = 2, TOP = 3, BOTTOM = 4, START = 5, END = 6, WIDTH = 7, HEIGHT = 8, CENTER_X = 9, CENTER_Y = 10, BASELINE = 11 }
+ConstraintVflParserError :: enum u32 {INVALID_SYMBOL = 0, INVALID_ATTRIBUTE = 1, INVALID_VIEW = 2, INVALID_METRIC = 3, INVALID_PRIORITY = 4, INVALID_RELATION = 5 }
+SystemSetting :: enum u32 {DPI = 0, FONT_NAME = 1, FONT_CONFIG = 2, DISPLAY = 3, ICON_THEME = 4 }
+SymbolicColor :: enum u32 {FOREGROUND = 0, ERROR = 1, WARNING = 2, SUCCESS = 3 }
+AccessibleRole :: enum u32 {ALERT = 0, ALERT_DIALOG = 1, BANNER = 2, BUTTON = 3, CAPTION = 4, CELL = 5, CHECKBOX = 6, COLUMN_HEADER = 7, COMBO_BOX = 8, COMMAND = 9, COMPOSITE = 10, DIALOG = 11, DOCUMENT = 12, FEED = 13, FORM = 14, GENERIC = 15, GRID = 16, GRID_CELL = 17, GROUP = 18, HEADING = 19, IMG = 20, INPUT = 21, LABEL = 22, LANDMARK = 23, LEGEND = 24, LINK = 25, LIST = 26, LIST_BOX = 27, LIST_ITEM = 28, LOG = 29, MAIN = 30, MARQUEE = 31, MATH = 32, METER = 33, MENU = 34, MENU_BAR = 35, MENU_ITEM = 36, MENU_ITEM_CHECKBOX = 37, MENU_ITEM_RADIO = 38, NAVIGATION = 39, NONE = 40, NOTE = 41, OPTION = 42, PRESENTATION = 43, PROGRESS_BAR = 44, RADIO = 45, RADIO_GROUP = 46, RANGE = 47, REGION = 48, ROW = 49, ROW_GROUP = 50, ROW_HEADER = 51, SCROLLBAR = 52, SEARCH = 53, SEARCH_BOX = 54, SECTION = 55, SECTION_HEAD = 56, SELECT = 57, SEPARATOR = 58, SLIDER = 59, SPIN_BUTTON = 60, STATUS = 61, STRUCTURE = 62, SWITCH = 63, TAB = 64, TABLE = 65, TAB_LIST = 66, TAB_PANEL = 67, TEXT_BOX = 68, TIME = 69, TIMER = 70, TOOLBAR = 71, TOOLTIP = 72, TREE = 73, TREE_GRID = 74, TREE_ITEM = 75, WIDGET = 76, WINDOW = 77, TOGGLE_BUTTON = 78, APPLICATION = 79, PARAGRAPH = 80, BLOCK_QUOTE = 81, ARTICLE = 82, COMMENT = 83, TERMINAL = 84 }
+AccessibleState :: enum u32 {BUSY = 0, CHECKED = 1, DISABLED = 2, EXPANDED = 3, HIDDEN = 4, INVALID = 5, PRESSED = 6, SELECTED = 7, VISITED = 8 }
+AccessibleProperty :: enum u32 {AUTOCOMPLETE = 0, DESCRIPTION = 1, HAS_POPUP = 2, KEY_SHORTCUTS = 3, LABEL = 4, LEVEL = 5, MODAL = 6, MULTI_LINE = 7, MULTI_SELECTABLE = 8, ORIENTATION = 9, PLACEHOLDER = 10, READ_ONLY = 11, REQUIRED = 12, ROLE_DESCRIPTION = 13, SORT = 14, VALUE_MAX = 15, VALUE_MIN = 16, VALUE_NOW = 17, VALUE_TEXT = 18, HELP_TEXT = 19 }
+AccessibleRelation :: enum u32 {ACTIVE_DESCENDANT = 0, COL_COUNT = 1, COL_INDEX = 2, COL_INDEX_TEXT = 3, COL_SPAN = 4, CONTROLS = 5, DESCRIBED_BY = 6, DETAILS = 7, ERROR_MESSAGE = 8, FLOW_TO = 9, LABELLED_BY = 10, OWNS = 11, POS_IN_SET = 12, ROW_COUNT = 13, ROW_INDEX = 14, ROW_INDEX_TEXT = 15, ROW_SPAN = 16, SET_SIZE = 17 }
+AccessibleTristate :: enum u32 {FALSE = 0, TRUE = 1, MIXED = 2 }
+AccessibleInvalidState :: enum u32 {ACCESSIBLE_INVALID_FALSE = 0, ACCESSIBLE_INVALID_TRUE = 1, ACCESSIBLE_INVALID_GRAMMAR = 2, ACCESSIBLE_INVALID_SPELLING = 3 }
+AccessibleAutocomplete :: enum u32 {NONE = 0, INLINE = 1, LIST = 2, BOTH = 3 }
+AccessibleSort :: enum u32 {NONE = 0, ASCENDING = 1, DESCENDING = 2, OTHER = 3 }
+AccessibleAnnouncementPriority :: enum u32 {LOW = 0, MEDIUM = 1, HIGH = 2 }
+PopoverMenuFlagsBit :: enum u32 {POPOVER_MENU_NESTED = 0}
+PopoverMenuFlags :: bit_set[PopoverMenuFlagsBit; u32]
+POPOVER_MENU_SLIDING :: PopoverMenuFlags{}
+FontRendering :: enum u32 {AUTOMATIC = 0, MANUAL = 1 }
+TextBufferNotifyFlagsBit :: enum u32 {TEXT_BUFFER_NOTIFY_BEFORE_INSERT = 0, TEXT_BUFFER_NOTIFY_AFTER_INSERT = 1, TEXT_BUFFER_NOTIFY_BEFORE_DELETE = 2, TEXT_BUFFER_NOTIFY_AFTER_DELETE = 3}
+TextBufferNotifyFlags :: bit_set[TextBufferNotifyFlagsBit; u32]
+Adjustment :: struct {
+    parent_instance: gobj.InitiallyUnowned,
+}
+
+ATContext :: struct #packed {}
+
+Bitset :: struct #packed {}
+
+Builder :: struct #packed {}
+
+BuilderScope :: struct #packed {}
+
+CssStyleChange :: struct #packed {}
+
+EventController :: struct #packed {}
+
+Gesture :: struct #packed {}
+
+LayoutManager :: struct {
+    parent_instance: gobj.Object,
+}
+
+ListItem :: struct #packed {}
+
+ListItemFactory :: struct #packed {}
+
+Native :: struct #packed {}
+
+Requisition :: struct {
+    width: i32,
+    height: i32,
+}
+
+Root :: struct #packed {}
+
+ScrollInfo :: struct #packed {}
+
+Settings :: struct #packed {}
+
+Shortcut :: struct #packed {}
+
+ShortcutAction :: struct #packed {}
+
+ShortcutTrigger :: struct #packed {}
+
+
+StyleContext :: struct {
+    parent_object: gobj.Object,
+}
+
+Tooltip :: struct #packed {}
+
+WidgetPrivate :: struct #packed {}
+
+Widget :: struct {
+    parent_instance: gobj.InitiallyUnowned,
+    priv: ^WidgetPrivate,
+}
+
+Window :: struct {
+    parent_instance: Widget,
+}
+
+ShortcutClass :: struct {
+    parent_class: gobj.ObjectClass,
+}
+ShortcutFunc :: #type proc "c" (widget: ^Widget, args: [^]glib.Variant, user_data: glib.pointer) -> glib.boolean
+ShortcutActionFlagsBit :: enum u32 {SHORTCUT_ACTION_EXCLUSIVE = 0}
+ShortcutActionFlags :: bit_set[ShortcutActionFlagsBit; u32]
+ShortcutActionClass :: struct #packed {}
+
+NothingAction :: struct #packed {}
+
+NothingActionClass :: struct #packed {}
+
+CallbackAction :: struct #packed {}
+
+CallbackActionClass :: struct #packed {}
+
+MnemonicAction :: struct #packed {}
+
+MnemonicActionClass :: struct #packed {}
+
+ActivateAction :: struct #packed {}
+
+ActivateActionClass :: struct #packed {}
+
+SignalAction :: struct #packed {}
+
+SignalActionClass :: struct #packed {}
+
+NamedAction :: struct #packed {}
+
+NamedActionClass :: struct #packed {}
+
+show_func_ptr_anon_14 :: #type proc "c" (widget: ^Widget)
+hide_func_ptr_anon_15 :: #type proc "c" (widget: ^Widget)
+map_func_ptr_anon_16 :: #type proc "c" (widget: ^Widget)
+unmap_func_ptr_anon_17 :: #type proc "c" (widget: ^Widget)
+realize_func_ptr_anon_18 :: #type proc "c" (widget: ^Widget)
+unrealize_func_ptr_anon_19 :: #type proc "c" (widget: ^Widget)
+root_func_ptr_anon_20 :: #type proc "c" (widget: ^Widget)
+unroot_func_ptr_anon_21 :: #type proc "c" (widget: ^Widget)
+size_allocate_func_ptr_anon_22 :: #type proc "c" (widget: ^Widget, width: i32, height: i32, baseline: i32)
+state_flags_changed_func_ptr_anon_23 :: #type proc "c" (widget: ^Widget, previous_state_flags: StateFlags)
+direction_changed_func_ptr_anon_24 :: #type proc "c" (widget: ^Widget, previous_direction: TextDirection)
+et_request_mode_func_ptr_anon_25 :: #type proc "c" (widget: ^Widget) -> SizeRequestMode
+measure_func_ptr_anon_26 :: #type proc "c" (widget: ^Widget, orientation: Orientation, for_size: i32, minimum: ^i32, natural: ^i32, minimum_baseline: ^i32, natural_baseline: ^i32)
+mnemonic_activate_func_ptr_anon_27 :: #type proc "c" (widget: ^Widget, group_cycling: glib.boolean) -> glib.boolean
+rab_focus_func_ptr_anon_28 :: #type proc "c" (widget: ^Widget) -> glib.boolean
+focus_func_ptr_anon_29 :: #type proc "c" (widget: ^Widget, direction: DirectionType) -> glib.boolean
+set_focus_child_func_ptr_anon_30 :: #type proc "c" (widget: ^Widget, child: ^Widget)
+move_focus_func_ptr_anon_31 :: #type proc "c" (widget: ^Widget, direction: DirectionType)
+keynav_failed_func_ptr_anon_32 :: #type proc "c" (widget: ^Widget, direction: DirectionType) -> glib.boolean
+query_tooltip_func_ptr_anon_33 :: #type proc "c" (widget: ^Widget, x: i32, y: i32, keyboard_tooltip: glib.boolean, tooltip: ^Tooltip) -> glib.boolean
+compute_expand_func_ptr_anon_34 :: #type proc "c" (widget: ^Widget, hexpand_p: ^glib.boolean, vexpand_p: ^glib.boolean)
+css_changed_func_ptr_anon_35 :: #type proc "c" (widget: ^Widget, change: ^CssStyleChange)
+system_setting_changed_func_ptr_anon_36 :: #type proc "c" (widget: ^Widget, settings: SystemSetting)
+snapshot_func_ptr_anon_37 :: #type proc "c" (widget: ^Widget, snapshot: ^Snapshot)
+contains_func_ptr_anon_38 :: #type proc "c" (widget: ^Widget, x: f64, y: f64) -> glib.boolean
+WidgetClassPrivate :: struct #packed {}
+
+WidgetClass :: struct {
+    parent_class: gobj.InitiallyUnownedClass,
+    show: show_func_ptr_anon_14,
+    hide: hide_func_ptr_anon_15,
+    map_m: map_func_ptr_anon_16,
+    unmap: unmap_func_ptr_anon_17,
+    realize: realize_func_ptr_anon_18,
+    unrealize: unrealize_func_ptr_anon_19,
+    root: root_func_ptr_anon_20,
+    unroot: unroot_func_ptr_anon_21,
+    size_allocate: size_allocate_func_ptr_anon_22,
+    state_flags_changed: state_flags_changed_func_ptr_anon_23,
+    direction_changed: direction_changed_func_ptr_anon_24,
+    get_request_mode: et_request_mode_func_ptr_anon_25,
+    measure: measure_func_ptr_anon_26,
+    mnemonic_activate: mnemonic_activate_func_ptr_anon_27,
+    grab_focus: rab_focus_func_ptr_anon_28,
+    focus: focus_func_ptr_anon_29,
+    set_focus_child: set_focus_child_func_ptr_anon_30,
+    move_focus: move_focus_func_ptr_anon_31,
+    keynav_failed: keynav_failed_func_ptr_anon_32,
+    query_tooltip: query_tooltip_func_ptr_anon_33,
+    compute_expand: compute_expand_func_ptr_anon_34,
+    css_changed: css_changed_func_ptr_anon_35,
+    system_setting_changed: system_setting_changed_func_ptr_anon_36,
+    snapshot: snapshot_func_ptr_anon_37,
+    contains: contains_func_ptr_anon_38,
+    priv: ^WidgetClassPrivate,
+    padding: [8]glib.pointer,
+}
+
+Allocation :: Rectangle
+TickCallback :: #type proc "c" (widget: ^Widget, frame_clock: ^FrameClock, user_data: glib.pointer) -> glib.boolean
+WidgetActionActivateFunc :: #type proc "c" (widget: ^Widget, action_name: cstring, parameter: ^glib.Variant)
+Application :: struct {
+    parent_instance: gio.Application,
+}
+
+window_added_func_ptr_anon_39 :: #type proc "c" (application: ^Application, window: ^Window)
+window_removed_func_ptr_anon_40 :: #type proc "c" (application: ^Application, window: ^Window)
+ApplicationClass :: struct {
+    parent_class: gio.ApplicationClass,
+    window_added: window_added_func_ptr_anon_39,
+    window_removed: window_removed_func_ptr_anon_40,
+    padding: [8]glib.pointer,
+}
+
+ApplicationInhibitFlagsBit :: enum u32 {APPLICATION_INHIBIT_LOGOUT = 0, APPLICATION_INHIBIT_SWITCH = 1, APPLICATION_INHIBIT_SUSPEND = 2, APPLICATION_INHIBIT_IDLE = 3}
+ApplicationInhibitFlags :: bit_set[ApplicationInhibitFlagsBit; u32]
+activate_focus_func_ptr_anon_41 :: #type proc "c" (window: ^Window)
+activate_default_func_ptr_anon_42 :: #type proc "c" (window: ^Window)
+keys_changed_func_ptr_anon_43 :: #type proc "c" (window: ^Window)
+enable_debugging_func_ptr_anon_44 :: #type proc "c" (window: ^Window, toggle: glib.boolean) -> glib.boolean
+close_request_func_ptr_anon_45 :: #type proc "c" (window: ^Window) -> glib.boolean
+WindowClass :: struct {
+    parent_class: WidgetClass,
+    activate_focus: activate_focus_func_ptr_anon_41,
+    activate_default: activate_default_func_ptr_anon_42,
+    keys_changed: keys_changed_func_ptr_anon_43,
+    enable_debugging: enable_debugging_func_ptr_anon_44,
+    close_request: close_request_func_ptr_anon_45,
+    padding: [8]glib.pointer,
+}
+
+WindowGroupPrivate :: struct #packed {}
+
+WindowGroup :: struct {
+    parent_instance: gobj.Object,
+    priv: ^WindowGroupPrivate,
+}
+
+_gtk_reserved1_func_ptr_anon_412 :: #type proc "c" ()
+_gtk_reserved2_func_ptr_anon_413 :: #type proc "c" ()
+_gtk_reserved3_func_ptr_anon_414 :: #type proc "c" ()
+_gtk_reserved4_func_ptr_anon_415 :: #type proc "c" ()
+WindowGroupClass :: struct {
+    parent_class: gobj.ObjectClass,
+    _gtk_reserved1: _gtk_reserved1_func_ptr_anon_412,
+    _gtk_reserved2: _gtk_reserved2_func_ptr_anon_413,
+    _gtk_reserved3: _gtk_reserved3_func_ptr_anon_414,
+    _gtk_reserved4: _gtk_reserved4_func_ptr_anon_415,
+}
+
+AboutDialog :: struct #packed {}
+
+License :: enum u32 {UNKNOWN = 0, CUSTOM = 1, GPL_2_0 = 2, GPL_3_0 = 3, LGPL_2_1 = 4, LGPL_3_0 = 5, BSD = 6, MIT_X11 = 7, ARTISTIC = 8, GPL_2_0_ONLY = 9, GPL_3_0_ONLY = 10, LGPL_2_1_ONLY = 11, LGPL_3_0_ONLY = 12, AGPL_3_0 = 13, AGPL_3_0_ONLY = 14, BSD_3 = 15, APACHE_2_0 = 16, MPL_2_0 = 17, _0BSD = 18 }
+Accessible :: struct #packed {}
+
+et_at_context_func_ptr_anon_46 :: #type proc "c" (self: ^Accessible) -> ^ATContext
+AccessiblePlatformState :: enum u32 {FOCUSABLE = 0, FOCUSED = 1, ACTIVE = 2 }
+et_platform_state_func_ptr_anon_47 :: #type proc "c" (self: ^Accessible, state: AccessiblePlatformState) -> glib.boolean
+et_accessible_parent_func_ptr_anon_48 :: #type proc "c" (self: ^Accessible) -> ^Accessible
+et_first_accessible_child_func_ptr_anon_49 :: #type proc "c" (self: ^Accessible) -> ^Accessible
+et_next_accessible_sibling_func_ptr_anon_50 :: #type proc "c" (self: ^Accessible) -> ^Accessible
+et_bounds_func_ptr_anon_51 :: #type proc "c" (self: ^Accessible, x: ^i32, y: ^i32, width: ^i32, height: ^i32) -> glib.boolean
+AccessibleInterface :: struct {
+    g_iface: gobj.TypeInterface,
+    get_at_context: et_at_context_func_ptr_anon_46,
+    get_platform_state: et_platform_state_func_ptr_anon_47,
+    get_accessible_parent: et_accessible_parent_func_ptr_anon_48,
+    get_first_accessible_child: et_first_accessible_child_func_ptr_anon_49,
+    get_next_accessible_sibling: et_next_accessible_sibling_func_ptr_anon_50,
+    get_bounds: et_bounds_func_ptr_anon_51,
+}
+
+AccessibleList :: struct #packed {}
+
+AccessibleRange :: struct #packed {}
+
+set_current_value_func_ptr_anon_52 :: #type proc "c" (self: ^AccessibleRange, value: f64) -> glib.boolean
+AccessibleRangeInterface :: struct {
+    g_iface: gobj.TypeInterface,
+    set_current_value: set_current_value_func_ptr_anon_52,
+}
+
+AccessibleText :: struct #packed {}
+
+et_contents_func_ptr_anon_53 :: #type proc "c" (self: ^AccessibleText, start: u32, end: u32) -> ^glib.Bytes
+AccessibleTextGranularity :: enum u32 {CHARACTER = 0, WORD = 1, SENTENCE = 2, LINE = 3, PARAGRAPH = 4 }
+et_contents_at_func_ptr_anon_54 :: #type proc "c" (self: ^AccessibleText, offset: u32, granularity: AccessibleTextGranularity, start: ^u32, end: ^u32) -> ^glib.Bytes
+et_caret_position_func_ptr_anon_55 :: #type proc "c" (self: ^AccessibleText) -> u32
+AccessibleTextRange :: struct {
+    start: glib.size,
+    length: glib.size,
+}
+et_selection_func_ptr_anon_56 :: #type proc "c" (self: ^AccessibleText, n_ranges: [^]glib.size, ranges: [^]^AccessibleTextRange) -> glib.boolean
+et_attributes_func_ptr_anon_57 :: #type proc "c" (self: ^AccessibleText, offset: u32, n_ranges: [^]glib.size, ranges: [^]^AccessibleTextRange, attribute_names: [^]^cstring, attribute_values: [^]^cstring) -> glib.boolean
+et_default_attributes_func_ptr_anon_58 :: #type proc "c" (self: ^AccessibleText, attribute_names: [^]^cstring, attribute_values: [^]^cstring)
+et_extents_func_ptr_anon_59 :: #type proc "c" (self: ^AccessibleText, start: u32, end: u32, extents: [^]graphene.rect_t) -> glib.boolean
+et_offset_func_ptr_anon_60 :: #type proc "c" (self: ^AccessibleText, point: ^graphene.point_t, offset: ^u32) -> glib.boolean
+AccessibleTextInterface :: struct {
+    g_iface: gobj.TypeInterface,
+    get_contents: et_contents_func_ptr_anon_53,
+    get_contents_at: et_contents_at_func_ptr_anon_54,
+    get_caret_position: et_caret_position_func_ptr_anon_55,
+    get_selection: et_selection_func_ptr_anon_56,
+    get_attributes: et_attributes_func_ptr_anon_57,
+    get_default_attributes: et_default_attributes_func_ptr_anon_58,
+    get_extents: et_extents_func_ptr_anon_59,
+    get_offset: et_offset_func_ptr_anon_60,
+}
+
+AccessibleTextContentChange :: enum u32 {INSERT = 0, REMOVE = 1 }
+Actionable :: struct #packed {}
+
+et_action_name_func_ptr_anon_61 :: #type proc "c" (actionable: ^Actionable) -> cstring
+set_action_name_func_ptr_anon_62 :: #type proc "c" (actionable: ^Actionable, action_name: cstring)
+et_action_target_value_func_ptr_anon_63 :: #type proc "c" (actionable: ^Actionable) -> ^glib.Variant
+set_action_target_value_func_ptr_anon_64 :: #type proc "c" (actionable: ^Actionable, target_value: ^glib.Variant)
+ActionableInterface :: struct {
+    g_iface: gobj.TypeInterface,
+    get_action_name: et_action_name_func_ptr_anon_61,
+    set_action_name: set_action_name_func_ptr_anon_62,
+    get_action_target_value: et_action_target_value_func_ptr_anon_63,
+    set_action_target_value: set_action_target_value_func_ptr_anon_64,
+}
+
+ActionBar :: struct #packed {}
+
+changed_func_ptr_anon_65 :: #type proc "c" (adjustment: ^Adjustment)
+value_changed_func_ptr_anon_66 :: #type proc "c" (adjustment: ^Adjustment)
+_gtk_reserved1_func_ptr_anon_67 :: #type proc "c" ()
+_gtk_reserved2_func_ptr_anon_68 :: #type proc "c" ()
+_gtk_reserved3_func_ptr_anon_69 :: #type proc "c" ()
+_gtk_reserved4_func_ptr_anon_70 :: #type proc "c" ()
+AdjustmentClass :: struct {
+    parent_class: gobj.InitiallyUnownedClass,
+    changed: changed_func_ptr_anon_65,
+    value_changed: value_changed_func_ptr_anon_66,
+    _gtk_reserved1: _gtk_reserved1_func_ptr_anon_67,
+    _gtk_reserved2: _gtk_reserved2_func_ptr_anon_68,
+    _gtk_reserved3: _gtk_reserved3_func_ptr_anon_69,
+    _gtk_reserved4: _gtk_reserved4_func_ptr_anon_70,
+}
+
+AlertDialog :: struct #packed {}
+
+AlertDialogClass :: struct {
+    parent_class: gobj.ObjectClass,
+}
+AppChooser :: struct #packed {}
+
+DialogFlagsBit :: enum u32 {DIALOG_MODAL = 0, DIALOG_DESTROY_WITH_PARENT = 1, DIALOG_USE_HEADER_BAR = 2}
+DialogFlags :: bit_set[DialogFlagsBit; u32]
+ResponseType :: enum i32 {RESPONSE_NONE = -1, RESPONSE_REJECT = -2, RESPONSE_ACCEPT = -3, RESPONSE_DELETE_EVENT = -4, RESPONSE_OK = -5, RESPONSE_CANCEL = -6, RESPONSE_CLOSE = -7, RESPONSE_YES = -8, RESPONSE_NO = -9, RESPONSE_APPLY = -10, RESPONSE_HELP = -11 }
+Dialog :: struct {
+    parent_instance: Window,
+}
+
+response_func_ptr_anon_71 :: #type proc "c" (dialog: ^Dialog, response_id: i32)
+close_func_ptr_anon_72 :: #type proc "c" (dialog: ^Dialog)
+DialogClass :: struct {
+    parent_class: WindowClass,
+    response: response_func_ptr_anon_71,
+    close: close_func_ptr_anon_72,
+    padding: [8]glib.pointer,
+}
+
+AppChooserDialog :: struct #packed {}
+
+AppChooserWidget :: struct #packed {}
+
+AppChooserButton :: struct #packed {}
+
+ShortcutsShortcut :: struct #packed {}
+
+ShortcutsShortcutClass :: struct #packed {}
+
+ShortcutType :: enum u32 {SHORTCUT_ACCELERATOR = 0, SHORTCUT_GESTURE_PINCH = 1, SHORTCUT_GESTURE_STRETCH = 2, SHORTCUT_GESTURE_ROTATE_CLOCKWISE = 3, SHORTCUT_GESTURE_ROTATE_COUNTERCLOCKWISE = 4, SHORTCUT_GESTURE_TWO_FINGER_SWIPE_LEFT = 5, SHORTCUT_GESTURE_TWO_FINGER_SWIPE_RIGHT = 6, SHORTCUT_GESTURE = 7, SHORTCUT_GESTURE_SWIPE_LEFT = 8, SHORTCUT_GESTURE_SWIPE_RIGHT = 9 }
+ShortcutsGroup :: struct #packed {}
+
+ShortcutsGroupClass :: struct #packed {}
+
+ShortcutsSection :: struct #packed {}
+
+ShortcutsSectionClass :: struct #packed {}
+
+ShortcutsWindow :: struct #packed {}
+
+ApplicationWindowClass :: struct {
+    parent_class: WindowClass,
+    padding: [8]glib.pointer,
+}
+
+ApplicationWindow :: struct {
+    parent_instance: Window,
+}
+
+AspectFrame :: struct #packed {}
+
+AssistantPageType :: enum u32 {ASSISTANT_PAGE_CONTENT = 0, ASSISTANT_PAGE_INTRO = 1, ASSISTANT_PAGE_CONFIRM = 2, ASSISTANT_PAGE_SUMMARY = 3, ASSISTANT_PAGE_PROGRESS = 4, ASSISTANT_PAGE_CUSTOM = 5 }
+Assistant :: struct #packed {}
+
+AssistantPage :: struct #packed {}
+
+AssistantPageFunc :: #type proc "c" (current_page: i32, data: glib.pointer) -> i32
+ATContextClass :: struct #packed {}
+
+LayoutChild :: struct {
+    parent_instance: gobj.Object,
+}
+
+LayoutChildClass :: struct {
+    parent_class: gobj.ObjectClass,
+}
+
+et_request_mode_func_ptr_anon_73 :: #type proc "c" (manager: ^LayoutManager, widget: ^Widget) -> SizeRequestMode
+measure_func_ptr_anon_74 :: #type proc "c" (manager: ^LayoutManager, widget: ^Widget, orientation: Orientation, for_size: i32, minimum: ^i32, natural: ^i32, minimum_baseline: ^i32, natural_baseline: ^i32)
+allocate_func_ptr_anon_75 :: #type proc "c" (manager: ^LayoutManager, widget: ^Widget, width: i32, height: i32, baseline: i32)
+create_layout_child_func_ptr_anon_76 :: #type proc "c" (manager: ^LayoutManager, widget: ^Widget, for_child: ^Widget) -> ^LayoutChild
+root_func_ptr_anon_77 :: #type proc "c" (manager: ^LayoutManager)
+unroot_func_ptr_anon_78 :: #type proc "c" (manager: ^LayoutManager)
+LayoutManagerClass :: struct {
+    parent_class: gobj.ObjectClass,
+    get_request_mode: et_request_mode_func_ptr_anon_73,
+    measure: measure_func_ptr_anon_74,
+    allocate: allocate_func_ptr_anon_75,
+    layout_child_type: gobj.Type,
+    create_layout_child: create_layout_child_func_ptr_anon_76,
+    root: root_func_ptr_anon_77,
+    unroot: unroot_func_ptr_anon_78,
+    _padding: [16]glib.pointer,
+}
+
+BinLayout :: struct #packed {}
+
+BinLayoutClass :: struct {
+    parent_class: LayoutManagerClass,
+}
+BitsetIter :: struct {
+    private_data: [10]glib.pointer,
+}
+
+BookmarkList :: struct #packed {}
+
+BookmarkListClass :: struct {
+    parent_class: gobj.ObjectClass,
+}
+Expression :: struct #packed {}
+
+ExpressionWatch :: struct #packed {}
+
+ExpressionNotify :: #type proc "c" (user_data: glib.pointer)
+PropertyExpression :: struct #packed {}
+
+ConstantExpression :: struct #packed {}
+
+ObjectExpression :: struct #packed {}
+
+ClosureExpression :: struct #packed {}
+
+CClosureExpression :: struct #packed {}
+
+ParamSpecExpression :: struct {
+    parent_instance: gobj.ParamSpec,
+}
+FilterMatch :: enum u32 {SOME = 0, NONE = 1, ALL = 2 }
+FilterChange :: enum u32 {DIFFERENT = 0, LESS_STRICT = 1, MORE_STRICT = 2 }
+Filter :: struct {
+    parent_instance: gobj.Object,
+}
+
+match_func_ptr_anon_79 :: #type proc "c" (self: ^Filter, item: glib.pointer) -> glib.boolean
+et_strictness_func_ptr_anon_80 :: #type proc "c" (self: ^Filter) -> FilterMatch
+_gtk_reserved1_func_ptr_anon_81 :: #type proc "c" ()
+_gtk_reserved2_func_ptr_anon_82 :: #type proc "c" ()
+_gtk_reserved3_func_ptr_anon_83 :: #type proc "c" ()
+_gtk_reserved4_func_ptr_anon_84 :: #type proc "c" ()
+_gtk_reserved5_func_ptr_anon_85 :: #type proc "c" ()
+_gtk_reserved6_func_ptr_anon_86 :: #type proc "c" ()
+_gtk_reserved7_func_ptr_anon_87 :: #type proc "c" ()
+_gtk_reserved8_func_ptr_anon_88 :: #type proc "c" ()
+FilterClass :: struct {
+    parent_class: gobj.ObjectClass,
+    match: match_func_ptr_anon_79,
+    get_strictness: et_strictness_func_ptr_anon_80,
+    _gtk_reserved1: _gtk_reserved1_func_ptr_anon_81,
+    _gtk_reserved2: _gtk_reserved2_func_ptr_anon_82,
+    _gtk_reserved3: _gtk_reserved3_func_ptr_anon_83,
+    _gtk_reserved4: _gtk_reserved4_func_ptr_anon_84,
+    _gtk_reserved5: _gtk_reserved5_func_ptr_anon_85,
+    _gtk_reserved6: _gtk_reserved6_func_ptr_anon_86,
+    _gtk_reserved7: _gtk_reserved7_func_ptr_anon_87,
+    _gtk_reserved8: _gtk_reserved8_func_ptr_anon_88,
+}
+
+BoolFilter :: struct #packed {}
+
+BoolFilterClass :: struct {
+    parent_class: FilterClass,
+}
+Border :: struct {
+    left: glib.int16,
+    right: glib.int16,
+    top: glib.int16,
+    bottom: glib.int16,
+}
+
+BoxLayout :: struct #packed {}
+
+BoxLayoutClass :: struct {
+    parent_class: LayoutManagerClass,
+}
+Box :: struct {
+    parent_instance: Widget,
+}
+
+BoxClass :: struct {
+    parent_class: WidgetClass,
+    padding: [8]glib.pointer,
+}
+
+et_type_from_name_func_ptr_anon_89 :: #type proc "c" (self: ^BuilderScope, builder: ^Builder, type_name: cstring) -> gobj.Type
+et_type_from_function_func_ptr_anon_90 :: #type proc "c" (self: ^BuilderScope, builder: ^Builder, function_name: cstring) -> gobj.Type
+BuilderClosureFlagsBit :: enum u32 {BUILDER_CLOSURE_SWAPPED = 0}
+BuilderClosureFlags :: bit_set[BuilderClosureFlagsBit; u32]
+create_closure_func_ptr_anon_91 :: #type proc "c" (self: ^BuilderScope, builder: ^Builder, function_name: cstring, flags: BuilderClosureFlags, object: ^gobj.Object, error: ^^glib.Error) -> ^gobj.Closure
+BuilderScopeInterface :: struct {
+    g_iface: gobj.TypeInterface,
+    get_type_from_name: et_type_from_name_func_ptr_anon_89,
+    get_type_from_function: et_type_from_function_func_ptr_anon_90,
+    create_closure: create_closure_func_ptr_anon_91,
+}
+
+BuilderCScopeClass :: struct {
+    parent_class: gobj.ObjectClass,
+}
+BuilderCScope :: struct {
+    parent_instance: gobj.Object,
+}
+
+
+BuilderClass :: struct #packed {}
+
+BuilderError :: enum u32 {INVALID_TYPE_FUNCTION = 0, UNHANDLED_TAG = 1, MISSING_ATTRIBUTE = 2, INVALID_ATTRIBUTE = 3, INVALID_TAG = 4, MISSING_PROPERTY_VALUE = 5, INVALID_VALUE = 6, VERSION_MISMATCH = 7, DUPLICATE_ID = 8, OBJECT_TYPE_REFUSED = 9, TEMPLATE_MISMATCH = 10, INVALID_PROPERTY = 11, INVALID_SIGNAL = 12, INVALID_ID = 13, INVALID_FUNCTION = 14 }
+Buildable :: struct #packed {}
+
+set_id_func_ptr_anon_96 :: #type proc "c" (buildable: ^Buildable, id: cstring)
+et_id_func_ptr_anon_97 :: #type proc "c" (buildable: ^Buildable) -> cstring
+add_child_func_ptr_anon_98 :: #type proc "c" (buildable: ^Buildable, builder: ^Builder, child: ^gobj.Object, type: cstring)
+set_buildable_property_func_ptr_anon_99 :: #type proc "c" (buildable: ^Buildable, builder: ^Builder, name: cstring, value: ^gobj.Value)
+construct_child_func_ptr_anon_100 :: #type proc "c" (buildable: ^Buildable, builder: ^Builder, name: cstring) -> ^gobj.Object
+BuildableParseContext :: struct #packed {}
+
+start_element_func_ptr_anon_92 :: #type proc "c" (context_p: ^BuildableParseContext, element_name: cstring, attribute_names: [^]cstring, attribute_values: [^]cstring, user_data: glib.pointer, error: ^^glib.Error)
+end_element_func_ptr_anon_93 :: #type proc "c" (context_p: ^BuildableParseContext, element_name: cstring, user_data: glib.pointer, error: ^^glib.Error)
+text_func_ptr_anon_94 :: #type proc "c" (context_p: ^BuildableParseContext, text: cstring, text_len: glib.size, user_data: glib.pointer, error: ^^glib.Error)
+error_func_ptr_anon_95 :: #type proc "c" (context_p: ^BuildableParseContext, error: ^glib.Error, user_data: glib.pointer)
+BuildableParser :: struct {
+    start_element: start_element_func_ptr_anon_92,
+    end_element: end_element_func_ptr_anon_93,
+    text: text_func_ptr_anon_94,
+    error: error_func_ptr_anon_95,
+    padding: [4]glib.pointer,
+}
+
+custom_tag_start_func_ptr_anon_101 :: #type proc "c" (buildable: ^Buildable, builder: ^Builder, child: ^gobj.Object, tagname: cstring, parser: ^BuildableParser, data: ^glib.pointer) -> glib.boolean
+custom_tag_end_func_ptr_anon_102 :: #type proc "c" (buildable: ^Buildable, builder: ^Builder, child: ^gobj.Object, tagname: cstring, data: glib.pointer)
+custom_finished_func_ptr_anon_103 :: #type proc "c" (buildable: ^Buildable, builder: ^Builder, child: ^gobj.Object, tagname: cstring, data: glib.pointer)
+parser_finished_func_ptr_anon_104 :: #type proc "c" (buildable: ^Buildable, builder: ^Builder)
+et_internal_child_func_ptr_anon_105 :: #type proc "c" (buildable: ^Buildable, builder: ^Builder, childname: cstring) -> ^gobj.Object
+BuildableIface :: struct {
+    g_iface: gobj.TypeInterface,
+    set_id: set_id_func_ptr_anon_96,
+    get_id: et_id_func_ptr_anon_97,
+    add_child: add_child_func_ptr_anon_98,
+    set_buildable_property: set_buildable_property_func_ptr_anon_99,
+    construct_child: construct_child_func_ptr_anon_100,
+    custom_tag_start: custom_tag_start_func_ptr_anon_101,
+    custom_tag_end: custom_tag_end_func_ptr_anon_102,
+    custom_finished: custom_finished_func_ptr_anon_103,
+    parser_finished: parser_finished_func_ptr_anon_104,
+    get_internal_child: et_internal_child_func_ptr_anon_105,
+}
+
+ListItemFactoryClass :: struct #packed {}
+
+BuilderListItemFactory :: struct #packed {}
+
+BuilderListItemFactoryClass :: struct #packed {}
+
+Button :: struct {
+    parent_instance: Widget,
+}
+
+ButtonPrivate :: struct #packed {}
+
+clicked_func_ptr_anon_106 :: #type proc "c" (button: ^Button)
+activate_func_ptr_anon_107 :: #type proc "c" (button: ^Button)
+ButtonClass :: struct {
+    parent_class: WidgetClass,
+    clicked: clicked_func_ptr_anon_106,
+    activate: activate_func_ptr_anon_107,
+    padding: [8]glib.pointer,
+}
+
+Calendar :: struct #packed {}
+
+CellEditable :: struct #packed {}
+
+editing_done_func_ptr_anon_108 :: #type proc "c" (cell_editable: ^CellEditable)
+remove_widget_func_ptr_anon_109 :: #type proc "c" (cell_editable: ^CellEditable)
+start_editing_func_ptr_anon_110 :: #type proc "c" (cell_editable: ^CellEditable, event: ^Event)
+CellEditableIface :: struct {
+    g_iface: gobj.TypeInterface,
+    editing_done: editing_done_func_ptr_anon_108,
+    remove_widget: remove_widget_func_ptr_anon_109,
+    start_editing: start_editing_func_ptr_anon_110,
+}
+
+CellRendererStateBit :: enum u32 {CELL_RENDERER_SELECTED = 0, CELL_RENDERER_PRELIT = 1, CELL_RENDERER_INSENSITIVE = 2, CELL_RENDERER_SORTED = 3, CELL_RENDERER_FOCUSED = 4, CELL_RENDERER_EXPANDABLE = 5, CELL_RENDERER_EXPANDED = 6}
+CellRendererState :: bit_set[CellRendererStateBit; u32]
+CellRendererMode :: enum u32 {INERT = 0, ACTIVATABLE = 1, EDITABLE = 2 }
+CellRendererPrivate :: struct #packed {}
+
+CellRenderer :: struct {
+    parent_instance: gobj.InitiallyUnowned,
+    priv: ^CellRendererPrivate,
+}
+
+et_request_mode_func_ptr_anon_111 :: #type proc "c" (cell: ^CellRenderer) -> SizeRequestMode
+et_preferred_width_func_ptr_anon_112 :: #type proc "c" (cell: ^CellRenderer, widget: ^Widget, minimum_size: ^i32, natural_size: ^i32)
+et_preferred_height_for_width_func_ptr_anon_113 :: #type proc "c" (cell: ^CellRenderer, widget: ^Widget, width: i32, minimum_height: ^i32, natural_height: ^i32)
+et_preferred_height_func_ptr_anon_114 :: #type proc "c" (cell: ^CellRenderer, widget: ^Widget, minimum_size: ^i32, natural_size: ^i32)
+et_preferred_width_for_height_func_ptr_anon_115 :: #type proc "c" (cell: ^CellRenderer, widget: ^Widget, height: i32, minimum_width: ^i32, natural_width: ^i32)
+et_aligned_area_func_ptr_anon_116 :: #type proc "c" (cell: ^CellRenderer, widget: ^Widget, flags: CellRendererState, cell_area: ^Rectangle, aligned_area: ^Rectangle)
+snapshot_func_ptr_anon_117 :: #type proc "c" (cell: ^CellRenderer, snapshot: ^Snapshot, widget: ^Widget, background_area: ^Rectangle, cell_area: ^Rectangle, flags: CellRendererState)
+activate_func_ptr_anon_118 :: #type proc "c" (cell: ^CellRenderer, event: ^Event, widget: ^Widget, path_p: cstring, background_area: ^Rectangle, cell_area: ^Rectangle, flags: CellRendererState) -> glib.boolean
+start_editing_func_ptr_anon_119 :: #type proc "c" (cell: ^CellRenderer, event: ^Event, widget: ^Widget, path_p: cstring, background_area: ^Rectangle, cell_area: ^Rectangle, flags: CellRendererState) -> ^CellEditable
+editing_canceled_func_ptr_anon_120 :: #type proc "c" (cell: ^CellRenderer)
+editing_started_func_ptr_anon_121 :: #type proc "c" (cell: ^CellRenderer, editable: ^CellEditable, path_p: cstring)
+CellRendererClass :: struct {
+    parent_class: gobj.InitiallyUnownedClass,
+    get_request_mode: et_request_mode_func_ptr_anon_111,
+    get_preferred_width: et_preferred_width_func_ptr_anon_112,
+    get_preferred_height_for_width: et_preferred_height_for_width_func_ptr_anon_113,
+    get_preferred_height: et_preferred_height_func_ptr_anon_114,
+    get_preferred_width_for_height: et_preferred_width_for_height_func_ptr_anon_115,
+    get_aligned_area: et_aligned_area_func_ptr_anon_116,
+    snapshot: snapshot_func_ptr_anon_117,
+    activate: activate_func_ptr_anon_118,
+    start_editing: start_editing_func_ptr_anon_119,
+    editing_canceled: editing_canceled_func_ptr_anon_120,
+    editing_started: editing_started_func_ptr_anon_121,
+    padding: [8]glib.pointer,
+}
+
+CellRendererClassPrivate :: struct #packed {}
+
+TreeIter :: struct {
+    stamp: i32,
+    user_data: glib.pointer,
+    user_data2: glib.pointer,
+    user_data3: glib.pointer,
+}
+
+TreePath :: struct #packed {}
+
+TreeRowReference :: struct #packed {}
+
+TreeModel :: struct #packed {}
+
+row_changed_func_ptr_anon_122 :: #type proc "c" (tree_model: ^TreeModel, path_p: ^TreePath, iter: ^TreeIter)
+row_inserted_func_ptr_anon_123 :: #type proc "c" (tree_model: ^TreeModel, path_p: ^TreePath, iter: ^TreeIter)
+row_has_child_toggled_func_ptr_anon_124 :: #type proc "c" (tree_model: ^TreeModel, path_p: ^TreePath, iter: ^TreeIter)
+row_deleted_func_ptr_anon_125 :: #type proc "c" (tree_model: ^TreeModel, path_p: ^TreePath)
+rows_reordered_func_ptr_anon_126 :: #type proc "c" (tree_model: ^TreeModel, path_p: ^TreePath, iter: ^TreeIter, new_order: ^i32)
+TreeModelFlagsBit :: enum u32 {TREE_MODEL_ITERS_PERSIST = 0, TREE_MODEL_LIST_ONLY = 1}
+TreeModelFlags :: bit_set[TreeModelFlagsBit; u32]
+et_flags_func_ptr_anon_127 :: #type proc "c" (tree_model: ^TreeModel) -> TreeModelFlags
+et_n_columns_func_ptr_anon_128 :: #type proc "c" (tree_model: ^TreeModel) -> i32
+et_column_type_func_ptr_anon_129 :: #type proc "c" (tree_model: ^TreeModel, index_: i32) -> gobj.Type
+et_iter_func_ptr_anon_130 :: #type proc "c" (tree_model: ^TreeModel, iter: ^TreeIter, path_p: ^TreePath) -> glib.boolean
+et_path_func_ptr_anon_131 :: #type proc "c" (tree_model: ^TreeModel, iter: ^TreeIter) -> ^TreePath
+et_value_func_ptr_anon_132 :: #type proc "c" (tree_model: ^TreeModel, iter: ^TreeIter, column: i32, value: ^gobj.Value)
+iter_next_func_ptr_anon_133 :: #type proc "c" (tree_model: ^TreeModel, iter: ^TreeIter) -> glib.boolean
+iter_previous_func_ptr_anon_134 :: #type proc "c" (tree_model: ^TreeModel, iter: ^TreeIter) -> glib.boolean
+iter_children_func_ptr_anon_135 :: #type proc "c" (tree_model: ^TreeModel, iter: ^TreeIter, parent: ^TreeIter) -> glib.boolean
+iter_has_child_func_ptr_anon_136 :: #type proc "c" (tree_model: ^TreeModel, iter: ^TreeIter) -> glib.boolean
+iter_n_children_func_ptr_anon_137 :: #type proc "c" (tree_model: ^TreeModel, iter: ^TreeIter) -> i32
+iter_nth_child_func_ptr_anon_138 :: #type proc "c" (tree_model: ^TreeModel, iter: ^TreeIter, parent: ^TreeIter, n: i32) -> glib.boolean
+iter_parent_func_ptr_anon_139 :: #type proc "c" (tree_model: ^TreeModel, iter: ^TreeIter, child: ^TreeIter) -> glib.boolean
+ref_node_func_ptr_anon_140 :: #type proc "c" (tree_model: ^TreeModel, iter: ^TreeIter)
+unref_node_func_ptr_anon_141 :: #type proc "c" (tree_model: ^TreeModel, iter: ^TreeIter)
+TreeModelIface :: struct {
+    g_iface: gobj.TypeInterface,
+    row_changed: row_changed_func_ptr_anon_122,
+    row_inserted: row_inserted_func_ptr_anon_123,
+    row_has_child_toggled: row_has_child_toggled_func_ptr_anon_124,
+    row_deleted: row_deleted_func_ptr_anon_125,
+    rows_reordered: rows_reordered_func_ptr_anon_126,
+    get_flags: et_flags_func_ptr_anon_127,
+    get_n_columns: et_n_columns_func_ptr_anon_128,
+    get_column_type: et_column_type_func_ptr_anon_129,
+    get_iter: et_iter_func_ptr_anon_130,
+    get_path: et_path_func_ptr_anon_131,
+    get_value: et_value_func_ptr_anon_132,
+    iter_next: iter_next_func_ptr_anon_133,
+    iter_previous: iter_previous_func_ptr_anon_134,
+    iter_children: iter_children_func_ptr_anon_135,
+    iter_has_child: iter_has_child_func_ptr_anon_136,
+    iter_n_children: iter_n_children_func_ptr_anon_137,
+    iter_nth_child: iter_nth_child_func_ptr_anon_138,
+    iter_parent: iter_parent_func_ptr_anon_139,
+    ref_node: ref_node_func_ptr_anon_140,
+    unref_node: unref_node_func_ptr_anon_141,
+}
+
+TreeModelForeachFunc :: #type proc "c" (model: ^TreeModel, path_p: ^TreePath, iter: ^TreeIter, data: glib.pointer) -> glib.boolean
+CellArea :: struct {
+    parent_instance: gobj.InitiallyUnowned,
+}
+
+add_func_ptr_anon_142 :: #type proc "c" (area: ^CellArea, renderer: ^CellRenderer)
+remove_func_ptr_anon_143 :: #type proc "c" (area: ^CellArea, renderer: ^CellRenderer)
+CellCallback :: #type proc "c" (renderer: ^CellRenderer, data: glib.pointer) -> glib.boolean
+foreach_func_ptr_anon_144 :: #type proc "c" (area: ^CellArea, callback: CellCallback, callback_data: glib.pointer)
+CellAreaContext :: struct {
+    parent_instance: gobj.Object,
+}
+
+CellAllocCallback :: #type proc "c" (renderer: ^CellRenderer, cell_area: ^Rectangle, cell_background: ^Rectangle, data: glib.pointer) -> glib.boolean
+foreach_alloc_func_ptr_anon_145 :: #type proc "c" (area: ^CellArea, context_p: ^CellAreaContext, widget: ^Widget, cell_area: ^Rectangle, background_area: ^Rectangle, callback: CellAllocCallback, callback_data: glib.pointer)
+event_func_ptr_anon_146 :: #type proc "c" (area: ^CellArea, context_p: ^CellAreaContext, widget: ^Widget, event: ^Event, cell_area: ^Rectangle, flags: CellRendererState) -> i32
+snapshot_func_ptr_anon_147 :: #type proc "c" (area: ^CellArea, context_p: ^CellAreaContext, widget: ^Widget, snapshot: ^Snapshot, background_area: ^Rectangle, cell_area: ^Rectangle, flags: CellRendererState, paint_focus: glib.boolean)
+apply_attributes_func_ptr_anon_148 :: #type proc "c" (area: ^CellArea, tree_model: ^TreeModel, iter: ^TreeIter, is_expander: glib.boolean, is_expanded: glib.boolean)
+create_context_func_ptr_anon_149 :: #type proc "c" (area: ^CellArea) -> ^CellAreaContext
+copy_context_func_ptr_anon_150 :: #type proc "c" (area: ^CellArea, context_p: ^CellAreaContext) -> ^CellAreaContext
+et_request_mode_func_ptr_anon_151 :: #type proc "c" (area: ^CellArea) -> SizeRequestMode
+et_preferred_width_func_ptr_anon_152 :: #type proc "c" (area: ^CellArea, context_p: ^CellAreaContext, widget: ^Widget, minimum_width: ^i32, natural_width: ^i32)
+et_preferred_height_for_width_func_ptr_anon_153 :: #type proc "c" (area: ^CellArea, context_p: ^CellAreaContext, widget: ^Widget, width: i32, minimum_height: ^i32, natural_height: ^i32)
+et_preferred_height_func_ptr_anon_154 :: #type proc "c" (area: ^CellArea, context_p: ^CellAreaContext, widget: ^Widget, minimum_height: ^i32, natural_height: ^i32)
+et_preferred_width_for_height_func_ptr_anon_155 :: #type proc "c" (area: ^CellArea, context_p: ^CellAreaContext, widget: ^Widget, height: i32, minimum_width: ^i32, natural_width: ^i32)
+set_cell_property_func_ptr_anon_156 :: #type proc "c" (area: ^CellArea, renderer: ^CellRenderer, property_id: glib.uint_, value: ^gobj.Value, pspec: ^gobj.ParamSpec)
+et_cell_property_func_ptr_anon_157 :: #type proc "c" (area: ^CellArea, renderer: ^CellRenderer, property_id: glib.uint_, value: ^gobj.Value, pspec: ^gobj.ParamSpec)
+focus_func_ptr_anon_158 :: #type proc "c" (area: ^CellArea, direction: DirectionType) -> glib.boolean
+is_activatable_func_ptr_anon_159 :: #type proc "c" (area: ^CellArea) -> glib.boolean
+activate_func_ptr_anon_160 :: #type proc "c" (area: ^CellArea, context_p: ^CellAreaContext, widget: ^Widget, cell_area: ^Rectangle, flags: CellRendererState, edit_only: glib.boolean) -> glib.boolean
+CellAreaClass :: struct {
+    parent_class: gobj.InitiallyUnownedClass,
+    add: add_func_ptr_anon_142,
+    remove: remove_func_ptr_anon_143,
+    foreach: foreach_func_ptr_anon_144,
+    foreach_alloc: foreach_alloc_func_ptr_anon_145,
+    event: event_func_ptr_anon_146,
+    snapshot: snapshot_func_ptr_anon_147,
+    apply_attributes: apply_attributes_func_ptr_anon_148,
+    create_context: create_context_func_ptr_anon_149,
+    copy_context: copy_context_func_ptr_anon_150,
+    get_request_mode: et_request_mode_func_ptr_anon_151,
+    get_preferred_width: et_preferred_width_func_ptr_anon_152,
+    get_preferred_height_for_width: et_preferred_height_for_width_func_ptr_anon_153,
+    get_preferred_height: et_preferred_height_func_ptr_anon_154,
+    get_preferred_width_for_height: et_preferred_width_for_height_func_ptr_anon_155,
+    set_cell_property: set_cell_property_func_ptr_anon_156,
+    get_cell_property: et_cell_property_func_ptr_anon_157,
+    focus: focus_func_ptr_anon_158,
+    is_activatable: is_activatable_func_ptr_anon_159,
+    activate: activate_func_ptr_anon_160,
+    padding: [8]glib.pointer,
+}
+
+CellAreaBox :: struct #packed {}
+
+CellAreaContextPrivate :: struct #packed {}
+
+allocate_func_ptr_anon_161 :: #type proc "c" (context_p: ^CellAreaContext, width: i32, height: i32)
+reset_func_ptr_anon_162 :: #type proc "c" (context_p: ^CellAreaContext)
+et_preferred_height_for_width_func_ptr_anon_163 :: #type proc "c" (context_p: ^CellAreaContext, width: i32, minimum_height: ^i32, natural_height: ^i32)
+et_preferred_width_for_height_func_ptr_anon_164 :: #type proc "c" (context_p: ^CellAreaContext, height: i32, minimum_width: ^i32, natural_width: ^i32)
+CellAreaContextClass :: struct {
+    parent_class: gobj.ObjectClass,
+    allocate: allocate_func_ptr_anon_161,
+    reset: reset_func_ptr_anon_162,
+    get_preferred_height_for_width: et_preferred_height_for_width_func_ptr_anon_163,
+    get_preferred_width_for_height: et_preferred_width_for_height_func_ptr_anon_164,
+    padding: [8]glib.pointer,
+}
+
+CellLayout :: struct #packed {}
+
+pack_start_func_ptr_anon_165 :: #type proc "c" (cell_layout: ^CellLayout, cell: ^CellRenderer, expand: glib.boolean)
+pack_end_func_ptr_anon_166 :: #type proc "c" (cell_layout: ^CellLayout, cell: ^CellRenderer, expand: glib.boolean)
+clear_func_ptr_anon_167 :: #type proc "c" (cell_layout: ^CellLayout)
+add_attribute_func_ptr_anon_168 :: #type proc "c" (cell_layout: ^CellLayout, cell: ^CellRenderer, attribute: cstring, column: i32)
+CellLayoutDataFunc :: #type proc "c" (cell_layout: ^CellLayout, cell: ^CellRenderer, tree_model: ^TreeModel, iter: ^TreeIter, data: glib.pointer)
+set_cell_data_func_func_ptr_anon_169 :: #type proc "c" (cell_layout: ^CellLayout, cell: ^CellRenderer, func: CellLayoutDataFunc, func_data: glib.pointer, destroy: glib.DestroyNotify)
+clear_attributes_func_ptr_anon_170 :: #type proc "c" (cell_layout: ^CellLayout, cell: ^CellRenderer)
+reorder_func_ptr_anon_171 :: #type proc "c" (cell_layout: ^CellLayout, cell: ^CellRenderer, position: i32)
+et_cells_func_ptr_anon_172 :: #type proc "c" (cell_layout: ^CellLayout) -> ^glib.List
+et_area_func_ptr_anon_173 :: #type proc "c" (cell_layout: ^CellLayout) -> ^CellArea
+CellLayoutIface :: struct {
+    g_iface: gobj.TypeInterface,
+    pack_start: pack_start_func_ptr_anon_165,
+    pack_end: pack_end_func_ptr_anon_166,
+    clear: clear_func_ptr_anon_167,
+    add_attribute: add_attribute_func_ptr_anon_168,
+    set_cell_data_func: set_cell_data_func_func_ptr_anon_169,
+    clear_attributes: clear_attributes_func_ptr_anon_170,
+    reorder: reorder_func_ptr_anon_171,
+    get_cells: et_cells_func_ptr_anon_172,
+    get_area: et_area_func_ptr_anon_173,
+}
+
+CellRendererText :: struct {
+    parent: CellRenderer,
+}
+
+edited_func_ptr_anon_174 :: #type proc "c" (cell_renderer_text: ^CellRendererText, path_p: cstring, new_text: cstring)
+CellRendererTextClass :: struct {
+    parent_class: CellRendererClass,
+    edited: edited_func_ptr_anon_174,
+    padding: [8]glib.pointer,
+}
+
+CellRendererAccel :: struct #packed {}
+
+CellRendererAccelMode :: enum u32 {GTK = 0, OTHER = 1 }
+CellRendererCombo :: struct #packed {}
+
+CellRendererPixbuf :: struct #packed {}
+
+CellRendererProgress :: struct #packed {}
+
+CellRendererSpin :: struct #packed {}
+
+CellRendererSpinner :: struct #packed {}
+
+CellRendererToggle :: struct #packed {}
+
+CellView :: struct #packed {}
+
+CenterBox :: struct #packed {}
+
+CenterBoxClass :: struct #packed {}
+
+CenterLayout :: struct #packed {}
+
+CenterLayoutClass :: struct {
+    parent_class: LayoutManagerClass,
+}
+ToggleButton :: struct {
+    button: Button,
+}
+
+toggled_func_ptr_anon_175 :: #type proc "c" (toggle_button: ^ToggleButton)
+ToggleButtonClass :: struct {
+    parent_class: ButtonClass,
+    toggled: toggled_func_ptr_anon_175,
+    padding: [8]glib.pointer,
+}
+
+CheckButton :: struct {
+    parent_instance: Widget,
+}
+
+toggled_func_ptr_anon_176 :: #type proc "c" (check_button: ^CheckButton)
+activate_func_ptr_anon_177 :: #type proc "c" (check_button: ^CheckButton)
+CheckButtonClass :: struct {
+    parent_class: WidgetClass,
+    toggled: toggled_func_ptr_anon_176,
+    activate: activate_func_ptr_anon_177,
+    padding: [7]glib.pointer,
+}
+
+ColorButton :: struct #packed {}
+
+ColorChooser :: struct #packed {}
+
+et_rgba_func_ptr_anon_178 :: #type proc "c" (chooser: ^ColorChooser, color: ^RGBA)
+set_rgba_func_ptr_anon_179 :: #type proc "c" (chooser: ^ColorChooser, color: ^RGBA)
+add_palette_func_ptr_anon_180 :: #type proc "c" (chooser: ^ColorChooser, orientation: Orientation, colors_per_line: i32, n_colors: i32, colors: [^]RGBA)
+color_activated_func_ptr_anon_181 :: #type proc "c" (chooser: ^ColorChooser, color: ^RGBA)
+ColorChooserInterface :: struct {
+    base_interface: gobj.TypeInterface,
+    get_rgba: et_rgba_func_ptr_anon_178,
+    set_rgba: set_rgba_func_ptr_anon_179,
+    add_palette: add_palette_func_ptr_anon_180,
+    color_activated: color_activated_func_ptr_anon_181,
+    padding: [12]glib.pointer,
+}
+
+ColorChooserDialog :: struct #packed {}
+
+ColorChooserWidget :: struct #packed {}
+
+ColorDialog :: struct #packed {}
+
+ColorDialogClass :: struct {
+    parent_class: gobj.ObjectClass,
+}
+ColorDialogButton :: struct #packed {}
+
+ColorDialogButtonClass :: struct {
+    parent_class: WidgetClass,
+}
+SorterOrder :: enum u32 {PARTIAL = 0, NONE = 1, TOTAL = 2 }
+SorterChange :: enum u32 {DIFFERENT = 0, INVERTED = 1, LESS_STRICT = 2, MORE_STRICT = 3 }
+Sorter :: struct {
+    parent_instance: gobj.Object,
+}
+
+compare_func_ptr_anon_182 :: #type proc "c" (self: ^Sorter, item1: glib.pointer, item2: glib.pointer) -> Ordering
+et_order_func_ptr_anon_183 :: #type proc "c" (self: ^Sorter) -> SorterOrder
+_gtk_reserved1_func_ptr_anon_184 :: #type proc "c" ()
+_gtk_reserved2_func_ptr_anon_185 :: #type proc "c" ()
+_gtk_reserved3_func_ptr_anon_186 :: #type proc "c" ()
+_gtk_reserved4_func_ptr_anon_187 :: #type proc "c" ()
+_gtk_reserved5_func_ptr_anon_188 :: #type proc "c" ()
+_gtk_reserved6_func_ptr_anon_189 :: #type proc "c" ()
+_gtk_reserved7_func_ptr_anon_190 :: #type proc "c" ()
+_gtk_reserved8_func_ptr_anon_191 :: #type proc "c" ()
+SorterClass :: struct {
+    parent_class: gobj.ObjectClass,
+    compare: compare_func_ptr_anon_182,
+    get_order: et_order_func_ptr_anon_183,
+    _gtk_reserved1: _gtk_reserved1_func_ptr_anon_184,
+    _gtk_reserved2: _gtk_reserved2_func_ptr_anon_185,
+    _gtk_reserved3: _gtk_reserved3_func_ptr_anon_186,
+    _gtk_reserved4: _gtk_reserved4_func_ptr_anon_187,
+    _gtk_reserved5: _gtk_reserved5_func_ptr_anon_188,
+    _gtk_reserved6: _gtk_reserved6_func_ptr_anon_189,
+    _gtk_reserved7: _gtk_reserved7_func_ptr_anon_190,
+    _gtk_reserved8: _gtk_reserved8_func_ptr_anon_191,
+}
+
+SortListModel :: struct #packed {}
+
+SortListModelClass :: struct {
+    parent_class: gobj.ObjectClass,
+}
+SelectionModel :: struct #packed {}
+
+is_selected_func_ptr_anon_192 :: #type proc "c" (model: ^SelectionModel, position: glib.uint_) -> glib.boolean
+et_selection_in_range_func_ptr_anon_193 :: #type proc "c" (model: ^SelectionModel, position: glib.uint_, n_items: glib.uint_) -> ^Bitset
+select_item_func_ptr_anon_194 :: #type proc "c" (model: ^SelectionModel, position: glib.uint_, unselect_rest: glib.boolean) -> glib.boolean
+unselect_item_func_ptr_anon_195 :: #type proc "c" (model: ^SelectionModel, position: glib.uint_) -> glib.boolean
+select_range_func_ptr_anon_196 :: #type proc "c" (model: ^SelectionModel, position: glib.uint_, n_items: glib.uint_, unselect_rest: glib.boolean) -> glib.boolean
+unselect_range_func_ptr_anon_197 :: #type proc "c" (model: ^SelectionModel, position: glib.uint_, n_items: glib.uint_) -> glib.boolean
+select_all_func_ptr_anon_198 :: #type proc "c" (model: ^SelectionModel) -> glib.boolean
+unselect_all_func_ptr_anon_199 :: #type proc "c" (model: ^SelectionModel) -> glib.boolean
+set_selection_func_ptr_anon_200 :: #type proc "c" (model: ^SelectionModel, selected: ^Bitset, mask: ^Bitset) -> glib.boolean
+SelectionModelInterface :: struct {
+    g_iface: gobj.TypeInterface,
+    is_selected: is_selected_func_ptr_anon_192,
+    get_selection_in_range: et_selection_in_range_func_ptr_anon_193,
+    select_item: select_item_func_ptr_anon_194,
+    unselect_item: unselect_item_func_ptr_anon_195,
+    select_range: select_range_func_ptr_anon_196,
+    unselect_range: unselect_range_func_ptr_anon_197,
+    select_all: select_all_func_ptr_anon_198,
+    unselect_all: unselect_all_func_ptr_anon_199,
+    set_selection: set_selection_func_ptr_anon_200,
+}
+
+ColumnView :: struct #packed {}
+
+ColumnViewClass :: struct #packed {}
+
+ColumnViewColumn :: struct #packed {}
+
+ListItemClass :: struct #packed {}
+
+ColumnViewCell :: struct #packed {}
+
+ColumnViewCellClass :: struct #packed {}
+
+ColumnViewColumnClass :: struct #packed {}
+
+ColumnViewRow :: struct #packed {}
+
+ColumnViewRowClass :: struct #packed {}
+
+ColumnViewSorter :: struct #packed {}
+
+ColumnViewSorterClass :: struct {
+    parent_class: SorterClass,
+}
+TreeSortable :: struct #packed {}
+
+sort_column_changed_func_ptr_anon_201 :: #type proc "c" (sortable: ^TreeSortable)
+et_sort_column_id_func_ptr_anon_202 :: #type proc "c" (sortable: ^TreeSortable, sort_column_id: ^i32, order: ^SortType) -> glib.boolean
+set_sort_column_id_func_ptr_anon_203 :: #type proc "c" (sortable: ^TreeSortable, sort_column_id: i32, order: SortType)
+TreeIterCompareFunc :: #type proc "c" (model: ^TreeModel, a: ^TreeIter, b: ^TreeIter, user_data: glib.pointer) -> i32
+set_sort_func_func_ptr_anon_204 :: #type proc "c" (sortable: ^TreeSortable, sort_column_id: i32, sort_func: TreeIterCompareFunc, user_data: glib.pointer, destroy: glib.DestroyNotify)
+set_default_sort_func_func_ptr_anon_205 :: #type proc "c" (sortable: ^TreeSortable, sort_func: TreeIterCompareFunc, user_data: glib.pointer, destroy: glib.DestroyNotify)
+has_default_sort_func_func_ptr_anon_206 :: #type proc "c" (sortable: ^TreeSortable) -> glib.boolean
+TreeSortableIface :: struct {
+    g_iface: gobj.TypeInterface,
+    sort_column_changed: sort_column_changed_func_ptr_anon_201,
+    get_sort_column_id: et_sort_column_id_func_ptr_anon_202,
+    set_sort_column_id: set_sort_column_id_func_ptr_anon_203,
+    set_sort_func: set_sort_func_func_ptr_anon_204,
+    set_default_sort_func: set_default_sort_func_func_ptr_anon_205,
+    has_default_sort_func: has_default_sort_func_func_ptr_anon_206,
+}
+
+TreeViewColumn :: struct #packed {}
+
+TreeViewColumnSizing :: enum u32 {TREE_VIEW_COLUMN_GROW_ONLY = 0, TREE_VIEW_COLUMN_AUTOSIZE = 1, TREE_VIEW_COLUMN_FIXED = 2 }
+TreeCellDataFunc :: #type proc "c" (tree_column: ^TreeViewColumn, cell: ^CellRenderer, tree_model: ^TreeModel, iter: ^TreeIter, data: glib.pointer)
+Editable :: struct #packed {}
+
+insert_text_func_ptr_anon_207 :: #type proc "c" (editable: ^Editable, text: cstring, length: i32, position: ^i32)
+delete_text_func_ptr_anon_208 :: #type proc "c" (editable: ^Editable, start_pos: i32, end_pos: i32)
+changed_func_ptr_anon_209 :: #type proc "c" (editable: ^Editable)
+et_text_func_ptr_anon_210 :: #type proc "c" (editable: ^Editable) -> cstring
+do_insert_text_func_ptr_anon_211 :: #type proc "c" (editable: ^Editable, text: cstring, length: i32, position: ^i32)
+do_delete_text_func_ptr_anon_212 :: #type proc "c" (editable: ^Editable, start_pos: i32, end_pos: i32)
+et_selection_bounds_func_ptr_anon_213 :: #type proc "c" (editable: ^Editable, start_pos: [^]i32, end_pos: [^]i32) -> glib.boolean
+set_selection_bounds_func_ptr_anon_214 :: #type proc "c" (editable: ^Editable, start_pos: i32, end_pos: i32)
+et_delegate_func_ptr_anon_215 :: #type proc "c" (editable: ^Editable) -> ^Editable
+EditableInterface :: struct {
+    base_iface: gobj.TypeInterface,
+    insert_text: insert_text_func_ptr_anon_207,
+    delete_text: delete_text_func_ptr_anon_208,
+    changed: changed_func_ptr_anon_209,
+    get_text: et_text_func_ptr_anon_210,
+    do_insert_text: do_insert_text_func_ptr_anon_211,
+    do_delete_text: do_delete_text_func_ptr_anon_212,
+    get_selection_bounds: et_selection_bounds_func_ptr_anon_213,
+    set_selection_bounds: set_selection_bounds_func_ptr_anon_214,
+    get_delegate: et_delegate_func_ptr_anon_215,
+}
+
+EditableProperties :: enum u32 {EDITABLE_PROP_TEXT = 0, EDITABLE_PROP_CURSOR_POSITION = 1, EDITABLE_PROP_SELECTION_BOUND = 2, EDITABLE_PROP_EDITABLE = 3, EDITABLE_PROP_WIDTH_CHARS = 4, EDITABLE_PROP_MAX_WIDTH_CHARS = 5, EDITABLE_PROP_XALIGN = 6, EDITABLE_PROP_ENABLE_UNDO = 7, EDITABLE_NUM_PROPERTIES = 8 }
+IMContext :: struct {
+    parent_instance: gobj.Object,
+}
+
+preedit_start_func_ptr_anon_216 :: #type proc "c" (context_p: ^IMContext)
+preedit_end_func_ptr_anon_217 :: #type proc "c" (context_p: ^IMContext)
+preedit_changed_func_ptr_anon_218 :: #type proc "c" (context_p: ^IMContext)
+commit_func_ptr_anon_219 :: #type proc "c" (context_p: ^IMContext, str: cstring)
+retrieve_surrounding_func_ptr_anon_220 :: #type proc "c" (context_p: ^IMContext) -> glib.boolean
+delete_surrounding_func_ptr_anon_221 :: #type proc "c" (context_p: ^IMContext, offset: i32, n_chars: i32) -> glib.boolean
+set_client_widget_func_ptr_anon_222 :: #type proc "c" (context_p: ^IMContext, widget: ^Widget)
+et_preedit_string_func_ptr_anon_223 :: #type proc "c" (context_p: ^IMContext, str: ^cstring, attrs: ^^pango.AttrList, cursor_pos: ^i32)
+filter_keypress_func_ptr_anon_224 :: #type proc "c" (context_p: ^IMContext, event: ^Event) -> glib.boolean
+focus_in_func_ptr_anon_225 :: #type proc "c" (context_p: ^IMContext)
+focus_out_func_ptr_anon_226 :: #type proc "c" (context_p: ^IMContext)
+reset_func_ptr_anon_227 :: #type proc "c" (context_p: ^IMContext)
+set_cursor_location_func_ptr_anon_228 :: #type proc "c" (context_p: ^IMContext, area: ^Rectangle)
+set_use_preedit_func_ptr_anon_229 :: #type proc "c" (context_p: ^IMContext, use_preedit: glib.boolean)
+set_surrounding_func_ptr_anon_230 :: #type proc "c" (context_p: ^IMContext, text: cstring, len: i32, cursor_index: i32)
+et_surrounding_func_ptr_anon_231 :: #type proc "c" (context_p: ^IMContext, text: ^cstring, cursor_index: ^i32) -> glib.boolean
+set_surrounding_with_selection_func_ptr_anon_232 :: #type proc "c" (context_p: ^IMContext, text: cstring, len: i32, cursor_index: i32, anchor_index: i32)
+et_surrounding_with_selection_func_ptr_anon_233 :: #type proc "c" (context_p: ^IMContext, text: ^cstring, cursor_index: ^i32, anchor_index: ^i32) -> glib.boolean
+activate_osk_func_ptr_anon_234 :: #type proc "c" (context_p: ^IMContext)
+activate_osk_with_event_func_ptr_anon_235 :: #type proc "c" (context_p: ^IMContext, event: ^Event) -> glib.boolean
+_gtk_reserved2_func_ptr_anon_236 :: #type proc "c" ()
+_gtk_reserved3_func_ptr_anon_237 :: #type proc "c" ()
+_gtk_reserved4_func_ptr_anon_238 :: #type proc "c" ()
+IMContextClass :: struct {
+    parent_class: gobj.ObjectClass,
+    preedit_start: preedit_start_func_ptr_anon_216,
+    preedit_end: preedit_end_func_ptr_anon_217,
+    preedit_changed: preedit_changed_func_ptr_anon_218,
+    commit: commit_func_ptr_anon_219,
+    retrieve_surrounding: retrieve_surrounding_func_ptr_anon_220,
+    delete_surrounding: delete_surrounding_func_ptr_anon_221,
+    set_client_widget: set_client_widget_func_ptr_anon_222,
+    get_preedit_string: et_preedit_string_func_ptr_anon_223,
+    filter_keypress: filter_keypress_func_ptr_anon_224,
+    focus_in: focus_in_func_ptr_anon_225,
+    focus_out: focus_out_func_ptr_anon_226,
+    reset: reset_func_ptr_anon_227,
+    set_cursor_location: set_cursor_location_func_ptr_anon_228,
+    set_use_preedit: set_use_preedit_func_ptr_anon_229,
+    set_surrounding: set_surrounding_func_ptr_anon_230,
+    get_surrounding: et_surrounding_func_ptr_anon_231,
+    set_surrounding_with_selection: set_surrounding_with_selection_func_ptr_anon_232,
+    get_surrounding_with_selection: et_surrounding_with_selection_func_ptr_anon_233,
+    activate_osk: activate_osk_func_ptr_anon_234,
+    activate_osk_with_event: activate_osk_with_event_func_ptr_anon_235,
+    _gtk_reserved2: _gtk_reserved2_func_ptr_anon_236,
+    _gtk_reserved3: _gtk_reserved3_func_ptr_anon_237,
+    _gtk_reserved4: _gtk_reserved4_func_ptr_anon_238,
+}
+
+EntryBuffer :: struct {
+    parent_instance: gobj.Object,
+}
+
+inserted_text_func_ptr_anon_239 :: #type proc "c" (buffer: ^EntryBuffer, position: glib.uint_, chars: cstring, n_chars: glib.uint_)
+deleted_text_func_ptr_anon_240 :: #type proc "c" (buffer: ^EntryBuffer, position: glib.uint_, n_chars: glib.uint_)
+et_text_func_ptr_anon_241 :: #type proc "c" (buffer: ^EntryBuffer, n_bytes: [^]glib.size) -> cstring
+et_length_func_ptr_anon_242 :: #type proc "c" (buffer: ^EntryBuffer) -> glib.uint_
+insert_text_func_ptr_anon_243 :: #type proc "c" (buffer: ^EntryBuffer, position: glib.uint_, chars: cstring, n_chars: glib.uint_) -> glib.uint_
+delete_text_func_ptr_anon_244 :: #type proc "c" (buffer: ^EntryBuffer, position: glib.uint_, n_chars: glib.uint_) -> glib.uint_
+_gtk_reserved1_func_ptr_anon_245 :: #type proc "c" ()
+_gtk_reserved2_func_ptr_anon_246 :: #type proc "c" ()
+_gtk_reserved3_func_ptr_anon_247 :: #type proc "c" ()
+_gtk_reserved4_func_ptr_anon_248 :: #type proc "c" ()
+_gtk_reserved5_func_ptr_anon_249 :: #type proc "c" ()
+_gtk_reserved6_func_ptr_anon_250 :: #type proc "c" ()
+_gtk_reserved7_func_ptr_anon_251 :: #type proc "c" ()
+_gtk_reserved8_func_ptr_anon_252 :: #type proc "c" ()
+EntryBufferClass :: struct {
+    parent_class: gobj.ObjectClass,
+    inserted_text: inserted_text_func_ptr_anon_239,
+    deleted_text: deleted_text_func_ptr_anon_240,
+    get_text: et_text_func_ptr_anon_241,
+    get_length: et_length_func_ptr_anon_242,
+    insert_text: insert_text_func_ptr_anon_243,
+    delete_text: delete_text_func_ptr_anon_244,
+    _gtk_reserved1: _gtk_reserved1_func_ptr_anon_245,
+    _gtk_reserved2: _gtk_reserved2_func_ptr_anon_246,
+    _gtk_reserved3: _gtk_reserved3_func_ptr_anon_247,
+    _gtk_reserved4: _gtk_reserved4_func_ptr_anon_248,
+    _gtk_reserved5: _gtk_reserved5_func_ptr_anon_249,
+    _gtk_reserved6: _gtk_reserved6_func_ptr_anon_250,
+    _gtk_reserved7: _gtk_reserved7_func_ptr_anon_251,
+    _gtk_reserved8: _gtk_reserved8_func_ptr_anon_252,
+}
+
+ListStorePrivate :: struct #packed {}
+
+ListStore :: struct {
+    parent: gobj.Object,
+    priv: ^ListStorePrivate,
+}
+
+ListStoreClass :: struct {
+    parent_class: gobj.ObjectClass,
+    padding: [8]glib.pointer,
+}
+
+TreeModelFilterVisibleFunc :: #type proc "c" (model: ^TreeModel, iter: ^TreeIter, data: glib.pointer) -> glib.boolean
+TreeModelFilterModifyFunc :: #type proc "c" (model: ^TreeModel, iter: ^TreeIter, value: ^gobj.Value, column: i32, data: glib.pointer)
+TreeModelFilterPrivate :: struct #packed {}
+
+TreeModelFilter :: struct {
+    parent: gobj.Object,
+    priv: ^TreeModelFilterPrivate,
+}
+
+visible_func_ptr_anon_253 :: #type proc "c" (self: ^TreeModelFilter, child_model: ^TreeModel, iter: ^TreeIter) -> glib.boolean
+modify_func_ptr_anon_254 :: #type proc "c" (self: ^TreeModelFilter, child_model: ^TreeModel, iter: ^TreeIter, value: ^gobj.Value, column: i32)
+TreeModelFilterClass :: struct {
+    parent_class: gobj.ObjectClass,
+    visible: visible_func_ptr_anon_253,
+    modify: modify_func_ptr_anon_254,
+    padding: [8]glib.pointer,
+}
+
+EntryCompletion :: struct #packed {}
+
+EntryCompletionMatchFunc :: #type proc "c" (completion: ^EntryCompletion, key: cstring, iter: ^TreeIter, user_data: glib.pointer) -> glib.boolean
+Image :: struct #packed {}
+
+ImageType :: enum u32 {IMAGE_EMPTY = 0, IMAGE_ICON_NAME = 1, IMAGE_GICON = 2, IMAGE_PAINTABLE = 3 }
+EntryIconPosition :: enum u32 {ENTRY_ICON_PRIMARY = 0, ENTRY_ICON_SECONDARY = 1 }
+Entry :: struct {
+    parent_instance: Widget,
+}
+
+activate_func_ptr_anon_255 :: #type proc "c" (entry: ^Entry)
+EntryClass :: struct {
+    parent_class: WidgetClass,
+    activate: activate_func_ptr_anon_255,
+    padding: [8]glib.pointer,
+}
+
+TreeViewDropPosition :: enum u32 {TREE_VIEW_DROP_BEFORE = 0, TREE_VIEW_DROP_AFTER = 1, TREE_VIEW_DROP_INTO_OR_BEFORE = 2, TREE_VIEW_DROP_INTO_OR_AFTER = 3 }
+TreeView :: struct {
+    parent_instance: Widget,
+}
+
+row_activated_func_ptr_anon_256 :: #type proc "c" (tree_view: ^TreeView, path_p: ^TreePath, column: ^TreeViewColumn)
+test_expand_row_func_ptr_anon_257 :: #type proc "c" (tree_view: ^TreeView, iter: ^TreeIter, path_p: ^TreePath) -> glib.boolean
+test_collapse_row_func_ptr_anon_258 :: #type proc "c" (tree_view: ^TreeView, iter: ^TreeIter, path_p: ^TreePath) -> glib.boolean
+row_expanded_func_ptr_anon_259 :: #type proc "c" (tree_view: ^TreeView, iter: ^TreeIter, path_p: ^TreePath)
+row_collapsed_func_ptr_anon_260 :: #type proc "c" (tree_view: ^TreeView, iter: ^TreeIter, path_p: ^TreePath)
+columns_changed_func_ptr_anon_261 :: #type proc "c" (tree_view: ^TreeView)
+cursor_changed_func_ptr_anon_262 :: #type proc "c" (tree_view: ^TreeView)
+move_cursor_func_ptr_anon_263 :: #type proc "c" (tree_view: ^TreeView, step: MovementStep, count: i32, extend: glib.boolean, modify: glib.boolean) -> glib.boolean
+select_all_func_ptr_anon_264 :: #type proc "c" (tree_view: ^TreeView) -> glib.boolean
+unselect_all_func_ptr_anon_265 :: #type proc "c" (tree_view: ^TreeView) -> glib.boolean
+select_cursor_row_func_ptr_anon_266 :: #type proc "c" (tree_view: ^TreeView, start_editing: glib.boolean) -> glib.boolean
+toggle_cursor_row_func_ptr_anon_267 :: #type proc "c" (tree_view: ^TreeView) -> glib.boolean
+expand_collapse_cursor_row_func_ptr_anon_268 :: #type proc "c" (tree_view: ^TreeView, logical: glib.boolean, expand: glib.boolean, open_all: glib.boolean) -> glib.boolean
+select_cursor_parent_func_ptr_anon_269 :: #type proc "c" (tree_view: ^TreeView) -> glib.boolean
+start_interactive_search_func_ptr_anon_270 :: #type proc "c" (tree_view: ^TreeView) -> glib.boolean
+TreeViewClass :: struct {
+    parent_class: WidgetClass,
+    row_activated: row_activated_func_ptr_anon_256,
+    test_expand_row: test_expand_row_func_ptr_anon_257,
+    test_collapse_row: test_collapse_row_func_ptr_anon_258,
+    row_expanded: row_expanded_func_ptr_anon_259,
+    row_collapsed: row_collapsed_func_ptr_anon_260,
+    columns_changed: columns_changed_func_ptr_anon_261,
+    cursor_changed: cursor_changed_func_ptr_anon_262,
+    move_cursor: move_cursor_func_ptr_anon_263,
+    select_all: select_all_func_ptr_anon_264,
+    unselect_all: unselect_all_func_ptr_anon_265,
+    select_cursor_row: select_cursor_row_func_ptr_anon_266,
+    toggle_cursor_row: toggle_cursor_row_func_ptr_anon_267,
+    expand_collapse_cursor_row: expand_collapse_cursor_row_func_ptr_anon_268,
+    select_cursor_parent: select_cursor_parent_func_ptr_anon_269,
+    start_interactive_search: start_interactive_search_func_ptr_anon_270,
+    _reserved: [16]glib.pointer,
+}
+
+TreeSelection :: struct #packed {}
+
+TreeViewColumnDropFunc :: #type proc "c" (tree_view: ^TreeView, column: ^TreeViewColumn, prev_column: ^TreeViewColumn, next_column: ^TreeViewColumn, data: glib.pointer) -> glib.boolean
+TreeViewMappingFunc :: #type proc "c" (tree_view: ^TreeView, path_p: ^TreePath, user_data: glib.pointer)
+TreeViewSearchEqualFunc :: #type proc "c" (model: ^TreeModel, column: i32, key: cstring, iter: ^TreeIter, search_data: glib.pointer) -> glib.boolean
+TreeViewRowSeparatorFunc :: #type proc "c" (model: ^TreeModel, iter: ^TreeIter, data: glib.pointer) -> glib.boolean
+ComboBox :: struct {
+    parent_instance: Widget,
+}
+
+changed_func_ptr_anon_271 :: #type proc "c" (combo_box: ^ComboBox)
+format_entry_text_func_ptr_anon_272 :: #type proc "c" (combo_box: ^ComboBox, path_p: cstring) -> cstring
+activate_func_ptr_anon_273 :: #type proc "c" (combo_box: ^ComboBox)
+ComboBoxClass :: struct {
+    parent_class: WidgetClass,
+    changed: changed_func_ptr_anon_271,
+    format_entry_text: format_entry_text_func_ptr_anon_272,
+    activate: activate_func_ptr_anon_273,
+    padding: [7]glib.pointer,
+}
+
+ComboBoxText :: struct #packed {}
+
+ConstraintTarget :: struct #packed {}
+
+ConstraintTargetInterface :: struct #packed {}
+
+Constraint :: struct #packed {}
+
+ConstraintClass :: struct {
+    parent_class: gobj.ObjectClass,
+}
+ConstraintGuide :: struct #packed {}
+
+ConstraintGuideClass :: struct {
+    parent_class: gobj.ObjectClass,
+}
+ConstraintLayoutChild :: struct #packed {}
+
+ConstraintLayoutChildClass :: struct {
+    parent_class: LayoutChildClass,
+}
+ConstraintLayout :: struct #packed {}
+
+ConstraintLayoutClass :: struct {
+    parent_class: LayoutManagerClass,
+}
+CssProvider :: struct {
+    parent_instance: gobj.Object,
+}
+
+CssProviderClass :: struct #packed {}
+
+CssProviderPrivate :: struct #packed {}
+
+CustomRequestModeFunc :: #type proc "c" (widget: ^Widget) -> SizeRequestMode
+CustomMeasureFunc :: #type proc "c" (widget: ^Widget, orientation: Orientation, for_size: i32, minimum: ^i32, natural: ^i32, minimum_baseline: ^i32, natural_baseline: ^i32)
+CustomAllocateFunc :: #type proc "c" (widget: ^Widget, width: i32, height: i32, baseline: i32)
+CustomLayout :: struct #packed {}
+
+CustomLayoutClass :: struct {
+    parent_class: LayoutManagerClass,
+}
+CustomSorter :: struct #packed {}
+
+CustomSorterClass :: struct {
+    parent_class: SorterClass,
+}
+DebugFlagsBit :: enum u32 {DEBUG_TEXT = 0, DEBUG_TREE = 1, DEBUG_KEYBINDINGS = 2, DEBUG_MODULES = 3, DEBUG_GEOMETRY = 4, DEBUG_ICONTHEME = 5, DEBUG_PRINTING = 6, DEBUG_BUILDER = 7, DEBUG_SIZE_REQUEST = 8, DEBUG_NO_CSS_CACHE = 9, DEBUG_INTERACTIVE = 10, DEBUG_ACTIONS = 12, DEBUG_LAYOUT = 13, DEBUG_SNAPSHOT = 14, DEBUG_CONSTRAINTS = 15, DEBUG_BUILDER_OBJECTS = 16, DEBUG_A11Y = 17, DEBUG_ICONFALLBACK = 18, DEBUG_INVERT_TEXT_DIR = 19, DEBUG_CSS = 20}
+DebugFlags :: bit_set[DebugFlagsBit; u32]
+DialogError :: enum u32 {FAILED = 0, CANCELLED = 1, DISMISSED = 2 }
+DirectoryList :: struct #packed {}
+
+DirectoryListClass :: struct {
+    parent_class: gobj.ObjectClass,
+}
+DragIcon :: struct #packed {}
+
+DragIconClass :: struct {
+    parent_class: WidgetClass,
+}
+DragSource :: struct #packed {}
+
+DragSourceClass :: struct #packed {}
+
+DrawingArea :: struct {
+    widget: Widget,
+}
+
+resize_func_ptr_anon_274 :: #type proc "c" (area: ^DrawingArea, width: i32, height: i32)
+DrawingAreaClass :: struct {
+    parent_class: WidgetClass,
+    resize: resize_func_ptr_anon_274,
+    padding: [8]glib.pointer,
+}
+
+DrawingAreaDrawFunc :: #type proc "c" (drawing_area: ^DrawingArea, cr: ^cairo.context_t, width: i32, height: i32, user_data: glib.pointer)
+EventControllerClass :: struct #packed {}
+
+DropControllerMotion :: struct #packed {}
+
+DropControllerMotionClass :: struct #packed {}
+
+DropTarget :: struct #packed {}
+
+DropTargetClass :: struct #packed {}
+
+DropTargetAsync :: struct #packed {}
+
+DropTargetAsyncClass :: struct #packed {}
+
+StringFilterMatchMode :: enum u32 {EXACT = 0, SUBSTRING = 1, PREFIX = 2 }
+StringFilter :: struct #packed {}
+
+StringFilterClass :: struct {
+    parent_class: FilterClass,
+}
+DropDown :: struct #packed {}
+
+DropDownClass :: struct {
+    parent_class: WidgetClass,
+}
+EditableLabel :: struct #packed {}
+
+EditableLabelClass :: struct {
+    parent_class: WidgetClass,
+}
+EmojiChooser :: struct #packed {}
+
+EmojiChooserClass :: struct #packed {}
+
+EventControllerFocus :: struct #packed {}
+
+EventControllerFocusClass :: struct #packed {}
+
+EventControllerKey :: struct #packed {}
+
+EventControllerKeyClass :: struct #packed {}
+
+EventControllerLegacy :: struct #packed {}
+
+EventControllerLegacyClass :: struct #packed {}
+
+EventControllerMotion :: struct #packed {}
+
+EventControllerMotionClass :: struct #packed {}
+
+EventControllerScroll :: struct #packed {}
+
+EventControllerScrollClass :: struct #packed {}
+
+EventControllerScrollFlagsBit :: enum u32 {EVENT_CONTROLLER_SCROLL_VERTICAL = 0, EVENT_CONTROLLER_SCROLL_HORIZONTAL = 1, EVENT_CONTROLLER_SCROLL_DISCRETE = 2, EVENT_CONTROLLER_SCROLL_KINETIC = 3}
+EventControllerScrollFlags :: bit_set[EventControllerScrollFlagsBit; u32]
+EVENT_CONTROLLER_SCROLL_NONE :: EventControllerScrollFlags{}
+EVENT_CONTROLLER_SCROLL_BOTH_AXES :: EventControllerScrollFlags{.EVENT_CONTROLLER_SCROLL_VERTICAL, .EVENT_CONTROLLER_SCROLL_HORIZONTAL}
+Expander :: struct #packed {}
+
+Fixed :: struct {
+    parent_instance: Widget,
+}
+
+FixedClass :: struct {
+    parent_class: WidgetClass,
+    padding: [8]glib.pointer,
+}
+
+FixedLayout :: struct #packed {}
+
+FixedLayoutClass :: struct {
+    parent_class: LayoutManagerClass,
+}
+FixedLayoutChild :: struct #packed {}
+
+FixedLayoutChildClass :: struct {
+    parent_class: LayoutChildClass,
+}
+FileFilter :: struct #packed {}
+
+FileChooser :: struct #packed {}
+
+FileChooserAction :: enum u32 {OPEN = 0, SAVE = 1, SELECT_FOLDER = 2 }
+FileChooserError :: enum u32 {NONEXISTENT = 0, BAD_FILENAME = 1, ALREADY_EXISTS = 2, INCOMPLETE_HOSTNAME = 3 }
+FileChooserDialog :: struct #packed {}
+
+NativeDialog :: struct {
+    parent_instance: gobj.Object,
+}
+
+response_func_ptr_anon_275 :: #type proc "c" (self: ^NativeDialog, response_id: i32)
+show_func_ptr_anon_276 :: #type proc "c" (self: ^NativeDialog)
+hide_func_ptr_anon_277 :: #type proc "c" (self: ^NativeDialog)
+_gtk_reserved1_func_ptr_anon_278 :: #type proc "c" ()
+_gtk_reserved2_func_ptr_anon_279 :: #type proc "c" ()
+_gtk_reserved3_func_ptr_anon_280 :: #type proc "c" ()
+_gtk_reserved4_func_ptr_anon_281 :: #type proc "c" ()
+NativeDialogClass :: struct {
+    parent_class: gobj.ObjectClass,
+    response: response_func_ptr_anon_275,
+    show: show_func_ptr_anon_276,
+    hide: hide_func_ptr_anon_277,
+    _gtk_reserved1: _gtk_reserved1_func_ptr_anon_278,
+    _gtk_reserved2: _gtk_reserved2_func_ptr_anon_279,
+    _gtk_reserved3: _gtk_reserved3_func_ptr_anon_280,
+    _gtk_reserved4: _gtk_reserved4_func_ptr_anon_281,
+}
+
+FileChooserNative :: struct #packed {}
+
+FileChooserNativeClass :: struct {
+    parent_class: NativeDialogClass,
+}
+FileChooserWidget :: struct #packed {}
+
+FileDialog :: struct #packed {}
+
+FileDialogClass :: struct {
+    parent_class: gobj.ObjectClass,
+}
+FileLauncher :: struct #packed {}
+
+FileLauncherClass :: struct {
+    parent_class: gobj.ObjectClass,
+}
+FilterListModel :: struct #packed {}
+
+FilterListModelClass :: struct {
+    parent_class: gobj.ObjectClass,
+}
+CustomFilterFunc :: #type proc "c" (item: glib.pointer, user_data: glib.pointer) -> glib.boolean
+CustomFilter :: struct #packed {}
+
+CustomFilterClass :: struct {
+    parent_class: FilterClass,
+}
+FlattenListModel :: struct #packed {}
+
+FlattenListModelClass :: struct {
+    parent_class: gobj.ObjectClass,
+}
+FlowBox :: struct #packed {}
+
+FlowBoxChild :: struct {
+    parent_instance: Widget,
+}
+
+activate_func_ptr_anon_282 :: #type proc "c" (child: ^FlowBoxChild)
+FlowBoxChildClass :: struct {
+    parent_class: WidgetClass,
+    activate: activate_func_ptr_anon_282,
+    padding: [8]glib.pointer,
+}
+
+FlowBoxCreateWidgetFunc :: #type proc "c" (item: glib.pointer, user_data: glib.pointer) -> ^Widget
+FlowBoxForeachFunc :: #type proc "c" (box: ^FlowBox, child: ^FlowBoxChild, user_data: glib.pointer)
+FlowBoxFilterFunc :: #type proc "c" (child: ^FlowBoxChild, user_data: glib.pointer) -> glib.boolean
+FlowBoxSortFunc :: #type proc "c" (child1: ^FlowBoxChild, child2: ^FlowBoxChild, user_data: glib.pointer) -> i32
+FontButton :: struct #packed {}
+
+FontFilterFunc :: #type proc "c" (family: ^pango.FontFamily, face: ^pango.FontFace, data: glib.pointer) -> glib.boolean
+FontChooserLevelBit :: enum u32 {STYLE = 0, SIZE = 1, VARIATIONS = 2, FEATURES = 3}
+FontChooserLevel :: bit_set[FontChooserLevelBit; u32]
+FONT_CHOOSER_LEVEL_FAMILY :: FontChooserLevel{}
+FontChooser :: struct #packed {}
+
+et_font_family_func_ptr_anon_283 :: #type proc "c" (fontchooser: ^FontChooser) -> ^pango.FontFamily
+et_font_face_func_ptr_anon_284 :: #type proc "c" (fontchooser: ^FontChooser) -> ^pango.FontFace
+et_font_size_func_ptr_anon_285 :: #type proc "c" (fontchooser: ^FontChooser) -> i32
+set_filter_func_func_ptr_anon_286 :: #type proc "c" (fontchooser: ^FontChooser, filter: FontFilterFunc, user_data: glib.pointer, destroy: glib.DestroyNotify)
+font_activated_func_ptr_anon_287 :: #type proc "c" (chooser: ^FontChooser, fontname: cstring)
+set_font_map_func_ptr_anon_288 :: #type proc "c" (fontchooser: ^FontChooser, fontmap: ^pango.FontMap)
+et_font_map_func_ptr_anon_289 :: #type proc "c" (fontchooser: ^FontChooser) -> ^pango.FontMap
+FontChooserIface :: struct {
+    base_iface: gobj.TypeInterface,
+    get_font_family: et_font_family_func_ptr_anon_283,
+    get_font_face: et_font_face_func_ptr_anon_284,
+    get_font_size: et_font_size_func_ptr_anon_285,
+    set_filter_func: set_filter_func_func_ptr_anon_286,
+    font_activated: font_activated_func_ptr_anon_287,
+    set_font_map: set_font_map_func_ptr_anon_288,
+    get_font_map: et_font_map_func_ptr_anon_289,
+    padding: [10]glib.pointer,
+}
+
+FontChooserDialog :: struct #packed {}
+
+FontChooserWidget :: struct #packed {}
+
+FontDialog :: struct #packed {}
+
+FontDialogClass :: struct {
+    parent_class: gobj.ObjectClass,
+}
+FontDialogButton :: struct #packed {}
+
+FontDialogButtonClass :: struct {
+    parent_class: WidgetClass,
+}
+FontLevel :: enum u32 {FAMILY = 0, FACE = 1, FONT = 2, FEATURES = 3 }
+Frame :: struct {
+    parent_instance: Widget,
+}
+
+compute_child_allocation_func_ptr_anon_290 :: #type proc "c" (frame: ^Frame, allocation: ^Allocation)
+FrameClass :: struct {
+    parent_class: WidgetClass,
+    compute_child_allocation: compute_child_allocation_func_ptr_anon_290,
+    padding: [8]glib.pointer,
+}
+
+GestureClass :: struct #packed {}
+
+GestureSingle :: struct #packed {}
+
+GestureSingleClass :: struct #packed {}
+
+GestureClick :: struct #packed {}
+
+GestureClickClass :: struct #packed {}
+
+GestureDrag :: struct #packed {}
+
+GestureDragClass :: struct #packed {}
+
+GestureLongPress :: struct #packed {}
+
+GestureLongPressClass :: struct #packed {}
+
+GesturePan :: struct #packed {}
+
+GesturePanClass :: struct #packed {}
+
+GestureRotate :: struct #packed {}
+
+GestureRotateClass :: struct #packed {}
+
+GestureStylus :: struct #packed {}
+
+GestureStylusClass :: struct #packed {}
+
+GestureSwipe :: struct #packed {}
+
+GestureSwipeClass :: struct #packed {}
+
+GestureZoom :: struct #packed {}
+
+GestureZoomClass :: struct #packed {}
+
+GLArea :: struct {
+    parent_instance: Widget,
+}
+
+render_func_ptr_anon_291 :: #type proc "c" (area: ^GLArea, context_p: ^GLContext) -> glib.boolean
+resize_func_ptr_anon_292 :: #type proc "c" (area: ^GLArea, width: i32, height: i32)
+create_context_func_ptr_anon_293 :: #type proc "c" (area: ^GLArea) -> ^GLContext
+GLAreaClass :: struct {
+    parent_class: WidgetClass,
+    render: render_func_ptr_anon_291,
+    resize: resize_func_ptr_anon_292,
+    create_context: create_context_func_ptr_anon_293,
+    _padding: [8]glib.pointer,
+}
+
+GraphicsOffload :: struct #packed {}
+
+GraphicsOffloadClass :: struct {
+    parent_class: WidgetClass,
+}
+GraphicsOffloadEnabled :: enum u32 {GRAPHICS_OFFLOAD_ENABLED = 0, GRAPHICS_OFFLOAD_DISABLED = 1 }
+Grid :: struct {
+    parent_instance: Widget,
+}
+
+GridClass :: struct {
+    parent_class: WidgetClass,
+    padding: [8]glib.pointer,
+}
+
+GridLayout :: struct #packed {}
+
+GridLayoutClass :: struct {
+    parent_class: LayoutManagerClass,
+}
+GridLayoutChild :: struct #packed {}
+
+GridLayoutChildClass :: struct {
+    parent_class: LayoutChildClass,
+}
+ListBase :: struct #packed {}
+
+ListBaseClass :: struct #packed {}
+
+GridView :: struct #packed {}
+
+GridViewClass :: struct #packed {}
+
+HeaderBar :: struct #packed {}
+
+IconPaintable :: struct #packed {}
+
+IconTheme :: struct #packed {}
+
+IconLookupFlagsBit :: enum u32 {ICON_LOOKUP_FORCE_REGULAR = 0, ICON_LOOKUP_FORCE_SYMBOLIC = 1, ICON_LOOKUP_PRELOAD = 2}
+IconLookupFlags :: bit_set[IconLookupFlagsBit; u32]
+IconThemeError :: enum u32 {ICON_THEME_NOT_FOUND = 0, ICON_THEME_FAILED = 1 }
+IconView :: struct #packed {}
+
+IconViewForeachFunc :: #type proc "c" (icon_view: ^IconView, path_p: ^TreePath, data: glib.pointer)
+IconViewDropPosition :: enum u32 {ICON_VIEW_NO_DROP = 0, ICON_VIEW_DROP_INTO = 1, ICON_VIEW_DROP_LEFT = 2, ICON_VIEW_DROP_RIGHT = 3, ICON_VIEW_DROP_ABOVE = 4, ICON_VIEW_DROP_BELOW = 5 }
+IMContextSimplePrivate :: struct #packed {}
+
+IMContextSimple :: struct {
+    object: IMContext,
+    priv: ^IMContextSimplePrivate,
+}
+
+IMContextSimpleClass :: struct {
+    parent_class: IMContextClass,
+}
+
+IMMulticontextPrivate :: struct #packed {}
+
+IMMulticontext :: struct {
+    object: IMContext,
+    priv: ^IMMulticontextPrivate,
+}
+
+_gtk_reserved1_func_ptr_anon_294 :: #type proc "c" ()
+_gtk_reserved2_func_ptr_anon_295 :: #type proc "c" ()
+_gtk_reserved3_func_ptr_anon_296 :: #type proc "c" ()
+_gtk_reserved4_func_ptr_anon_297 :: #type proc "c" ()
+IMMulticontextClass :: struct {
+    parent_class: IMContextClass,
+    _gtk_reserved1: _gtk_reserved1_func_ptr_anon_294,
+    _gtk_reserved2: _gtk_reserved2_func_ptr_anon_295,
+    _gtk_reserved3: _gtk_reserved3_func_ptr_anon_296,
+    _gtk_reserved4: _gtk_reserved4_func_ptr_anon_297,
+}
+
+InfoBar :: struct #packed {}
+
+InscriptionOverflow :: enum u32 {CLIP = 0, ELLIPSIZE_START = 1, ELLIPSIZE_MIDDLE = 2, ELLIPSIZE_END = 3 }
+Inscription :: struct #packed {}
+
+InscriptionClass :: struct {
+    parent_class: WidgetClass,
+}
+Label :: struct #packed {}
+
+LevelBar :: struct #packed {}
+
+LinkButton :: struct #packed {}
+
+ListBox :: struct #packed {}
+
+ListBoxRow :: struct {
+    parent_instance: Widget,
+}
+
+activate_func_ptr_anon_298 :: #type proc "c" (row: ^ListBoxRow)
+ListBoxRowClass :: struct {
+    parent_class: WidgetClass,
+    activate: activate_func_ptr_anon_298,
+    padding: [8]glib.pointer,
+}
+
+ListBoxFilterFunc :: #type proc "c" (row: ^ListBoxRow, user_data: glib.pointer) -> glib.boolean
+ListBoxSortFunc :: #type proc "c" (row1: ^ListBoxRow, row2: ^ListBoxRow, user_data: glib.pointer) -> i32
+ListBoxUpdateHeaderFunc :: #type proc "c" (row: ^ListBoxRow, before: ^ListBoxRow, user_data: glib.pointer)
+ListBoxCreateWidgetFunc :: #type proc "c" (item: glib.pointer, user_data: glib.pointer) -> ^Widget
+ListBoxForeachFunc :: #type proc "c" (box: ^ListBox, row: ^ListBoxRow, user_data: glib.pointer)
+ListHeader :: struct #packed {}
+
+ListHeaderClass :: struct #packed {}
+
+ListView :: struct #packed {}
+
+ListViewClass :: struct #packed {}
+
+LockButton :: struct #packed {}
+
+MapListModel :: struct #packed {}
+
+MapListModelClass :: struct {
+    parent_class: gobj.ObjectClass,
+}
+MapListModelMapFunc :: #type proc "c" (item: glib.pointer, user_data: glib.pointer) -> glib.pointer
+MediaStream :: struct {
+    parent_instance: gobj.Object,
+}
+
+play_func_ptr_anon_299 :: #type proc "c" (self: ^MediaStream) -> glib.boolean
+pause_func_ptr_anon_300 :: #type proc "c" (self: ^MediaStream)
+seek_func_ptr_anon_301 :: #type proc "c" (self: ^MediaStream, timestamp: glib.int64)
+update_audio_func_ptr_anon_302 :: #type proc "c" (self: ^MediaStream, muted: glib.boolean, volume: f64)
+realize_func_ptr_anon_303 :: #type proc "c" (self: ^MediaStream, surface: ^Surface)
+unrealize_func_ptr_anon_304 :: #type proc "c" (self: ^MediaStream, surface: ^Surface)
+_gtk_reserved1_func_ptr_anon_305 :: #type proc "c" ()
+_gtk_reserved2_func_ptr_anon_306 :: #type proc "c" ()
+_gtk_reserved3_func_ptr_anon_307 :: #type proc "c" ()
+_gtk_reserved4_func_ptr_anon_308 :: #type proc "c" ()
+_gtk_reserved5_func_ptr_anon_309 :: #type proc "c" ()
+_gtk_reserved6_func_ptr_anon_310 :: #type proc "c" ()
+_gtk_reserved7_func_ptr_anon_311 :: #type proc "c" ()
+_gtk_reserved8_func_ptr_anon_312 :: #type proc "c" ()
+MediaStreamClass :: struct {
+    parent_class: gobj.ObjectClass,
+    play: play_func_ptr_anon_299,
+    pause: pause_func_ptr_anon_300,
+    seek: seek_func_ptr_anon_301,
+    update_audio: update_audio_func_ptr_anon_302,
+    realize: realize_func_ptr_anon_303,
+    unrealize: unrealize_func_ptr_anon_304,
+    _gtk_reserved1: _gtk_reserved1_func_ptr_anon_305,
+    _gtk_reserved2: _gtk_reserved2_func_ptr_anon_306,
+    _gtk_reserved3: _gtk_reserved3_func_ptr_anon_307,
+    _gtk_reserved4: _gtk_reserved4_func_ptr_anon_308,
+    _gtk_reserved5: _gtk_reserved5_func_ptr_anon_309,
+    _gtk_reserved6: _gtk_reserved6_func_ptr_anon_310,
+    _gtk_reserved7: _gtk_reserved7_func_ptr_anon_311,
+    _gtk_reserved8: _gtk_reserved8_func_ptr_anon_312,
+}
+
+MediaControls :: struct #packed {}
+
+MediaControlsClass :: struct {
+    parent_class: WidgetClass,
+}
+MediaFile :: struct {
+    parent_instance: MediaStream,
+}
+
+open_func_ptr_anon_313 :: #type proc "c" (self: ^MediaFile)
+close_func_ptr_anon_314 :: #type proc "c" (self: ^MediaFile)
+_gtk_reserved1_func_ptr_anon_315 :: #type proc "c" ()
+_gtk_reserved2_func_ptr_anon_316 :: #type proc "c" ()
+_gtk_reserved3_func_ptr_anon_317 :: #type proc "c" ()
+_gtk_reserved4_func_ptr_anon_318 :: #type proc "c" ()
+MediaFileClass :: struct {
+    parent_class: MediaStreamClass,
+    open: open_func_ptr_anon_313,
+    close: close_func_ptr_anon_314,
+    _gtk_reserved1: _gtk_reserved1_func_ptr_anon_315,
+    _gtk_reserved2: _gtk_reserved2_func_ptr_anon_316,
+    _gtk_reserved3: _gtk_reserved3_func_ptr_anon_317,
+    _gtk_reserved4: _gtk_reserved4_func_ptr_anon_318,
+}
+
+Popover :: struct {
+    parent: Widget,
+}
+
+closed_func_ptr_anon_319 :: #type proc "c" (popover: ^Popover)
+activate_default_func_ptr_anon_320 :: #type proc "c" (popover: ^Popover)
+PopoverClass :: struct {
+    parent_class: WidgetClass,
+    closed: closed_func_ptr_anon_319,
+    activate_default: activate_default_func_ptr_anon_320,
+    reserved: [8]glib.pointer,
+}
+
+MenuButton :: struct #packed {}
+
+MenuButtonCreatePopupFunc :: #type proc "c" (menu_button: ^MenuButton, user_data: glib.pointer)
+MessageDialog :: struct {
+    parent_instance: Dialog,
+}
+
+MessageDialogClass :: struct #packed {}
+
+ButtonsType :: enum u32 {BUTTONS_NONE = 0, BUTTONS_OK = 1, BUTTONS_CLOSE = 2, BUTTONS_CANCEL = 3, BUTTONS_YES_NO = 4, BUTTONS_OK_CANCEL = 5 }
+MountOperationPrivate :: struct #packed {}
+
+MountOperation :: struct {
+    parent_instance: gio.MountOperation,
+    priv: ^MountOperationPrivate,
+}
+
+_gtk_reserved1_func_ptr_anon_321 :: #type proc "c" ()
+_gtk_reserved2_func_ptr_anon_322 :: #type proc "c" ()
+_gtk_reserved3_func_ptr_anon_323 :: #type proc "c" ()
+_gtk_reserved4_func_ptr_anon_324 :: #type proc "c" ()
+MountOperationClass :: struct {
+    parent_class: gio.MountOperationClass,
+    _gtk_reserved1: _gtk_reserved1_func_ptr_anon_321,
+    _gtk_reserved2: _gtk_reserved2_func_ptr_anon_322,
+    _gtk_reserved3: _gtk_reserved3_func_ptr_anon_323,
+    _gtk_reserved4: _gtk_reserved4_func_ptr_anon_324,
+}
+
+MultiFilter :: struct #packed {}
+
+MultiFilterClass :: struct #packed {}
+
+AnyFilter :: struct #packed {}
+
+AnyFilterClass :: struct #packed {}
+
+EveryFilter :: struct #packed {}
+
+EveryFilterClass :: struct #packed {}
+
+MultiSelection :: struct #packed {}
+
+MultiSelectionClass :: struct {
+    parent_class: gobj.ObjectClass,
+}
+MultiSorter :: struct #packed {}
+
+MultiSorterClass :: struct {
+    parent_class: SorterClass,
+}
+NativeInterface :: struct #packed {}
+
+NoSelection :: struct #packed {}
+
+NoSelectionClass :: struct {
+    parent_class: gobj.ObjectClass,
+}
+NotebookPage :: struct #packed {}
+
+NotebookTab :: enum u32 {FIRST = 0, LAST = 1 }
+Notebook :: struct #packed {}
+
+NumericSorter :: struct #packed {}
+
+NumericSorterClass :: struct {
+    parent_class: SorterClass,
+}
+Orientable :: struct #packed {}
+
+OrientableIface :: struct {
+    base_iface: gobj.TypeInterface,
+}
+
+Overlay :: struct #packed {}
+
+OverlayLayout :: struct #packed {}
+
+OverlayLayoutClass :: struct {
+    parent_class: LayoutManagerClass,
+}
+OverlayLayoutChild :: struct #packed {}
+
+OverlayLayoutChildClass :: struct {
+    parent_class: LayoutChildClass,
+}
+PadController :: struct #packed {}
+
+PadControllerClass :: struct #packed {}
+
+PadActionType :: enum u32 {PAD_ACTION_BUTTON = 0, PAD_ACTION_RING = 1, PAD_ACTION_STRIP = 2 }
+PadActionEntry :: struct {
+    type: PadActionType,
+    index: i32,
+    mode: i32,
+    label: cstring,
+    action_name: cstring,
+}
+
+PaperSize :: struct #packed {}
+
+PageSetup :: struct #packed {}
+
+Paned :: struct #packed {}
+
+PasswordEntry :: struct #packed {}
+
+PasswordEntryClass :: struct #packed {}
+
+PasswordEntryBuffer :: struct #packed {}
+
+PasswordEntryBufferClass :: struct {
+    parent_class: EntryBufferClass,
+}
+Picture :: struct #packed {}
+
+PictureClass :: struct {
+    parent_class: WidgetClass,
+}
+PopoverMenu :: struct #packed {}
+
+PopoverMenuBar :: struct #packed {}
+
+PrintSettings :: struct #packed {}
+
+PrintSettingsFunc :: #type proc "c" (key: cstring, value: cstring, user_data: glib.pointer)
+PageRange :: struct {
+    start: i32,
+    end: i32,
+}
+
+PrintSetup :: struct #packed {}
+
+PrintDialog :: struct #packed {}
+
+PrintDialogClass :: struct {
+    parent_class: gobj.ObjectClass,
+}
+PrintContext :: struct #packed {}
+
+PrintOperationPreview :: struct #packed {}
+
+ready_func_ptr_anon_325 :: #type proc "c" (preview: ^PrintOperationPreview, context_p: ^PrintContext)
+ot_page_size_func_ptr_anon_326 :: #type proc "c" (preview: ^PrintOperationPreview, context_p: ^PrintContext, page_setup: ^PageSetup)
+render_page_func_ptr_anon_327 :: #type proc "c" (preview: ^PrintOperationPreview, page_nr: i32)
+is_selected_func_ptr_anon_328 :: #type proc "c" (preview: ^PrintOperationPreview, page_nr: i32) -> glib.boolean
+end_preview_func_ptr_anon_329 :: #type proc "c" (preview: ^PrintOperationPreview)
+_gtk_reserved1_func_ptr_anon_330 :: #type proc "c" ()
+_gtk_reserved2_func_ptr_anon_331 :: #type proc "c" ()
+_gtk_reserved3_func_ptr_anon_332 :: #type proc "c" ()
+_gtk_reserved4_func_ptr_anon_333 :: #type proc "c" ()
+_gtk_reserved5_func_ptr_anon_334 :: #type proc "c" ()
+_gtk_reserved6_func_ptr_anon_335 :: #type proc "c" ()
+_gtk_reserved7_func_ptr_anon_336 :: #type proc "c" ()
+_gtk_reserved8_func_ptr_anon_337 :: #type proc "c" ()
+PrintOperationPreviewIface :: struct {
+    g_iface: gobj.TypeInterface,
+    ready: ready_func_ptr_anon_325,
+    got_page_size: ot_page_size_func_ptr_anon_326,
+    render_page: render_page_func_ptr_anon_327,
+    is_selected: is_selected_func_ptr_anon_328,
+    end_preview: end_preview_func_ptr_anon_329,
+    _gtk_reserved1: _gtk_reserved1_func_ptr_anon_330,
+    _gtk_reserved2: _gtk_reserved2_func_ptr_anon_331,
+    _gtk_reserved3: _gtk_reserved3_func_ptr_anon_332,
+    _gtk_reserved4: _gtk_reserved4_func_ptr_anon_333,
+    _gtk_reserved5: _gtk_reserved5_func_ptr_anon_334,
+    _gtk_reserved6: _gtk_reserved6_func_ptr_anon_335,
+    _gtk_reserved7: _gtk_reserved7_func_ptr_anon_336,
+    _gtk_reserved8: _gtk_reserved8_func_ptr_anon_337,
+}
+
+PrintOperationPrivate :: struct #packed {}
+
+PrintOperation :: struct {
+    parent_instance: gobj.Object,
+    priv: ^PrintOperationPrivate,
+}
+
+PrintOperationResult :: enum u32 {ERROR = 0, APPLY = 1, CANCEL = 2, IN_PROGRESS = 3 }
+done_func_ptr_anon_338 :: #type proc "c" (operation: ^PrintOperation, result: PrintOperationResult)
+begin_print_func_ptr_anon_339 :: #type proc "c" (operation: ^PrintOperation, context_p: ^PrintContext)
+paginate_func_ptr_anon_340 :: #type proc "c" (operation: ^PrintOperation, context_p: ^PrintContext) -> glib.boolean
+request_page_setup_func_ptr_anon_341 :: #type proc "c" (operation: ^PrintOperation, context_p: ^PrintContext, page_nr: i32, setup: ^PageSetup)
+draw_page_func_ptr_anon_342 :: #type proc "c" (operation: ^PrintOperation, context_p: ^PrintContext, page_nr: i32)
+end_print_func_ptr_anon_343 :: #type proc "c" (operation: ^PrintOperation, context_p: ^PrintContext)
+status_changed_func_ptr_anon_344 :: #type proc "c" (operation: ^PrintOperation)
+create_custom_widget_func_ptr_anon_345 :: #type proc "c" (operation: ^PrintOperation) -> ^Widget
+custom_widget_apply_func_ptr_anon_346 :: #type proc "c" (operation: ^PrintOperation, widget: ^Widget)
+preview_func_ptr_anon_347 :: #type proc "c" (operation: ^PrintOperation, preview: ^PrintOperationPreview, context_p: ^PrintContext, parent: ^Window) -> glib.boolean
+update_custom_widget_func_ptr_anon_348 :: #type proc "c" (operation: ^PrintOperation, widget: ^Widget, setup: ^PageSetup, settings: [^]PrintSettings)
+PrintOperationClass :: struct {
+    parent_class: gobj.ObjectClass,
+    done: done_func_ptr_anon_338,
+    begin_print: begin_print_func_ptr_anon_339,
+    paginate: paginate_func_ptr_anon_340,
+    request_page_setup: request_page_setup_func_ptr_anon_341,
+    draw_page: draw_page_func_ptr_anon_342,
+    end_print: end_print_func_ptr_anon_343,
+    status_changed: status_changed_func_ptr_anon_344,
+    create_custom_widget: create_custom_widget_func_ptr_anon_345,
+    custom_widget_apply: custom_widget_apply_func_ptr_anon_346,
+    preview: preview_func_ptr_anon_347,
+    update_custom_widget: update_custom_widget_func_ptr_anon_348,
+    padding: [8]glib.pointer,
+}
+
+PrintStatus :: enum u32 {INITIAL = 0, PREPARING = 1, GENERATING_DATA = 2, SENDING_DATA = 3, PENDING = 4, PENDING_ISSUE = 5, PRINTING = 6, FINISHED = 7, FINISHED_ABORTED = 8 }
+PrintOperationAction :: enum u32 {PRINT_DIALOG = 0, PRINT = 1, PREVIEW = 2, EXPORT = 3 }
+PrintError :: enum u32 {GENERAL = 0, INTERNAL_ERROR = 1, NOMEM = 2, INVALID_FILE = 3 }
+PageSetupDoneFunc :: #type proc "c" (page_setup: ^PageSetup, data: glib.pointer)
+ProgressBar :: struct #packed {}
+
+Range :: struct {
+    parent_instance: Widget,
+}
+
+value_changed_func_ptr_anon_349 :: #type proc "c" (range: ^Range)
+adjust_bounds_func_ptr_anon_350 :: #type proc "c" (range: ^Range, new_value: f64)
+move_slider_func_ptr_anon_351 :: #type proc "c" (range: ^Range, scroll: ScrollType)
+et_range_border_func_ptr_anon_352 :: #type proc "c" (range: ^Range, border_: ^Border)
+change_value_func_ptr_anon_353 :: #type proc "c" (range: ^Range, scroll: ScrollType, new_value: f64) -> glib.boolean
+RangeClass :: struct {
+    parent_class: WidgetClass,
+    value_changed: value_changed_func_ptr_anon_349,
+    adjust_bounds: adjust_bounds_func_ptr_anon_350,
+    move_slider: move_slider_func_ptr_anon_351,
+    get_range_border: et_range_border_func_ptr_anon_352,
+    change_value: change_value_func_ptr_anon_353,
+    padding: [8]glib.pointer,
+}
+
+RecentInfo :: struct #packed {}
+
+RecentData :: struct {
+    display_name: cstring,
+    description: cstring,
+    mime_type: cstring,
+    app_name: cstring,
+    app_exec: cstring,
+    groups: [^]cstring,
+    is_private: glib.boolean,
+}
+
+RecentManagerPrivate :: struct #packed {}
+
+RecentManager :: struct {
+    parent_instance: gobj.Object,
+    priv: ^RecentManagerPrivate,
+}
+
+changed_func_ptr_anon_354 :: #type proc "c" (manager: ^RecentManager)
+_gtk_recent1_func_ptr_anon_355 :: #type proc "c" ()
+_gtk_recent2_func_ptr_anon_356 :: #type proc "c" ()
+_gtk_recent3_func_ptr_anon_357 :: #type proc "c" ()
+_gtk_recent4_func_ptr_anon_358 :: #type proc "c" ()
+RecentManagerClass :: struct {
+    parent_class: gobj.ObjectClass,
+    changed: changed_func_ptr_anon_354,
+    _gtk_recent1: _gtk_recent1_func_ptr_anon_355,
+    _gtk_recent2: _gtk_recent2_func_ptr_anon_356,
+    _gtk_recent3: _gtk_recent3_func_ptr_anon_357,
+    _gtk_recent4: _gtk_recent4_func_ptr_anon_358,
+}
+
+RecentManagerError :: enum u32 {NOT_FOUND = 0, INVALID_URI = 1, INVALID_ENCODING = 2, NOT_REGISTERED = 3, READ = 4, WRITE = 5, UNKNOWN = 6 }
+
+Revealer :: struct #packed {}
+
+RevealerTransitionType :: enum u32 {NONE = 0, CROSSFADE = 1, SLIDE_RIGHT = 2, SLIDE_LEFT = 3, SLIDE_UP = 4, SLIDE_DOWN = 5, SWING_RIGHT = 6, SWING_LEFT = 7, SWING_UP = 8, SWING_DOWN = 9 }
+RootInterface :: struct #packed {}
+
+Scale :: struct {
+    parent_instance: Range,
+}
+
+et_layout_offsets_func_ptr_anon_359 :: #type proc "c" (scale: ^Scale, x: ^i32, y: ^i32)
+ScaleClass :: struct {
+    parent_class: RangeClass,
+    get_layout_offsets: et_layout_offsets_func_ptr_anon_359,
+    padding: [8]glib.pointer,
+}
+
+ScaleFormatValueFunc :: #type proc "c" (scale: ^Scale, value: f64, user_data: glib.pointer) -> cstring
+ScaleButton :: struct {
+    parent_instance: Widget,
+}
+
+value_changed_func_ptr_anon_360 :: #type proc "c" (button: ^ScaleButton, value: f64)
+ScaleButtonClass :: struct {
+    parent_class: WidgetClass,
+    value_changed: value_changed_func_ptr_anon_360,
+    padding: [8]glib.pointer,
+}
+
+Scrollable :: struct #packed {}
+
+et_border_func_ptr_anon_361 :: #type proc "c" (scrollable: ^Scrollable, border: ^Border) -> glib.boolean
+ScrollableInterface :: struct {
+    base_iface: gobj.TypeInterface,
+    get_border: et_border_func_ptr_anon_361,
+}
+
+Scrollbar :: struct #packed {}
+
+ScrolledWindow :: struct #packed {}
+
+CornerType :: enum u32 {CORNER_TOP_LEFT = 0, CORNER_BOTTOM_LEFT = 1, CORNER_TOP_RIGHT = 2, CORNER_BOTTOM_RIGHT = 3 }
+PolicyType :: enum u32 {POLICY_ALWAYS = 0, POLICY_AUTOMATIC = 1, POLICY_NEVER = 2, POLICY_EXTERNAL = 3 }
+SearchBar :: struct #packed {}
+
+SearchEntry :: struct #packed {}
+
+SectionModel :: struct #packed {}
+
+et_section_func_ptr_anon_362 :: #type proc "c" (self: ^SectionModel, position: glib.uint_, out_start: ^glib.uint_, out_end: ^glib.uint_)
+SectionModelInterface :: struct {
+    g_iface: gobj.TypeInterface,
+    get_section: et_section_func_ptr_anon_362,
+}
+
+SelectionFilterModel :: struct #packed {}
+
+SelectionFilterModelClass :: struct {
+    parent_class: gobj.ObjectClass,
+}
+Separator :: struct #packed {}
+
+ShortcutController :: struct #packed {}
+
+ShortcutControllerClass :: struct #packed {}
+
+ShortcutLabel :: struct #packed {}
+
+ShortcutLabelClass :: struct #packed {}
+
+ShortcutManager :: struct #packed {}
+
+add_controller_func_ptr_anon_363 :: #type proc "c" (self: ^ShortcutManager, controller: ^ShortcutController)
+remove_controller_func_ptr_anon_364 :: #type proc "c" (self: ^ShortcutManager, controller: ^ShortcutController)
+ShortcutManagerInterface :: struct {
+    g_iface: gobj.TypeInterface,
+    add_controller: add_controller_func_ptr_anon_363,
+    remove_controller: remove_controller_func_ptr_anon_364,
+}
+
+ShortcutTriggerClass :: struct #packed {}
+
+NeverTrigger :: struct #packed {}
+
+NeverTriggerClass :: struct #packed {}
+
+KeyvalTrigger :: struct #packed {}
+
+KeyvalTriggerClass :: struct #packed {}
+
+MnemonicTrigger :: struct #packed {}
+
+MnemonicTriggerClass :: struct #packed {}
+
+AlternativeTrigger :: struct #packed {}
+
+AlternativeTriggerClass :: struct #packed {}
+
+SignalListItemFactory :: struct #packed {}
+
+SignalListItemFactoryClass :: struct #packed {}
+
+SingleSelection :: struct #packed {}
+
+SingleSelectionClass :: struct {
+    parent_class: gobj.ObjectClass,
+}
+SliceListModel :: struct #packed {}
+
+SliceListModelClass :: struct {
+    parent_class: gobj.ObjectClass,
+}
+Stack :: struct #packed {}
+
+StackPage :: struct #packed {}
+
+StackTransitionType :: enum u32 {NONE = 0, CROSSFADE = 1, SLIDE_RIGHT = 2, SLIDE_LEFT = 3, SLIDE_UP = 4, SLIDE_DOWN = 5, SLIDE_LEFT_RIGHT = 6, SLIDE_UP_DOWN = 7, OVER_UP = 8, OVER_DOWN = 9, OVER_LEFT = 10, OVER_RIGHT = 11, UNDER_UP = 12, UNDER_DOWN = 13, UNDER_LEFT = 14, UNDER_RIGHT = 15, OVER_UP_DOWN = 16, OVER_DOWN_UP = 17, OVER_LEFT_RIGHT = 18, OVER_RIGHT_LEFT = 19, ROTATE_LEFT = 20, ROTATE_RIGHT = 21, ROTATE_LEFT_RIGHT = 22 }
+StackSidebar :: struct #packed {}
+
+SizeGroup :: struct {
+    parent_instance: gobj.Object,
+}
+
+RequestedSize :: struct {
+    data: glib.pointer,
+    minimum_size: i32,
+    natural_size: i32,
+}
+
+SpinButtonUpdatePolicy :: enum u32 {UPDATE_ALWAYS = 0, UPDATE_IF_VALID = 1 }
+SpinType :: enum u32 {SPIN_STEP_FORWARD = 0, SPIN_STEP_BACKWARD = 1, SPIN_PAGE_FORWARD = 2, SPIN_PAGE_BACKWARD = 3, SPIN_HOME = 4, SPIN_END = 5, SPIN_USER_DEFINED = 6 }
+SpinButton :: struct #packed {}
+
+Spinner :: struct #packed {}
+
+StackSwitcher :: struct #packed {}
+
+Statusbar :: struct #packed {}
+
+StringObject :: struct #packed {}
+
+StringObjectClass :: struct {
+    parent_class: gobj.ObjectClass,
+}
+StringList :: struct #packed {}
+
+StringListClass :: struct {
+    parent_class: gobj.ObjectClass,
+}
+StringSorter :: struct #packed {}
+
+StringSorterClass :: struct {
+    parent_class: SorterClass,
+}
+Collation :: enum u32 {NONE = 0, UNICODE = 1, FILENAME = 2 }
+StyleProvider :: struct #packed {}
+
+changed_func_ptr_anon_365 :: #type proc "c" (context_p: ^StyleContext)
+_gtk_reserved1_func_ptr_anon_366 :: #type proc "c" ()
+_gtk_reserved2_func_ptr_anon_367 :: #type proc "c" ()
+_gtk_reserved3_func_ptr_anon_368 :: #type proc "c" ()
+_gtk_reserved4_func_ptr_anon_369 :: #type proc "c" ()
+StyleContextClass :: struct {
+    parent_class: gobj.ObjectClass,
+    changed: changed_func_ptr_anon_365,
+    _gtk_reserved1: _gtk_reserved1_func_ptr_anon_366,
+    _gtk_reserved2: _gtk_reserved2_func_ptr_anon_367,
+    _gtk_reserved3: _gtk_reserved3_func_ptr_anon_368,
+    _gtk_reserved4: _gtk_reserved4_func_ptr_anon_369,
+}
+
+StyleContextPrintFlagsBit :: enum u32 {STYLE_CONTEXT_PRINT_RECURSE = 0, STYLE_CONTEXT_PRINT_SHOW_STYLE = 1, STYLE_CONTEXT_PRINT_SHOW_CHANGE = 2}
+StyleContextPrintFlags :: bit_set[StyleContextPrintFlagsBit; u32]
+STYLE_CONTEXT_PRINT_NONE :: StyleContextPrintFlags{}
+Switch :: struct #packed {}
+
+SymbolicPaintable :: struct #packed {}
+
+snapshot_symbolic_func_ptr_anon_370 :: #type proc "c" (paintable: ^SymbolicPaintable, snapshot: ^Snapshot, width: f64, height: f64, colors: [^]RGBA, n_colors: glib.size)
+SymbolicPaintableInterface :: struct {
+    g_iface: gobj.TypeInterface,
+    snapshot_symbolic: snapshot_symbolic_func_ptr_anon_370,
+}
+
+Text :: struct {
+    parent_instance: Widget,
+}
+
+TextIter :: struct {
+    dummy1: glib.pointer,
+    dummy2: glib.pointer,
+    dummy3: i32,
+    dummy4: i32,
+    dummy5: i32,
+    dummy6: i32,
+    dummy7: i32,
+    dummy8: i32,
+    dummy9: glib.pointer,
+    dummy10: glib.pointer,
+    dummy11: i32,
+    dummy12: i32,
+    dummy13: i32,
+    dummy14: glib.pointer,
+}
+
+TextTagTable :: struct #packed {}
+
+TextTagPrivate :: struct #packed {}
+
+TextTag :: struct {
+    parent_instance: gobj.Object,
+    priv: ^TextTagPrivate,
+}
+
+TextTagClass :: struct {
+    parent_class: gobj.ObjectClass,
+    padding: [8]glib.pointer,
+}
+
+TextTagTableForeach :: #type proc "c" (tag: ^TextTag, data: glib.pointer)
+TextChildAnchor :: struct {
+    parent_instance: gobj.Object,
+    segment: glib.pointer,
+}
+
+_gtk_reserved1_func_ptr_anon_371 :: #type proc "c" ()
+_gtk_reserved2_func_ptr_anon_372 :: #type proc "c" ()
+_gtk_reserved3_func_ptr_anon_373 :: #type proc "c" ()
+_gtk_reserved4_func_ptr_anon_374 :: #type proc "c" ()
+TextChildAnchorClass :: struct {
+    parent_class: gobj.ObjectClass,
+    _gtk_reserved1: _gtk_reserved1_func_ptr_anon_371,
+    _gtk_reserved2: _gtk_reserved2_func_ptr_anon_372,
+    _gtk_reserved3: _gtk_reserved3_func_ptr_anon_373,
+    _gtk_reserved4: _gtk_reserved4_func_ptr_anon_374,
+}
+
+TextSearchFlagsBit :: enum u32 {TEXT_SEARCH_VISIBLE_ONLY = 0, TEXT_SEARCH_TEXT_ONLY = 1, TEXT_SEARCH_CASE_INSENSITIVE = 2}
+TextSearchFlags :: bit_set[TextSearchFlagsBit; u32]
+TextBufferPrivate :: struct #packed {}
+
+TextBuffer :: struct {
+    parent_instance: gobj.Object,
+    priv: ^TextBufferPrivate,
+}
+
+TextCharPredicate :: #type proc "c" (ch: glib.unichar, user_data: glib.pointer) -> glib.boolean
+TextMark :: struct {
+    parent_instance: gobj.Object,
+    segment: glib.pointer,
+}
+
+TextMarkClass :: struct {
+    parent_class: gobj.ObjectClass,
+    padding: [8]glib.pointer,
+}
+
+insert_text_func_ptr_anon_375 :: #type proc "c" (buffer: ^TextBuffer, pos: [^]TextIter, new_text: cstring, new_text_length: i32)
+insert_paintable_func_ptr_anon_376 :: #type proc "c" (buffer: ^TextBuffer, iter: ^TextIter, paintable: ^Paintable)
+insert_child_anchor_func_ptr_anon_377 :: #type proc "c" (buffer: ^TextBuffer, iter: ^TextIter, anchor: ^TextChildAnchor)
+delete_range_func_ptr_anon_378 :: #type proc "c" (buffer: ^TextBuffer, start: ^TextIter, end: ^TextIter)
+changed_func_ptr_anon_379 :: #type proc "c" (buffer: ^TextBuffer)
+modified_changed_func_ptr_anon_380 :: #type proc "c" (buffer: ^TextBuffer)
+mark_set_func_ptr_anon_381 :: #type proc "c" (buffer: ^TextBuffer, location: ^TextIter, mark: ^TextMark)
+mark_deleted_func_ptr_anon_382 :: #type proc "c" (buffer: ^TextBuffer, mark: ^TextMark)
+apply_tag_func_ptr_anon_383 :: #type proc "c" (buffer: ^TextBuffer, tag: ^TextTag, start: ^TextIter, end: ^TextIter)
+remove_tag_func_ptr_anon_384 :: #type proc "c" (buffer: ^TextBuffer, tag: ^TextTag, start: ^TextIter, end: ^TextIter)
+begin_user_action_func_ptr_anon_385 :: #type proc "c" (buffer: ^TextBuffer)
+end_user_action_func_ptr_anon_386 :: #type proc "c" (buffer: ^TextBuffer)
+paste_done_func_ptr_anon_387 :: #type proc "c" (buffer: ^TextBuffer, clipboard: ^Clipboard)
+undo_func_ptr_anon_388 :: #type proc "c" (buffer: ^TextBuffer)
+redo_func_ptr_anon_389 :: #type proc "c" (buffer: ^TextBuffer)
+_gtk_reserved1_func_ptr_anon_390 :: #type proc "c" ()
+_gtk_reserved2_func_ptr_anon_391 :: #type proc "c" ()
+_gtk_reserved3_func_ptr_anon_392 :: #type proc "c" ()
+_gtk_reserved4_func_ptr_anon_393 :: #type proc "c" ()
+TextBufferClass :: struct {
+    parent_class: gobj.ObjectClass,
+    insert_text: insert_text_func_ptr_anon_375,
+    insert_paintable: insert_paintable_func_ptr_anon_376,
+    insert_child_anchor: insert_child_anchor_func_ptr_anon_377,
+    delete_range: delete_range_func_ptr_anon_378,
+    changed: changed_func_ptr_anon_379,
+    modified_changed: modified_changed_func_ptr_anon_380,
+    mark_set: mark_set_func_ptr_anon_381,
+    mark_deleted: mark_deleted_func_ptr_anon_382,
+    apply_tag: apply_tag_func_ptr_anon_383,
+    remove_tag: remove_tag_func_ptr_anon_384,
+    begin_user_action: begin_user_action_func_ptr_anon_385,
+    end_user_action: end_user_action_func_ptr_anon_386,
+    paste_done: paste_done_func_ptr_anon_387,
+    undo: undo_func_ptr_anon_388,
+    redo: redo_func_ptr_anon_389,
+    _gtk_reserved1: _gtk_reserved1_func_ptr_anon_390,
+    _gtk_reserved2: _gtk_reserved2_func_ptr_anon_391,
+    _gtk_reserved3: _gtk_reserved3_func_ptr_anon_392,
+    _gtk_reserved4: _gtk_reserved4_func_ptr_anon_393,
+}
+
+TextBufferCommitNotify :: #type proc "c" (buffer: ^TextBuffer, flags: TextBufferNotifyFlags, position: glib.uint_, length: glib.uint_, user_data: glib.pointer)
+TextWindowType :: enum u32 {TEXT_WINDOW_WIDGET = 1, TEXT_WINDOW_TEXT = 2, TEXT_WINDOW_LEFT = 3, TEXT_WINDOW_RIGHT = 4, TEXT_WINDOW_TOP = 5, TEXT_WINDOW_BOTTOM = 6 }
+TextViewLayer :: enum u32 {BELOW_TEXT = 0, ABOVE_TEXT = 1 }
+TextExtendSelection :: enum u32 {WORD = 0, LINE = 1 }
+TextViewPrivate :: struct #packed {}
+
+TextView :: struct {
+    parent_instance: Widget,
+    priv: ^TextViewPrivate,
+}
+
+move_cursor_func_ptr_anon_394 :: #type proc "c" (text_view: ^TextView, step: MovementStep, count: i32, extend_selection: glib.boolean)
+set_anchor_func_ptr_anon_395 :: #type proc "c" (text_view: ^TextView)
+insert_at_cursor_func_ptr_anon_396 :: #type proc "c" (text_view: ^TextView, str: cstring)
+delete_from_cursor_func_ptr_anon_397 :: #type proc "c" (text_view: ^TextView, type: DeleteType, count: i32)
+backspace_func_ptr_anon_398 :: #type proc "c" (text_view: ^TextView)
+cut_clipboard_func_ptr_anon_399 :: #type proc "c" (text_view: ^TextView)
+copy_clipboard_func_ptr_anon_400 :: #type proc "c" (text_view: ^TextView)
+paste_clipboard_func_ptr_anon_401 :: #type proc "c" (text_view: ^TextView)
+toggle_overwrite_func_ptr_anon_402 :: #type proc "c" (text_view: ^TextView)
+create_buffer_func_ptr_anon_403 :: #type proc "c" (text_view: ^TextView) -> ^TextBuffer
+snapshot_layer_func_ptr_anon_404 :: #type proc "c" (text_view: ^TextView, layer: TextViewLayer, snapshot: ^Snapshot)
+extend_selection_func_ptr_anon_405 :: #type proc "c" (text_view: ^TextView, granularity: TextExtendSelection, location: ^TextIter, start: ^TextIter, end: ^TextIter) -> glib.boolean
+insert_emoji_func_ptr_anon_406 :: #type proc "c" (text_view: ^TextView)
+TextViewClass :: struct {
+    parent_class: WidgetClass,
+    move_cursor: move_cursor_func_ptr_anon_394,
+    set_anchor: set_anchor_func_ptr_anon_395,
+    insert_at_cursor: insert_at_cursor_func_ptr_anon_396,
+    delete_from_cursor: delete_from_cursor_func_ptr_anon_397,
+    backspace: backspace_func_ptr_anon_398,
+    cut_clipboard: cut_clipboard_func_ptr_anon_399,
+    copy_clipboard: copy_clipboard_func_ptr_anon_400,
+    paste_clipboard: paste_clipboard_func_ptr_anon_401,
+    toggle_overwrite: toggle_overwrite_func_ptr_anon_402,
+    create_buffer: create_buffer_func_ptr_anon_403,
+    snapshot_layer: snapshot_layer_func_ptr_anon_404,
+    extend_selection: extend_selection_func_ptr_anon_405,
+    insert_emoji: insert_emoji_func_ptr_anon_406,
+    padding: [8]glib.pointer,
+}
+
+TreeDragSource :: struct #packed {}
+
+row_draggable_func_ptr_anon_407 :: #type proc "c" (drag_source: ^TreeDragSource, path_p: ^TreePath) -> glib.boolean
+drag_data_get_func_ptr_anon_408 :: #type proc "c" (drag_source: ^TreeDragSource, path_p: ^TreePath) -> ^ContentProvider
+drag_data_delete_func_ptr_anon_409 :: #type proc "c" (drag_source: ^TreeDragSource, path_p: ^TreePath) -> glib.boolean
+TreeDragSourceIface :: struct {
+    g_iface: gobj.TypeInterface,
+    row_draggable: row_draggable_func_ptr_anon_407,
+    drag_data_get: drag_data_get_func_ptr_anon_408,
+    drag_data_delete: drag_data_delete_func_ptr_anon_409,
+}
+
+TreeDragDest :: struct #packed {}
+
+drag_data_received_func_ptr_anon_410 :: #type proc "c" (drag_dest: ^TreeDragDest, dest: ^TreePath, value: ^gobj.Value) -> glib.boolean
+row_drop_possible_func_ptr_anon_411 :: #type proc "c" (drag_dest: ^TreeDragDest, dest_path: ^TreePath, value: ^gobj.Value) -> glib.boolean
+TreeDragDestIface :: struct {
+    g_iface: gobj.TypeInterface,
+    drag_data_received: drag_data_received_func_ptr_anon_410,
+    row_drop_possible: row_drop_possible_func_ptr_anon_411,
+}
+
+TreeListModel :: struct #packed {}
+
+TreeListModelClass :: struct {
+    parent_class: gobj.ObjectClass,
+}
+TreeListRow :: struct #packed {}
+
+TreeListRowClass :: struct {
+    parent_class: gobj.ObjectClass,
+}
+TreeListModelCreateModelFunc :: #type proc "c" (item: glib.pointer, user_data: glib.pointer) -> ^gio.ListModel
+TreeExpander :: struct #packed {}
+
+TreeExpanderClass :: struct {
+    parent_class: WidgetClass,
+}
+TreeListRowSorter :: struct #packed {}
+
+TreeListRowSorterClass :: struct {
+    parent_class: SorterClass,
+}
+TreeModelSortPrivate :: struct #packed {}
+
+TreeModelSort :: struct {
+    parent: gobj.Object,
+    priv: ^TreeModelSortPrivate,
+}
+
+TreeModelSortClass :: struct {
+    parent_class: gobj.ObjectClass,
+    padding: [8]glib.pointer,
+}
+
+TreeSelectionFunc :: #type proc "c" (selection: ^TreeSelection, model: ^TreeModel, path_p: ^TreePath, path_currently_selected: glib.boolean, data: glib.pointer) -> glib.boolean
+TreeSelectionForeachFunc :: #type proc "c" (model: ^TreeModel, path_p: ^TreePath, iter: ^TreeIter, data: glib.pointer)
+TreeStorePrivate :: struct #packed {}
+
+TreeStore :: struct {
+    parent: gobj.Object,
+    priv: ^TreeStorePrivate,
+}
+
+TreeStoreClass :: struct {
+    parent_class: gobj.ObjectClass,
+    padding: [8]glib.pointer,
+}
+
+UriLauncher :: struct #packed {}
+
+UriLauncherClass :: struct {
+    parent_class: gobj.ObjectClass,
+}
+Video :: struct #packed {}
+
+VideoClass :: struct {
+    parent_class: WidgetClass,
+}
+Viewport :: struct #packed {}
+
+VolumeButton :: struct {
+    parent: ScaleButton,
+}
+
+WidgetPaintable :: struct #packed {}
+
+WidgetPaintableClass :: struct {
+    parent_class: gobj.ObjectClass,
+}
+WindowControls :: struct #packed {}
+
+WindowControlsClass :: struct {
+    parent_class: WidgetClass,
+}
+WindowHandle :: struct #packed {}
+
+WindowHandleClass :: struct {
+    parent_class: WidgetClass,
+}
+
+@(default_calling_convention = "c")
+foreign gtk4_runic {
+    @(link_name = "gtk_css_parser_error_get_type")
+    css_parser_error_get_type :: proc() -> gobj.Type ---
+
+    @(link_name = "gtk_css_parser_warning_get_type")
+    css_parser_warning_get_type :: proc() -> gobj.Type ---
+
+    @(link_name = "gtk_css_parser_error_quark")
+    css_parser_error_quark :: proc() -> glib.Quark ---
+
+    @(link_name = "gtk_css_parser_warning_quark")
+    css_parser_warning_quark :: proc() -> glib.Quark ---
+
+    @(link_name = "gtk_css_section_get_type")
+    css_section_get_type :: proc() -> gobj.Type ---
+
+    @(link_name = "gtk_css_section_new")
+    css_section_new :: proc(file: ^gio.File, start: ^CssLocation, end: ^CssLocation) -> ^CssSection ---
+
+    @(link_name = "gtk_css_section_new_with_bytes")
+    css_section_new_with_bytes :: proc(file: ^gio.File, bytes: ^glib.Bytes, start: ^CssLocation, end: ^CssLocation) -> ^CssSection ---
+
+    @(link_name = "gtk_css_section_ref")
+    css_section_ref :: proc(section: ^CssSection) -> ^CssSection ---
+
+    @(link_name = "gtk_css_section_unref")
+    css_section_unref :: proc(section: ^CssSection) ---
+
+    @(link_name = "gtk_css_section_print")
+    css_section_print :: proc(section: ^CssSection, string_p: ^glib.String) ---
+
+    @(link_name = "gtk_css_section_to_string")
+    css_section_to_string :: proc(section: ^CssSection) -> cstring ---
+
+    @(link_name = "gtk_css_section_get_parent")
+    css_section_get_parent :: proc(section: ^CssSection) -> ^CssSection ---
+
+    @(link_name = "gtk_css_section_get_file")
+    css_section_get_file :: proc(section: ^CssSection) -> ^gio.File ---
+
+    @(link_name = "gtk_css_section_get_bytes")
+    css_section_get_bytes :: proc(section: ^CssSection) -> ^glib.Bytes ---
+
+    @(link_name = "gtk_css_section_get_start_location")
+    css_section_get_start_location :: proc(section: ^CssSection) -> ^CssLocation ---
+
+    @(link_name = "gtk_css_section_get_end_location")
+    css_section_get_end_location :: proc(section: ^CssSection) -> ^CssLocation ---
+
+    @(link_name = "gdk_app_launch_context_get_type")
+    gdk_app_launch_context_get_type :: proc() -> gobj.Type ---
+
+    @(link_name = "gdk_app_launch_context_get_display")
+    gdk_app_launch_context_get_display :: proc(context_p: ^AppLaunchContext) -> ^Display ---
+
+    @(link_name = "gdk_app_launch_context_set_desktop")
+    gdk_app_launch_context_set_desktop :: proc(context_p: ^AppLaunchContext, desktop: i32) ---
+
+    @(link_name = "gdk_app_launch_context_set_timestamp")
+    gdk_app_launch_context_set_timestamp :: proc(context_p: ^AppLaunchContext, timestamp: glib.uint32) ---
+
+    @(link_name = "gdk_app_launch_context_set_icon")
+    gdk_app_launch_context_set_icon :: proc(context_p: ^AppLaunchContext, icon: ^gio.Icon) ---
+
+    @(link_name = "gdk_app_launch_context_set_icon_name")
+    gdk_app_launch_context_set_icon_name :: proc(context_p: ^AppLaunchContext, icon_name: cstring) ---
+
+    @(link_name = "gdk_pixbuf_get_from_surface")
+    gdk_pixbuf_get_from_surface :: proc(surface: ^cairo.surface_t, src_x: i32, src_y: i32, width: i32, height: i32) -> ^pixbuf.Pixbuf ---
+
+    @(link_name = "gdk_pixbuf_get_from_texture")
+    gdk_pixbuf_get_from_texture :: proc(texture: ^Texture) -> ^pixbuf.Pixbuf ---
+
+    @(link_name = "gdk_cairo_set_source_rgba")
+    gdk_cairo_set_source_rgba :: proc(cr: ^cairo.context_t, rgba: ^RGBA) ---
+
+    @(link_name = "gdk_cairo_set_source_pixbuf")
+    gdk_cairo_set_source_pixbuf :: proc(cr: ^cairo.context_t, pixbuf: ^pixbuf.Pixbuf, pixbuf_x: f64, pixbuf_y: f64) ---
+
+    @(link_name = "gdk_cairo_rectangle")
+    gdk_cairo_rectangle :: proc(cr: ^cairo.context_t, rectangle: ^Rectangle) ---
+
+    @(link_name = "gdk_cairo_region")
+    gdk_cairo_region :: proc(cr: ^cairo.context_t, region: ^cairo.region_t) ---
+
+    @(link_name = "gdk_cairo_region_create_from_surface")
+    gdk_cairo_region_create_from_surface :: proc(surface: ^cairo.surface_t) -> ^cairo.region_t ---
+
+    @(link_name = "gdk_cairo_draw_from_gl")
+    gdk_cairo_draw_from_gl :: proc(cr: ^cairo.context_t, surface: ^Surface, source: i32, source_type: i32, buffer_scale: i32, x: i32, y: i32, width: i32, height: i32) ---
+
+    @(link_name = "gdk_cairo_context_get_type")
+    gdk_cairo_context_get_type :: proc() -> gobj.Type ---
+
+    @(link_name = "gdk_cairo_context_cairo_create")
+    gdk_cairo_context_cairo_create :: proc(self: ^CairoContext) -> ^cairo.context_t ---
+
+    @(link_name = "gdk_cicp_params_get_type")
+    gdk_cicp_params_get_type :: proc() -> gobj.Type ---
+
+    @(link_name = "gdk_cicp_params_new")
+    gdk_cicp_params_new :: proc() -> ^CicpParams ---
+
+    @(link_name = "gdk_cicp_params_get_color_primaries")
+    gdk_cicp_params_get_color_primaries :: proc(self: ^CicpParams) -> glib.uint_ ---
+
+    @(link_name = "gdk_cicp_params_set_color_primaries")
+    gdk_cicp_params_set_color_primaries :: proc(self: ^CicpParams, color_primaries: glib.uint_) ---
+
+    @(link_name = "gdk_cicp_params_get_transfer_function")
+    gdk_cicp_params_get_transfer_function :: proc(self: ^CicpParams) -> glib.uint_ ---
+
+    @(link_name = "gdk_cicp_params_set_transfer_function")
+    gdk_cicp_params_set_transfer_function :: proc(self: ^CicpParams, transfer_function: glib.uint_) ---
+
+    @(link_name = "gdk_cicp_params_get_matrix_coefficients")
+    gdk_cicp_params_get_matrix_coefficients :: proc(self: ^CicpParams) -> glib.uint_ ---
+
+    @(link_name = "gdk_cicp_params_set_matrix_coefficients")
+    gdk_cicp_params_set_matrix_coefficients :: proc(self: ^CicpParams, matrix_coefficients: glib.uint_) ---
+
+    @(link_name = "gdk_cicp_params_get_range")
+    gdk_cicp_params_get_range :: proc(self: ^CicpParams) -> CicpRange ---
+
+    @(link_name = "gdk_cicp_params_set_range")
+    gdk_cicp_params_set_range :: proc(self: ^CicpParams, range: CicpRange) ---
+
+    @(link_name = "gdk_cicp_params_build_color_state")
+    gdk_cicp_params_build_color_state :: proc(self: ^CicpParams, error: ^^glib.Error) -> ^ColorState ---
+
+    @(link_name = "gdk_clipboard_get_type")
+    gdk_clipboard_get_type :: proc() -> gobj.Type ---
+
+    @(link_name = "gdk_clipboard_get_display")
+    gdk_clipboard_get_display :: proc(clipboard: ^Clipboard) -> ^Display ---
+
+    @(link_name = "gdk_clipboard_get_formats")
+    gdk_clipboard_get_formats :: proc(clipboard: ^Clipboard) -> ^ContentFormats ---
+
+    @(link_name = "gdk_clipboard_is_local")
+    gdk_clipboard_is_local :: proc(clipboard: ^Clipboard) -> glib.boolean ---
+
+    @(link_name = "gdk_clipboard_get_content")
+    gdk_clipboard_get_content :: proc(clipboard: ^Clipboard) -> ^ContentProvider ---
+
+    @(link_name = "gdk_clipboard_store_async")
+    gdk_clipboard_store_async :: proc(clipboard: ^Clipboard, io_priority: i32, cancellable: ^gio.Cancellable, callback: gio.AsyncReadyCallback, user_data: glib.pointer) ---
+
+    @(link_name = "gdk_clipboard_store_finish")
+    gdk_clipboard_store_finish :: proc(clipboard: ^Clipboard, result: ^gio.AsyncResult, error: ^^glib.Error) -> glib.boolean ---
+
+    @(link_name = "gdk_clipboard_read_async")
+    gdk_clipboard_read_async :: proc(clipboard: ^Clipboard, mime_types: [^]cstring, io_priority: i32, cancellable: ^gio.Cancellable, callback: gio.AsyncReadyCallback, user_data: glib.pointer) ---
+
+    @(link_name = "gdk_clipboard_read_finish")
+    gdk_clipboard_read_finish :: proc(clipboard: ^Clipboard, result: ^gio.AsyncResult, out_mime_type: ^cstring, error: ^^glib.Error) -> ^gio.InputStream ---
+
+    @(link_name = "gdk_clipboard_read_value_async")
+    gdk_clipboard_read_value_async :: proc(clipboard: ^Clipboard, type: gobj.Type, io_priority: i32, cancellable: ^gio.Cancellable, callback: gio.AsyncReadyCallback, user_data: glib.pointer) ---
+
+    @(link_name = "gdk_clipboard_read_value_finish")
+    gdk_clipboard_read_value_finish :: proc(clipboard: ^Clipboard, result: ^gio.AsyncResult, error: ^^glib.Error) -> ^gobj.Value ---
+
+    @(link_name = "gdk_clipboard_read_texture_async")
+    gdk_clipboard_read_texture_async :: proc(clipboard: ^Clipboard, cancellable: ^gio.Cancellable, callback: gio.AsyncReadyCallback, user_data: glib.pointer) ---
+
+    @(link_name = "gdk_clipboard_read_texture_finish")
+    gdk_clipboard_read_texture_finish :: proc(clipboard: ^Clipboard, result: ^gio.AsyncResult, error: ^^glib.Error) -> ^Texture ---
+
+    @(link_name = "gdk_clipboard_read_text_async")
+    gdk_clipboard_read_text_async :: proc(clipboard: ^Clipboard, cancellable: ^gio.Cancellable, callback: gio.AsyncReadyCallback, user_data: glib.pointer) ---
+
+    @(link_name = "gdk_clipboard_read_text_finish")
+    gdk_clipboard_read_text_finish :: proc(clipboard: ^Clipboard, result: ^gio.AsyncResult, error: ^^glib.Error) -> cstring ---
+
+    @(link_name = "gdk_clipboard_set_content")
+    gdk_clipboard_set_content :: proc(clipboard: ^Clipboard, provider: ^ContentProvider) -> glib.boolean ---
+
+    @(link_name = "gdk_clipboard_set")
+    gdk_clipboard_set :: proc(clipboard: ^Clipboard, type: gobj.Type, #c_vararg var_args: ..any) ---
+
+    // gdk_clipboard_set_valist skipped: its trailing va_list is dropped by runic, so it would be a wrong #c_vararg ..any call
+
+    @(link_name = "gdk_clipboard_set_value")
+    gdk_clipboard_set_value :: proc(clipboard: ^Clipboard, value: ^gobj.Value) ---
+
+    @(link_name = "gdk_clipboard_set_text")
+    gdk_clipboard_set_text :: proc(clipboard: ^Clipboard, text: cstring) ---
+
+    @(link_name = "gdk_clipboard_set_texture")
+    gdk_clipboard_set_texture :: proc(clipboard: ^Clipboard, texture: ^Texture) ---
+
+    @(link_name = "gdk_color_state_get_type")
+    gdk_color_state_get_type :: proc() -> gobj.Type ---
+
+    @(link_name = "gdk_color_state_ref")
+    gdk_color_state_ref :: proc(self: ^ColorState) -> ^ColorState ---
+
+    @(link_name = "gdk_color_state_unref")
+    gdk_color_state_unref :: proc(self: ^ColorState) ---
+
+    @(link_name = "gdk_color_state_get_srgb")
+    gdk_color_state_get_srgb :: proc() -> ^ColorState ---
+
+    @(link_name = "gdk_color_state_get_srgb_linear")
+    gdk_color_state_get_srgb_linear :: proc() -> ^ColorState ---
+
+    @(link_name = "gdk_color_state_get_rec2100_pq")
+    gdk_color_state_get_rec2100_pq :: proc() -> ^ColorState ---
+
+    @(link_name = "gdk_color_state_get_rec2100_linear")
+    gdk_color_state_get_rec2100_linear :: proc() -> ^ColorState ---
+
+    @(link_name = "gdk_color_state_equal")
+    gdk_color_state_equal :: proc(self: ^ColorState, other: ^ColorState) -> glib.boolean ---
+
+    @(link_name = "gdk_color_state_create_cicp_params")
+    gdk_color_state_create_cicp_params :: proc(self: ^ColorState) -> ^CicpParams ---
+
+    @(link_name = "gdk_content_deserializer_get_type")
+    gdk_content_deserializer_get_type :: proc() -> gobj.Type ---
+
+    @(link_name = "gdk_content_deserializer_get_mime_type")
+    gdk_content_deserializer_get_mime_type :: proc(deserializer: ^ContentDeserializer) -> cstring ---
+
+    @(link_name = "gdk_content_deserializer_get_gtype")
+    gdk_content_deserializer_get_gtype :: proc(deserializer: ^ContentDeserializer) -> gobj.Type ---
+
+    @(link_name = "gdk_content_deserializer_get_value")
+    gdk_content_deserializer_get_value :: proc(deserializer: ^ContentDeserializer) -> ^gobj.Value ---
+
+    @(link_name = "gdk_content_deserializer_get_input_stream")
+    gdk_content_deserializer_get_input_stream :: proc(deserializer: ^ContentDeserializer) -> ^gio.InputStream ---
+
+    @(link_name = "gdk_content_deserializer_get_priority")
+    gdk_content_deserializer_get_priority :: proc(deserializer: ^ContentDeserializer) -> i32 ---
+
+    @(link_name = "gdk_content_deserializer_get_cancellable")
+    gdk_content_deserializer_get_cancellable :: proc(deserializer: ^ContentDeserializer) -> ^gio.Cancellable ---
+
+    @(link_name = "gdk_content_deserializer_get_user_data")
+    gdk_content_deserializer_get_user_data :: proc(deserializer: ^ContentDeserializer) -> glib.pointer ---
+
+    @(link_name = "gdk_content_deserializer_set_task_data")
+    gdk_content_deserializer_set_task_data :: proc(deserializer: ^ContentDeserializer, data: glib.pointer, notify: glib.DestroyNotify) ---
+
+    @(link_name = "gdk_content_deserializer_get_task_data")
+    gdk_content_deserializer_get_task_data :: proc(deserializer: ^ContentDeserializer) -> glib.pointer ---
+
+    @(link_name = "gdk_content_deserializer_return_success")
+    gdk_content_deserializer_return_success :: proc(deserializer: ^ContentDeserializer) ---
+
+    @(link_name = "gdk_content_deserializer_return_error")
+    gdk_content_deserializer_return_error :: proc(deserializer: ^ContentDeserializer, error: ^glib.Error) ---
+
+    @(link_name = "gdk_content_formats_union_deserialize_gtypes")
+    gdk_content_formats_union_deserialize_gtypes :: proc(formats: ^ContentFormats) -> ^ContentFormats ---
+
+    @(link_name = "gdk_content_formats_union_deserialize_mime_types")
+    gdk_content_formats_union_deserialize_mime_types :: proc(formats: ^ContentFormats) -> ^ContentFormats ---
+
+    @(link_name = "gdk_content_register_deserializer")
+    gdk_content_register_deserializer :: proc(mime_type: cstring, type: gobj.Type, deserialize: ContentDeserializeFunc, data: glib.pointer, notify: glib.DestroyNotify) ---
+
+    @(link_name = "gdk_content_deserialize_async")
+    gdk_content_deserialize_async :: proc(stream: ^gio.InputStream, mime_type: cstring, type: gobj.Type, io_priority: i32, cancellable: ^gio.Cancellable, callback: gio.AsyncReadyCallback, user_data: glib.pointer) ---
+
+    @(link_name = "gdk_content_deserialize_finish")
+    gdk_content_deserialize_finish :: proc(result: ^gio.AsyncResult, value: ^gobj.Value, error: ^^glib.Error) -> glib.boolean ---
+
+    @(link_name = "gdk_intern_mime_type")
+    gdk_intern_mime_type :: proc(string_p: cstring) -> cstring ---
+
+    @(link_name = "gdk_content_formats_get_type")
+    gdk_content_formats_get_type :: proc() -> gobj.Type ---
+
+    @(link_name = "gdk_content_formats_new")
+    gdk_content_formats_new :: proc(mime_types: [^]cstring, n_mime_types: glib.uint_) -> ^ContentFormats ---
+
+    @(link_name = "gdk_content_formats_new_for_gtype")
+    gdk_content_formats_new_for_gtype :: proc(type: gobj.Type) -> ^ContentFormats ---
+
+    @(link_name = "gdk_content_formats_parse")
+    gdk_content_formats_parse :: proc(string_p: cstring) -> ^ContentFormats ---
+
+    @(link_name = "gdk_content_formats_ref")
+    gdk_content_formats_ref :: proc(formats: ^ContentFormats) -> ^ContentFormats ---
+
+    @(link_name = "gdk_content_formats_unref")
+    gdk_content_formats_unref :: proc(formats: ^ContentFormats) ---
+
+    @(link_name = "gdk_content_formats_print")
+    gdk_content_formats_print :: proc(formats: ^ContentFormats, string_p: ^glib.String) ---
+
+    @(link_name = "gdk_content_formats_to_string")
+    gdk_content_formats_to_string :: proc(formats: ^ContentFormats) -> cstring ---
+
+    @(link_name = "gdk_content_formats_get_gtypes")
+    gdk_content_formats_get_gtypes :: proc(formats: ^ContentFormats, n_gtypes: ^glib.size) -> ^gobj.Type ---
+
+    @(link_name = "gdk_content_formats_get_mime_types")
+    gdk_content_formats_get_mime_types :: proc(formats: ^ContentFormats, n_mime_types: ^glib.size) -> ^cstring ---
+
+    @(link_name = "gdk_content_formats_union")
+    gdk_content_formats_union :: proc(first: ^ContentFormats, second: ^ContentFormats) -> ^ContentFormats ---
+
+    @(link_name = "gdk_content_formats_match")
+    gdk_content_formats_match :: proc(first: ^ContentFormats, second: ^ContentFormats) -> glib.boolean ---
+
+    @(link_name = "gdk_content_formats_match_gtype")
+    gdk_content_formats_match_gtype :: proc(first: ^ContentFormats, second: ^ContentFormats) -> gobj.Type ---
+
+    @(link_name = "gdk_content_formats_match_mime_type")
+    gdk_content_formats_match_mime_type :: proc(first: ^ContentFormats, second: ^ContentFormats) -> cstring ---
+
+    @(link_name = "gdk_content_formats_contain_gtype")
+    gdk_content_formats_contain_gtype :: proc(formats: ^ContentFormats, type: gobj.Type) -> glib.boolean ---
+
+    @(link_name = "gdk_content_formats_contain_mime_type")
+    gdk_content_formats_contain_mime_type :: proc(formats: ^ContentFormats, mime_type: cstring) -> glib.boolean ---
+
+    @(link_name = "gdk_content_formats_builder_get_type")
+    gdk_content_formats_builder_get_type :: proc() -> gobj.Type ---
+
+    @(link_name = "gdk_content_formats_builder_new")
+    gdk_content_formats_builder_new :: proc() -> ^ContentFormatsBuilder ---
+
+    @(link_name = "gdk_content_formats_builder_ref")
+    gdk_content_formats_builder_ref :: proc(builder: ^ContentFormatsBuilder) -> ^ContentFormatsBuilder ---
+
+    @(link_name = "gdk_content_formats_builder_unref")
+    gdk_content_formats_builder_unref :: proc(builder: ^ContentFormatsBuilder) ---
+
+    @(link_name = "gdk_content_formats_builder_free_to_formats")
+    gdk_content_formats_builder_free_to_formats :: proc(builder: ^ContentFormatsBuilder) -> ^ContentFormats ---
+
+    @(link_name = "gdk_content_formats_builder_to_formats")
+    gdk_content_formats_builder_to_formats :: proc(builder: ^ContentFormatsBuilder) -> ^ContentFormats ---
+
+    @(link_name = "gdk_content_formats_builder_add_formats")
+    gdk_content_formats_builder_add_formats :: proc(builder: ^ContentFormatsBuilder, formats: ^ContentFormats) ---
+
+    @(link_name = "gdk_content_formats_builder_add_mime_type")
+    gdk_content_formats_builder_add_mime_type :: proc(builder: ^ContentFormatsBuilder, mime_type: cstring) ---
+
+    @(link_name = "gdk_content_formats_builder_add_gtype")
+    gdk_content_formats_builder_add_gtype :: proc(builder: ^ContentFormatsBuilder, type: gobj.Type) ---
+
+    @(link_name = "gdk_file_list_get_type")
+    gdk_file_list_get_type :: proc() -> gobj.Type ---
+
+    @(link_name = "gdk_file_list_get_files")
+    gdk_file_list_get_files :: proc(file_list: ^FileList) -> ^glib.SList ---
+
+    @(link_name = "gdk_file_list_new_from_list")
+    gdk_file_list_new_from_list :: proc(files: ^glib.SList) -> ^FileList ---
+
+    @(link_name = "gdk_file_list_new_from_array")
+    gdk_file_list_new_from_array :: proc(files: [^]^gio.File, n_files: glib.size) -> ^FileList ---
+
+    @(link_name = "gdk_content_provider_get_type")
+    gdk_content_provider_get_type :: proc() -> gobj.Type ---
+
+    @(link_name = "gdk_content_provider_ref_formats")
+    gdk_content_provider_ref_formats :: proc(provider: ^ContentProvider) -> ^ContentFormats ---
+
+    @(link_name = "gdk_content_provider_ref_storable_formats")
+    gdk_content_provider_ref_storable_formats :: proc(provider: ^ContentProvider) -> ^ContentFormats ---
+
+    @(link_name = "gdk_content_provider_content_changed")
+    gdk_content_provider_content_changed :: proc(provider: ^ContentProvider) ---
+
+    @(link_name = "gdk_content_provider_write_mime_type_async")
+    gdk_content_provider_write_mime_type_async :: proc(provider: ^ContentProvider, mime_type: cstring, stream: ^gio.OutputStream, io_priority: i32, cancellable: ^gio.Cancellable, callback: gio.AsyncReadyCallback, user_data: glib.pointer) ---
+
+    @(link_name = "gdk_content_provider_write_mime_type_finish")
+    gdk_content_provider_write_mime_type_finish :: proc(provider: ^ContentProvider, result: ^gio.AsyncResult, error: ^^glib.Error) -> glib.boolean ---
+
+    @(link_name = "gdk_content_provider_get_value")
+    gdk_content_provider_get_value :: proc(provider: ^ContentProvider, value: ^gobj.Value, error: ^^glib.Error) -> glib.boolean ---
+
+    @(link_name = "gdk_content_provider_new_for_value")
+    gdk_content_provider_new_for_value :: proc(value: ^gobj.Value) -> ^ContentProvider ---
+
+    @(link_name = "gdk_content_provider_new_typed")
+    gdk_content_provider_new_typed :: proc(type: gobj.Type, #c_vararg var_args: ..any) -> ^ContentProvider ---
+
+    @(link_name = "gdk_content_provider_new_union")
+    gdk_content_provider_new_union :: proc(providers: [^]^ContentProvider, n_providers: glib.size) -> ^ContentProvider ---
+
+    @(link_name = "gdk_content_provider_new_for_bytes")
+    gdk_content_provider_new_for_bytes :: proc(mime_type: cstring, bytes: ^glib.Bytes) -> ^ContentProvider ---
+
+    @(link_name = "gdk_content_serializer_get_type")
+    gdk_content_serializer_get_type :: proc() -> gobj.Type ---
+
+    @(link_name = "gdk_content_serializer_get_mime_type")
+    gdk_content_serializer_get_mime_type :: proc(serializer: ^ContentSerializer) -> cstring ---
+
+    @(link_name = "gdk_content_serializer_get_gtype")
+    gdk_content_serializer_get_gtype :: proc(serializer: ^ContentSerializer) -> gobj.Type ---
+
+    @(link_name = "gdk_content_serializer_get_value")
+    gdk_content_serializer_get_value :: proc(serializer: ^ContentSerializer) -> ^gobj.Value ---
+
+    @(link_name = "gdk_content_serializer_get_output_stream")
+    gdk_content_serializer_get_output_stream :: proc(serializer: ^ContentSerializer) -> ^gio.OutputStream ---
+
+    @(link_name = "gdk_content_serializer_get_priority")
+    gdk_content_serializer_get_priority :: proc(serializer: ^ContentSerializer) -> i32 ---
+
+    @(link_name = "gdk_content_serializer_get_cancellable")
+    gdk_content_serializer_get_cancellable :: proc(serializer: ^ContentSerializer) -> ^gio.Cancellable ---
+
+    @(link_name = "gdk_content_serializer_get_user_data")
+    gdk_content_serializer_get_user_data :: proc(serializer: ^ContentSerializer) -> glib.pointer ---
+
+    @(link_name = "gdk_content_serializer_set_task_data")
+    gdk_content_serializer_set_task_data :: proc(serializer: ^ContentSerializer, data: glib.pointer, notify: glib.DestroyNotify) ---
+
+    @(link_name = "gdk_content_serializer_get_task_data")
+    gdk_content_serializer_get_task_data :: proc(serializer: ^ContentSerializer) -> glib.pointer ---
+
+    @(link_name = "gdk_content_serializer_return_success")
+    gdk_content_serializer_return_success :: proc(serializer: ^ContentSerializer) ---
+
+    @(link_name = "gdk_content_serializer_return_error")
+    gdk_content_serializer_return_error :: proc(serializer: ^ContentSerializer, error: ^glib.Error) ---
+
+    @(link_name = "gdk_content_formats_union_serialize_gtypes")
+    gdk_content_formats_union_serialize_gtypes :: proc(formats: ^ContentFormats) -> ^ContentFormats ---
+
+    @(link_name = "gdk_content_formats_union_serialize_mime_types")
+    gdk_content_formats_union_serialize_mime_types :: proc(formats: ^ContentFormats) -> ^ContentFormats ---
+
+    @(link_name = "gdk_content_register_serializer")
+    gdk_content_register_serializer :: proc(type: gobj.Type, mime_type: cstring, serialize: ContentSerializeFunc, data: glib.pointer, notify: glib.DestroyNotify) ---
+
+    @(link_name = "gdk_content_serialize_async")
+    gdk_content_serialize_async :: proc(stream: ^gio.OutputStream, mime_type: cstring, value: ^gobj.Value, io_priority: i32, cancellable: ^gio.Cancellable, callback: gio.AsyncReadyCallback, user_data: glib.pointer) ---
+
+    @(link_name = "gdk_content_serialize_finish")
+    gdk_content_serialize_finish :: proc(result: ^gio.AsyncResult, error: ^^glib.Error) -> glib.boolean ---
+
+    @(link_name = "gdk_cursor_get_type")
+    gdk_cursor_get_type :: proc() -> gobj.Type ---
+
+    @(link_name = "gdk_cursor_new_from_texture")
+    gdk_cursor_new_from_texture :: proc(texture: ^Texture, hotspot_x: i32, hotspot_y: i32, fallback: ^Cursor) -> ^Cursor ---
+
+    @(link_name = "gdk_cursor_new_from_name")
+    gdk_cursor_new_from_name :: proc(name: cstring, fallback: ^Cursor) -> ^Cursor ---
+
+    @(link_name = "gdk_cursor_new_from_callback")
+    gdk_cursor_new_from_callback :: proc(callback: CursorGetTextureCallback, data: glib.pointer, destroy: glib.DestroyNotify, fallback: ^Cursor) -> ^Cursor ---
+
+    @(link_name = "gdk_cursor_get_fallback")
+    gdk_cursor_get_fallback :: proc(cursor: ^Cursor) -> ^Cursor ---
+
+    @(link_name = "gdk_cursor_get_name")
+    gdk_cursor_get_name :: proc(cursor: ^Cursor) -> cstring ---
+
+    @(link_name = "gdk_cursor_get_texture")
+    gdk_cursor_get_texture :: proc(cursor: ^Cursor) -> ^Texture ---
+
+    @(link_name = "gdk_cursor_get_hotspot_x")
+    gdk_cursor_get_hotspot_x :: proc(cursor: ^Cursor) -> i32 ---
+
+    @(link_name = "gdk_cursor_get_hotspot_y")
+    gdk_cursor_get_hotspot_y :: proc(cursor: ^Cursor) -> i32 ---
+
+    @(link_name = "gdk_device_tool_get_type")
+    gdk_device_tool_get_type :: proc() -> gobj.Type ---
+
+    @(link_name = "gdk_device_tool_get_serial")
+    gdk_device_tool_get_serial :: proc(tool: ^DeviceTool) -> glib.uint64 ---
+
+    @(link_name = "gdk_device_tool_get_hardware_id")
+    gdk_device_tool_get_hardware_id :: proc(tool: ^DeviceTool) -> glib.uint64 ---
+
+    @(link_name = "gdk_device_tool_get_tool_type")
+    gdk_device_tool_get_tool_type :: proc(tool: ^DeviceTool) -> DeviceToolType ---
+
+    @(link_name = "gdk_device_tool_get_axes")
+    gdk_device_tool_get_axes :: proc(tool: ^DeviceTool) -> AxisFlags ---
+
+    @(link_name = "gdk_device_get_type")
+    gdk_device_get_type :: proc() -> gobj.Type ---
+
+    @(link_name = "gdk_device_get_name")
+    gdk_device_get_name :: proc(device: ^Device) -> cstring ---
+
+    @(link_name = "gdk_device_get_vendor_id")
+    gdk_device_get_vendor_id :: proc(device: ^Device) -> cstring ---
+
+    @(link_name = "gdk_device_get_product_id")
+    gdk_device_get_product_id :: proc(device: ^Device) -> cstring ---
+
+    @(link_name = "gdk_device_get_display")
+    gdk_device_get_display :: proc(device: ^Device) -> ^Display ---
+
+    @(link_name = "gdk_device_get_seat")
+    gdk_device_get_seat :: proc(device: ^Device) -> ^Seat ---
+
+    @(link_name = "gdk_device_get_device_tool")
+    gdk_device_get_device_tool :: proc(device: ^Device) -> ^DeviceTool ---
+
+    @(link_name = "gdk_device_get_source")
+    gdk_device_get_source :: proc(device: ^Device) -> InputSource ---
+
+    @(link_name = "gdk_device_get_has_cursor")
+    gdk_device_get_has_cursor :: proc(device: ^Device) -> glib.boolean ---
+
+    @(link_name = "gdk_device_get_num_touches")
+    gdk_device_get_num_touches :: proc(device: ^Device) -> glib.uint_ ---
+
+    @(link_name = "gdk_device_get_modifier_state")
+    gdk_device_get_modifier_state :: proc(device: ^Device) -> ModifierType ---
+
+    @(link_name = "gdk_device_get_direction")
+    gdk_device_get_direction :: proc(device: ^Device) -> pango.Direction ---
+
+    @(link_name = "gdk_device_has_bidi_layouts")
+    gdk_device_has_bidi_layouts :: proc(device: ^Device) -> glib.boolean ---
+
+    @(link_name = "gdk_device_get_caps_lock_state")
+    gdk_device_get_caps_lock_state :: proc(device: ^Device) -> glib.boolean ---
+
+    @(link_name = "gdk_device_get_num_lock_state")
+    gdk_device_get_num_lock_state :: proc(device: ^Device) -> glib.boolean ---
+
+    @(link_name = "gdk_device_get_scroll_lock_state")
+    gdk_device_get_scroll_lock_state :: proc(device: ^Device) -> glib.boolean ---
+
+    @(link_name = "gdk_device_get_surface_at_position")
+    gdk_device_get_surface_at_position :: proc(device: ^Device, win_x: ^f64, win_y: ^f64) -> ^Surface ---
+
+    @(link_name = "gdk_device_get_timestamp")
+    gdk_device_get_timestamp :: proc(device: ^Device) -> glib.uint32 ---
+
+    @(link_name = "gdk_device_pad_get_type")
+    gdk_device_pad_get_type :: proc() -> gobj.Type ---
+
+    @(link_name = "gdk_device_pad_get_n_groups")
+    gdk_device_pad_get_n_groups :: proc(pad: ^DevicePad) -> i32 ---
+
+    @(link_name = "gdk_device_pad_get_group_n_modes")
+    gdk_device_pad_get_group_n_modes :: proc(pad: ^DevicePad, group_idx: i32) -> i32 ---
+
+    @(link_name = "gdk_device_pad_get_n_features")
+    gdk_device_pad_get_n_features :: proc(pad: ^DevicePad, feature: DevicePadFeature) -> i32 ---
+
+    @(link_name = "gdk_device_pad_get_feature_group")
+    gdk_device_pad_get_feature_group :: proc(pad: ^DevicePad, feature: DevicePadFeature, feature_idx: i32) -> i32 ---
+
+    @(link_name = "gdk_drag_get_type")
+    gdk_drag_get_type :: proc() -> gobj.Type ---
+
+    @(link_name = "gdk_drag_get_display")
+    gdk_drag_get_display :: proc(drag: ^Drag) -> ^Display ---
+
+    @(link_name = "gdk_drag_get_device")
+    gdk_drag_get_device :: proc(drag: ^Drag) -> ^Device ---
+
+    @(link_name = "gdk_drag_get_formats")
+    gdk_drag_get_formats :: proc(drag: ^Drag) -> ^ContentFormats ---
+
+    @(link_name = "gdk_drag_get_actions")
+    gdk_drag_get_actions :: proc(drag: ^Drag) -> DragAction ---
+
+    @(link_name = "gdk_drag_get_selected_action")
+    gdk_drag_get_selected_action :: proc(drag: ^Drag) -> DragAction ---
+
+    @(link_name = "gdk_drag_action_is_unique")
+    gdk_drag_action_is_unique :: proc(action: DragAction) -> glib.boolean ---
+
+    @(link_name = "gdk_drag_begin")
+    gdk_drag_begin :: proc(surface: ^Surface, device: ^Device, content: ^ContentProvider, actions: DragAction, dx: f64, dy: f64) -> ^Drag ---
+
+    @(link_name = "gdk_drag_drop_done")
+    gdk_drag_drop_done :: proc(drag: ^Drag, success: glib.boolean) ---
+
+    @(link_name = "gdk_drag_get_drag_surface")
+    gdk_drag_get_drag_surface :: proc(drag: ^Drag) -> ^Surface ---
+
+    @(link_name = "gdk_drag_set_hotspot")
+    gdk_drag_set_hotspot :: proc(drag: ^Drag, hot_x: i32, hot_y: i32) ---
+
+    @(link_name = "gdk_drag_get_content")
+    gdk_drag_get_content :: proc(drag: ^Drag) -> ^ContentProvider ---
+
+    @(link_name = "gdk_drag_get_surface")
+    gdk_drag_get_surface :: proc(drag: ^Drag) -> ^Surface ---
+
+    @(link_name = "gdk_event_get_type")
+    gdk_event_get_type :: proc() -> gobj.Type ---
+
+    @(link_name = "gdk_event_sequence_get_type")
+    gdk_event_sequence_get_type :: proc() -> gobj.Type ---
+
+    @(link_name = "gdk_event_ref")
+    gdk_event_ref :: proc(event: ^Event) -> ^Event ---
+
+    @(link_name = "gdk_event_unref")
+    gdk_event_unref :: proc(event: ^Event) ---
+
+    @(link_name = "gdk_event_get_event_type")
+    gdk_event_get_event_type :: proc(event: ^Event) -> EventType ---
+
+    @(link_name = "gdk_event_get_surface")
+    gdk_event_get_surface :: proc(event: ^Event) -> ^Surface ---
+
+    @(link_name = "gdk_event_get_seat")
+    gdk_event_get_seat :: proc(event: ^Event) -> ^Seat ---
+
+    @(link_name = "gdk_event_get_device")
+    gdk_event_get_device :: proc(event: ^Event) -> ^Device ---
+
+    @(link_name = "gdk_event_get_device_tool")
+    gdk_event_get_device_tool :: proc(event: ^Event) -> ^DeviceTool ---
+
+    @(link_name = "gdk_event_get_time")
+    gdk_event_get_time :: proc(event: ^Event) -> glib.uint32 ---
+
+    @(link_name = "gdk_event_get_display")
+    gdk_event_get_display :: proc(event: ^Event) -> ^Display ---
+
+    @(link_name = "gdk_event_get_event_sequence")
+    gdk_event_get_event_sequence :: proc(event: ^Event) -> ^EventSequence ---
+
+    @(link_name = "gdk_event_get_modifier_state")
+    gdk_event_get_modifier_state :: proc(event: ^Event) -> ModifierType ---
+
+    @(link_name = "gdk_event_get_position")
+    gdk_event_get_position :: proc(event: ^Event, x: ^f64, y: ^f64) -> glib.boolean ---
+
+    @(link_name = "gdk_event_get_axes")
+    gdk_event_get_axes :: proc(event: ^Event, axes: [^]^f64, n_axes: ^glib.uint_) -> glib.boolean ---
+
+    @(link_name = "gdk_event_get_axis")
+    gdk_event_get_axis :: proc(event: ^Event, axis_use: AxisUse, value: ^f64) -> glib.boolean ---
+
+    @(link_name = "gdk_event_get_history")
+    gdk_event_get_history :: proc(event: ^Event, out_n_coords: ^glib.uint_) -> ^TimeCoord ---
+
+    @(link_name = "gdk_event_get_pointer_emulated")
+    gdk_event_get_pointer_emulated :: proc(event: ^Event) -> glib.boolean ---
+
+    @(link_name = "gdk_button_event_get_type")
+    gdk_button_event_get_type :: proc() -> gobj.Type ---
+
+    @(link_name = "gdk_button_event_get_button")
+    gdk_button_event_get_button :: proc(event: ^Event) -> glib.uint_ ---
+
+    @(link_name = "gdk_scroll_event_get_type")
+    gdk_scroll_event_get_type :: proc() -> gobj.Type ---
+
+    @(link_name = "gdk_scroll_event_get_direction")
+    gdk_scroll_event_get_direction :: proc(event: ^Event) -> ScrollDirection ---
+
+    @(link_name = "gdk_scroll_event_get_deltas")
+    gdk_scroll_event_get_deltas :: proc(event: ^Event, delta_x: ^f64, delta_y: ^f64) ---
+
+    @(link_name = "gdk_scroll_event_get_unit")
+    gdk_scroll_event_get_unit :: proc(event: ^Event) -> ScrollUnit ---
+
+    @(link_name = "gdk_scroll_event_is_stop")
+    gdk_scroll_event_is_stop :: proc(event: ^Event) -> glib.boolean ---
+
+    @(link_name = "gdk_key_event_get_type")
+    gdk_key_event_get_type :: proc() -> gobj.Type ---
+
+    @(link_name = "gdk_key_event_get_keyval")
+    gdk_key_event_get_keyval :: proc(event: ^Event) -> glib.uint_ ---
+
+    @(link_name = "gdk_key_event_get_keycode")
+    gdk_key_event_get_keycode :: proc(event: ^Event) -> glib.uint_ ---
+
+    @(link_name = "gdk_key_event_get_consumed_modifiers")
+    gdk_key_event_get_consumed_modifiers :: proc(event: ^Event) -> ModifierType ---
+
+    @(link_name = "gdk_key_event_get_layout")
+    gdk_key_event_get_layout :: proc(event: ^Event) -> glib.uint_ ---
+
+    @(link_name = "gdk_key_event_get_level")
+    gdk_key_event_get_level :: proc(event: ^Event) -> glib.uint_ ---
+
+    @(link_name = "gdk_key_event_is_modifier")
+    gdk_key_event_is_modifier :: proc(event: ^Event) -> glib.boolean ---
+
+    @(link_name = "gdk_focus_event_get_type")
+    gdk_focus_event_get_type :: proc() -> gobj.Type ---
+
+    @(link_name = "gdk_focus_event_get_in")
+    gdk_focus_event_get_in :: proc(event: ^Event) -> glib.boolean ---
+
+    @(link_name = "gdk_touch_event_get_type")
+    gdk_touch_event_get_type :: proc() -> gobj.Type ---
+
+    @(link_name = "gdk_touch_event_get_emulating_pointer")
+    gdk_touch_event_get_emulating_pointer :: proc(event: ^Event) -> glib.boolean ---
+
+    @(link_name = "gdk_crossing_event_get_type")
+    gdk_crossing_event_get_type :: proc() -> gobj.Type ---
+
+    @(link_name = "gdk_crossing_event_get_mode")
+    gdk_crossing_event_get_mode :: proc(event: ^Event) -> CrossingMode ---
+
+    @(link_name = "gdk_crossing_event_get_detail")
+    gdk_crossing_event_get_detail :: proc(event: ^Event) -> NotifyType ---
+
+    @(link_name = "gdk_crossing_event_get_focus")
+    gdk_crossing_event_get_focus :: proc(event: ^Event) -> glib.boolean ---
+
+    @(link_name = "gdk_touchpad_event_get_type")
+    gdk_touchpad_event_get_type :: proc() -> gobj.Type ---
+
+    @(link_name = "gdk_touchpad_event_get_gesture_phase")
+    gdk_touchpad_event_get_gesture_phase :: proc(event: ^Event) -> TouchpadGesturePhase ---
+
+    @(link_name = "gdk_touchpad_event_get_n_fingers")
+    gdk_touchpad_event_get_n_fingers :: proc(event: ^Event) -> glib.uint_ ---
+
+    @(link_name = "gdk_touchpad_event_get_deltas")
+    gdk_touchpad_event_get_deltas :: proc(event: ^Event, dx: ^f64, dy: ^f64) ---
+
+    @(link_name = "gdk_touchpad_event_get_pinch_angle_delta")
+    gdk_touchpad_event_get_pinch_angle_delta :: proc(event: ^Event) -> f64 ---
+
+    @(link_name = "gdk_touchpad_event_get_pinch_scale")
+    gdk_touchpad_event_get_pinch_scale :: proc(event: ^Event) -> f64 ---
+
+    @(link_name = "gdk_pad_event_get_type")
+    gdk_pad_event_get_type :: proc() -> gobj.Type ---
+
+    @(link_name = "gdk_pad_event_get_button")
+    gdk_pad_event_get_button :: proc(event: ^Event) -> glib.uint_ ---
+
+    @(link_name = "gdk_pad_event_get_axis_value")
+    gdk_pad_event_get_axis_value :: proc(event: ^Event, index: ^glib.uint_, value: ^f64) ---
+
+    @(link_name = "gdk_pad_event_get_group_mode")
+    gdk_pad_event_get_group_mode :: proc(event: ^Event, group: ^glib.uint_, mode: ^glib.uint_) ---
+
+    @(link_name = "gdk_dnd_event_get_type")
+    gdk_dnd_event_get_type :: proc() -> gobj.Type ---
+
+    @(link_name = "gdk_dnd_event_get_drop")
+    gdk_dnd_event_get_drop :: proc(event: ^Event) -> ^Drop ---
+
+    @(link_name = "gdk_grab_broken_event_get_type")
+    gdk_grab_broken_event_get_type :: proc() -> gobj.Type ---
+
+    @(link_name = "gdk_grab_broken_event_get_grab_surface")
+    gdk_grab_broken_event_get_grab_surface :: proc(event: ^Event) -> ^Surface ---
+
+    @(link_name = "gdk_grab_broken_event_get_implicit")
+    gdk_grab_broken_event_get_implicit :: proc(event: ^Event) -> glib.boolean ---
+
+    @(link_name = "gdk_motion_event_get_type")
+    gdk_motion_event_get_type :: proc() -> gobj.Type ---
+
+    @(link_name = "gdk_delete_event_get_type")
+    gdk_delete_event_get_type :: proc() -> gobj.Type ---
+
+    @(link_name = "gdk_proximity_event_get_type")
+    gdk_proximity_event_get_type :: proc() -> gobj.Type ---
+
+    @(link_name = "gdk_event_triggers_context_menu")
+    gdk_event_triggers_context_menu :: proc(event: ^Event) -> glib.boolean ---
+
+    @(link_name = "gdk_events_get_distance")
+    gdk_events_get_distance :: proc(event1: ^Event, event2: ^Event, distance: ^f64) -> glib.boolean ---
+
+    @(link_name = "gdk_events_get_angle")
+    gdk_events_get_angle :: proc(event1: ^Event, event2: ^Event, angle: ^f64) -> glib.boolean ---
+
+    @(link_name = "gdk_events_get_center")
+    gdk_events_get_center :: proc(event1: ^Event, event2: ^Event, x: ^f64, y: ^f64) -> glib.boolean ---
+
+    @(link_name = "gdk_key_event_matches")
+    gdk_key_event_matches :: proc(event: ^Event, keyval: glib.uint_, modifiers: ModifierType) -> KeyMatch ---
+
+    @(link_name = "gdk_key_event_get_match")
+    gdk_key_event_get_match :: proc(event: ^Event, keyval: ^glib.uint_, modifiers: ^ModifierType) -> glib.boolean ---
+
+    @(link_name = "gdk_frame_timings_get_type")
+    gdk_frame_timings_get_type :: proc() -> gobj.Type ---
+
+    @(link_name = "gdk_frame_timings_ref")
+    gdk_frame_timings_ref :: proc(timings: ^FrameTimings) -> ^FrameTimings ---
+
+    @(link_name = "gdk_frame_timings_unref")
+    gdk_frame_timings_unref :: proc(timings: ^FrameTimings) ---
+
+    @(link_name = "gdk_frame_timings_get_frame_counter")
+    gdk_frame_timings_get_frame_counter :: proc(timings: ^FrameTimings) -> glib.int64 ---
+
+    @(link_name = "gdk_frame_timings_get_complete")
+    gdk_frame_timings_get_complete :: proc(timings: ^FrameTimings) -> glib.boolean ---
+
+    @(link_name = "gdk_frame_timings_get_frame_time")
+    gdk_frame_timings_get_frame_time :: proc(timings: ^FrameTimings) -> glib.int64 ---
+
+    @(link_name = "gdk_frame_timings_get_presentation_time")
+    gdk_frame_timings_get_presentation_time :: proc(timings: ^FrameTimings) -> glib.int64 ---
+
+    @(link_name = "gdk_frame_timings_get_refresh_interval")
+    gdk_frame_timings_get_refresh_interval :: proc(timings: ^FrameTimings) -> glib.int64 ---
+
+    @(link_name = "gdk_frame_timings_get_predicted_presentation_time")
+    gdk_frame_timings_get_predicted_presentation_time :: proc(timings: ^FrameTimings) -> glib.int64 ---
+
+    @(link_name = "gdk_frame_clock_get_type")
+    gdk_frame_clock_get_type :: proc() -> gobj.Type ---
+
+    @(link_name = "gdk_frame_clock_get_frame_time")
+    gdk_frame_clock_get_frame_time :: proc(frame_clock: ^FrameClock) -> glib.int64 ---
+
+    @(link_name = "gdk_frame_clock_request_phase")
+    gdk_frame_clock_request_phase :: proc(frame_clock: ^FrameClock, phase: FrameClockPhase) ---
+
+    @(link_name = "gdk_frame_clock_begin_updating")
+    gdk_frame_clock_begin_updating :: proc(frame_clock: ^FrameClock) ---
+
+    @(link_name = "gdk_frame_clock_end_updating")
+    gdk_frame_clock_end_updating :: proc(frame_clock: ^FrameClock) ---
+
+    @(link_name = "gdk_frame_clock_get_frame_counter")
+    gdk_frame_clock_get_frame_counter :: proc(frame_clock: ^FrameClock) -> glib.int64 ---
+
+    @(link_name = "gdk_frame_clock_get_history_start")
+    gdk_frame_clock_get_history_start :: proc(frame_clock: ^FrameClock) -> glib.int64 ---
+
+    @(link_name = "gdk_frame_clock_get_timings")
+    gdk_frame_clock_get_timings :: proc(frame_clock: ^FrameClock, frame_counter: glib.int64) -> ^FrameTimings ---
+
+    @(link_name = "gdk_frame_clock_get_current_timings")
+    gdk_frame_clock_get_current_timings :: proc(frame_clock: ^FrameClock) -> ^FrameTimings ---
+
+    @(link_name = "gdk_frame_clock_get_refresh_info")
+    gdk_frame_clock_get_refresh_info :: proc(frame_clock: ^FrameClock, base_time: glib.int64, refresh_interval_return: ^glib.int64, presentation_time_return: ^glib.int64) ---
+
+    @(link_name = "gdk_frame_clock_get_fps")
+    gdk_frame_clock_get_fps :: proc(frame_clock: ^FrameClock) -> f64 ---
+
+    @(link_name = "gdk_monitor_get_type")
+    gdk_monitor_get_type :: proc() -> gobj.Type ---
+
+    @(link_name = "gdk_monitor_get_display")
+    gdk_monitor_get_display :: proc(monitor: ^Monitor) -> ^Display ---
+
+    @(link_name = "gdk_monitor_get_geometry")
+    gdk_monitor_get_geometry :: proc(monitor: ^Monitor, geometry: ^Rectangle) ---
+
+    @(link_name = "gdk_monitor_get_width_mm")
+    gdk_monitor_get_width_mm :: proc(monitor: ^Monitor) -> i32 ---
+
+    @(link_name = "gdk_monitor_get_height_mm")
+    gdk_monitor_get_height_mm :: proc(monitor: ^Monitor) -> i32 ---
+
+    @(link_name = "gdk_monitor_get_manufacturer")
+    gdk_monitor_get_manufacturer :: proc(monitor: ^Monitor) -> cstring ---
+
+    @(link_name = "gdk_monitor_get_model")
+    gdk_monitor_get_model :: proc(monitor: ^Monitor) -> cstring ---
+
+    @(link_name = "gdk_monitor_get_connector")
+    gdk_monitor_get_connector :: proc(monitor: ^Monitor) -> cstring ---
+
+    @(link_name = "gdk_monitor_get_scale_factor")
+    gdk_monitor_get_scale_factor :: proc(monitor: ^Monitor) -> i32 ---
+
+    @(link_name = "gdk_monitor_get_scale")
+    gdk_monitor_get_scale :: proc(monitor: ^Monitor) -> f64 ---
+
+    @(link_name = "gdk_monitor_get_refresh_rate")
+    gdk_monitor_get_refresh_rate :: proc(monitor: ^Monitor) -> i32 ---
+
+    @(link_name = "gdk_monitor_get_subpixel_layout")
+    gdk_monitor_get_subpixel_layout :: proc(monitor: ^Monitor) -> SubpixelLayout ---
+
+    @(link_name = "gdk_monitor_is_valid")
+    gdk_monitor_is_valid :: proc(monitor: ^Monitor) -> glib.boolean ---
+
+    @(link_name = "gdk_monitor_get_description")
+    gdk_monitor_get_description :: proc(monitor: ^Monitor) -> cstring ---
+
+    @(link_name = "gdk_popup_layout_get_type")
+    gdk_popup_layout_get_type :: proc() -> gobj.Type ---
+
+    @(link_name = "gdk_popup_layout_new")
+    gdk_popup_layout_new :: proc(anchor_rect: ^Rectangle, rect_anchor: Gravity, surface_anchor: Gravity) -> ^PopupLayout ---
+
+    @(link_name = "gdk_popup_layout_ref")
+    gdk_popup_layout_ref :: proc(layout: ^PopupLayout) -> ^PopupLayout ---
+
+    @(link_name = "gdk_popup_layout_unref")
+    gdk_popup_layout_unref :: proc(layout: ^PopupLayout) ---
+
+    @(link_name = "gdk_popup_layout_copy")
+    gdk_popup_layout_copy :: proc(layout: ^PopupLayout) -> ^PopupLayout ---
+
+    @(link_name = "gdk_popup_layout_equal")
+    gdk_popup_layout_equal :: proc(layout: ^PopupLayout, other: ^PopupLayout) -> glib.boolean ---
+
+    @(link_name = "gdk_popup_layout_set_anchor_rect")
+    gdk_popup_layout_set_anchor_rect :: proc(layout: ^PopupLayout, anchor_rect: ^Rectangle) ---
+
+    @(link_name = "gdk_popup_layout_get_anchor_rect")
+    gdk_popup_layout_get_anchor_rect :: proc(layout: ^PopupLayout) -> ^Rectangle ---
+
+    @(link_name = "gdk_popup_layout_set_rect_anchor")
+    gdk_popup_layout_set_rect_anchor :: proc(layout: ^PopupLayout, anchor: Gravity) ---
+
+    @(link_name = "gdk_popup_layout_get_rect_anchor")
+    gdk_popup_layout_get_rect_anchor :: proc(layout: ^PopupLayout) -> Gravity ---
+
+    @(link_name = "gdk_popup_layout_set_surface_anchor")
+    gdk_popup_layout_set_surface_anchor :: proc(layout: ^PopupLayout, anchor: Gravity) ---
+
+    @(link_name = "gdk_popup_layout_get_surface_anchor")
+    gdk_popup_layout_get_surface_anchor :: proc(layout: ^PopupLayout) -> Gravity ---
+
+    @(link_name = "gdk_popup_layout_set_anchor_hints")
+    gdk_popup_layout_set_anchor_hints :: proc(layout: ^PopupLayout, anchor_hints: AnchorHints) ---
+
+    @(link_name = "gdk_popup_layout_get_anchor_hints")
+    gdk_popup_layout_get_anchor_hints :: proc(layout: ^PopupLayout) -> AnchorHints ---
+
+    @(link_name = "gdk_popup_layout_set_offset")
+    gdk_popup_layout_set_offset :: proc(layout: ^PopupLayout, dx: i32, dy: i32) ---
+
+    @(link_name = "gdk_popup_layout_get_offset")
+    gdk_popup_layout_get_offset :: proc(layout: ^PopupLayout, dx: ^i32, dy: ^i32) ---
+
+    @(link_name = "gdk_popup_layout_set_shadow_width")
+    gdk_popup_layout_set_shadow_width :: proc(layout: ^PopupLayout, left: i32, right: i32, top: i32, bottom: i32) ---
+
+    @(link_name = "gdk_popup_layout_get_shadow_width")
+    gdk_popup_layout_get_shadow_width :: proc(layout: ^PopupLayout, left: ^i32, right: ^i32, top: ^i32, bottom: ^i32) ---
+
+    @(link_name = "gdk_surface_get_type")
+    gdk_surface_get_type :: proc() -> gobj.Type ---
+
+    @(link_name = "gdk_surface_new_toplevel")
+    gdk_surface_new_toplevel :: proc(display: ^Display) -> ^Surface ---
+
+    @(link_name = "gdk_surface_new_popup")
+    gdk_surface_new_popup :: proc(parent: ^Surface, autohide: glib.boolean) -> ^Surface ---
+
+    @(link_name = "gdk_surface_destroy")
+    gdk_surface_destroy :: proc(surface: ^Surface) ---
+
+    @(link_name = "gdk_surface_is_destroyed")
+    gdk_surface_is_destroyed :: proc(surface: ^Surface) -> glib.boolean ---
+
+    @(link_name = "gdk_surface_get_display")
+    gdk_surface_get_display :: proc(surface: ^Surface) -> ^Display ---
+
+    @(link_name = "gdk_surface_hide")
+    gdk_surface_hide :: proc(surface: ^Surface) ---
+
+    @(link_name = "gdk_surface_set_input_region")
+    gdk_surface_set_input_region :: proc(surface: ^Surface, region: ^cairo.region_t) ---
+
+    @(link_name = "gdk_surface_get_mapped")
+    gdk_surface_get_mapped :: proc(surface: ^Surface) -> glib.boolean ---
+
+    @(link_name = "gdk_surface_set_cursor")
+    gdk_surface_set_cursor :: proc(surface: ^Surface, cursor: ^Cursor) ---
+
+    @(link_name = "gdk_surface_get_cursor")
+    gdk_surface_get_cursor :: proc(surface: ^Surface) -> ^Cursor ---
+
+    @(link_name = "gdk_surface_set_device_cursor")
+    gdk_surface_set_device_cursor :: proc(surface: ^Surface, device: ^Device, cursor: ^Cursor) ---
+
+    @(link_name = "gdk_surface_get_device_cursor")
+    gdk_surface_get_device_cursor :: proc(surface: ^Surface, device: ^Device) -> ^Cursor ---
+
+    @(link_name = "gdk_surface_get_width")
+    gdk_surface_get_width :: proc(surface: ^Surface) -> i32 ---
+
+    @(link_name = "gdk_surface_get_height")
+    gdk_surface_get_height :: proc(surface: ^Surface) -> i32 ---
+
+    @(link_name = "gdk_surface_translate_coordinates")
+    gdk_surface_translate_coordinates :: proc(from: ^Surface, to: ^Surface, x: ^f64, y: ^f64) -> glib.boolean ---
+
+    @(link_name = "gdk_surface_get_scale_factor")
+    gdk_surface_get_scale_factor :: proc(surface: ^Surface) -> i32 ---
+
+    @(link_name = "gdk_surface_get_scale")
+    gdk_surface_get_scale :: proc(surface: ^Surface) -> f64 ---
+
+    @(link_name = "gdk_surface_get_device_position")
+    gdk_surface_get_device_position :: proc(surface: ^Surface, device: ^Device, x: ^f64, y: ^f64, mask: ^ModifierType) -> glib.boolean ---
+
+    @(link_name = "gdk_surface_create_similar_surface")
+    gdk_surface_create_similar_surface :: proc(surface: ^Surface, content: cairo.content_t, width: i32, height: i32) -> ^cairo.surface_t ---
+
+    @(link_name = "gdk_surface_beep")
+    gdk_surface_beep :: proc(surface: ^Surface) ---
+
+    @(link_name = "gdk_surface_queue_render")
+    gdk_surface_queue_render :: proc(surface: ^Surface) ---
+
+    @(link_name = "gdk_surface_request_layout")
+    gdk_surface_request_layout :: proc(surface: ^Surface) ---
+
+    @(link_name = "gdk_surface_get_frame_clock")
+    gdk_surface_get_frame_clock :: proc(surface: ^Surface) -> ^FrameClock ---
+
+    @(link_name = "gdk_surface_set_opaque_region")
+    gdk_surface_set_opaque_region :: proc(surface: ^Surface, region: ^cairo.region_t) ---
+
+    @(link_name = "gdk_surface_create_cairo_context")
+    gdk_surface_create_cairo_context :: proc(surface: ^Surface) -> ^CairoContext ---
+
+    @(link_name = "gdk_surface_create_gl_context")
+    gdk_surface_create_gl_context :: proc(surface: ^Surface, error: ^^glib.Error) -> ^GLContext ---
+
+    @(link_name = "gdk_surface_create_vulkan_context")
+    gdk_surface_create_vulkan_context :: proc(surface: ^Surface, error: ^^glib.Error) -> ^VulkanContext ---
+
+    @(link_name = "gdk_seat_get_type")
+    gdk_seat_get_type :: proc() -> gobj.Type ---
+
+    @(link_name = "gdk_seat_get_display")
+    gdk_seat_get_display :: proc(seat: ^Seat) -> ^Display ---
+
+    @(link_name = "gdk_seat_get_capabilities")
+    gdk_seat_get_capabilities :: proc(seat: ^Seat) -> SeatCapabilities ---
+
+    @(link_name = "gdk_seat_get_devices")
+    gdk_seat_get_devices :: proc(seat: ^Seat, capabilities: SeatCapabilities) -> ^glib.List ---
+
+    @(link_name = "gdk_seat_get_tools")
+    gdk_seat_get_tools :: proc(seat: ^Seat) -> ^glib.List ---
+
+    @(link_name = "gdk_seat_get_pointer")
+    gdk_seat_get_pointer :: proc(seat: ^Seat) -> ^Device ---
+
+    @(link_name = "gdk_seat_get_keyboard")
+    gdk_seat_get_keyboard :: proc(seat: ^Seat) -> ^Device ---
+
+    @(link_name = "gdk_display_get_type")
+    gdk_display_get_type :: proc() -> gobj.Type ---
+
+    @(link_name = "gdk_display_open")
+    gdk_display_open :: proc(display_name: cstring) -> ^Display ---
+
+    @(link_name = "gdk_display_get_name")
+    gdk_display_get_name :: proc(display: ^Display) -> cstring ---
+
+    @(link_name = "gdk_display_device_is_grabbed")
+    gdk_display_device_is_grabbed :: proc(display: ^Display, device: ^Device) -> glib.boolean ---
+
+    @(link_name = "gdk_display_beep")
+    gdk_display_beep :: proc(display: ^Display) ---
+
+    @(link_name = "gdk_display_sync")
+    gdk_display_sync :: proc(display: ^Display) ---
+
+    @(link_name = "gdk_display_flush")
+    gdk_display_flush :: proc(display: ^Display) ---
+
+    @(link_name = "gdk_display_close")
+    gdk_display_close :: proc(display: ^Display) ---
+
+    @(link_name = "gdk_display_is_closed")
+    gdk_display_is_closed :: proc(display: ^Display) -> glib.boolean ---
+
+    @(link_name = "gdk_display_is_composited")
+    gdk_display_is_composited :: proc(display: ^Display) -> glib.boolean ---
+
+    @(link_name = "gdk_display_is_rgba")
+    gdk_display_is_rgba :: proc(display: ^Display) -> glib.boolean ---
+
+    @(link_name = "gdk_display_supports_shadow_width")
+    gdk_display_supports_shadow_width :: proc(display: ^Display) -> glib.boolean ---
+
+    @(link_name = "gdk_display_supports_input_shapes")
+    gdk_display_supports_input_shapes :: proc(display: ^Display) -> glib.boolean ---
+
+    @(link_name = "gdk_display_prepare_gl")
+    gdk_display_prepare_gl :: proc(self: ^Display, error: ^^glib.Error) -> glib.boolean ---
+
+    @(link_name = "gdk_display_create_gl_context")
+    gdk_display_create_gl_context :: proc(self: ^Display, error: ^^glib.Error) -> ^GLContext ---
+
+    @(link_name = "gdk_display_get_default")
+    gdk_display_get_default :: proc() -> ^Display ---
+
+    @(link_name = "gdk_display_get_clipboard")
+    gdk_display_get_clipboard :: proc(display: ^Display) -> ^Clipboard ---
+
+    @(link_name = "gdk_display_get_primary_clipboard")
+    gdk_display_get_primary_clipboard :: proc(display: ^Display) -> ^Clipboard ---
+
+    @(link_name = "gdk_display_notify_startup_complete")
+    gdk_display_notify_startup_complete :: proc(display: ^Display, startup_id: cstring) ---
+
+    @(link_name = "gdk_display_get_startup_notification_id")
+    gdk_display_get_startup_notification_id :: proc(display: ^Display) -> cstring ---
+
+    @(link_name = "gdk_display_get_app_launch_context")
+    gdk_display_get_app_launch_context :: proc(display: ^Display) -> ^AppLaunchContext ---
+
+    @(link_name = "gdk_display_get_default_seat")
+    gdk_display_get_default_seat :: proc(display: ^Display) -> ^Seat ---
+
+    @(link_name = "gdk_display_list_seats")
+    gdk_display_list_seats :: proc(display: ^Display) -> ^glib.List ---
+
+    @(link_name = "gdk_display_get_monitors")
+    gdk_display_get_monitors :: proc(self: ^Display) -> ^gio.ListModel ---
+
+    @(link_name = "gdk_display_get_monitor_at_surface")
+    gdk_display_get_monitor_at_surface :: proc(display: ^Display, surface: ^Surface) -> ^Monitor ---
+
+    @(link_name = "gdk_display_put_event")
+    gdk_display_put_event :: proc(display: ^Display, event: ^Event) ---
+
+    @(link_name = "gdk_display_map_keyval")
+    gdk_display_map_keyval :: proc(display: ^Display, keyval: glib.uint_, keys: [^]^KeymapKey, n_keys: ^i32) -> glib.boolean ---
+
+    @(link_name = "gdk_display_map_keycode")
+    gdk_display_map_keycode :: proc(display: ^Display, keycode: glib.uint_, keys: [^]^KeymapKey, keyvals: [^]^glib.uint_, n_entries: ^i32) -> glib.boolean ---
+
+    @(link_name = "gdk_display_translate_key")
+    gdk_display_translate_key :: proc(display: ^Display, keycode: glib.uint_, state: ModifierType, group: i32, keyval: ^glib.uint_, effective_group: ^i32, level: ^i32, consumed: ^ModifierType) -> glib.boolean ---
+
+    @(link_name = "gdk_display_get_setting")
+    gdk_display_get_setting :: proc(display: ^Display, name: cstring, value: ^gobj.Value) -> glib.boolean ---
+
+    @(link_name = "gdk_display_get_dmabuf_formats")
+    gdk_display_get_dmabuf_formats :: proc(display: ^Display) -> ^DmabufFormats ---
+
+    @(link_name = "gdk_display_manager_get_type")
+    gdk_display_manager_get_type :: proc() -> gobj.Type ---
+
+    @(link_name = "gdk_display_manager_get")
+    gdk_display_manager_get :: proc() -> ^DisplayManager ---
+
+    @(link_name = "gdk_display_manager_get_default_display")
+    gdk_display_manager_get_default_display :: proc(manager: ^DisplayManager) -> ^Display ---
+
+    @(link_name = "gdk_display_manager_set_default_display")
+    gdk_display_manager_set_default_display :: proc(manager: ^DisplayManager, display: ^Display) ---
+
+    @(link_name = "gdk_display_manager_list_displays")
+    gdk_display_manager_list_displays :: proc(manager: ^DisplayManager) -> ^glib.SList ---
+
+    @(link_name = "gdk_display_manager_open_display")
+    gdk_display_manager_open_display :: proc(manager: ^DisplayManager, name: cstring) -> ^Display ---
+
+    @(link_name = "gdk_set_allowed_backends")
+    gdk_set_allowed_backends :: proc(backends: cstring) ---
+
+    @(link_name = "gdk_dmabuf_formats_get_type")
+    gdk_dmabuf_formats_get_type :: proc() -> gobj.Type ---
+
+    @(link_name = "gdk_dmabuf_formats_ref")
+    gdk_dmabuf_formats_ref :: proc(formats: ^DmabufFormats) -> ^DmabufFormats ---
+
+    @(link_name = "gdk_dmabuf_formats_unref")
+    gdk_dmabuf_formats_unref :: proc(formats: ^DmabufFormats) ---
+
+    @(link_name = "gdk_dmabuf_formats_get_n_formats")
+    gdk_dmabuf_formats_get_n_formats :: proc(formats: ^DmabufFormats) -> glib.size ---
+
+    @(link_name = "gdk_dmabuf_formats_get_format")
+    gdk_dmabuf_formats_get_format :: proc(formats: ^DmabufFormats, idx: glib.size, fourcc: ^glib.uint32, modifier: ^glib.uint64) ---
+
+    @(link_name = "gdk_dmabuf_formats_contains")
+    gdk_dmabuf_formats_contains :: proc(formats: ^DmabufFormats, fourcc: glib.uint32, modifier: glib.uint64) -> glib.boolean ---
+
+    @(link_name = "gdk_dmabuf_formats_equal")
+    gdk_dmabuf_formats_equal :: proc(formats1: ^DmabufFormats, formats2: ^DmabufFormats) -> glib.boolean ---
+
+    @(link_name = "gdk_texture_error_quark")
+    gdk_texture_error_quark :: proc() -> glib.Quark ---
+
+    @(link_name = "gdk_texture_get_type")
+    gdk_texture_get_type :: proc() -> gobj.Type ---
+
+    @(link_name = "gdk_texture_new_for_pixbuf")
+    gdk_texture_new_for_pixbuf :: proc(pixbuf: ^pixbuf.Pixbuf) -> ^Texture ---
+
+    @(link_name = "gdk_texture_new_from_resource")
+    gdk_texture_new_from_resource :: proc(resource_path: cstring) -> ^Texture ---
+
+    @(link_name = "gdk_texture_new_from_file")
+    gdk_texture_new_from_file :: proc(file: ^gio.File, error: ^^glib.Error) -> ^Texture ---
+
+    @(link_name = "gdk_texture_new_from_filename")
+    gdk_texture_new_from_filename :: proc(path_p: cstring, error: ^^glib.Error) -> ^Texture ---
+
+    @(link_name = "gdk_texture_new_from_bytes")
+    gdk_texture_new_from_bytes :: proc(bytes: ^glib.Bytes, error: ^^glib.Error) -> ^Texture ---
+
+    @(link_name = "gdk_texture_get_width")
+    gdk_texture_get_width :: proc(texture: ^Texture) -> i32 ---
+
+    @(link_name = "gdk_texture_get_height")
+    gdk_texture_get_height :: proc(texture: ^Texture) -> i32 ---
+
+    @(link_name = "gdk_texture_get_format")
+    gdk_texture_get_format :: proc(self: ^Texture) -> MemoryFormat ---
+
+    @(link_name = "gdk_texture_get_color_state")
+    gdk_texture_get_color_state :: proc(self: ^Texture) -> ^ColorState ---
+
+    @(link_name = "gdk_texture_download")
+    gdk_texture_download :: proc(texture: ^Texture, data: ^glib.uchar, stride: glib.size) ---
+
+    @(link_name = "gdk_texture_save_to_png")
+    gdk_texture_save_to_png :: proc(texture: ^Texture, filename: cstring) -> glib.boolean ---
+
+    @(link_name = "gdk_texture_save_to_png_bytes")
+    gdk_texture_save_to_png_bytes :: proc(texture: ^Texture) -> ^glib.Bytes ---
+
+    @(link_name = "gdk_texture_save_to_tiff")
+    gdk_texture_save_to_tiff :: proc(texture: ^Texture, filename: cstring) -> glib.boolean ---
+
+    @(link_name = "gdk_texture_save_to_tiff_bytes")
+    gdk_texture_save_to_tiff_bytes :: proc(texture: ^Texture) -> ^glib.Bytes ---
+
+    @(link_name = "gdk_dmabuf_texture_get_type")
+    gdk_dmabuf_texture_get_type :: proc() -> gobj.Type ---
+
+    @(link_name = "gdk_dmabuf_error_quark")
+    gdk_dmabuf_error_quark :: proc() -> glib.Quark ---
+
+    @(link_name = "gdk_dmabuf_texture_builder_get_type")
+    gdk_dmabuf_texture_builder_get_type :: proc() -> gobj.Type ---
+
+    @(link_name = "gdk_dmabuf_texture_builder_new")
+    gdk_dmabuf_texture_builder_new :: proc() -> ^DmabufTextureBuilder ---
+
+    @(link_name = "gdk_dmabuf_texture_builder_get_display")
+    gdk_dmabuf_texture_builder_get_display :: proc(self: ^DmabufTextureBuilder) -> ^Display ---
+
+    @(link_name = "gdk_dmabuf_texture_builder_set_display")
+    gdk_dmabuf_texture_builder_set_display :: proc(self: ^DmabufTextureBuilder, display: ^Display) ---
+
+    @(link_name = "gdk_dmabuf_texture_builder_get_width")
+    gdk_dmabuf_texture_builder_get_width :: proc(self: ^DmabufTextureBuilder) -> u32 ---
+
+    @(link_name = "gdk_dmabuf_texture_builder_set_width")
+    gdk_dmabuf_texture_builder_set_width :: proc(self: ^DmabufTextureBuilder, width: u32) ---
+
+    @(link_name = "gdk_dmabuf_texture_builder_get_height")
+    gdk_dmabuf_texture_builder_get_height :: proc(self: ^DmabufTextureBuilder) -> u32 ---
+
+    @(link_name = "gdk_dmabuf_texture_builder_set_height")
+    gdk_dmabuf_texture_builder_set_height :: proc(self: ^DmabufTextureBuilder, height: u32) ---
+
+    @(link_name = "gdk_dmabuf_texture_builder_get_fourcc")
+    gdk_dmabuf_texture_builder_get_fourcc :: proc(self: ^DmabufTextureBuilder) -> glib.uint32 ---
+
+    @(link_name = "gdk_dmabuf_texture_builder_set_fourcc")
+    gdk_dmabuf_texture_builder_set_fourcc :: proc(self: ^DmabufTextureBuilder, fourcc: glib.uint32) ---
+
+    @(link_name = "gdk_dmabuf_texture_builder_get_modifier")
+    gdk_dmabuf_texture_builder_get_modifier :: proc(self: ^DmabufTextureBuilder) -> glib.uint64 ---
+
+    @(link_name = "gdk_dmabuf_texture_builder_set_modifier")
+    gdk_dmabuf_texture_builder_set_modifier :: proc(self: ^DmabufTextureBuilder, modifier: glib.uint64) ---
+
+    @(link_name = "gdk_dmabuf_texture_builder_get_premultiplied")
+    gdk_dmabuf_texture_builder_get_premultiplied :: proc(self: ^DmabufTextureBuilder) -> glib.boolean ---
+
+    @(link_name = "gdk_dmabuf_texture_builder_set_premultiplied")
+    gdk_dmabuf_texture_builder_set_premultiplied :: proc(self: ^DmabufTextureBuilder, premultiplied: glib.boolean) ---
+
+    @(link_name = "gdk_dmabuf_texture_builder_get_n_planes")
+    gdk_dmabuf_texture_builder_get_n_planes :: proc(self: ^DmabufTextureBuilder) -> u32 ---
+
+    @(link_name = "gdk_dmabuf_texture_builder_set_n_planes")
+    gdk_dmabuf_texture_builder_set_n_planes :: proc(self: ^DmabufTextureBuilder, n_planes: u32) ---
+
+    @(link_name = "gdk_dmabuf_texture_builder_get_fd")
+    gdk_dmabuf_texture_builder_get_fd :: proc(self: ^DmabufTextureBuilder, plane: u32) -> i32 ---
+
+    @(link_name = "gdk_dmabuf_texture_builder_set_fd")
+    gdk_dmabuf_texture_builder_set_fd :: proc(self: ^DmabufTextureBuilder, plane: u32, fd: i32) ---
+
+    @(link_name = "gdk_dmabuf_texture_builder_get_stride")
+    gdk_dmabuf_texture_builder_get_stride :: proc(self: ^DmabufTextureBuilder, plane: u32) -> u32 ---
+
+    @(link_name = "gdk_dmabuf_texture_builder_set_stride")
+    gdk_dmabuf_texture_builder_set_stride :: proc(self: ^DmabufTextureBuilder, plane: u32, stride: u32) ---
+
+    @(link_name = "gdk_dmabuf_texture_builder_get_offset")
+    gdk_dmabuf_texture_builder_get_offset :: proc(self: ^DmabufTextureBuilder, plane: u32) -> u32 ---
+
+    @(link_name = "gdk_dmabuf_texture_builder_set_offset")
+    gdk_dmabuf_texture_builder_set_offset :: proc(self: ^DmabufTextureBuilder, plane: u32, offset: u32) ---
+
+    @(link_name = "gdk_dmabuf_texture_builder_get_color_state")
+    gdk_dmabuf_texture_builder_get_color_state :: proc(self: ^DmabufTextureBuilder) -> ^ColorState ---
+
+    @(link_name = "gdk_dmabuf_texture_builder_set_color_state")
+    gdk_dmabuf_texture_builder_set_color_state :: proc(self: ^DmabufTextureBuilder, color_state: ^ColorState) ---
+
+    @(link_name = "gdk_dmabuf_texture_builder_get_update_texture")
+    gdk_dmabuf_texture_builder_get_update_texture :: proc(self: ^DmabufTextureBuilder) -> ^Texture ---
+
+    @(link_name = "gdk_dmabuf_texture_builder_set_update_texture")
+    gdk_dmabuf_texture_builder_set_update_texture :: proc(self: ^DmabufTextureBuilder, texture: ^Texture) ---
+
+    @(link_name = "gdk_dmabuf_texture_builder_get_update_region")
+    gdk_dmabuf_texture_builder_get_update_region :: proc(self: ^DmabufTextureBuilder) -> ^cairo.region_t ---
+
+    @(link_name = "gdk_dmabuf_texture_builder_set_update_region")
+    gdk_dmabuf_texture_builder_set_update_region :: proc(self: ^DmabufTextureBuilder, region: ^cairo.region_t) ---
+
+    @(link_name = "gdk_dmabuf_texture_builder_build")
+    gdk_dmabuf_texture_builder_build :: proc(self: ^DmabufTextureBuilder, destroy: glib.DestroyNotify, data: glib.pointer, error: ^^glib.Error) -> ^Texture ---
+
+    @(link_name = "gdk_drag_surface_get_type")
+    gdk_drag_surface_get_type :: proc() -> gobj.Type ---
+
+    @(link_name = "gdk_drag_surface_present")
+    gdk_drag_surface_present :: proc(drag_surface: ^DragSurface, width: i32, height: i32) -> glib.boolean ---
+
+    @(link_name = "gdk_drag_surface_size_get_type")
+    gdk_drag_surface_size_get_type :: proc() -> gobj.Type ---
+
+    @(link_name = "gdk_drag_surface_size_set_size")
+    gdk_drag_surface_size_set_size :: proc(size_p: ^DragSurfaceSize, width: i32, height: i32) ---
+
+    @(link_name = "gdk_draw_context_get_type")
+    gdk_draw_context_get_type :: proc() -> gobj.Type ---
+
+    @(link_name = "gdk_draw_context_get_display")
+    gdk_draw_context_get_display :: proc(context_p: ^DrawContext) -> ^Display ---
+
+    @(link_name = "gdk_draw_context_get_surface")
+    gdk_draw_context_get_surface :: proc(context_p: ^DrawContext) -> ^Surface ---
+
+    @(link_name = "gdk_draw_context_begin_frame")
+    gdk_draw_context_begin_frame :: proc(context_p: ^DrawContext, region: ^cairo.region_t) ---
+
+    @(link_name = "gdk_draw_context_end_frame")
+    gdk_draw_context_end_frame :: proc(context_p: ^DrawContext) ---
+
+    @(link_name = "gdk_draw_context_is_in_frame")
+    gdk_draw_context_is_in_frame :: proc(context_p: ^DrawContext) -> glib.boolean ---
+
+    @(link_name = "gdk_draw_context_get_frame_region")
+    gdk_draw_context_get_frame_region :: proc(context_p: ^DrawContext) -> ^cairo.region_t ---
+
+    @(link_name = "gdk_drop_get_type")
+    gdk_drop_get_type :: proc() -> gobj.Type ---
+
+    @(link_name = "gdk_drop_get_display")
+    gdk_drop_get_display :: proc(self: ^Drop) -> ^Display ---
+
+    @(link_name = "gdk_drop_get_device")
+    gdk_drop_get_device :: proc(self: ^Drop) -> ^Device ---
+
+    @(link_name = "gdk_drop_get_surface")
+    gdk_drop_get_surface :: proc(self: ^Drop) -> ^Surface ---
+
+    @(link_name = "gdk_drop_get_formats")
+    gdk_drop_get_formats :: proc(self: ^Drop) -> ^ContentFormats ---
+
+    @(link_name = "gdk_drop_get_actions")
+    gdk_drop_get_actions :: proc(self: ^Drop) -> DragAction ---
+
+    @(link_name = "gdk_drop_get_drag")
+    gdk_drop_get_drag :: proc(self: ^Drop) -> ^Drag ---
+
+    @(link_name = "gdk_drop_status")
+    gdk_drop_status :: proc(self: ^Drop, actions: DragAction, preferred: DragAction) ---
+
+    @(link_name = "gdk_drop_finish")
+    gdk_drop_finish :: proc(self: ^Drop, action: DragAction) ---
+
+    @(link_name = "gdk_drop_read_async")
+    gdk_drop_read_async :: proc(self: ^Drop, mime_types: [^]cstring, io_priority: i32, cancellable: ^gio.Cancellable, callback: gio.AsyncReadyCallback, user_data: glib.pointer) ---
+
+    @(link_name = "gdk_drop_read_finish")
+    gdk_drop_read_finish :: proc(self: ^Drop, result: ^gio.AsyncResult, out_mime_type: ^cstring, error: ^^glib.Error) -> ^gio.InputStream ---
+
+    @(link_name = "gdk_drop_read_value_async")
+    gdk_drop_read_value_async :: proc(self: ^Drop, type: gobj.Type, io_priority: i32, cancellable: ^gio.Cancellable, callback: gio.AsyncReadyCallback, user_data: glib.pointer) ---
+
+    @(link_name = "gdk_drop_read_value_finish")
+    gdk_drop_read_value_finish :: proc(self: ^Drop, result: ^gio.AsyncResult, error: ^^glib.Error) -> ^gobj.Value ---
+
+    @(link_name = "gdk_cicp_range_get_type")
+    gdk_cicp_range_get_type :: proc() -> gobj.Type ---
+
+    @(link_name = "gdk_input_source_get_type")
+    gdk_input_source_get_type :: proc() -> gobj.Type ---
+
+    @(link_name = "gdk_device_pad_feature_get_type")
+    gdk_device_pad_feature_get_type :: proc() -> gobj.Type ---
+
+    @(link_name = "gdk_device_tool_type_get_type")
+    gdk_device_tool_type_get_type :: proc() -> gobj.Type ---
+
+    @(link_name = "gdk_drag_cancel_reason_get_type")
+    gdk_drag_cancel_reason_get_type :: proc() -> gobj.Type ---
+
+    @(link_name = "gdk_gl_api_get_type")
+    gdk_gl_api_get_type :: proc() -> gobj.Type ---
+
+    @(link_name = "gdk_gravity_get_type")
+    gdk_gravity_get_type :: proc() -> gobj.Type ---
+
+    @(link_name = "gdk_modifier_type_get_type")
+    gdk_modifier_type_get_type :: proc() -> gobj.Type ---
+
+    @(link_name = "gdk_dmabuf_error_get_type")
+    gdk_dmabuf_error_get_type :: proc() -> gobj.Type ---
+
+    @(link_name = "gdk_gl_error_get_type")
+    gdk_gl_error_get_type :: proc() -> gobj.Type ---
+
+    @(link_name = "gdk_vulkan_error_get_type")
+    gdk_vulkan_error_get_type :: proc() -> gobj.Type ---
+
+    @(link_name = "gdk_axis_use_get_type")
+    gdk_axis_use_get_type :: proc() -> gobj.Type ---
+
+    @(link_name = "gdk_axis_flags_get_type")
+    gdk_axis_flags_get_type :: proc() -> gobj.Type ---
+
+    @(link_name = "gdk_drag_action_get_type")
+    gdk_drag_action_get_type :: proc() -> gobj.Type ---
+
+    @(link_name = "gdk_memory_format_get_type")
+    gdk_memory_format_get_type :: proc() -> gobj.Type ---
+
+    @(link_name = "gdk_event_type_get_type")
+    gdk_event_type_get_type :: proc() -> gobj.Type ---
+
+    @(link_name = "gdk_touchpad_gesture_phase_get_type")
+    gdk_touchpad_gesture_phase_get_type :: proc() -> gobj.Type ---
+
+    @(link_name = "gdk_scroll_direction_get_type")
+    gdk_scroll_direction_get_type :: proc() -> gobj.Type ---
+
+    @(link_name = "gdk_scroll_unit_get_type")
+    gdk_scroll_unit_get_type :: proc() -> gobj.Type ---
+
+    @(link_name = "gdk_notify_type_get_type")
+    gdk_notify_type_get_type :: proc() -> gobj.Type ---
+
+    @(link_name = "gdk_crossing_mode_get_type")
+    gdk_crossing_mode_get_type :: proc() -> gobj.Type ---
+
+    @(link_name = "gdk_key_match_get_type")
+    gdk_key_match_get_type :: proc() -> gobj.Type ---
+
+    @(link_name = "gdk_frame_clock_phase_get_type")
+    gdk_frame_clock_phase_get_type :: proc() -> gobj.Type ---
+
+    @(link_name = "gdk_subpixel_layout_get_type")
+    gdk_subpixel_layout_get_type :: proc() -> gobj.Type ---
+
+    @(link_name = "gdk_paintable_flags_get_type")
+    gdk_paintable_flags_get_type :: proc() -> gobj.Type ---
+
+    @(link_name = "gdk_anchor_hints_get_type")
+    gdk_anchor_hints_get_type :: proc() -> gobj.Type ---
+
+    @(link_name = "gdk_seat_capabilities_get_type")
+    gdk_seat_capabilities_get_type :: proc() -> gobj.Type ---
+
+    @(link_name = "gdk_texture_error_get_type")
+    gdk_texture_error_get_type :: proc() -> gobj.Type ---
+
+    @(link_name = "gdk_surface_edge_get_type")
+    gdk_surface_edge_get_type :: proc() -> gobj.Type ---
+
+    @(link_name = "gdk_fullscreen_mode_get_type")
+    gdk_fullscreen_mode_get_type :: proc() -> gobj.Type ---
+
+    @(link_name = "gdk_toplevel_state_get_type")
+    gdk_toplevel_state_get_type :: proc() -> gobj.Type ---
+
+    @(link_name = "gdk_titlebar_gesture_get_type")
+    gdk_titlebar_gesture_get_type :: proc() -> gobj.Type ---
+
+    @(link_name = "gdk_gl_error_quark")
+    gdk_gl_error_quark :: proc() -> glib.Quark ---
+
+    @(link_name = "gdk_gl_context_get_type")
+    gdk_gl_context_get_type :: proc() -> gobj.Type ---
+
+    @(link_name = "gdk_gl_context_get_display")
+    gdk_gl_context_get_display :: proc(context_p: ^GLContext) -> ^Display ---
+
+    @(link_name = "gdk_gl_context_get_surface")
+    gdk_gl_context_get_surface :: proc(context_p: ^GLContext) -> ^Surface ---
+
+    @(link_name = "gdk_gl_context_get_shared_context")
+    gdk_gl_context_get_shared_context :: proc(context_p: ^GLContext) -> ^GLContext ---
+
+    @(link_name = "gdk_gl_context_get_version")
+    gdk_gl_context_get_version :: proc(context_p: ^GLContext, major: ^i32, minor: ^i32) ---
+
+    @(link_name = "gdk_gl_context_is_legacy")
+    gdk_gl_context_is_legacy :: proc(context_p: ^GLContext) -> glib.boolean ---
+
+    @(link_name = "gdk_gl_context_is_shared")
+    gdk_gl_context_is_shared :: proc(self: ^GLContext, other: ^GLContext) -> glib.boolean ---
+
+    @(link_name = "gdk_gl_context_set_required_version")
+    gdk_gl_context_set_required_version :: proc(context_p: ^GLContext, major: i32, minor: i32) ---
+
+    @(link_name = "gdk_gl_context_get_required_version")
+    gdk_gl_context_get_required_version :: proc(context_p: ^GLContext, major: ^i32, minor: ^i32) ---
+
+    @(link_name = "gdk_gl_context_set_debug_enabled")
+    gdk_gl_context_set_debug_enabled :: proc(context_p: ^GLContext, enabled: glib.boolean) ---
+
+    @(link_name = "gdk_gl_context_get_debug_enabled")
+    gdk_gl_context_get_debug_enabled :: proc(context_p: ^GLContext) -> glib.boolean ---
+
+    @(link_name = "gdk_gl_context_set_forward_compatible")
+    gdk_gl_context_set_forward_compatible :: proc(context_p: ^GLContext, compatible: glib.boolean) ---
+
+    @(link_name = "gdk_gl_context_get_forward_compatible")
+    gdk_gl_context_get_forward_compatible :: proc(context_p: ^GLContext) -> glib.boolean ---
+
+    @(link_name = "gdk_gl_context_set_allowed_apis")
+    gdk_gl_context_set_allowed_apis :: proc(self: ^GLContext, apis: GLAPI) ---
+
+    @(link_name = "gdk_gl_context_get_allowed_apis")
+    gdk_gl_context_get_allowed_apis :: proc(self: ^GLContext) -> GLAPI ---
+
+    @(link_name = "gdk_gl_context_get_api")
+    gdk_gl_context_get_api :: proc(self: ^GLContext) -> GLAPI ---
+
+    @(link_name = "gdk_gl_context_set_use_es")
+    gdk_gl_context_set_use_es :: proc(context_p: ^GLContext, use_es: i32) ---
+
+    @(link_name = "gdk_gl_context_get_use_es")
+    gdk_gl_context_get_use_es :: proc(context_p: ^GLContext) -> glib.boolean ---
+
+    @(link_name = "gdk_gl_context_realize")
+    gdk_gl_context_realize :: proc(context_p: ^GLContext, error: ^^glib.Error) -> glib.boolean ---
+
+    @(link_name = "gdk_gl_context_make_current")
+    gdk_gl_context_make_current :: proc(context_p: ^GLContext) ---
+
+    @(link_name = "gdk_gl_context_get_current")
+    gdk_gl_context_get_current :: proc() -> ^GLContext ---
+
+    @(link_name = "gdk_gl_context_clear_current")
+    gdk_gl_context_clear_current :: proc() ---
+
+    @(link_name = "gdk_gl_texture_get_type")
+    gdk_gl_texture_get_type :: proc() -> gobj.Type ---
+
+    @(link_name = "gdk_gl_texture_new")
+    gdk_gl_texture_new :: proc(context_p: ^GLContext, id: glib.uint_, width: i32, height: i32, destroy: glib.DestroyNotify, data: glib.pointer) -> ^Texture ---
+
+    @(link_name = "gdk_gl_texture_release")
+    gdk_gl_texture_release :: proc(self: ^GLTexture) ---
+
+    @(link_name = "gdk_gl_texture_builder_get_type")
+    gdk_gl_texture_builder_get_type :: proc() -> gobj.Type ---
+
+    @(link_name = "gdk_gl_texture_builder_new")
+    gdk_gl_texture_builder_new :: proc() -> ^GLTextureBuilder ---
+
+    @(link_name = "gdk_gl_texture_builder_get_context")
+    gdk_gl_texture_builder_get_context :: proc(self: ^GLTextureBuilder) -> ^GLContext ---
+
+    @(link_name = "gdk_gl_texture_builder_set_context")
+    gdk_gl_texture_builder_set_context :: proc(self: ^GLTextureBuilder, context_p: ^GLContext) ---
+
+    @(link_name = "gdk_gl_texture_builder_get_id")
+    gdk_gl_texture_builder_get_id :: proc(self: ^GLTextureBuilder) -> glib.uint_ ---
+
+    @(link_name = "gdk_gl_texture_builder_set_id")
+    gdk_gl_texture_builder_set_id :: proc(self: ^GLTextureBuilder, id: glib.uint_) ---
+
+    @(link_name = "gdk_gl_texture_builder_get_width")
+    gdk_gl_texture_builder_get_width :: proc(self: ^GLTextureBuilder) -> i32 ---
+
+    @(link_name = "gdk_gl_texture_builder_set_width")
+    gdk_gl_texture_builder_set_width :: proc(self: ^GLTextureBuilder, width: i32) ---
+
+    @(link_name = "gdk_gl_texture_builder_get_height")
+    gdk_gl_texture_builder_get_height :: proc(self: ^GLTextureBuilder) -> i32 ---
+
+    @(link_name = "gdk_gl_texture_builder_set_height")
+    gdk_gl_texture_builder_set_height :: proc(self: ^GLTextureBuilder, height: i32) ---
+
+    @(link_name = "gdk_gl_texture_builder_get_format")
+    gdk_gl_texture_builder_get_format :: proc(self: ^GLTextureBuilder) -> MemoryFormat ---
+
+    @(link_name = "gdk_gl_texture_builder_set_format")
+    gdk_gl_texture_builder_set_format :: proc(self: ^GLTextureBuilder, format: MemoryFormat) ---
+
+    @(link_name = "gdk_gl_texture_builder_get_has_mipmap")
+    gdk_gl_texture_builder_get_has_mipmap :: proc(self: ^GLTextureBuilder) -> glib.boolean ---
+
+    @(link_name = "gdk_gl_texture_builder_set_has_mipmap")
+    gdk_gl_texture_builder_set_has_mipmap :: proc(self: ^GLTextureBuilder, has_mipmap: glib.boolean) ---
+
+    @(link_name = "gdk_gl_texture_builder_get_sync")
+    gdk_gl_texture_builder_get_sync :: proc(self: ^GLTextureBuilder) -> glib.pointer ---
+
+    @(link_name = "gdk_gl_texture_builder_set_sync")
+    gdk_gl_texture_builder_set_sync :: proc(self: ^GLTextureBuilder, sync: glib.pointer) ---
+
+    @(link_name = "gdk_gl_texture_builder_get_color_state")
+    gdk_gl_texture_builder_get_color_state :: proc(self: ^GLTextureBuilder) -> ^ColorState ---
+
+    @(link_name = "gdk_gl_texture_builder_set_color_state")
+    gdk_gl_texture_builder_set_color_state :: proc(self: ^GLTextureBuilder, color_state: ^ColorState) ---
+
+    @(link_name = "gdk_gl_texture_builder_get_update_texture")
+    gdk_gl_texture_builder_get_update_texture :: proc(self: ^GLTextureBuilder) -> ^Texture ---
+
+    @(link_name = "gdk_gl_texture_builder_set_update_texture")
+    gdk_gl_texture_builder_set_update_texture :: proc(self: ^GLTextureBuilder, texture: ^Texture) ---
+
+    @(link_name = "gdk_gl_texture_builder_get_update_region")
+    gdk_gl_texture_builder_get_update_region :: proc(self: ^GLTextureBuilder) -> ^cairo.region_t ---
+
+    @(link_name = "gdk_gl_texture_builder_set_update_region")
+    gdk_gl_texture_builder_set_update_region :: proc(self: ^GLTextureBuilder, region: ^cairo.region_t) ---
+
+    @(link_name = "gdk_gl_texture_builder_build")
+    gdk_gl_texture_builder_build :: proc(self: ^GLTextureBuilder, destroy: glib.DestroyNotify, data: glib.pointer) -> ^Texture ---
+
+    @(link_name = "gdk_keyval_name")
+    gdk_keyval_name :: proc(keyval: glib.uint_) -> cstring ---
+
+    @(link_name = "gdk_keyval_from_name")
+    gdk_keyval_from_name :: proc(keyval_name: cstring) -> glib.uint_ ---
+
+    @(link_name = "gdk_keyval_convert_case")
+    gdk_keyval_convert_case :: proc(symbol: glib.uint_, lower: ^glib.uint_, upper: ^glib.uint_) ---
+
+    @(link_name = "gdk_keyval_to_upper")
+    gdk_keyval_to_upper :: proc(keyval: glib.uint_) -> glib.uint_ ---
+
+    @(link_name = "gdk_keyval_to_lower")
+    gdk_keyval_to_lower :: proc(keyval: glib.uint_) -> glib.uint_ ---
+
+    @(link_name = "gdk_keyval_is_upper")
+    gdk_keyval_is_upper :: proc(keyval: glib.uint_) -> glib.boolean ---
+
+    @(link_name = "gdk_keyval_is_lower")
+    gdk_keyval_is_lower :: proc(keyval: glib.uint_) -> glib.boolean ---
+
+    @(link_name = "gdk_keyval_to_unicode")
+    gdk_keyval_to_unicode :: proc(keyval: glib.uint_) -> glib.uint32 ---
+
+    @(link_name = "gdk_unicode_to_keyval")
+    gdk_unicode_to_keyval :: proc(wc: glib.uint32) -> glib.uint_ ---
+
+    @(link_name = "gdk_memory_texture_get_type")
+    gdk_memory_texture_get_type :: proc() -> gobj.Type ---
+
+    @(link_name = "gdk_memory_texture_new")
+    gdk_memory_texture_new :: proc(width: i32, height: i32, format: MemoryFormat, bytes: ^glib.Bytes, stride: glib.size) -> ^Texture ---
+
+    @(link_name = "gdk_memory_texture_builder_get_type")
+    gdk_memory_texture_builder_get_type :: proc() -> gobj.Type ---
+
+    @(link_name = "gdk_memory_texture_builder_new")
+    gdk_memory_texture_builder_new :: proc() -> ^MemoryTextureBuilder ---
+
+    @(link_name = "gdk_memory_texture_builder_get_bytes")
+    gdk_memory_texture_builder_get_bytes :: proc(self: ^MemoryTextureBuilder) -> ^glib.Bytes ---
+
+    @(link_name = "gdk_memory_texture_builder_set_bytes")
+    gdk_memory_texture_builder_set_bytes :: proc(self: ^MemoryTextureBuilder, bytes: ^glib.Bytes) ---
+
+    @(link_name = "gdk_memory_texture_builder_get_stride")
+    gdk_memory_texture_builder_get_stride :: proc(self: ^MemoryTextureBuilder) -> glib.size ---
+
+    @(link_name = "gdk_memory_texture_builder_set_stride")
+    gdk_memory_texture_builder_set_stride :: proc(self: ^MemoryTextureBuilder, stride: glib.size) ---
+
+    @(link_name = "gdk_memory_texture_builder_get_width")
+    gdk_memory_texture_builder_get_width :: proc(self: ^MemoryTextureBuilder) -> i32 ---
+
+    @(link_name = "gdk_memory_texture_builder_set_width")
+    gdk_memory_texture_builder_set_width :: proc(self: ^MemoryTextureBuilder, width: i32) ---
+
+    @(link_name = "gdk_memory_texture_builder_get_height")
+    gdk_memory_texture_builder_get_height :: proc(self: ^MemoryTextureBuilder) -> i32 ---
+
+    @(link_name = "gdk_memory_texture_builder_set_height")
+    gdk_memory_texture_builder_set_height :: proc(self: ^MemoryTextureBuilder, height: i32) ---
+
+    @(link_name = "gdk_memory_texture_builder_get_format")
+    gdk_memory_texture_builder_get_format :: proc(self: ^MemoryTextureBuilder) -> MemoryFormat ---
+
+    @(link_name = "gdk_memory_texture_builder_set_format")
+    gdk_memory_texture_builder_set_format :: proc(self: ^MemoryTextureBuilder, format: MemoryFormat) ---
+
+    @(link_name = "gdk_memory_texture_builder_get_color_state")
+    gdk_memory_texture_builder_get_color_state :: proc(self: ^MemoryTextureBuilder) -> ^ColorState ---
+
+    @(link_name = "gdk_memory_texture_builder_set_color_state")
+    gdk_memory_texture_builder_set_color_state :: proc(self: ^MemoryTextureBuilder, color_state: ^ColorState) ---
+
+    @(link_name = "gdk_memory_texture_builder_get_update_texture")
+    gdk_memory_texture_builder_get_update_texture :: proc(self: ^MemoryTextureBuilder) -> ^Texture ---
+
+    @(link_name = "gdk_memory_texture_builder_set_update_texture")
+    gdk_memory_texture_builder_set_update_texture :: proc(self: ^MemoryTextureBuilder, texture: ^Texture) ---
+
+    @(link_name = "gdk_memory_texture_builder_get_update_region")
+    gdk_memory_texture_builder_get_update_region :: proc(self: ^MemoryTextureBuilder) -> ^cairo.region_t ---
+
+    @(link_name = "gdk_memory_texture_builder_set_update_region")
+    gdk_memory_texture_builder_set_update_region :: proc(self: ^MemoryTextureBuilder, region: ^cairo.region_t) ---
+
+    @(link_name = "gdk_memory_texture_builder_build")
+    gdk_memory_texture_builder_build :: proc(self: ^MemoryTextureBuilder) -> ^Texture ---
+
+    @(link_name = "gdk_paintable_get_type")
+    gdk_paintable_get_type :: proc() -> gobj.Type ---
+
+    @(link_name = "gdk_paintable_snapshot")
+    gdk_paintable_snapshot :: proc(paintable: ^Paintable, snapshot: ^Snapshot, width: f64, height: f64) ---
+
+    @(link_name = "gdk_paintable_get_current_image")
+    gdk_paintable_get_current_image :: proc(paintable: ^Paintable) -> ^Paintable ---
+
+    @(link_name = "gdk_paintable_get_flags")
+    gdk_paintable_get_flags :: proc(paintable: ^Paintable) -> PaintableFlags ---
+
+    @(link_name = "gdk_paintable_get_intrinsic_width")
+    gdk_paintable_get_intrinsic_width :: proc(paintable: ^Paintable) -> i32 ---
+
+    @(link_name = "gdk_paintable_get_intrinsic_height")
+    gdk_paintable_get_intrinsic_height :: proc(paintable: ^Paintable) -> i32 ---
+
+    @(link_name = "gdk_paintable_get_intrinsic_aspect_ratio")
+    gdk_paintable_get_intrinsic_aspect_ratio :: proc(paintable: ^Paintable) -> f64 ---
+
+    @(link_name = "gdk_paintable_compute_concrete_size")
+    gdk_paintable_compute_concrete_size :: proc(paintable: ^Paintable, specified_width: f64, specified_height: f64, default_width: f64, default_height: f64, concrete_width: ^f64, concrete_height: ^f64) ---
+
+    @(link_name = "gdk_paintable_invalidate_contents")
+    gdk_paintable_invalidate_contents :: proc(paintable: ^Paintable) ---
+
+    @(link_name = "gdk_paintable_invalidate_size")
+    gdk_paintable_invalidate_size :: proc(paintable: ^Paintable) ---
+
+    @(link_name = "gdk_paintable_new_empty")
+    gdk_paintable_new_empty :: proc(intrinsic_width: i32, intrinsic_height: i32) -> ^Paintable ---
+
+    @(link_name = "gdk_pango_layout_line_get_clip_region")
+    gdk_pango_layout_line_get_clip_region :: proc(line: ^pango.LayoutLine, x_origin: i32, y_origin: i32, index_ranges: [^]i32, n_ranges: i32) -> ^cairo.region_t ---
+
+    @(link_name = "gdk_pango_layout_get_clip_region")
+    gdk_pango_layout_get_clip_region :: proc(layout: ^pango.Layout, x_origin: i32, y_origin: i32, index_ranges: [^]i32, n_ranges: i32) -> ^cairo.region_t ---
+
+    @(link_name = "gdk_popup_get_type")
+    gdk_popup_get_type :: proc() -> gobj.Type ---
+
+    @(link_name = "gdk_popup_present")
+    gdk_popup_present :: proc(popup: ^Popup, width: i32, height: i32, layout: ^PopupLayout) -> glib.boolean ---
+
+    @(link_name = "gdk_popup_get_surface_anchor")
+    gdk_popup_get_surface_anchor :: proc(popup: ^Popup) -> Gravity ---
+
+    @(link_name = "gdk_popup_get_rect_anchor")
+    gdk_popup_get_rect_anchor :: proc(popup: ^Popup) -> Gravity ---
+
+    @(link_name = "gdk_popup_get_parent")
+    gdk_popup_get_parent :: proc(popup: ^Popup) -> ^Surface ---
+
+    @(link_name = "gdk_popup_get_position_x")
+    gdk_popup_get_position_x :: proc(popup: ^Popup) -> i32 ---
+
+    @(link_name = "gdk_popup_get_position_y")
+    gdk_popup_get_position_y :: proc(popup: ^Popup) -> i32 ---
+
+    @(link_name = "gdk_popup_get_autohide")
+    gdk_popup_get_autohide :: proc(popup: ^Popup) -> glib.boolean ---
+
+    @(link_name = "gdk_rectangle_intersect")
+    gdk_rectangle_intersect :: proc(src1: ^Rectangle, src2: ^Rectangle, dest: ^Rectangle) -> glib.boolean ---
+
+    @(link_name = "gdk_rectangle_union")
+    gdk_rectangle_union :: proc(src1: ^Rectangle, src2: ^Rectangle, dest: ^Rectangle) ---
+
+    @(link_name = "gdk_rectangle_equal")
+    gdk_rectangle_equal :: proc(rect1: ^Rectangle, rect2: ^Rectangle) -> glib.boolean ---
+
+    @(link_name = "gdk_rectangle_contains_point")
+    gdk_rectangle_contains_point :: proc(rect: ^Rectangle, x: i32, y: i32) -> glib.boolean ---
+
+    @(link_name = "gdk_rectangle_get_type")
+    gdk_rectangle_get_type :: proc() -> gobj.Type ---
+
+    @(link_name = "gdk_rgba_get_type")
+    gdk_rgba_get_type :: proc() -> gobj.Type ---
+
+    @(link_name = "gdk_rgba_copy")
+    gdk_rgba_copy :: proc(rgba: ^RGBA) -> ^RGBA ---
+
+    @(link_name = "gdk_rgba_free")
+    gdk_rgba_free :: proc(rgba: ^RGBA) ---
+
+    @(link_name = "gdk_rgba_is_clear")
+    gdk_rgba_is_clear :: proc(rgba: ^RGBA) -> glib.boolean ---
+
+    @(link_name = "gdk_rgba_is_opaque")
+    gdk_rgba_is_opaque :: proc(rgba: ^RGBA) -> glib.boolean ---
+
+    @(link_name = "gdk_rgba_hash")
+    gdk_rgba_hash :: proc(p: glib.constpointer) -> glib.uint_ ---
+
+    @(link_name = "gdk_rgba_equal")
+    gdk_rgba_equal :: proc(p1: glib.constpointer, p2: glib.constpointer) -> glib.boolean ---
+
+    @(link_name = "gdk_rgba_parse")
+    gdk_rgba_parse :: proc(rgba: ^RGBA, spec: cstring) -> glib.boolean ---
+
+    @(link_name = "gdk_rgba_to_string")
+    gdk_rgba_to_string :: proc(rgba: ^RGBA) -> cstring ---
+
+    @(link_name = "gdk_snapshot_get_type")
+    gdk_snapshot_get_type :: proc() -> gobj.Type ---
+
+    @(link_name = "gdk_texture_downloader_get_type")
+    gdk_texture_downloader_get_type :: proc() -> gobj.Type ---
+
+    @(link_name = "gdk_texture_downloader_new")
+    gdk_texture_downloader_new :: proc(texture: ^Texture) -> ^TextureDownloader ---
+
+    @(link_name = "gdk_texture_downloader_copy")
+    gdk_texture_downloader_copy :: proc(self: ^TextureDownloader) -> ^TextureDownloader ---
+
+    @(link_name = "gdk_texture_downloader_free")
+    gdk_texture_downloader_free :: proc(self: ^TextureDownloader) ---
+
+    @(link_name = "gdk_texture_downloader_set_texture")
+    gdk_texture_downloader_set_texture :: proc(self: ^TextureDownloader, texture: ^Texture) ---
+
+    @(link_name = "gdk_texture_downloader_get_texture")
+    gdk_texture_downloader_get_texture :: proc(self: ^TextureDownloader) -> ^Texture ---
+
+    @(link_name = "gdk_texture_downloader_set_format")
+    gdk_texture_downloader_set_format :: proc(self: ^TextureDownloader, format: MemoryFormat) ---
+
+    @(link_name = "gdk_texture_downloader_get_format")
+    gdk_texture_downloader_get_format :: proc(self: ^TextureDownloader) -> MemoryFormat ---
+
+    @(link_name = "gdk_texture_downloader_set_color_state")
+    gdk_texture_downloader_set_color_state :: proc(self: ^TextureDownloader, color_state: ^ColorState) ---
+
+    @(link_name = "gdk_texture_downloader_get_color_state")
+    gdk_texture_downloader_get_color_state :: proc(self: ^TextureDownloader) -> ^ColorState ---
+
+    @(link_name = "gdk_texture_downloader_download_into")
+    gdk_texture_downloader_download_into :: proc(self: ^TextureDownloader, data: ^glib.uchar, stride: glib.size) ---
+
+    @(link_name = "gdk_texture_downloader_download_bytes")
+    gdk_texture_downloader_download_bytes :: proc(self: ^TextureDownloader, out_stride: ^glib.size) -> ^glib.Bytes ---
+
+    @(link_name = "gdk_toplevel_layout_get_type")
+    gdk_toplevel_layout_get_type :: proc() -> gobj.Type ---
+
+    @(link_name = "gdk_toplevel_layout_new")
+    gdk_toplevel_layout_new :: proc() -> ^ToplevelLayout ---
+
+    @(link_name = "gdk_toplevel_layout_ref")
+    gdk_toplevel_layout_ref :: proc(layout: ^ToplevelLayout) -> ^ToplevelLayout ---
+
+    @(link_name = "gdk_toplevel_layout_unref")
+    gdk_toplevel_layout_unref :: proc(layout: ^ToplevelLayout) ---
+
+    @(link_name = "gdk_toplevel_layout_copy")
+    gdk_toplevel_layout_copy :: proc(layout: ^ToplevelLayout) -> ^ToplevelLayout ---
+
+    @(link_name = "gdk_toplevel_layout_equal")
+    gdk_toplevel_layout_equal :: proc(layout: ^ToplevelLayout, other: ^ToplevelLayout) -> glib.boolean ---
+
+    @(link_name = "gdk_toplevel_layout_set_maximized")
+    gdk_toplevel_layout_set_maximized :: proc(layout: ^ToplevelLayout, maximized: glib.boolean) ---
+
+    @(link_name = "gdk_toplevel_layout_set_fullscreen")
+    gdk_toplevel_layout_set_fullscreen :: proc(layout: ^ToplevelLayout, fullscreen: glib.boolean, monitor: ^Monitor) ---
+
+    @(link_name = "gdk_toplevel_layout_get_maximized")
+    gdk_toplevel_layout_get_maximized :: proc(layout: ^ToplevelLayout, maximized: ^glib.boolean) -> glib.boolean ---
+
+    @(link_name = "gdk_toplevel_layout_get_fullscreen")
+    gdk_toplevel_layout_get_fullscreen :: proc(layout: ^ToplevelLayout, fullscreen: ^glib.boolean) -> glib.boolean ---
+
+    @(link_name = "gdk_toplevel_layout_get_fullscreen_monitor")
+    gdk_toplevel_layout_get_fullscreen_monitor :: proc(layout: ^ToplevelLayout) -> ^Monitor ---
+
+    @(link_name = "gdk_toplevel_layout_set_resizable")
+    gdk_toplevel_layout_set_resizable :: proc(layout: ^ToplevelLayout, resizable: glib.boolean) ---
+
+    @(link_name = "gdk_toplevel_layout_get_resizable")
+    gdk_toplevel_layout_get_resizable :: proc(layout: ^ToplevelLayout) -> glib.boolean ---
+
+    @(link_name = "gdk_toplevel_get_type")
+    gdk_toplevel_get_type :: proc() -> gobj.Type ---
+
+    @(link_name = "gdk_toplevel_present")
+    gdk_toplevel_present :: proc(toplevel: ^Toplevel, layout: ^ToplevelLayout) ---
+
+    @(link_name = "gdk_toplevel_minimize")
+    gdk_toplevel_minimize :: proc(toplevel: ^Toplevel) -> glib.boolean ---
+
+    @(link_name = "gdk_toplevel_lower")
+    gdk_toplevel_lower :: proc(toplevel: ^Toplevel) -> glib.boolean ---
+
+    @(link_name = "gdk_toplevel_focus")
+    gdk_toplevel_focus :: proc(toplevel: ^Toplevel, timestamp: glib.uint32) ---
+
+    @(link_name = "gdk_toplevel_get_state")
+    gdk_toplevel_get_state :: proc(toplevel: ^Toplevel) -> ToplevelState ---
+
+    @(link_name = "gdk_toplevel_set_title")
+    gdk_toplevel_set_title :: proc(toplevel: ^Toplevel, title: cstring) ---
+
+    @(link_name = "gdk_toplevel_set_startup_id")
+    gdk_toplevel_set_startup_id :: proc(toplevel: ^Toplevel, startup_id: cstring) ---
+
+    @(link_name = "gdk_toplevel_set_transient_for")
+    gdk_toplevel_set_transient_for :: proc(toplevel: ^Toplevel, parent: ^Surface) ---
+
+    @(link_name = "gdk_toplevel_set_modal")
+    gdk_toplevel_set_modal :: proc(toplevel: ^Toplevel, modal: glib.boolean) ---
+
+    @(link_name = "gdk_toplevel_set_icon_list")
+    gdk_toplevel_set_icon_list :: proc(toplevel: ^Toplevel, surfaces: ^glib.List) ---
+
+    @(link_name = "gdk_toplevel_show_window_menu")
+    gdk_toplevel_show_window_menu :: proc(toplevel: ^Toplevel, event: ^Event) -> glib.boolean ---
+
+    @(link_name = "gdk_toplevel_set_decorated")
+    gdk_toplevel_set_decorated :: proc(toplevel: ^Toplevel, decorated: glib.boolean) ---
+
+    @(link_name = "gdk_toplevel_set_deletable")
+    gdk_toplevel_set_deletable :: proc(toplevel: ^Toplevel, deletable: glib.boolean) ---
+
+    @(link_name = "gdk_toplevel_supports_edge_constraints")
+    gdk_toplevel_supports_edge_constraints :: proc(toplevel: ^Toplevel) -> glib.boolean ---
+
+    @(link_name = "gdk_toplevel_inhibit_system_shortcuts")
+    gdk_toplevel_inhibit_system_shortcuts :: proc(toplevel: ^Toplevel, event: ^Event) ---
+
+    @(link_name = "gdk_toplevel_restore_system_shortcuts")
+    gdk_toplevel_restore_system_shortcuts :: proc(toplevel: ^Toplevel) ---
+
+    @(link_name = "gdk_toplevel_begin_resize")
+    gdk_toplevel_begin_resize :: proc(toplevel: ^Toplevel, edge: SurfaceEdge, device: ^Device, button: i32, x: f64, y: f64, timestamp: glib.uint32) ---
+
+    @(link_name = "gdk_toplevel_begin_move")
+    gdk_toplevel_begin_move :: proc(toplevel: ^Toplevel, device: ^Device, button: i32, x: f64, y: f64, timestamp: glib.uint32) ---
+
+    @(link_name = "gdk_toplevel_titlebar_gesture")
+    gdk_toplevel_titlebar_gesture :: proc(toplevel: ^Toplevel, gesture: TitlebarGesture) -> glib.boolean ---
+
+    @(link_name = "gdk_toplevel_size_get_type")
+    gdk_toplevel_size_get_type :: proc() -> gobj.Type ---
+
+    @(link_name = "gdk_toplevel_size_get_bounds")
+    gdk_toplevel_size_get_bounds :: proc(size_p: ^ToplevelSize, bounds_width: ^i32, bounds_height: ^i32) ---
+
+    @(link_name = "gdk_toplevel_size_set_size")
+    gdk_toplevel_size_set_size :: proc(size_p: ^ToplevelSize, width: i32, height: i32) ---
+
+    @(link_name = "gdk_toplevel_size_set_min_size")
+    gdk_toplevel_size_set_min_size :: proc(size_p: ^ToplevelSize, min_width: i32, min_height: i32) ---
+
+    @(link_name = "gdk_toplevel_size_set_shadow_width")
+    gdk_toplevel_size_set_shadow_width :: proc(size_p: ^ToplevelSize, left: i32, right: i32, top: i32, bottom: i32) ---
+
+    @(link_name = "gdk_vulkan_error_quark")
+    gdk_vulkan_error_quark :: proc() -> glib.Quark ---
+
+    @(link_name = "gdk_vulkan_context_get_type")
+    gdk_vulkan_context_get_type :: proc() -> gobj.Type ---
+
+    @(link_name = "gsk_path_get_type")
+    gsk_path_get_type :: proc() -> gobj.Type ---
+
+    @(link_name = "gsk_path_ref")
+    gsk_path_ref :: proc(self: ^Path) -> ^Path ---
+
+    @(link_name = "gsk_path_unref")
+    gsk_path_unref :: proc(self: ^Path) ---
+
+    @(link_name = "gsk_path_print")
+    gsk_path_print :: proc(self: ^Path, string_p: ^glib.String) ---
+
+    @(link_name = "gsk_path_to_string")
+    gsk_path_to_string :: proc(self: ^Path) -> cstring ---
+
+    @(link_name = "gsk_path_parse")
+    gsk_path_parse :: proc(string_p: cstring) -> ^Path ---
+
+    @(link_name = "gsk_path_to_cairo")
+    gsk_path_to_cairo :: proc(self: ^Path, cr: ^cairo.context_t) ---
+
+    @(link_name = "gsk_path_is_empty")
+    gsk_path_is_empty :: proc(self: ^Path) -> glib.boolean ---
+
+    @(link_name = "gsk_path_is_closed")
+    gsk_path_is_closed :: proc(self: ^Path) -> glib.boolean ---
+
+    @(link_name = "gsk_path_get_bounds")
+    gsk_path_get_bounds :: proc(self: ^Path, bounds: ^graphene.rect_t) -> glib.boolean ---
+
+    @(link_name = "gsk_path_get_stroke_bounds")
+    gsk_path_get_stroke_bounds :: proc(self: ^Path, stroke: ^Stroke, bounds: ^graphene.rect_t) -> glib.boolean ---
+
+    @(link_name = "gsk_path_in_fill")
+    gsk_path_in_fill :: proc(self: ^Path, point: ^graphene.point_t, fill_rule: FillRule) -> glib.boolean ---
+
+    @(link_name = "gsk_path_get_start_point")
+    gsk_path_get_start_point :: proc(self: ^Path, result: ^PathPoint) -> glib.boolean ---
+
+    @(link_name = "gsk_path_get_end_point")
+    gsk_path_get_end_point :: proc(self: ^Path, result: ^PathPoint) -> glib.boolean ---
+
+    @(link_name = "gsk_path_get_closest_point")
+    gsk_path_get_closest_point :: proc(self: ^Path, point: ^graphene.point_t, threshold: f32, result: ^PathPoint, distance: ^f32) -> glib.boolean ---
+
+    @(link_name = "gsk_path_foreach")
+    gsk_path_foreach :: proc(self: ^Path, flags: PathForeachFlags, func: PathForeachFunc, user_data: glib.pointer) -> glib.boolean ---
+
+    @(link_name = "gsk_rounded_rect_init")
+    gsk_rounded_rect_init :: proc(self: ^RoundedRect, bounds: ^graphene.rect_t, top_left: ^graphene.size_t, top_right: ^graphene.size_t, bottom_right: ^graphene.size_t, bottom_left: ^graphene.size_t) -> ^RoundedRect ---
+
+    @(link_name = "gsk_rounded_rect_init_copy")
+    gsk_rounded_rect_init_copy :: proc(self: ^RoundedRect, src: ^RoundedRect) -> ^RoundedRect ---
+
+    @(link_name = "gsk_rounded_rect_init_from_rect")
+    gsk_rounded_rect_init_from_rect :: proc(self: ^RoundedRect, bounds: ^graphene.rect_t, radius: f32) -> ^RoundedRect ---
+
+    @(link_name = "gsk_rounded_rect_normalize")
+    gsk_rounded_rect_normalize :: proc(self: ^RoundedRect) -> ^RoundedRect ---
+
+    @(link_name = "gsk_rounded_rect_offset")
+    gsk_rounded_rect_offset :: proc(self: ^RoundedRect, dx: f32, dy: f32) -> ^RoundedRect ---
+
+    @(link_name = "gsk_rounded_rect_shrink")
+    gsk_rounded_rect_shrink :: proc(self: ^RoundedRect, top: f32, right: f32, bottom: f32, left: f32) -> ^RoundedRect ---
+
+    @(link_name = "gsk_rounded_rect_is_rectilinear")
+    gsk_rounded_rect_is_rectilinear :: proc(self: ^RoundedRect) -> glib.boolean ---
+
+    @(link_name = "gsk_rounded_rect_contains_point")
+    gsk_rounded_rect_contains_point :: proc(self: ^RoundedRect, point: ^graphene.point_t) -> glib.boolean ---
+
+    @(link_name = "gsk_rounded_rect_contains_rect")
+    gsk_rounded_rect_contains_rect :: proc(self: ^RoundedRect, rect: ^graphene.rect_t) -> glib.boolean ---
+
+    @(link_name = "gsk_rounded_rect_intersects_rect")
+    gsk_rounded_rect_intersects_rect :: proc(self: ^RoundedRect, rect: ^graphene.rect_t) -> glib.boolean ---
+
+    @(link_name = "gsk_path_builder_get_type")
+    gsk_path_builder_get_type :: proc() -> gobj.Type ---
+
+    @(link_name = "gsk_path_builder_new")
+    gsk_path_builder_new :: proc() -> ^PathBuilder ---
+
+    @(link_name = "gsk_path_builder_ref")
+    gsk_path_builder_ref :: proc(self: ^PathBuilder) -> ^PathBuilder ---
+
+    @(link_name = "gsk_path_builder_unref")
+    gsk_path_builder_unref :: proc(self: ^PathBuilder) ---
+
+    @(link_name = "gsk_path_builder_free_to_path")
+    gsk_path_builder_free_to_path :: proc(self: ^PathBuilder) -> ^Path ---
+
+    @(link_name = "gsk_path_builder_to_path")
+    gsk_path_builder_to_path :: proc(self: ^PathBuilder) -> ^Path ---
+
+    @(link_name = "gsk_path_builder_get_current_point")
+    gsk_path_builder_get_current_point :: proc(self: ^PathBuilder) -> ^graphene.point_t ---
+
+    @(link_name = "gsk_path_builder_add_path")
+    gsk_path_builder_add_path :: proc(self: ^PathBuilder, path_p: ^Path) ---
+
+    @(link_name = "gsk_path_builder_add_reverse_path")
+    gsk_path_builder_add_reverse_path :: proc(self: ^PathBuilder, path_p: ^Path) ---
+
+    @(link_name = "gsk_path_builder_add_cairo_path")
+    gsk_path_builder_add_cairo_path :: proc(self: ^PathBuilder, path_p: ^cairo.path_t) ---
+
+    @(link_name = "gsk_path_builder_add_layout")
+    gsk_path_builder_add_layout :: proc(self: ^PathBuilder, layout: ^pango.Layout) ---
+
+    @(link_name = "gsk_path_builder_add_rect")
+    gsk_path_builder_add_rect :: proc(self: ^PathBuilder, rect: ^graphene.rect_t) ---
+
+    @(link_name = "gsk_path_builder_add_rounded_rect")
+    gsk_path_builder_add_rounded_rect :: proc(self: ^PathBuilder, rect: ^RoundedRect) ---
+
+    @(link_name = "gsk_path_builder_add_circle")
+    gsk_path_builder_add_circle :: proc(self: ^PathBuilder, center: ^graphene.point_t, radius: f32) ---
+
+    @(link_name = "gsk_path_builder_add_segment")
+    gsk_path_builder_add_segment :: proc(self: ^PathBuilder, path_p: ^Path, start: ^PathPoint, end: ^PathPoint) ---
+
+    @(link_name = "gsk_path_builder_move_to")
+    gsk_path_builder_move_to :: proc(self: ^PathBuilder, x: f32, y: f32) ---
+
+    @(link_name = "gsk_path_builder_rel_move_to")
+    gsk_path_builder_rel_move_to :: proc(self: ^PathBuilder, x: f32, y: f32) ---
+
+    @(link_name = "gsk_path_builder_line_to")
+    gsk_path_builder_line_to :: proc(self: ^PathBuilder, x: f32, y: f32) ---
+
+    @(link_name = "gsk_path_builder_rel_line_to")
+    gsk_path_builder_rel_line_to :: proc(self: ^PathBuilder, x: f32, y: f32) ---
+
+    @(link_name = "gsk_path_builder_quad_to")
+    gsk_path_builder_quad_to :: proc(self: ^PathBuilder, x1: f32, y1: f32, x2: f32, y2: f32) ---
+
+    @(link_name = "gsk_path_builder_rel_quad_to")
+    gsk_path_builder_rel_quad_to :: proc(self: ^PathBuilder, x1: f32, y1: f32, x2: f32, y2: f32) ---
+
+    @(link_name = "gsk_path_builder_cubic_to")
+    gsk_path_builder_cubic_to :: proc(self: ^PathBuilder, x1: f32, y1: f32, x2: f32, y2: f32, x3: f32, y3: f32) ---
+
+    @(link_name = "gsk_path_builder_rel_cubic_to")
+    gsk_path_builder_rel_cubic_to :: proc(self: ^PathBuilder, x1: f32, y1: f32, x2: f32, y2: f32, x3: f32, y3: f32) ---
+
+    @(link_name = "gsk_path_builder_conic_to")
+    gsk_path_builder_conic_to :: proc(self: ^PathBuilder, x1: f32, y1: f32, x2: f32, y2: f32, weight: f32) ---
+
+    @(link_name = "gsk_path_builder_rel_conic_to")
+    gsk_path_builder_rel_conic_to :: proc(self: ^PathBuilder, x1: f32, y1: f32, x2: f32, y2: f32, weight: f32) ---
+
+    @(link_name = "gsk_path_builder_arc_to")
+    gsk_path_builder_arc_to :: proc(self: ^PathBuilder, x1: f32, y1: f32, x2: f32, y2: f32) ---
+
+    @(link_name = "gsk_path_builder_rel_arc_to")
+    gsk_path_builder_rel_arc_to :: proc(self: ^PathBuilder, x1: f32, y1: f32, x2: f32, y2: f32) ---
+
+    @(link_name = "gsk_path_builder_svg_arc_to")
+    gsk_path_builder_svg_arc_to :: proc(self: ^PathBuilder, rx: f32, ry: f32, x_axis_rotation: f32, large_arc: glib.boolean, positive_sweep: glib.boolean, x: f32, y: f32) ---
+
+    @(link_name = "gsk_path_builder_rel_svg_arc_to")
+    gsk_path_builder_rel_svg_arc_to :: proc(self: ^PathBuilder, rx: f32, ry: f32, x_axis_rotation: f32, large_arc: glib.boolean, positive_sweep: glib.boolean, x: f32, y: f32) ---
+
+    @(link_name = "gsk_path_builder_html_arc_to")
+    gsk_path_builder_html_arc_to :: proc(self: ^PathBuilder, x1: f32, y1: f32, x2: f32, y2: f32, radius: f32) ---
+
+    @(link_name = "gsk_path_builder_rel_html_arc_to")
+    gsk_path_builder_rel_html_arc_to :: proc(self: ^PathBuilder, x1: f32, y1: f32, x2: f32, y2: f32, radius: f32) ---
+
+    @(link_name = "gsk_path_builder_close")
+    gsk_path_builder_close :: proc(self: ^PathBuilder) ---
+
+    @(link_name = "gsk_path_point_get_type")
+    gsk_path_point_get_type :: proc() -> gobj.Type ---
+
+    @(link_name = "gsk_path_point_copy")
+    gsk_path_point_copy :: proc(point: ^PathPoint) -> ^PathPoint ---
+
+    @(link_name = "gsk_path_point_free")
+    gsk_path_point_free :: proc(point: ^PathPoint) ---
+
+    @(link_name = "gsk_path_point_equal")
+    gsk_path_point_equal :: proc(point1: ^PathPoint, point2: ^PathPoint) -> glib.boolean ---
+
+    @(link_name = "gsk_path_point_compare")
+    gsk_path_point_compare :: proc(point1: ^PathPoint, point2: ^PathPoint) -> i32 ---
+
+    @(link_name = "gsk_path_point_get_position")
+    gsk_path_point_get_position :: proc(point: ^PathPoint, path_p: ^Path, position: ^graphene.point_t) ---
+
+    @(link_name = "gsk_path_point_get_tangent")
+    gsk_path_point_get_tangent :: proc(point: ^PathPoint, path_p: ^Path, direction: PathDirection, tangent: ^graphene.vec2_t) ---
+
+    @(link_name = "gsk_path_point_get_rotation")
+    gsk_path_point_get_rotation :: proc(point: ^PathPoint, path_p: ^Path, direction: PathDirection) -> f32 ---
+
+    @(link_name = "gsk_path_point_get_curvature")
+    gsk_path_point_get_curvature :: proc(point: ^PathPoint, path_p: ^Path, direction: PathDirection, center: ^graphene.point_t) -> f32 ---
+
+    @(link_name = "gsk_path_point_get_distance")
+    gsk_path_point_get_distance :: proc(point: ^PathPoint, measure: ^PathMeasure) -> f32 ---
+
+    @(link_name = "gsk_path_measure_get_type")
+    gsk_path_measure_get_type :: proc() -> gobj.Type ---
+
+    @(link_name = "gsk_path_measure_new")
+    gsk_path_measure_new :: proc(path_p: ^Path) -> ^PathMeasure ---
+
+    @(link_name = "gsk_path_measure_new_with_tolerance")
+    gsk_path_measure_new_with_tolerance :: proc(path_p: ^Path, tolerance: f32) -> ^PathMeasure ---
+
+    @(link_name = "gsk_path_measure_ref")
+    gsk_path_measure_ref :: proc(self: ^PathMeasure) -> ^PathMeasure ---
+
+    @(link_name = "gsk_path_measure_unref")
+    gsk_path_measure_unref :: proc(self: ^PathMeasure) ---
+
+    @(link_name = "gsk_path_measure_get_path")
+    gsk_path_measure_get_path :: proc(self: ^PathMeasure) -> ^Path ---
+
+    @(link_name = "gsk_path_measure_get_tolerance")
+    gsk_path_measure_get_tolerance :: proc(self: ^PathMeasure) -> f32 ---
+
+    @(link_name = "gsk_path_measure_get_length")
+    gsk_path_measure_get_length :: proc(self: ^PathMeasure) -> f32 ---
+
+    @(link_name = "gsk_path_measure_get_point")
+    gsk_path_measure_get_point :: proc(self: ^PathMeasure, distance: f32, result: ^PathPoint) -> glib.boolean ---
+
+    @(link_name = "gsk_gl_shader_get_type")
+    gsk_gl_shader_get_type :: proc() -> gobj.Type ---
+
+    @(link_name = "gsk_gl_shader_new_from_bytes")
+    gsk_gl_shader_new_from_bytes :: proc(sourcecode: ^glib.Bytes) -> ^GLShader ---
+
+    @(link_name = "gsk_gl_shader_new_from_resource")
+    gsk_gl_shader_new_from_resource :: proc(resource_path: cstring) -> ^GLShader ---
+
+    @(link_name = "gsk_gl_shader_compile")
+    gsk_gl_shader_compile :: proc(shader: ^GLShader, renderer: ^Renderer, error: ^^glib.Error) -> glib.boolean ---
+
+    @(link_name = "gsk_gl_shader_get_source")
+    gsk_gl_shader_get_source :: proc(shader: ^GLShader) -> ^glib.Bytes ---
+
+    @(link_name = "gsk_gl_shader_get_resource")
+    gsk_gl_shader_get_resource :: proc(shader: ^GLShader) -> cstring ---
+
+    @(link_name = "gsk_gl_shader_get_n_textures")
+    gsk_gl_shader_get_n_textures :: proc(shader: ^GLShader) -> i32 ---
+
+    @(link_name = "gsk_gl_shader_get_n_uniforms")
+    gsk_gl_shader_get_n_uniforms :: proc(shader: ^GLShader) -> i32 ---
+
+    @(link_name = "gsk_gl_shader_get_uniform_name")
+    gsk_gl_shader_get_uniform_name :: proc(shader: ^GLShader, idx: i32) -> cstring ---
+
+    @(link_name = "gsk_gl_shader_find_uniform_by_name")
+    gsk_gl_shader_find_uniform_by_name :: proc(shader: ^GLShader, name: cstring) -> i32 ---
+
+    @(link_name = "gsk_gl_shader_get_uniform_type")
+    gsk_gl_shader_get_uniform_type :: proc(shader: ^GLShader, idx: i32) -> GLUniformType ---
+
+    @(link_name = "gsk_gl_shader_get_uniform_offset")
+    gsk_gl_shader_get_uniform_offset :: proc(shader: ^GLShader, idx: i32) -> i32 ---
+
+    @(link_name = "gsk_gl_shader_get_args_size")
+    gsk_gl_shader_get_args_size :: proc(shader: ^GLShader) -> glib.size ---
+
+    // gsk_gl_shader_format_args_va skipped: its trailing va_list is dropped by runic, so it would be a wrong #c_vararg ..any call
+
+    @(link_name = "gsk_gl_shader_format_args")
+    gsk_gl_shader_format_args :: proc(shader: ^GLShader, #c_vararg var_args: ..any) -> ^glib.Bytes ---
+
+    @(link_name = "gsk_gl_shader_get_arg_float")
+    gsk_gl_shader_get_arg_float :: proc(shader: ^GLShader, args: ^glib.Bytes, idx: i32) -> f32 ---
+
+    @(link_name = "gsk_gl_shader_get_arg_int")
+    gsk_gl_shader_get_arg_int :: proc(shader: ^GLShader, args: ^glib.Bytes, idx: i32) -> glib.int32 ---
+
+    @(link_name = "gsk_gl_shader_get_arg_uint")
+    gsk_gl_shader_get_arg_uint :: proc(shader: ^GLShader, args: ^glib.Bytes, idx: i32) -> glib.uint32 ---
+
+    @(link_name = "gsk_gl_shader_get_arg_bool")
+    gsk_gl_shader_get_arg_bool :: proc(shader: ^GLShader, args: ^glib.Bytes, idx: i32) -> glib.boolean ---
+
+    @(link_name = "gsk_gl_shader_get_arg_vec2")
+    gsk_gl_shader_get_arg_vec2 :: proc(shader: ^GLShader, args: ^glib.Bytes, idx: i32, out_value: ^graphene.vec2_t) ---
+
+    @(link_name = "gsk_gl_shader_get_arg_vec3")
+    gsk_gl_shader_get_arg_vec3 :: proc(shader: ^GLShader, args: ^glib.Bytes, idx: i32, out_value: ^graphene.vec3_t) ---
+
+    @(link_name = "gsk_gl_shader_get_arg_vec4")
+    gsk_gl_shader_get_arg_vec4 :: proc(shader: ^GLShader, args: ^glib.Bytes, idx: i32, out_value: ^graphene.vec4_t) ---
+
+    @(link_name = "gsk_shader_args_builder_get_type")
+    gsk_shader_args_builder_get_type :: proc() -> gobj.Type ---
+
+    @(link_name = "gsk_shader_args_builder_new")
+    gsk_shader_args_builder_new :: proc(shader: ^GLShader, initial_values: ^glib.Bytes) -> ^ShaderArgsBuilder ---
+
+    @(link_name = "gsk_shader_args_builder_to_args")
+    gsk_shader_args_builder_to_args :: proc(builder: ^ShaderArgsBuilder) -> ^glib.Bytes ---
+
+    @(link_name = "gsk_shader_args_builder_free_to_args")
+    gsk_shader_args_builder_free_to_args :: proc(builder: ^ShaderArgsBuilder) -> ^glib.Bytes ---
+
+    @(link_name = "gsk_shader_args_builder_ref")
+    gsk_shader_args_builder_ref :: proc(builder: ^ShaderArgsBuilder) -> ^ShaderArgsBuilder ---
+
+    @(link_name = "gsk_shader_args_builder_unref")
+    gsk_shader_args_builder_unref :: proc(builder: ^ShaderArgsBuilder) ---
+
+    @(link_name = "gsk_shader_args_builder_set_float")
+    gsk_shader_args_builder_set_float :: proc(builder: ^ShaderArgsBuilder, idx: i32, value: f32) ---
+
+    @(link_name = "gsk_shader_args_builder_set_int")
+    gsk_shader_args_builder_set_int :: proc(builder: ^ShaderArgsBuilder, idx: i32, value: glib.int32) ---
+
+    @(link_name = "gsk_shader_args_builder_set_uint")
+    gsk_shader_args_builder_set_uint :: proc(builder: ^ShaderArgsBuilder, idx: i32, value: glib.uint32) ---
+
+    @(link_name = "gsk_shader_args_builder_set_bool")
+    gsk_shader_args_builder_set_bool :: proc(builder: ^ShaderArgsBuilder, idx: i32, value: glib.boolean) ---
+
+    @(link_name = "gsk_shader_args_builder_set_vec2")
+    gsk_shader_args_builder_set_vec2 :: proc(builder: ^ShaderArgsBuilder, idx: i32, value: ^graphene.vec2_t) ---
+
+    @(link_name = "gsk_shader_args_builder_set_vec3")
+    gsk_shader_args_builder_set_vec3 :: proc(builder: ^ShaderArgsBuilder, idx: i32, value: ^graphene.vec3_t) ---
+
+    @(link_name = "gsk_shader_args_builder_set_vec4")
+    gsk_shader_args_builder_set_vec4 :: proc(builder: ^ShaderArgsBuilder, idx: i32, value: ^graphene.vec4_t) ---
+
+    @(link_name = "gsk_render_node_get_type")
+    gsk_render_node_get_type :: proc() -> gobj.Type ---
+
+    @(link_name = "gsk_serialization_error_quark")
+    gsk_serialization_error_quark :: proc() -> glib.Quark ---
+
+    @(link_name = "gsk_render_node_ref")
+    gsk_render_node_ref :: proc(node: ^RenderNode) -> ^RenderNode ---
+
+    @(link_name = "gsk_render_node_unref")
+    gsk_render_node_unref :: proc(node: ^RenderNode) ---
+
+    @(link_name = "gsk_render_node_get_node_type")
+    gsk_render_node_get_node_type :: proc(node: ^RenderNode) -> RenderNodeType ---
+
+    @(link_name = "gsk_render_node_get_bounds")
+    gsk_render_node_get_bounds :: proc(node: ^RenderNode, bounds: ^graphene.rect_t) ---
+
+    @(link_name = "gsk_render_node_get_opaque_rect")
+    gsk_render_node_get_opaque_rect :: proc(self: ^RenderNode, out_opaque: ^graphene.rect_t) -> glib.boolean ---
+
+    @(link_name = "gsk_render_node_draw")
+    gsk_render_node_draw :: proc(node: ^RenderNode, cr: ^cairo.context_t) ---
+
+    @(link_name = "gsk_render_node_serialize")
+    gsk_render_node_serialize :: proc(node: ^RenderNode) -> ^glib.Bytes ---
+
+    @(link_name = "gsk_render_node_write_to_file")
+    gsk_render_node_write_to_file :: proc(node: ^RenderNode, filename: cstring, error: ^^glib.Error) -> glib.boolean ---
+
+    @(link_name = "gsk_render_node_deserialize")
+    gsk_render_node_deserialize :: proc(bytes: ^glib.Bytes, error_func: ParseErrorFunc, user_data: glib.pointer) -> ^RenderNode ---
+
+    @(link_name = "gsk_debug_node_get_type")
+    gsk_debug_node_get_type :: proc() -> gobj.Type ---
+
+    @(link_name = "gsk_debug_node_new")
+    gsk_debug_node_new :: proc(child: ^RenderNode, message: cstring) -> ^RenderNode ---
+
+    @(link_name = "gsk_debug_node_get_child")
+    gsk_debug_node_get_child :: proc(node: ^RenderNode) -> ^RenderNode ---
+
+    @(link_name = "gsk_debug_node_get_message")
+    gsk_debug_node_get_message :: proc(node: ^RenderNode) -> cstring ---
+
+    @(link_name = "gsk_color_node_get_type")
+    gsk_color_node_get_type :: proc() -> gobj.Type ---
+
+    @(link_name = "gsk_color_node_new")
+    gsk_color_node_new :: proc(rgba: ^RGBA, bounds: ^graphene.rect_t) -> ^RenderNode ---
+
+    @(link_name = "gsk_color_node_get_color")
+    gsk_color_node_get_color :: proc(node: ^RenderNode) -> ^RGBA ---
+
+    @(link_name = "gsk_texture_node_get_type")
+    gsk_texture_node_get_type :: proc() -> gobj.Type ---
+
+    @(link_name = "gsk_texture_node_new")
+    gsk_texture_node_new :: proc(texture: ^Texture, bounds: ^graphene.rect_t) -> ^RenderNode ---
+
+    @(link_name = "gsk_texture_node_get_texture")
+    gsk_texture_node_get_texture :: proc(node: ^RenderNode) -> ^Texture ---
+
+    @(link_name = "gsk_texture_scale_node_get_type")
+    gsk_texture_scale_node_get_type :: proc() -> gobj.Type ---
+
+    @(link_name = "gsk_texture_scale_node_new")
+    gsk_texture_scale_node_new :: proc(texture: ^Texture, bounds: ^graphene.rect_t, filter: ScalingFilter) -> ^RenderNode ---
+
+    @(link_name = "gsk_texture_scale_node_get_texture")
+    gsk_texture_scale_node_get_texture :: proc(node: ^RenderNode) -> ^Texture ---
+
+    @(link_name = "gsk_texture_scale_node_get_filter")
+    gsk_texture_scale_node_get_filter :: proc(node: ^RenderNode) -> ScalingFilter ---
+
+    @(link_name = "gsk_linear_gradient_node_get_type")
+    gsk_linear_gradient_node_get_type :: proc() -> gobj.Type ---
+
+    @(link_name = "gsk_linear_gradient_node_new")
+    gsk_linear_gradient_node_new :: proc(bounds: ^graphene.rect_t, start: ^graphene.point_t, end: ^graphene.point_t, color_stops: [^]ColorStop, n_color_stops: glib.size) -> ^RenderNode ---
+
+    @(link_name = "gsk_linear_gradient_node_get_start")
+    gsk_linear_gradient_node_get_start :: proc(node: ^RenderNode) -> ^graphene.point_t ---
+
+    @(link_name = "gsk_linear_gradient_node_get_end")
+    gsk_linear_gradient_node_get_end :: proc(node: ^RenderNode) -> ^graphene.point_t ---
+
+    @(link_name = "gsk_linear_gradient_node_get_n_color_stops")
+    gsk_linear_gradient_node_get_n_color_stops :: proc(node: ^RenderNode) -> glib.size ---
+
+    @(link_name = "gsk_linear_gradient_node_get_color_stops")
+    gsk_linear_gradient_node_get_color_stops :: proc(node: ^RenderNode, n_stops: ^glib.size) -> ^ColorStop ---
+
+    @(link_name = "gsk_repeating_linear_gradient_node_get_type")
+    gsk_repeating_linear_gradient_node_get_type :: proc() -> gobj.Type ---
+
+    @(link_name = "gsk_repeating_linear_gradient_node_new")
+    gsk_repeating_linear_gradient_node_new :: proc(bounds: ^graphene.rect_t, start: ^graphene.point_t, end: ^graphene.point_t, color_stops: [^]ColorStop, n_color_stops: glib.size) -> ^RenderNode ---
+
+    @(link_name = "gsk_conic_gradient_node_get_type")
+    gsk_conic_gradient_node_get_type :: proc() -> gobj.Type ---
+
+    @(link_name = "gsk_conic_gradient_node_new")
+    gsk_conic_gradient_node_new :: proc(bounds: ^graphene.rect_t, center: ^graphene.point_t, rotation: f32, color_stops: [^]ColorStop, n_color_stops: glib.size) -> ^RenderNode ---
+
+    @(link_name = "gsk_conic_gradient_node_get_center")
+    gsk_conic_gradient_node_get_center :: proc(node: ^RenderNode) -> ^graphene.point_t ---
+
+    @(link_name = "gsk_conic_gradient_node_get_rotation")
+    gsk_conic_gradient_node_get_rotation :: proc(node: ^RenderNode) -> f32 ---
+
+    @(link_name = "gsk_conic_gradient_node_get_angle")
+    gsk_conic_gradient_node_get_angle :: proc(node: ^RenderNode) -> f32 ---
+
+    @(link_name = "gsk_conic_gradient_node_get_n_color_stops")
+    gsk_conic_gradient_node_get_n_color_stops :: proc(node: ^RenderNode) -> glib.size ---
+
+    @(link_name = "gsk_conic_gradient_node_get_color_stops")
+    gsk_conic_gradient_node_get_color_stops :: proc(node: ^RenderNode, n_stops: ^glib.size) -> ^ColorStop ---
+
+    @(link_name = "gsk_radial_gradient_node_get_type")
+    gsk_radial_gradient_node_get_type :: proc() -> gobj.Type ---
+
+    @(link_name = "gsk_radial_gradient_node_new")
+    gsk_radial_gradient_node_new :: proc(bounds: ^graphene.rect_t, center: ^graphene.point_t, hradius: f32, vradius: f32, start: f32, end: f32, color_stops: [^]ColorStop, n_color_stops: glib.size) -> ^RenderNode ---
+
+    @(link_name = "gsk_radial_gradient_node_get_n_color_stops")
+    gsk_radial_gradient_node_get_n_color_stops :: proc(node: ^RenderNode) -> glib.size ---
+
+    @(link_name = "gsk_radial_gradient_node_get_color_stops")
+    gsk_radial_gradient_node_get_color_stops :: proc(node: ^RenderNode, n_stops: ^glib.size) -> ^ColorStop ---
+
+    @(link_name = "gsk_radial_gradient_node_get_center")
+    gsk_radial_gradient_node_get_center :: proc(node: ^RenderNode) -> ^graphene.point_t ---
+
+    @(link_name = "gsk_radial_gradient_node_get_hradius")
+    gsk_radial_gradient_node_get_hradius :: proc(node: ^RenderNode) -> f32 ---
+
+    @(link_name = "gsk_radial_gradient_node_get_vradius")
+    gsk_radial_gradient_node_get_vradius :: proc(node: ^RenderNode) -> f32 ---
+
+    @(link_name = "gsk_radial_gradient_node_get_start")
+    gsk_radial_gradient_node_get_start :: proc(node: ^RenderNode) -> f32 ---
+
+    @(link_name = "gsk_radial_gradient_node_get_end")
+    gsk_radial_gradient_node_get_end :: proc(node: ^RenderNode) -> f32 ---
+
+    @(link_name = "gsk_repeating_radial_gradient_node_get_type")
+    gsk_repeating_radial_gradient_node_get_type :: proc() -> gobj.Type ---
+
+    @(link_name = "gsk_repeating_radial_gradient_node_new")
+    gsk_repeating_radial_gradient_node_new :: proc(bounds: ^graphene.rect_t, center: ^graphene.point_t, hradius: f32, vradius: f32, start: f32, end: f32, color_stops: [^]ColorStop, n_color_stops: glib.size) -> ^RenderNode ---
+
+    @(link_name = "gsk_border_node_get_type")
+    gsk_border_node_get_type :: proc() -> gobj.Type ---
+
+    @(link_name = "gsk_border_node_new")
+    gsk_border_node_new :: proc(outline: ^RoundedRect, border_width: ^[4]f32, border_color: ^[4]RGBA) -> ^RenderNode ---
+
+    @(link_name = "gsk_border_node_get_outline")
+    gsk_border_node_get_outline :: proc(node: ^RenderNode) -> ^RoundedRect ---
+
+    @(link_name = "gsk_border_node_get_widths")
+    gsk_border_node_get_widths :: proc(node: ^RenderNode) -> ^f32 ---
+
+    @(link_name = "gsk_border_node_get_colors")
+    gsk_border_node_get_colors :: proc(node: ^RenderNode) -> ^RGBA ---
+
+    @(link_name = "gsk_inset_shadow_node_get_type")
+    gsk_inset_shadow_node_get_type :: proc() -> gobj.Type ---
+
+    @(link_name = "gsk_inset_shadow_node_new")
+    gsk_inset_shadow_node_new :: proc(outline: ^RoundedRect, color: ^RGBA, dx: f32, dy: f32, spread: f32, blur_radius: f32) -> ^RenderNode ---
+
+    @(link_name = "gsk_inset_shadow_node_get_outline")
+    gsk_inset_shadow_node_get_outline :: proc(node: ^RenderNode) -> ^RoundedRect ---
+
+    @(link_name = "gsk_inset_shadow_node_get_color")
+    gsk_inset_shadow_node_get_color :: proc(node: ^RenderNode) -> ^RGBA ---
+
+    @(link_name = "gsk_inset_shadow_node_get_dx")
+    gsk_inset_shadow_node_get_dx :: proc(node: ^RenderNode) -> f32 ---
+
+    @(link_name = "gsk_inset_shadow_node_get_dy")
+    gsk_inset_shadow_node_get_dy :: proc(node: ^RenderNode) -> f32 ---
+
+    @(link_name = "gsk_inset_shadow_node_get_spread")
+    gsk_inset_shadow_node_get_spread :: proc(node: ^RenderNode) -> f32 ---
+
+    @(link_name = "gsk_inset_shadow_node_get_blur_radius")
+    gsk_inset_shadow_node_get_blur_radius :: proc(node: ^RenderNode) -> f32 ---
+
+    @(link_name = "gsk_outset_shadow_node_get_type")
+    gsk_outset_shadow_node_get_type :: proc() -> gobj.Type ---
+
+    @(link_name = "gsk_outset_shadow_node_new")
+    gsk_outset_shadow_node_new :: proc(outline: ^RoundedRect, color: ^RGBA, dx: f32, dy: f32, spread: f32, blur_radius: f32) -> ^RenderNode ---
+
+    @(link_name = "gsk_outset_shadow_node_get_outline")
+    gsk_outset_shadow_node_get_outline :: proc(node: ^RenderNode) -> ^RoundedRect ---
+
+    @(link_name = "gsk_outset_shadow_node_get_color")
+    gsk_outset_shadow_node_get_color :: proc(node: ^RenderNode) -> ^RGBA ---
+
+    @(link_name = "gsk_outset_shadow_node_get_dx")
+    gsk_outset_shadow_node_get_dx :: proc(node: ^RenderNode) -> f32 ---
+
+    @(link_name = "gsk_outset_shadow_node_get_dy")
+    gsk_outset_shadow_node_get_dy :: proc(node: ^RenderNode) -> f32 ---
+
+    @(link_name = "gsk_outset_shadow_node_get_spread")
+    gsk_outset_shadow_node_get_spread :: proc(node: ^RenderNode) -> f32 ---
+
+    @(link_name = "gsk_outset_shadow_node_get_blur_radius")
+    gsk_outset_shadow_node_get_blur_radius :: proc(node: ^RenderNode) -> f32 ---
+
+    @(link_name = "gsk_cairo_node_get_type")
+    gsk_cairo_node_get_type :: proc() -> gobj.Type ---
+
+    @(link_name = "gsk_cairo_node_new")
+    gsk_cairo_node_new :: proc(bounds: ^graphene.rect_t) -> ^RenderNode ---
+
+    @(link_name = "gsk_cairo_node_get_draw_context")
+    gsk_cairo_node_get_draw_context :: proc(node: ^RenderNode) -> ^cairo.context_t ---
+
+    @(link_name = "gsk_cairo_node_get_surface")
+    gsk_cairo_node_get_surface :: proc(node: ^RenderNode) -> ^cairo.surface_t ---
+
+    @(link_name = "gsk_container_node_get_type")
+    gsk_container_node_get_type :: proc() -> gobj.Type ---
+
+    @(link_name = "gsk_container_node_new")
+    gsk_container_node_new :: proc(children: ^^RenderNode, n_children: glib.uint_) -> ^RenderNode ---
+
+    @(link_name = "gsk_container_node_get_n_children")
+    gsk_container_node_get_n_children :: proc(node: ^RenderNode) -> glib.uint_ ---
+
+    @(link_name = "gsk_container_node_get_child")
+    gsk_container_node_get_child :: proc(node: ^RenderNode, idx: glib.uint_) -> ^RenderNode ---
+
+    @(link_name = "gsk_transform_node_get_type")
+    gsk_transform_node_get_type :: proc() -> gobj.Type ---
+
+    @(link_name = "gsk_transform_node_new")
+    gsk_transform_node_new :: proc(child: ^RenderNode, transform: ^Transform) -> ^RenderNode ---
+
+    @(link_name = "gsk_transform_node_get_child")
+    gsk_transform_node_get_child :: proc(node: ^RenderNode) -> ^RenderNode ---
+
+    @(link_name = "gsk_transform_node_get_transform")
+    gsk_transform_node_get_transform :: proc(node: ^RenderNode) -> ^Transform ---
+
+    @(link_name = "gsk_opacity_node_get_type")
+    gsk_opacity_node_get_type :: proc() -> gobj.Type ---
+
+    @(link_name = "gsk_opacity_node_new")
+    gsk_opacity_node_new :: proc(child: ^RenderNode, opacity: f32) -> ^RenderNode ---
+
+    @(link_name = "gsk_opacity_node_get_child")
+    gsk_opacity_node_get_child :: proc(node: ^RenderNode) -> ^RenderNode ---
+
+    @(link_name = "gsk_opacity_node_get_opacity")
+    gsk_opacity_node_get_opacity :: proc(node: ^RenderNode) -> f32 ---
+
+    @(link_name = "gsk_color_matrix_node_get_type")
+    gsk_color_matrix_node_get_type :: proc() -> gobj.Type ---
+
+    @(link_name = "gsk_color_matrix_node_new")
+    gsk_color_matrix_node_new :: proc(child: ^RenderNode, color_matrix: ^graphene.matrix_t, color_offset: ^graphene.vec4_t) -> ^RenderNode ---
+
+    @(link_name = "gsk_color_matrix_node_get_child")
+    gsk_color_matrix_node_get_child :: proc(node: ^RenderNode) -> ^RenderNode ---
+
+    @(link_name = "gsk_color_matrix_node_get_color_matrix")
+    gsk_color_matrix_node_get_color_matrix :: proc(node: ^RenderNode) -> ^graphene.matrix_t ---
+
+    @(link_name = "gsk_color_matrix_node_get_color_offset")
+    gsk_color_matrix_node_get_color_offset :: proc(node: ^RenderNode) -> ^graphene.vec4_t ---
+
+    @(link_name = "gsk_repeat_node_get_type")
+    gsk_repeat_node_get_type :: proc() -> gobj.Type ---
+
+    @(link_name = "gsk_repeat_node_new")
+    gsk_repeat_node_new :: proc(bounds: ^graphene.rect_t, child: ^RenderNode, child_bounds: ^graphene.rect_t) -> ^RenderNode ---
+
+    @(link_name = "gsk_repeat_node_get_child")
+    gsk_repeat_node_get_child :: proc(node: ^RenderNode) -> ^RenderNode ---
+
+    @(link_name = "gsk_repeat_node_get_child_bounds")
+    gsk_repeat_node_get_child_bounds :: proc(node: ^RenderNode) -> ^graphene.rect_t ---
+
+    @(link_name = "gsk_clip_node_get_type")
+    gsk_clip_node_get_type :: proc() -> gobj.Type ---
+
+    @(link_name = "gsk_clip_node_new")
+    gsk_clip_node_new :: proc(child: ^RenderNode, clip: ^graphene.rect_t) -> ^RenderNode ---
+
+    @(link_name = "gsk_clip_node_get_child")
+    gsk_clip_node_get_child :: proc(node: ^RenderNode) -> ^RenderNode ---
+
+    @(link_name = "gsk_clip_node_get_clip")
+    gsk_clip_node_get_clip :: proc(node: ^RenderNode) -> ^graphene.rect_t ---
+
+    @(link_name = "gsk_rounded_clip_node_get_type")
+    gsk_rounded_clip_node_get_type :: proc() -> gobj.Type ---
+
+    @(link_name = "gsk_rounded_clip_node_new")
+    gsk_rounded_clip_node_new :: proc(child: ^RenderNode, clip: ^RoundedRect) -> ^RenderNode ---
+
+    @(link_name = "gsk_rounded_clip_node_get_child")
+    gsk_rounded_clip_node_get_child :: proc(node: ^RenderNode) -> ^RenderNode ---
+
+    @(link_name = "gsk_rounded_clip_node_get_clip")
+    gsk_rounded_clip_node_get_clip :: proc(node: ^RenderNode) -> ^RoundedRect ---
+
+    @(link_name = "gsk_fill_node_get_type")
+    gsk_fill_node_get_type :: proc() -> gobj.Type ---
+
+    @(link_name = "gsk_fill_node_new")
+    gsk_fill_node_new :: proc(child: ^RenderNode, path_p: ^Path, fill_rule: FillRule) -> ^RenderNode ---
+
+    @(link_name = "gsk_fill_node_get_child")
+    gsk_fill_node_get_child :: proc(node: ^RenderNode) -> ^RenderNode ---
+
+    @(link_name = "gsk_fill_node_get_path")
+    gsk_fill_node_get_path :: proc(node: ^RenderNode) -> ^Path ---
+
+    @(link_name = "gsk_fill_node_get_fill_rule")
+    gsk_fill_node_get_fill_rule :: proc(node: ^RenderNode) -> FillRule ---
+
+    @(link_name = "gsk_stroke_node_get_type")
+    gsk_stroke_node_get_type :: proc() -> gobj.Type ---
+
+    @(link_name = "gsk_stroke_node_new")
+    gsk_stroke_node_new :: proc(child: ^RenderNode, path_p: ^Path, stroke: ^Stroke) -> ^RenderNode ---
+
+    @(link_name = "gsk_stroke_node_get_child")
+    gsk_stroke_node_get_child :: proc(node: ^RenderNode) -> ^RenderNode ---
+
+    @(link_name = "gsk_stroke_node_get_path")
+    gsk_stroke_node_get_path :: proc(node: ^RenderNode) -> ^Path ---
+
+    @(link_name = "gsk_stroke_node_get_stroke")
+    gsk_stroke_node_get_stroke :: proc(node: ^RenderNode) -> ^Stroke ---
+
+    @(link_name = "gsk_shadow_node_get_type")
+    gsk_shadow_node_get_type :: proc() -> gobj.Type ---
+
+    @(link_name = "gsk_shadow_node_new")
+    gsk_shadow_node_new :: proc(child: ^RenderNode, shadows: [^]Shadow, n_shadows: glib.size) -> ^RenderNode ---
+
+    @(link_name = "gsk_shadow_node_get_child")
+    gsk_shadow_node_get_child :: proc(node: ^RenderNode) -> ^RenderNode ---
+
+    @(link_name = "gsk_shadow_node_get_shadow")
+    gsk_shadow_node_get_shadow :: proc(node: ^RenderNode, i: glib.size) -> ^Shadow ---
+
+    @(link_name = "gsk_shadow_node_get_n_shadows")
+    gsk_shadow_node_get_n_shadows :: proc(node: ^RenderNode) -> glib.size ---
+
+    @(link_name = "gsk_blend_node_get_type")
+    gsk_blend_node_get_type :: proc() -> gobj.Type ---
+
+    @(link_name = "gsk_blend_node_new")
+    gsk_blend_node_new :: proc(bottom: ^RenderNode, top: ^RenderNode, blend_mode: BlendMode) -> ^RenderNode ---
+
+    @(link_name = "gsk_blend_node_get_bottom_child")
+    gsk_blend_node_get_bottom_child :: proc(node: ^RenderNode) -> ^RenderNode ---
+
+    @(link_name = "gsk_blend_node_get_top_child")
+    gsk_blend_node_get_top_child :: proc(node: ^RenderNode) -> ^RenderNode ---
+
+    @(link_name = "gsk_blend_node_get_blend_mode")
+    gsk_blend_node_get_blend_mode :: proc(node: ^RenderNode) -> BlendMode ---
+
+    @(link_name = "gsk_cross_fade_node_get_type")
+    gsk_cross_fade_node_get_type :: proc() -> gobj.Type ---
+
+    @(link_name = "gsk_cross_fade_node_new")
+    gsk_cross_fade_node_new :: proc(start: ^RenderNode, end: ^RenderNode, progress: f32) -> ^RenderNode ---
+
+    @(link_name = "gsk_cross_fade_node_get_start_child")
+    gsk_cross_fade_node_get_start_child :: proc(node: ^RenderNode) -> ^RenderNode ---
+
+    @(link_name = "gsk_cross_fade_node_get_end_child")
+    gsk_cross_fade_node_get_end_child :: proc(node: ^RenderNode) -> ^RenderNode ---
+
+    @(link_name = "gsk_cross_fade_node_get_progress")
+    gsk_cross_fade_node_get_progress :: proc(node: ^RenderNode) -> f32 ---
+
+    @(link_name = "gsk_text_node_get_type")
+    gsk_text_node_get_type :: proc() -> gobj.Type ---
+
+    @(link_name = "gsk_text_node_new")
+    gsk_text_node_new :: proc(font: ^pango.Font, glyphs: ^pango.GlyphString, color: ^RGBA, offset: ^graphene.point_t) -> ^RenderNode ---
+
+    @(link_name = "gsk_text_node_get_font")
+    gsk_text_node_get_font :: proc(node: ^RenderNode) -> ^pango.Font ---
+
+    @(link_name = "gsk_text_node_has_color_glyphs")
+    gsk_text_node_has_color_glyphs :: proc(node: ^RenderNode) -> glib.boolean ---
+
+    @(link_name = "gsk_text_node_get_num_glyphs")
+    gsk_text_node_get_num_glyphs :: proc(node: ^RenderNode) -> glib.uint_ ---
+
+    @(link_name = "gsk_text_node_get_glyphs")
+    gsk_text_node_get_glyphs :: proc(node: ^RenderNode, n_glyphs: ^glib.uint_) -> ^pango.GlyphInfo ---
+
+    @(link_name = "gsk_text_node_get_color")
+    gsk_text_node_get_color :: proc(node: ^RenderNode) -> ^RGBA ---
+
+    @(link_name = "gsk_text_node_get_offset")
+    gsk_text_node_get_offset :: proc(node: ^RenderNode) -> ^graphene.point_t ---
+
+    @(link_name = "gsk_blur_node_get_type")
+    gsk_blur_node_get_type :: proc() -> gobj.Type ---
+
+    @(link_name = "gsk_blur_node_new")
+    gsk_blur_node_new :: proc(child: ^RenderNode, radius: f32) -> ^RenderNode ---
+
+    @(link_name = "gsk_blur_node_get_child")
+    gsk_blur_node_get_child :: proc(node: ^RenderNode) -> ^RenderNode ---
+
+    @(link_name = "gsk_blur_node_get_radius")
+    gsk_blur_node_get_radius :: proc(node: ^RenderNode) -> f32 ---
+
+    @(link_name = "gsk_mask_node_get_type")
+    gsk_mask_node_get_type :: proc() -> gobj.Type ---
+
+    @(link_name = "gsk_mask_node_new")
+    gsk_mask_node_new :: proc(source: ^RenderNode, mask: ^RenderNode, mask_mode: MaskMode) -> ^RenderNode ---
+
+    @(link_name = "gsk_mask_node_get_source")
+    gsk_mask_node_get_source :: proc(node: ^RenderNode) -> ^RenderNode ---
+
+    @(link_name = "gsk_mask_node_get_mask")
+    gsk_mask_node_get_mask :: proc(node: ^RenderNode) -> ^RenderNode ---
+
+    @(link_name = "gsk_mask_node_get_mask_mode")
+    gsk_mask_node_get_mask_mode :: proc(node: ^RenderNode) -> MaskMode ---
+
+    @(link_name = "gsk_gl_shader_node_get_type")
+    gsk_gl_shader_node_get_type :: proc() -> gobj.Type ---
+
+    @(link_name = "gsk_gl_shader_node_new")
+    gsk_gl_shader_node_new :: proc(shader: ^GLShader, bounds: ^graphene.rect_t, args: ^glib.Bytes, children: ^^RenderNode, n_children: glib.uint_) -> ^RenderNode ---
+
+    @(link_name = "gsk_gl_shader_node_get_n_children")
+    gsk_gl_shader_node_get_n_children :: proc(node: ^RenderNode) -> glib.uint_ ---
+
+    @(link_name = "gsk_gl_shader_node_get_child")
+    gsk_gl_shader_node_get_child :: proc(node: ^RenderNode, idx: glib.uint_) -> ^RenderNode ---
+
+    @(link_name = "gsk_gl_shader_node_get_args")
+    gsk_gl_shader_node_get_args :: proc(node: ^RenderNode) -> ^glib.Bytes ---
+
+    @(link_name = "gsk_gl_shader_node_get_shader")
+    gsk_gl_shader_node_get_shader :: proc(node: ^RenderNode) -> ^GLShader ---
+
+    @(link_name = "gsk_subsurface_node_get_type")
+    gsk_subsurface_node_get_type :: proc() -> gobj.Type ---
+
+    @(link_name = "gsk_subsurface_node_new")
+    gsk_subsurface_node_new :: proc(child: ^RenderNode, subsurface: glib.pointer) -> ^RenderNode ---
+
+    @(link_name = "gsk_subsurface_node_get_child")
+    gsk_subsurface_node_get_child :: proc(node: ^RenderNode) -> ^RenderNode ---
+
+    @(link_name = "gsk_subsurface_node_get_subsurface")
+    gsk_subsurface_node_get_subsurface :: proc(node: ^RenderNode) -> glib.pointer ---
+
+    @(link_name = "gsk_value_set_render_node")
+    gsk_value_set_render_node :: proc(value: ^gobj.Value, node: ^RenderNode) ---
+
+    @(link_name = "gsk_value_take_render_node")
+    gsk_value_take_render_node :: proc(value: ^gobj.Value, node: ^RenderNode) ---
+
+    @(link_name = "gsk_value_get_render_node")
+    gsk_value_get_render_node :: proc(value: ^gobj.Value) -> ^RenderNode ---
+
+    @(link_name = "gsk_value_dup_render_node")
+    gsk_value_dup_render_node :: proc(value: ^gobj.Value) -> ^RenderNode ---
+
+    @(link_name = "gsk_renderer_get_type")
+    gsk_renderer_get_type :: proc() -> gobj.Type ---
+
+    @(link_name = "gsk_renderer_new_for_surface")
+    gsk_renderer_new_for_surface :: proc(surface: ^Surface) -> ^Renderer ---
+
+    @(link_name = "gsk_renderer_get_surface")
+    gsk_renderer_get_surface :: proc(renderer: ^Renderer) -> ^Surface ---
+
+    @(link_name = "gsk_renderer_realize")
+    gsk_renderer_realize :: proc(renderer: ^Renderer, surface: ^Surface, error: ^^glib.Error) -> glib.boolean ---
+
+    @(link_name = "gsk_renderer_realize_for_display")
+    gsk_renderer_realize_for_display :: proc(renderer: ^Renderer, display: ^Display, error: ^^glib.Error) -> glib.boolean ---
+
+    @(link_name = "gsk_renderer_unrealize")
+    gsk_renderer_unrealize :: proc(renderer: ^Renderer) ---
+
+    @(link_name = "gsk_renderer_is_realized")
+    gsk_renderer_is_realized :: proc(renderer: ^Renderer) -> glib.boolean ---
+
+    @(link_name = "gsk_renderer_render_texture")
+    gsk_renderer_render_texture :: proc(renderer: ^Renderer, root: ^RenderNode, viewport: ^graphene.rect_t) -> ^Texture ---
+
+    @(link_name = "gsk_renderer_render")
+    gsk_renderer_render :: proc(renderer: ^Renderer, root: ^RenderNode, region: ^cairo.region_t) ---
+
+    @(link_name = "gsk_stroke_get_type")
+    gsk_stroke_get_type :: proc() -> gobj.Type ---
+
+    @(link_name = "gsk_stroke_new")
+    gsk_stroke_new :: proc(line_width: f32) -> ^Stroke ---
+
+    @(link_name = "gsk_stroke_copy")
+    gsk_stroke_copy :: proc(other: ^Stroke) -> ^Stroke ---
+
+    @(link_name = "gsk_stroke_free")
+    gsk_stroke_free :: proc(self: ^Stroke) ---
+
+    @(link_name = "gsk_stroke_equal")
+    gsk_stroke_equal :: proc(stroke1: glib.constpointer, stroke2: glib.constpointer) -> glib.boolean ---
+
+    @(link_name = "gsk_stroke_set_line_width")
+    gsk_stroke_set_line_width :: proc(self: ^Stroke, line_width: f32) ---
+
+    @(link_name = "gsk_stroke_get_line_width")
+    gsk_stroke_get_line_width :: proc(self: ^Stroke) -> f32 ---
+
+    @(link_name = "gsk_stroke_set_line_cap")
+    gsk_stroke_set_line_cap :: proc(self: ^Stroke, line_cap: LineCap) ---
+
+    @(link_name = "gsk_stroke_get_line_cap")
+    gsk_stroke_get_line_cap :: proc(self: ^Stroke) -> LineCap ---
+
+    @(link_name = "gsk_stroke_set_line_join")
+    gsk_stroke_set_line_join :: proc(self: ^Stroke, line_join: LineJoin) ---
+
+    @(link_name = "gsk_stroke_get_line_join")
+    gsk_stroke_get_line_join :: proc(self: ^Stroke) -> LineJoin ---
+
+    @(link_name = "gsk_stroke_set_miter_limit")
+    gsk_stroke_set_miter_limit :: proc(self: ^Stroke, limit: f32) ---
+
+    @(link_name = "gsk_stroke_get_miter_limit")
+    gsk_stroke_get_miter_limit :: proc(self: ^Stroke) -> f32 ---
+
+    @(link_name = "gsk_stroke_set_dash")
+    gsk_stroke_set_dash :: proc(self: ^Stroke, dash: ^f32, n_dash: glib.size) ---
+
+    @(link_name = "gsk_stroke_get_dash")
+    gsk_stroke_get_dash :: proc(self: ^Stroke, n_dash: ^glib.size) -> ^f32 ---
+
+    @(link_name = "gsk_stroke_set_dash_offset")
+    gsk_stroke_set_dash_offset :: proc(self: ^Stroke, offset: f32) ---
+
+    @(link_name = "gsk_stroke_get_dash_offset")
+    gsk_stroke_get_dash_offset :: proc(self: ^Stroke) -> f32 ---
+
+    @(link_name = "gsk_stroke_to_cairo")
+    gsk_stroke_to_cairo :: proc(self: ^Stroke, cr: ^cairo.context_t) ---
+
+    @(link_name = "gsk_transform_get_type")
+    gsk_transform_get_type :: proc() -> gobj.Type ---
+
+    @(link_name = "gsk_transform_ref")
+    gsk_transform_ref :: proc(self: ^Transform) -> ^Transform ---
+
+    @(link_name = "gsk_transform_unref")
+    gsk_transform_unref :: proc(self: ^Transform) ---
+
+    @(link_name = "gsk_transform_print")
+    gsk_transform_print :: proc(self: ^Transform, string_p: ^glib.String) ---
+
+    @(link_name = "gsk_transform_to_string")
+    gsk_transform_to_string :: proc(self: ^Transform) -> cstring ---
+
+    @(link_name = "gsk_transform_parse")
+    gsk_transform_parse :: proc(string_p: cstring, out_transform: ^^Transform) -> glib.boolean ---
+
+    @(link_name = "gsk_transform_to_matrix")
+    gsk_transform_to_matrix :: proc(self: ^Transform, out_matrix: ^graphene.matrix_t) ---
+
+    @(link_name = "gsk_transform_to_2d")
+    gsk_transform_to_2d :: proc(self: ^Transform, out_xx: ^f32, out_yx: ^f32, out_xy: ^f32, out_yy: ^f32, out_dx: ^f32, out_dy: ^f32) ---
+
+    @(link_name = "gsk_transform_to_2d_components")
+    gsk_transform_to_2d_components :: proc(self: ^Transform, out_skew_x: ^f32, out_skew_y: ^f32, out_scale_x: ^f32, out_scale_y: ^f32, out_angle: ^f32, out_dx: ^f32, out_dy: ^f32) ---
+
+    @(link_name = "gsk_transform_to_affine")
+    gsk_transform_to_affine :: proc(self: ^Transform, out_scale_x: ^f32, out_scale_y: ^f32, out_dx: ^f32, out_dy: ^f32) ---
+
+    @(link_name = "gsk_transform_to_translate")
+    gsk_transform_to_translate :: proc(self: ^Transform, out_dx: ^f32, out_dy: ^f32) ---
+
+    @(link_name = "gsk_transform_get_category")
+    gsk_transform_get_category :: proc(self: ^Transform) -> TransformCategory ---
+
+    @(link_name = "gsk_transform_equal")
+    gsk_transform_equal :: proc(first: ^Transform, second: ^Transform) -> glib.boolean ---
+
+    @(link_name = "gsk_transform_new")
+    gsk_transform_new :: proc() -> ^Transform ---
+
+    @(link_name = "gsk_transform_transform")
+    gsk_transform_transform :: proc(next: ^Transform, other: ^Transform) -> ^Transform ---
+
+    @(link_name = "gsk_transform_invert")
+    gsk_transform_invert :: proc(self: ^Transform) -> ^Transform ---
+
+    @(link_name = "gsk_transform_matrix")
+    gsk_transform_matrix :: proc(next: ^Transform, matrix_p: ^graphene.matrix_t) -> ^Transform ---
+
+    @(link_name = "gsk_transform_translate")
+    gsk_transform_translate :: proc(next: ^Transform, point: ^graphene.point_t) -> ^Transform ---
+
+    @(link_name = "gsk_transform_translate_3d")
+    gsk_transform_translate_3d :: proc(next: ^Transform, point: ^graphene.point3d_t) -> ^Transform ---
+
+    @(link_name = "gsk_transform_skew")
+    gsk_transform_skew :: proc(next: ^Transform, skew_x: f32, skew_y: f32) -> ^Transform ---
+
+    @(link_name = "gsk_transform_rotate")
+    gsk_transform_rotate :: proc(next: ^Transform, angle: f32) -> ^Transform ---
+
+    @(link_name = "gsk_transform_rotate_3d")
+    gsk_transform_rotate_3d :: proc(next: ^Transform, angle: f32, axis: ^graphene.vec3_t) -> ^Transform ---
+
+    @(link_name = "gsk_transform_scale")
+    gsk_transform_scale :: proc(next: ^Transform, factor_x: f32, factor_y: f32) -> ^Transform ---
+
+    @(link_name = "gsk_transform_scale_3d")
+    gsk_transform_scale_3d :: proc(next: ^Transform, factor_x: f32, factor_y: f32, factor_z: f32) -> ^Transform ---
+
+    @(link_name = "gsk_transform_perspective")
+    gsk_transform_perspective :: proc(next: ^Transform, depth: f32) -> ^Transform ---
+
+    @(link_name = "gsk_transform_transform_bounds")
+    gsk_transform_transform_bounds :: proc(self: ^Transform, rect: ^graphene.rect_t, out_rect: ^graphene.rect_t) ---
+
+    @(link_name = "gsk_transform_transform_point")
+    gsk_transform_transform_point :: proc(self: ^Transform, point: ^graphene.point_t, out_point: ^graphene.point_t) ---
+
+    @(link_name = "gsk_cairo_renderer_get_type")
+    gsk_cairo_renderer_get_type :: proc() -> gobj.Type ---
+
+    @(link_name = "gsk_cairo_renderer_new")
+    gsk_cairo_renderer_new :: proc() -> ^Renderer ---
+
+    @(link_name = "gsk_gl_renderer_get_type")
+    gsk_gl_renderer_get_type :: proc() -> gobj.Type ---
+
+    @(link_name = "gsk_gl_renderer_new")
+    gsk_gl_renderer_new :: proc() -> ^Renderer ---
+
+    @(link_name = "gsk_ngl_renderer_get_type")
+    gsk_ngl_renderer_get_type :: proc() -> gobj.Type ---
+
+    @(link_name = "gsk_ngl_renderer_new")
+    gsk_ngl_renderer_new :: proc() -> ^Renderer ---
+
+    @(link_name = "gsk_vulkan_renderer_get_type")
+    gsk_vulkan_renderer_get_type :: proc() -> gobj.Type ---
+
+    @(link_name = "gsk_vulkan_renderer_new")
+    gsk_vulkan_renderer_new :: proc() -> ^Renderer ---
+
+    @(link_name = "gsk_render_node_type_get_type")
+    gsk_render_node_type_get_type :: proc() -> gobj.Type ---
+
+    @(link_name = "gsk_scaling_filter_get_type")
+    gsk_scaling_filter_get_type :: proc() -> gobj.Type ---
+
+    @(link_name = "gsk_blend_mode_get_type")
+    gsk_blend_mode_get_type :: proc() -> gobj.Type ---
+
+    @(link_name = "gsk_corner_get_type")
+    gsk_corner_get_type :: proc() -> gobj.Type ---
+
+    @(link_name = "gsk_fill_rule_get_type")
+    gsk_fill_rule_get_type :: proc() -> gobj.Type ---
+
+    @(link_name = "gsk_line_cap_get_type")
+    gsk_line_cap_get_type :: proc() -> gobj.Type ---
+
+    @(link_name = "gsk_line_join_get_type")
+    gsk_line_join_get_type :: proc() -> gobj.Type ---
+
+    @(link_name = "gsk_path_operation_get_type")
+    gsk_path_operation_get_type :: proc() -> gobj.Type ---
+
+    @(link_name = "gsk_path_direction_get_type")
+    gsk_path_direction_get_type :: proc() -> gobj.Type ---
+
+    @(link_name = "gsk_serialization_error_get_type")
+    gsk_serialization_error_get_type :: proc() -> gobj.Type ---
+
+    @(link_name = "gsk_transform_category_get_type")
+    gsk_transform_category_get_type :: proc() -> gobj.Type ---
+
+    @(link_name = "gsk_gl_uniform_type_get_type")
+    gsk_gl_uniform_type_get_type :: proc() -> gobj.Type ---
+
+    @(link_name = "gsk_mask_mode_get_type")
+    gsk_mask_mode_get_type :: proc() -> gobj.Type ---
+
+    @(link_name = "gsk_path_foreach_flags_get_type")
+    gsk_path_foreach_flags_get_type :: proc() -> gobj.Type ---
+
+    @(link_name = "gtk_shortcut_get_type")
+    shortcut_get_type :: proc() -> gobj.Type ---
+
+    @(link_name = "gtk_shortcut_new")
+    shortcut_new :: proc(trigger: ^ShortcutTrigger, action: ^ShortcutAction) -> ^Shortcut ---
+
+    @(link_name = "gtk_shortcut_new_with_arguments")
+    shortcut_new_with_arguments :: proc(trigger: ^ShortcutTrigger, action: ^ShortcutAction, format_string: cstring, #c_vararg var_args: ..any) -> ^Shortcut ---
+
+    @(link_name = "gtk_shortcut_get_trigger")
+    shortcut_get_trigger :: proc(self: ^Shortcut) -> ^ShortcutTrigger ---
+
+    @(link_name = "gtk_shortcut_set_trigger")
+    shortcut_set_trigger :: proc(self: ^Shortcut, trigger: ^ShortcutTrigger) ---
+
+    @(link_name = "gtk_shortcut_get_action")
+    shortcut_get_action :: proc(self: ^Shortcut) -> ^ShortcutAction ---
+
+    @(link_name = "gtk_shortcut_set_action")
+    shortcut_set_action :: proc(self: ^Shortcut, action: ^ShortcutAction) ---
+
+    @(link_name = "gtk_shortcut_get_arguments")
+    shortcut_get_arguments :: proc(self: ^Shortcut) -> ^glib.Variant ---
+
+    @(link_name = "gtk_shortcut_set_arguments")
+    shortcut_set_arguments :: proc(self: ^Shortcut, args: ^glib.Variant) ---
+
+    @(link_name = "gtk_shortcut_action_get_type")
+    shortcut_action_get_type :: proc() -> gobj.Type ---
+
+    @(link_name = "gtk_shortcut_action_to_string")
+    shortcut_action_to_string :: proc(self: ^ShortcutAction) -> cstring ---
+
+    @(link_name = "gtk_shortcut_action_parse_string")
+    shortcut_action_parse_string :: proc(string_p: cstring) -> ^ShortcutAction ---
+
+    @(link_name = "gtk_shortcut_action_print")
+    shortcut_action_print :: proc(self: ^ShortcutAction, string_p: ^glib.String) ---
+
+    @(link_name = "gtk_shortcut_action_activate")
+    shortcut_action_activate :: proc(self: ^ShortcutAction, flags: ShortcutActionFlags, widget: ^Widget, args: ^glib.Variant) -> glib.boolean ---
+
+    @(link_name = "gtk_nothing_action_get_type")
+    nothing_action_get_type :: proc() -> gobj.Type ---
+
+    @(link_name = "gtk_nothing_action_get")
+    nothing_action_get :: proc() -> ^ShortcutAction ---
+
+    @(link_name = "gtk_callback_action_get_type")
+    callback_action_get_type :: proc() -> gobj.Type ---
+
+    @(link_name = "gtk_callback_action_new")
+    callback_action_new :: proc(callback: ShortcutFunc, data: glib.pointer, destroy: glib.DestroyNotify) -> ^ShortcutAction ---
+
+    @(link_name = "gtk_mnemonic_action_get_type")
+    mnemonic_action_get_type :: proc() -> gobj.Type ---
+
+    @(link_name = "gtk_mnemonic_action_get")
+    mnemonic_action_get :: proc() -> ^ShortcutAction ---
+
+    @(link_name = "gtk_activate_action_get_type")
+    activate_action_get_type :: proc() -> gobj.Type ---
+
+    @(link_name = "gtk_activate_action_get")
+    activate_action_get :: proc() -> ^ShortcutAction ---
+
+    @(link_name = "gtk_signal_action_get_type")
+    signal_action_get_type :: proc() -> gobj.Type ---
+
+    @(link_name = "gtk_signal_action_new")
+    signal_action_new :: proc(signal_name: cstring) -> ^ShortcutAction ---
+
+    @(link_name = "gtk_signal_action_get_signal_name")
+    signal_action_get_signal_name :: proc(self: ^SignalAction) -> cstring ---
+
+    @(link_name = "gtk_named_action_get_type")
+    named_action_get_type :: proc() -> gobj.Type ---
+
+    @(link_name = "gtk_named_action_new")
+    named_action_new :: proc(name: cstring) -> ^ShortcutAction ---
+
+    @(link_name = "gtk_named_action_get_action_name")
+    named_action_get_action_name :: proc(self: ^NamedAction) -> cstring ---
+
+    @(link_name = "gtk_widget_get_type")
+    widget_get_type :: proc() -> gobj.Type ---
+
+    @(link_name = "gtk_widget_unparent")
+    widget_unparent :: proc(widget: ^Widget) ---
+
+    @(link_name = "gtk_widget_show")
+    widget_show :: proc(widget: ^Widget) ---
+
+    @(link_name = "gtk_widget_hide")
+    widget_hide :: proc(widget: ^Widget) ---
+
+    @(link_name = "gtk_widget_map")
+    widget_map :: proc(widget: ^Widget) ---
+
+    @(link_name = "gtk_widget_unmap")
+    widget_unmap :: proc(widget: ^Widget) ---
+
+    @(link_name = "gtk_widget_realize")
+    widget_realize :: proc(widget: ^Widget) ---
+
+    @(link_name = "gtk_widget_unrealize")
+    widget_unrealize :: proc(widget: ^Widget) ---
+
+    @(link_name = "gtk_widget_queue_draw")
+    widget_queue_draw :: proc(widget: ^Widget) ---
+
+    @(link_name = "gtk_widget_queue_resize")
+    widget_queue_resize :: proc(widget: ^Widget) ---
+
+    @(link_name = "gtk_widget_queue_allocate")
+    widget_queue_allocate :: proc(widget: ^Widget) ---
+
+    @(link_name = "gtk_widget_get_frame_clock")
+    widget_get_frame_clock :: proc(widget: ^Widget) -> ^FrameClock ---
+
+    @(link_name = "gtk_widget_size_allocate")
+    widget_size_allocate :: proc(widget: ^Widget, allocation: ^Allocation, baseline: i32) ---
+
+    @(link_name = "gtk_widget_allocate")
+    widget_allocate :: proc(widget: ^Widget, width: i32, height: i32, baseline: i32, transform: ^Transform) ---
+
+    @(link_name = "gtk_widget_get_request_mode")
+    widget_get_request_mode :: proc(widget: ^Widget) -> SizeRequestMode ---
+
+    @(link_name = "gtk_widget_measure")
+    widget_measure :: proc(widget: ^Widget, orientation: Orientation, for_size: i32, minimum: ^i32, natural: ^i32, minimum_baseline: ^i32, natural_baseline: ^i32) ---
+
+    @(link_name = "gtk_widget_get_preferred_size")
+    widget_get_preferred_size :: proc(widget: ^Widget, minimum_size: ^Requisition, natural_size: ^Requisition) ---
+
+    @(link_name = "gtk_widget_set_layout_manager")
+    widget_set_layout_manager :: proc(widget: ^Widget, layout_manager: ^LayoutManager) ---
+
+    @(link_name = "gtk_widget_get_layout_manager")
+    widget_get_layout_manager :: proc(widget: ^Widget) -> ^LayoutManager ---
+
+    @(link_name = "gtk_widget_class_set_layout_manager_type")
+    widget_class_set_layout_manager_type :: proc(widget_class: ^WidgetClass, type: gobj.Type) ---
+
+    @(link_name = "gtk_widget_class_get_layout_manager_type")
+    widget_class_get_layout_manager_type :: proc(widget_class: ^WidgetClass) -> gobj.Type ---
+
+    @(link_name = "gtk_widget_class_add_binding")
+    widget_class_add_binding :: proc(widget_class: ^WidgetClass, keyval: glib.uint_, mods: ModifierType, callback: ShortcutFunc, format_string: cstring, #c_vararg var_args: ..any) ---
+
+    @(link_name = "gtk_widget_class_add_binding_signal")
+    widget_class_add_binding_signal :: proc(widget_class: ^WidgetClass, keyval: glib.uint_, mods: ModifierType, signal: cstring, format_string: cstring, #c_vararg var_args: ..any) ---
+
+    @(link_name = "gtk_widget_class_add_binding_action")
+    widget_class_add_binding_action :: proc(widget_class: ^WidgetClass, keyval: glib.uint_, mods: ModifierType, action_name: cstring, format_string: cstring, #c_vararg var_args: ..any) ---
+
+    @(link_name = "gtk_widget_class_add_shortcut")
+    widget_class_add_shortcut :: proc(widget_class: ^WidgetClass, shortcut: ^Shortcut) ---
+
+    @(link_name = "gtk_widget_class_set_activate_signal")
+    widget_class_set_activate_signal :: proc(widget_class: ^WidgetClass, signal_id: glib.uint_) ---
+
+    @(link_name = "gtk_widget_class_set_activate_signal_from_name")
+    widget_class_set_activate_signal_from_name :: proc(widget_class: ^WidgetClass, signal_name: cstring) ---
+
+    @(link_name = "gtk_widget_class_get_activate_signal")
+    widget_class_get_activate_signal :: proc(widget_class: ^WidgetClass) -> glib.uint_ ---
+
+    @(link_name = "gtk_widget_mnemonic_activate")
+    widget_mnemonic_activate :: proc(widget: ^Widget, group_cycling: glib.boolean) -> glib.boolean ---
+
+    @(link_name = "gtk_widget_activate")
+    widget_activate :: proc(widget: ^Widget) -> glib.boolean ---
+
+    @(link_name = "gtk_widget_set_can_focus")
+    widget_set_can_focus :: proc(widget: ^Widget, can_focus: glib.boolean) ---
+
+    @(link_name = "gtk_widget_get_can_focus")
+    widget_get_can_focus :: proc(widget: ^Widget) -> glib.boolean ---
+
+    @(link_name = "gtk_widget_set_focusable")
+    widget_set_focusable :: proc(widget: ^Widget, focusable: glib.boolean) ---
+
+    @(link_name = "gtk_widget_get_focusable")
+    widget_get_focusable :: proc(widget: ^Widget) -> glib.boolean ---
+
+    @(link_name = "gtk_widget_has_focus")
+    widget_has_focus :: proc(widget: ^Widget) -> glib.boolean ---
+
+    @(link_name = "gtk_widget_is_focus")
+    widget_is_focus :: proc(widget: ^Widget) -> glib.boolean ---
+
+    @(link_name = "gtk_widget_has_visible_focus")
+    widget_has_visible_focus :: proc(widget: ^Widget) -> glib.boolean ---
+
+    @(link_name = "gtk_widget_grab_focus")
+    widget_grab_focus :: proc(widget: ^Widget) -> glib.boolean ---
+
+    @(link_name = "gtk_widget_set_focus_on_click")
+    widget_set_focus_on_click :: proc(widget: ^Widget, focus_on_click: glib.boolean) ---
+
+    @(link_name = "gtk_widget_get_focus_on_click")
+    widget_get_focus_on_click :: proc(widget: ^Widget) -> glib.boolean ---
+
+    @(link_name = "gtk_widget_set_can_target")
+    widget_set_can_target :: proc(widget: ^Widget, can_target: glib.boolean) ---
+
+    @(link_name = "gtk_widget_get_can_target")
+    widget_get_can_target :: proc(widget: ^Widget) -> glib.boolean ---
+
+    @(link_name = "gtk_widget_has_default")
+    widget_has_default :: proc(widget: ^Widget) -> glib.boolean ---
+
+    @(link_name = "gtk_widget_set_receives_default")
+    widget_set_receives_default :: proc(widget: ^Widget, receives_default: glib.boolean) ---
+
+    @(link_name = "gtk_widget_get_receives_default")
+    widget_get_receives_default :: proc(widget: ^Widget) -> glib.boolean ---
+
+    @(link_name = "gtk_widget_set_name")
+    widget_set_name :: proc(widget: ^Widget, name: cstring) ---
+
+    @(link_name = "gtk_widget_get_name")
+    widget_get_name :: proc(widget: ^Widget) -> cstring ---
+
+    @(link_name = "gtk_widget_set_state_flags")
+    widget_set_state_flags :: proc(widget: ^Widget, flags: StateFlags, clear: glib.boolean) ---
+
+    @(link_name = "gtk_widget_unset_state_flags")
+    widget_unset_state_flags :: proc(widget: ^Widget, flags: StateFlags) ---
+
+    @(link_name = "gtk_widget_get_state_flags")
+    widget_get_state_flags :: proc(widget: ^Widget) -> StateFlags ---
+
+    @(link_name = "gtk_widget_set_sensitive")
+    widget_set_sensitive :: proc(widget: ^Widget, sensitive: glib.boolean) ---
+
+    @(link_name = "gtk_widget_get_sensitive")
+    widget_get_sensitive :: proc(widget: ^Widget) -> glib.boolean ---
+
+    @(link_name = "gtk_widget_is_sensitive")
+    widget_is_sensitive :: proc(widget: ^Widget) -> glib.boolean ---
+
+    @(link_name = "gtk_widget_set_visible")
+    widget_set_visible :: proc(widget: ^Widget, visible: glib.boolean) ---
+
+    @(link_name = "gtk_widget_get_visible")
+    widget_get_visible :: proc(widget: ^Widget) -> glib.boolean ---
+
+    @(link_name = "gtk_widget_is_visible")
+    widget_is_visible :: proc(widget: ^Widget) -> glib.boolean ---
+
+    @(link_name = "gtk_widget_is_drawable")
+    widget_is_drawable :: proc(widget: ^Widget) -> glib.boolean ---
+
+    @(link_name = "gtk_widget_get_realized")
+    widget_get_realized :: proc(widget: ^Widget) -> glib.boolean ---
+
+    @(link_name = "gtk_widget_get_mapped")
+    widget_get_mapped :: proc(widget: ^Widget) -> glib.boolean ---
+
+    @(link_name = "gtk_widget_set_parent")
+    widget_set_parent :: proc(widget: ^Widget, parent: ^Widget) ---
+
+    @(link_name = "gtk_widget_get_parent")
+    widget_get_parent :: proc(widget: ^Widget) -> ^Widget ---
+
+    @(link_name = "gtk_widget_get_root")
+    widget_get_root :: proc(widget: ^Widget) -> ^Root ---
+
+    @(link_name = "gtk_widget_get_native")
+    widget_get_native :: proc(widget: ^Widget) -> ^Native ---
+
+    @(link_name = "gtk_widget_set_child_visible")
+    widget_set_child_visible :: proc(widget: ^Widget, child_visible: glib.boolean) ---
+
+    @(link_name = "gtk_widget_get_child_visible")
+    widget_get_child_visible :: proc(widget: ^Widget) -> glib.boolean ---
+
+    @(link_name = "gtk_widget_get_allocated_width")
+    widget_get_allocated_width :: proc(widget: ^Widget) -> i32 ---
+
+    @(link_name = "gtk_widget_get_allocated_height")
+    widget_get_allocated_height :: proc(widget: ^Widget) -> i32 ---
+
+    @(link_name = "gtk_widget_get_allocated_baseline")
+    widget_get_allocated_baseline :: proc(widget: ^Widget) -> i32 ---
+
+    @(link_name = "gtk_widget_get_allocation")
+    widget_get_allocation :: proc(widget: ^Widget, allocation: ^Allocation) ---
+
+    @(link_name = "gtk_widget_compute_transform")
+    widget_compute_transform :: proc(widget: ^Widget, target: ^Widget, out_transform: ^graphene.matrix_t) -> glib.boolean ---
+
+    @(link_name = "gtk_widget_compute_bounds")
+    widget_compute_bounds :: proc(widget: ^Widget, target: ^Widget, out_bounds: ^graphene.rect_t) -> glib.boolean ---
+
+    @(link_name = "gtk_widget_compute_point")
+    widget_compute_point :: proc(widget: ^Widget, target: ^Widget, point: ^graphene.point_t, out_point: ^graphene.point_t) -> glib.boolean ---
+
+    @(link_name = "gtk_widget_get_width")
+    widget_get_width :: proc(widget: ^Widget) -> i32 ---
+
+    @(link_name = "gtk_widget_get_height")
+    widget_get_height :: proc(widget: ^Widget) -> i32 ---
+
+    @(link_name = "gtk_widget_get_baseline")
+    widget_get_baseline :: proc(widget: ^Widget) -> i32 ---
+
+    @(link_name = "gtk_widget_get_size")
+    widget_get_size :: proc(widget: ^Widget, orientation: Orientation) -> i32 ---
+
+    @(link_name = "gtk_widget_child_focus")
+    widget_child_focus :: proc(widget: ^Widget, direction: DirectionType) -> glib.boolean ---
+
+    @(link_name = "gtk_widget_keynav_failed")
+    widget_keynav_failed :: proc(widget: ^Widget, direction: DirectionType) -> glib.boolean ---
+
+    @(link_name = "gtk_widget_error_bell")
+    widget_error_bell :: proc(widget: ^Widget) ---
+
+    @(link_name = "gtk_widget_set_size_request")
+    widget_set_size_request :: proc(widget: ^Widget, width: i32, height: i32) ---
+
+    @(link_name = "gtk_widget_get_size_request")
+    widget_get_size_request :: proc(widget: ^Widget, width: ^i32, height: ^i32) ---
+
+    @(link_name = "gtk_widget_set_opacity")
+    widget_set_opacity :: proc(widget: ^Widget, opacity: f64) ---
+
+    @(link_name = "gtk_widget_get_opacity")
+    widget_get_opacity :: proc(widget: ^Widget) -> f64 ---
+
+    @(link_name = "gtk_widget_set_overflow")
+    widget_set_overflow :: proc(widget: ^Widget, overflow: Overflow) ---
+
+    @(link_name = "gtk_widget_get_overflow")
+    widget_get_overflow :: proc(widget: ^Widget) -> Overflow ---
+
+    @(link_name = "gtk_widget_get_ancestor")
+    widget_get_ancestor :: proc(widget: ^Widget, widget_type: gobj.Type) -> ^Widget ---
+
+    @(link_name = "gtk_widget_get_scale_factor")
+    widget_get_scale_factor :: proc(widget: ^Widget) -> i32 ---
+
+    @(link_name = "gtk_widget_get_display")
+    widget_get_display :: proc(widget: ^Widget) -> ^Display ---
+
+    @(link_name = "gtk_widget_get_settings")
+    widget_get_settings :: proc(widget: ^Widget) -> ^Settings ---
+
+    @(link_name = "gtk_widget_get_clipboard")
+    widget_get_clipboard :: proc(widget: ^Widget) -> ^Clipboard ---
+
+    @(link_name = "gtk_widget_get_primary_clipboard")
+    widget_get_primary_clipboard :: proc(widget: ^Widget) -> ^Clipboard ---
+
+    @(link_name = "gtk_widget_get_hexpand")
+    widget_get_hexpand :: proc(widget: ^Widget) -> glib.boolean ---
+
+    @(link_name = "gtk_widget_set_hexpand")
+    widget_set_hexpand :: proc(widget: ^Widget, expand: glib.boolean) ---
+
+    @(link_name = "gtk_widget_get_hexpand_set")
+    widget_get_hexpand_set :: proc(widget: ^Widget) -> glib.boolean ---
+
+    @(link_name = "gtk_widget_set_hexpand_set")
+    widget_set_hexpand_set :: proc(widget: ^Widget, set: glib.boolean) ---
+
+    @(link_name = "gtk_widget_get_vexpand")
+    widget_get_vexpand :: proc(widget: ^Widget) -> glib.boolean ---
+
+    @(link_name = "gtk_widget_set_vexpand")
+    widget_set_vexpand :: proc(widget: ^Widget, expand: glib.boolean) ---
+
+    @(link_name = "gtk_widget_get_vexpand_set")
+    widget_get_vexpand_set :: proc(widget: ^Widget) -> glib.boolean ---
+
+    @(link_name = "gtk_widget_set_vexpand_set")
+    widget_set_vexpand_set :: proc(widget: ^Widget, set: glib.boolean) ---
+
+    @(link_name = "gtk_widget_compute_expand")
+    widget_compute_expand :: proc(widget: ^Widget, orientation: Orientation) -> glib.boolean ---
+
+    @(link_name = "gtk_widget_get_halign")
+    widget_get_halign :: proc(widget: ^Widget) -> Align ---
+
+    @(link_name = "gtk_widget_set_halign")
+    widget_set_halign :: proc(widget: ^Widget, align: Align) ---
+
+    @(link_name = "gtk_widget_get_valign")
+    widget_get_valign :: proc(widget: ^Widget) -> Align ---
+
+    @(link_name = "gtk_widget_set_valign")
+    widget_set_valign :: proc(widget: ^Widget, align: Align) ---
+
+    @(link_name = "gtk_widget_get_margin_start")
+    widget_get_margin_start :: proc(widget: ^Widget) -> i32 ---
+
+    @(link_name = "gtk_widget_set_margin_start")
+    widget_set_margin_start :: proc(widget: ^Widget, margin: i32) ---
+
+    @(link_name = "gtk_widget_get_margin_end")
+    widget_get_margin_end :: proc(widget: ^Widget) -> i32 ---
+
+    @(link_name = "gtk_widget_set_margin_end")
+    widget_set_margin_end :: proc(widget: ^Widget, margin: i32) ---
+
+    @(link_name = "gtk_widget_get_margin_top")
+    widget_get_margin_top :: proc(widget: ^Widget) -> i32 ---
+
+    @(link_name = "gtk_widget_set_margin_top")
+    widget_set_margin_top :: proc(widget: ^Widget, margin: i32) ---
+
+    @(link_name = "gtk_widget_get_margin_bottom")
+    widget_get_margin_bottom :: proc(widget: ^Widget) -> i32 ---
+
+    @(link_name = "gtk_widget_set_margin_bottom")
+    widget_set_margin_bottom :: proc(widget: ^Widget, margin: i32) ---
+
+    @(link_name = "gtk_widget_is_ancestor")
+    widget_is_ancestor :: proc(widget: ^Widget, ancestor: ^Widget) -> glib.boolean ---
+
+    @(link_name = "gtk_widget_translate_coordinates")
+    widget_translate_coordinates :: proc(src_widget: ^Widget, dest_widget: ^Widget, src_x: f64, src_y: f64, dest_x: ^f64, dest_y: ^f64) -> glib.boolean ---
+
+    @(link_name = "gtk_widget_contains")
+    widget_contains :: proc(widget: ^Widget, x: f64, y: f64) -> glib.boolean ---
+
+    @(link_name = "gtk_widget_pick")
+    widget_pick :: proc(widget: ^Widget, x: f64, y: f64, flags: PickFlags) -> ^Widget ---
+
+    @(link_name = "gtk_widget_add_controller")
+    widget_add_controller :: proc(widget: ^Widget, controller: ^EventController) ---
+
+    @(link_name = "gtk_widget_remove_controller")
+    widget_remove_controller :: proc(widget: ^Widget, controller: ^EventController) ---
+
+    @(link_name = "gtk_widget_create_pango_context")
+    widget_create_pango_context :: proc(widget: ^Widget) -> ^pango.Context ---
+
+    @(link_name = "gtk_widget_get_pango_context")
+    widget_get_pango_context :: proc(widget: ^Widget) -> ^pango.Context ---
+
+    @(link_name = "gtk_widget_set_font_options")
+    widget_set_font_options :: proc(widget: ^Widget, options: ^cairo.font_options_t) ---
+
+    @(link_name = "gtk_widget_get_font_options")
+    widget_get_font_options :: proc(widget: ^Widget) -> ^cairo.font_options_t ---
+
+    @(link_name = "gtk_widget_create_pango_layout")
+    widget_create_pango_layout :: proc(widget: ^Widget, text: cstring) -> ^pango.Layout ---
+
+    @(link_name = "gtk_widget_set_direction")
+    widget_set_direction :: proc(widget: ^Widget, dir: TextDirection) ---
+
+    @(link_name = "gtk_widget_get_direction")
+    widget_get_direction :: proc(widget: ^Widget) -> TextDirection ---
+
+    @(link_name = "gtk_widget_set_default_direction")
+    widget_set_default_direction :: proc(dir: TextDirection) ---
+
+    @(link_name = "gtk_widget_get_default_direction")
+    widget_get_default_direction :: proc() -> TextDirection ---
+
+    @(link_name = "gtk_widget_set_cursor")
+    widget_set_cursor :: proc(widget: ^Widget, cursor: ^Cursor) ---
+
+    @(link_name = "gtk_widget_set_cursor_from_name")
+    widget_set_cursor_from_name :: proc(widget: ^Widget, name: cstring) ---
+
+    @(link_name = "gtk_widget_get_cursor")
+    widget_get_cursor :: proc(widget: ^Widget) -> ^Cursor ---
+
+    @(link_name = "gtk_widget_list_mnemonic_labels")
+    widget_list_mnemonic_labels :: proc(widget: ^Widget) -> ^glib.List ---
+
+    @(link_name = "gtk_widget_add_mnemonic_label")
+    widget_add_mnemonic_label :: proc(widget: ^Widget, label: ^Widget) ---
+
+    @(link_name = "gtk_widget_remove_mnemonic_label")
+    widget_remove_mnemonic_label :: proc(widget: ^Widget, label: ^Widget) ---
+
+    @(link_name = "gtk_widget_trigger_tooltip_query")
+    widget_trigger_tooltip_query :: proc(widget: ^Widget) ---
+
+    @(link_name = "gtk_widget_set_tooltip_text")
+    widget_set_tooltip_text :: proc(widget: ^Widget, text: cstring) ---
+
+    @(link_name = "gtk_widget_get_tooltip_text")
+    widget_get_tooltip_text :: proc(widget: ^Widget) -> cstring ---
+
+    @(link_name = "gtk_widget_set_tooltip_markup")
+    widget_set_tooltip_markup :: proc(widget: ^Widget, markup: cstring) ---
+
+    @(link_name = "gtk_widget_get_tooltip_markup")
+    widget_get_tooltip_markup :: proc(widget: ^Widget) -> cstring ---
+
+    @(link_name = "gtk_widget_set_has_tooltip")
+    widget_set_has_tooltip :: proc(widget: ^Widget, has_tooltip: glib.boolean) ---
+
+    @(link_name = "gtk_widget_get_has_tooltip")
+    widget_get_has_tooltip :: proc(widget: ^Widget) -> glib.boolean ---
+
+    @(link_name = "gtk_requisition_get_type")
+    requisition_get_type :: proc() -> gobj.Type ---
+
+    @(link_name = "gtk_requisition_new")
+    requisition_new :: proc() -> ^Requisition ---
+
+    @(link_name = "gtk_requisition_copy")
+    requisition_copy :: proc(requisition: ^Requisition) -> ^Requisition ---
+
+    @(link_name = "gtk_requisition_free")
+    requisition_free :: proc(requisition: ^Requisition) ---
+
+    @(link_name = "gtk_widget_in_destruction")
+    widget_in_destruction :: proc(widget: ^Widget) -> glib.boolean ---
+
+    @(link_name = "gtk_widget_get_style_context")
+    widget_get_style_context :: proc(widget: ^Widget) -> ^StyleContext ---
+
+    @(link_name = "gtk_widget_class_set_css_name")
+    widget_class_set_css_name :: proc(widget_class: ^WidgetClass, name: cstring) ---
+
+    @(link_name = "gtk_widget_class_get_css_name")
+    widget_class_get_css_name :: proc(widget_class: ^WidgetClass) -> cstring ---
+
+    @(link_name = "gtk_widget_add_tick_callback")
+    widget_add_tick_callback :: proc(widget: ^Widget, callback: TickCallback, user_data: glib.pointer, notify: glib.DestroyNotify) -> glib.uint_ ---
+
+    @(link_name = "gtk_widget_remove_tick_callback")
+    widget_remove_tick_callback :: proc(widget: ^Widget, id: glib.uint_) ---
+
+    @(link_name = "gtk_widget_init_template")
+    widget_init_template :: proc(widget: ^Widget) ---
+
+    @(link_name = "gtk_widget_get_template_child")
+    widget_get_template_child :: proc(widget: ^Widget, widget_type: gobj.Type, name: cstring) -> ^gobj.Object ---
+
+    @(link_name = "gtk_widget_dispose_template")
+    widget_dispose_template :: proc(widget: ^Widget, widget_type: gobj.Type) ---
+
+    @(link_name = "gtk_widget_class_set_template")
+    widget_class_set_template :: proc(widget_class: ^WidgetClass, template_bytes: ^glib.Bytes) ---
+
+    @(link_name = "gtk_widget_class_set_template_from_resource")
+    widget_class_set_template_from_resource :: proc(widget_class: ^WidgetClass, resource_name: cstring) ---
+
+    @(link_name = "gtk_widget_class_bind_template_callback_full")
+    widget_class_bind_template_callback_full :: proc(widget_class: ^WidgetClass, callback_name: cstring, callback_symbol: gobj.Callback) ---
+
+    @(link_name = "gtk_widget_class_set_template_scope")
+    widget_class_set_template_scope :: proc(widget_class: ^WidgetClass, scope: ^BuilderScope) ---
+
+    @(link_name = "gtk_widget_class_bind_template_child_full")
+    widget_class_bind_template_child_full :: proc(widget_class: ^WidgetClass, name: cstring, internal_child: glib.boolean, struct_offset: glib.ssize) ---
+
+    @(link_name = "gtk_widget_insert_action_group")
+    widget_insert_action_group :: proc(widget: ^Widget, name: cstring, group: ^gio.ActionGroup) ---
+
+    @(link_name = "gtk_widget_activate_action")
+    widget_activate_action :: proc(widget: ^Widget, name: cstring, format_string: cstring, #c_vararg var_args: ..any) -> glib.boolean ---
+
+    @(link_name = "gtk_widget_activate_action_variant")
+    widget_activate_action_variant :: proc(widget: ^Widget, name: cstring, args: ^glib.Variant) -> glib.boolean ---
+
+    @(link_name = "gtk_widget_activate_default")
+    widget_activate_default :: proc(widget: ^Widget) ---
+
+    @(link_name = "gtk_widget_set_font_map")
+    widget_set_font_map :: proc(widget: ^Widget, font_map: ^pango.FontMap) ---
+
+    @(link_name = "gtk_widget_get_font_map")
+    widget_get_font_map :: proc(widget: ^Widget) -> ^pango.FontMap ---
+
+    @(link_name = "gtk_widget_get_first_child")
+    widget_get_first_child :: proc(widget: ^Widget) -> ^Widget ---
+
+    @(link_name = "gtk_widget_get_last_child")
+    widget_get_last_child :: proc(widget: ^Widget) -> ^Widget ---
+
+    @(link_name = "gtk_widget_get_next_sibling")
+    widget_get_next_sibling :: proc(widget: ^Widget) -> ^Widget ---
+
+    @(link_name = "gtk_widget_get_prev_sibling")
+    widget_get_prev_sibling :: proc(widget: ^Widget) -> ^Widget ---
+
+    @(link_name = "gtk_widget_observe_children")
+    widget_observe_children :: proc(widget: ^Widget) -> ^gio.ListModel ---
+
+    @(link_name = "gtk_widget_observe_controllers")
+    widget_observe_controllers :: proc(widget: ^Widget) -> ^gio.ListModel ---
+
+    @(link_name = "gtk_widget_insert_after")
+    widget_insert_after :: proc(widget: ^Widget, parent: ^Widget, previous_sibling: ^Widget) ---
+
+    @(link_name = "gtk_widget_insert_before")
+    widget_insert_before :: proc(widget: ^Widget, parent: ^Widget, next_sibling: ^Widget) ---
+
+    @(link_name = "gtk_widget_set_focus_child")
+    widget_set_focus_child :: proc(widget: ^Widget, child: ^Widget) ---
+
+    @(link_name = "gtk_widget_get_focus_child")
+    widget_get_focus_child :: proc(widget: ^Widget) -> ^Widget ---
+
+    @(link_name = "gtk_widget_snapshot_child")
+    widget_snapshot_child :: proc(widget: ^Widget, child: ^Widget, snapshot: ^Snapshot) ---
+
+    @(link_name = "gtk_widget_should_layout")
+    widget_should_layout :: proc(widget: ^Widget) -> glib.boolean ---
+
+    @(link_name = "gtk_widget_get_css_name")
+    widget_get_css_name :: proc(self: ^Widget) -> cstring ---
+
+    @(link_name = "gtk_widget_add_css_class")
+    widget_add_css_class :: proc(widget: ^Widget, css_class: cstring) ---
+
+    @(link_name = "gtk_widget_remove_css_class")
+    widget_remove_css_class :: proc(widget: ^Widget, css_class: cstring) ---
+
+    @(link_name = "gtk_widget_has_css_class")
+    widget_has_css_class :: proc(widget: ^Widget, css_class: cstring) -> glib.boolean ---
+
+    @(link_name = "gtk_widget_get_css_classes")
+    widget_get_css_classes :: proc(widget: ^Widget) -> ^cstring ---
+
+    @(link_name = "gtk_widget_set_css_classes")
+    widget_set_css_classes :: proc(widget: ^Widget, classes: [^]cstring) ---
+
+    @(link_name = "gtk_widget_get_color")
+    widget_get_color :: proc(widget: ^Widget, color: ^RGBA) ---
+
+    @(link_name = "gtk_widget_class_install_action")
+    widget_class_install_action :: proc(widget_class: ^WidgetClass, action_name: cstring, parameter_type: cstring, activate: WidgetActionActivateFunc) ---
+
+    @(link_name = "gtk_widget_class_install_property_action")
+    widget_class_install_property_action :: proc(widget_class: ^WidgetClass, action_name: cstring, property_name: cstring) ---
+
+    @(link_name = "gtk_widget_class_query_action")
+    widget_class_query_action :: proc(widget_class: ^WidgetClass, index_: glib.uint_, owner: ^gobj.Type, action_name: ^cstring, parameter_type: ^^glib.VariantType, property_name: ^cstring) -> glib.boolean ---
+
+    @(link_name = "gtk_widget_action_set_enabled")
+    widget_action_set_enabled :: proc(widget: ^Widget, action_name: cstring, enabled: glib.boolean) ---
+
+    @(link_name = "gtk_widget_class_set_accessible_role")
+    widget_class_set_accessible_role :: proc(widget_class: ^WidgetClass, accessible_role: AccessibleRole) ---
+
+    @(link_name = "gtk_widget_class_get_accessible_role")
+    widget_class_get_accessible_role :: proc(widget_class: ^WidgetClass) -> AccessibleRole ---
+
+    @(link_name = "gtk_application_get_type")
+    application_get_type :: proc() -> gobj.Type ---
+
+    @(link_name = "gtk_application_new")
+    application_new :: proc(application_id: cstring, flags: gio.ApplicationFlags) -> ^Application ---
+
+    @(link_name = "gtk_application_add_window")
+    application_add_window :: proc(application: ^Application, window: ^Window) ---
+
+    @(link_name = "gtk_application_remove_window")
+    application_remove_window :: proc(application: ^Application, window: ^Window) ---
+
+    @(link_name = "gtk_application_get_windows")
+    application_get_windows :: proc(application: ^Application) -> ^glib.List ---
+
+    @(link_name = "gtk_application_get_menubar")
+    application_get_menubar :: proc(application: ^Application) -> ^gio.MenuModel ---
+
+    @(link_name = "gtk_application_set_menubar")
+    application_set_menubar :: proc(application: ^Application, menubar: ^gio.MenuModel) ---
+
+    @(link_name = "gtk_application_inhibit")
+    application_inhibit :: proc(application: ^Application, window: ^Window, flags: ApplicationInhibitFlags, reason: cstring) -> glib.uint_ ---
+
+    @(link_name = "gtk_application_uninhibit")
+    application_uninhibit :: proc(application: ^Application, cookie: glib.uint_) ---
+
+    @(link_name = "gtk_application_get_window_by_id")
+    application_get_window_by_id :: proc(application: ^Application, id: glib.uint_) -> ^Window ---
+
+    @(link_name = "gtk_application_get_active_window")
+    application_get_active_window :: proc(application: ^Application) -> ^Window ---
+
+    @(link_name = "gtk_application_list_action_descriptions")
+    application_list_action_descriptions :: proc(application: ^Application) -> ^cstring ---
+
+    @(link_name = "gtk_application_get_accels_for_action")
+    application_get_accels_for_action :: proc(application: ^Application, detailed_action_name: cstring) -> ^cstring ---
+
+    @(link_name = "gtk_application_get_actions_for_accel")
+    application_get_actions_for_accel :: proc(application: ^Application, accel: cstring) -> ^cstring ---
+
+    @(link_name = "gtk_application_set_accels_for_action")
+    application_set_accels_for_action :: proc(application: ^Application, detailed_action_name: cstring, accels: [^]cstring) ---
+
+    @(link_name = "gtk_application_get_menu_by_id")
+    application_get_menu_by_id :: proc(application: ^Application, id: cstring) -> ^gio.Menu ---
+
+    @(link_name = "gtk_accelerator_valid")
+    accelerator_valid :: proc(keyval: glib.uint_, modifiers: ModifierType) -> glib.boolean ---
+
+    @(link_name = "gtk_accelerator_parse")
+    accelerator_parse :: proc(accelerator: cstring, accelerator_key: ^glib.uint_, accelerator_mods: ^ModifierType) -> glib.boolean ---
+
+    @(link_name = "gtk_accelerator_parse_with_keycode")
+    accelerator_parse_with_keycode :: proc(accelerator: cstring, display: ^Display, accelerator_key: ^glib.uint_, accelerator_codes: [^]^glib.uint_, accelerator_mods: ^ModifierType) -> glib.boolean ---
+
+    @(link_name = "gtk_accelerator_name")
+    accelerator_name :: proc(accelerator_key: glib.uint_, accelerator_mods: ModifierType) -> cstring ---
+
+    @(link_name = "gtk_accelerator_name_with_keycode")
+    accelerator_name_with_keycode :: proc(display: ^Display, accelerator_key: glib.uint_, keycode: glib.uint_, accelerator_mods: ModifierType) -> cstring ---
+
+    @(link_name = "gtk_accelerator_get_label")
+    accelerator_get_label :: proc(accelerator_key: glib.uint_, accelerator_mods: ModifierType) -> cstring ---
+
+    @(link_name = "gtk_accelerator_get_label_with_keycode")
+    accelerator_get_label_with_keycode :: proc(display: ^Display, accelerator_key: glib.uint_, keycode: glib.uint_, accelerator_mods: ModifierType) -> cstring ---
+
+    @(link_name = "gtk_accelerator_get_default_mod_mask")
+    accelerator_get_default_mod_mask :: proc() -> ModifierType ---
+
+    @(link_name = "gtk_window_get_type")
+    window_get_type :: proc() -> gobj.Type ---
+
+    @(link_name = "gtk_window_new")
+    window_new :: proc() -> ^Widget ---
+
+    @(link_name = "gtk_window_set_title")
+    window_set_title :: proc(window: ^Window, title: cstring) ---
+
+    @(link_name = "gtk_window_get_title")
+    window_get_title :: proc(window: ^Window) -> cstring ---
+
+    @(link_name = "gtk_window_set_startup_id")
+    window_set_startup_id :: proc(window: ^Window, startup_id: cstring) ---
+
+    @(link_name = "gtk_window_set_focus")
+    window_set_focus :: proc(window: ^Window, focus: ^Widget) ---
+
+    @(link_name = "gtk_window_get_focus")
+    window_get_focus :: proc(window: ^Window) -> ^Widget ---
+
+    @(link_name = "gtk_window_set_default_widget")
+    window_set_default_widget :: proc(window: ^Window, default_widget: ^Widget) ---
+
+    @(link_name = "gtk_window_get_default_widget")
+    window_get_default_widget :: proc(window: ^Window) -> ^Widget ---
+
+    @(link_name = "gtk_window_set_transient_for")
+    window_set_transient_for :: proc(window: ^Window, parent: ^Window) ---
+
+    @(link_name = "gtk_window_get_transient_for")
+    window_get_transient_for :: proc(window: ^Window) -> ^Window ---
+
+    @(link_name = "gtk_window_set_destroy_with_parent")
+    window_set_destroy_with_parent :: proc(window: ^Window, setting: glib.boolean) ---
+
+    @(link_name = "gtk_window_get_destroy_with_parent")
+    window_get_destroy_with_parent :: proc(window: ^Window) -> glib.boolean ---
+
+    @(link_name = "gtk_window_set_hide_on_close")
+    window_set_hide_on_close :: proc(window: ^Window, setting: glib.boolean) ---
+
+    @(link_name = "gtk_window_get_hide_on_close")
+    window_get_hide_on_close :: proc(window: ^Window) -> glib.boolean ---
+
+    @(link_name = "gtk_window_set_mnemonics_visible")
+    window_set_mnemonics_visible :: proc(window: ^Window, setting: glib.boolean) ---
+
+    @(link_name = "gtk_window_get_mnemonics_visible")
+    window_get_mnemonics_visible :: proc(window: ^Window) -> glib.boolean ---
+
+    @(link_name = "gtk_window_set_focus_visible")
+    window_set_focus_visible :: proc(window: ^Window, setting: glib.boolean) ---
+
+    @(link_name = "gtk_window_get_focus_visible")
+    window_get_focus_visible :: proc(window: ^Window) -> glib.boolean ---
+
+    @(link_name = "gtk_window_set_resizable")
+    window_set_resizable :: proc(window: ^Window, resizable: glib.boolean) ---
+
+    @(link_name = "gtk_window_get_resizable")
+    window_get_resizable :: proc(window: ^Window) -> glib.boolean ---
+
+    @(link_name = "gtk_window_set_display")
+    window_set_display :: proc(window: ^Window, display: ^Display) ---
+
+    @(link_name = "gtk_window_is_active")
+    window_is_active :: proc(window: ^Window) -> glib.boolean ---
+
+    @(link_name = "gtk_window_set_decorated")
+    window_set_decorated :: proc(window: ^Window, setting: glib.boolean) ---
+
+    @(link_name = "gtk_window_get_decorated")
+    window_get_decorated :: proc(window: ^Window) -> glib.boolean ---
+
+    @(link_name = "gtk_window_set_deletable")
+    window_set_deletable :: proc(window: ^Window, setting: glib.boolean) ---
+
+    @(link_name = "gtk_window_get_deletable")
+    window_get_deletable :: proc(window: ^Window) -> glib.boolean ---
+
+    @(link_name = "gtk_window_set_icon_name")
+    window_set_icon_name :: proc(window: ^Window, name: cstring) ---
+
+    @(link_name = "gtk_window_get_icon_name")
+    window_get_icon_name :: proc(window: ^Window) -> cstring ---
+
+    @(link_name = "gtk_window_set_default_icon_name")
+    window_set_default_icon_name :: proc(name: cstring) ---
+
+    @(link_name = "gtk_window_get_default_icon_name")
+    window_get_default_icon_name :: proc() -> cstring ---
+
+    @(link_name = "gtk_window_set_auto_startup_notification")
+    window_set_auto_startup_notification :: proc(setting: glib.boolean) ---
+
+    @(link_name = "gtk_window_set_modal")
+    window_set_modal :: proc(window: ^Window, modal: glib.boolean) ---
+
+    @(link_name = "gtk_window_get_modal")
+    window_get_modal :: proc(window: ^Window) -> glib.boolean ---
+
+    @(link_name = "gtk_window_get_toplevels")
+    window_get_toplevels :: proc() -> ^gio.ListModel ---
+
+    @(link_name = "gtk_window_list_toplevels")
+    window_list_toplevels :: proc() -> ^glib.List ---
+
+    @(link_name = "gtk_window_present")
+    window_present :: proc(window: ^Window) ---
+
+    @(link_name = "gtk_window_present_with_time")
+    window_present_with_time :: proc(window: ^Window, timestamp: glib.uint32) ---
+
+    @(link_name = "gtk_window_minimize")
+    window_minimize :: proc(window: ^Window) ---
+
+    @(link_name = "gtk_window_unminimize")
+    window_unminimize :: proc(window: ^Window) ---
+
+    @(link_name = "gtk_window_maximize")
+    window_maximize :: proc(window: ^Window) ---
+
+    @(link_name = "gtk_window_unmaximize")
+    window_unmaximize :: proc(window: ^Window) ---
+
+    @(link_name = "gtk_window_fullscreen")
+    window_fullscreen :: proc(window: ^Window) ---
+
+    @(link_name = "gtk_window_unfullscreen")
+    window_unfullscreen :: proc(window: ^Window) ---
+
+    @(link_name = "gtk_window_fullscreen_on_monitor")
+    window_fullscreen_on_monitor :: proc(window: ^Window, monitor: ^Monitor) ---
+
+    @(link_name = "gtk_window_close")
+    window_close :: proc(window: ^Window) ---
+
+    @(link_name = "gtk_window_set_default_size")
+    window_set_default_size :: proc(window: ^Window, width: i32, height: i32) ---
+
+    @(link_name = "gtk_window_get_default_size")
+    window_get_default_size :: proc(window: ^Window, width: ^i32, height: ^i32) ---
+
+    @(link_name = "gtk_window_get_group")
+    window_get_group :: proc(window: ^Window) -> ^WindowGroup ---
+
+    @(link_name = "gtk_window_has_group")
+    window_has_group :: proc(window: ^Window) -> glib.boolean ---
+
+    @(link_name = "gtk_window_get_application")
+    window_get_application :: proc(window: ^Window) -> ^Application ---
+
+    @(link_name = "gtk_window_set_application")
+    window_set_application :: proc(window: ^Window, application: ^Application) ---
+
+    @(link_name = "gtk_window_set_child")
+    window_set_child :: proc(window: ^Window, child: ^Widget) ---
+
+    @(link_name = "gtk_window_get_child")
+    window_get_child :: proc(window: ^Window) -> ^Widget ---
+
+    @(link_name = "gtk_window_set_titlebar")
+    window_set_titlebar :: proc(window: ^Window, titlebar: ^Widget) ---
+
+    @(link_name = "gtk_window_get_titlebar")
+    window_get_titlebar :: proc(window: ^Window) -> ^Widget ---
+
+    @(link_name = "gtk_window_is_maximized")
+    window_is_maximized :: proc(window: ^Window) -> glib.boolean ---
+
+    @(link_name = "gtk_window_is_fullscreen")
+    window_is_fullscreen :: proc(window: ^Window) -> glib.boolean ---
+
+    @(link_name = "gtk_window_is_suspended")
+    window_is_suspended :: proc(window: ^Window) -> glib.boolean ---
+
+    @(link_name = "gtk_window_destroy")
+    window_destroy :: proc(window: ^Window) ---
+
+    @(link_name = "gtk_window_set_interactive_debugging")
+    window_set_interactive_debugging :: proc(enable: glib.boolean) ---
+
+    @(link_name = "gtk_window_set_handle_menubar_accel")
+    window_set_handle_menubar_accel :: proc(window: ^Window, handle_menubar_accel: glib.boolean) ---
+
+    @(link_name = "gtk_window_get_handle_menubar_accel")
+    window_get_handle_menubar_accel :: proc(window: ^Window) -> glib.boolean ---
+
+    @(link_name = "gtk_about_dialog_get_type")
+    about_dialog_get_type :: proc() -> gobj.Type ---
+
+    @(link_name = "gtk_about_dialog_new")
+    about_dialog_new :: proc() -> ^Widget ---
+
+    @(link_name = "gtk_show_about_dialog")
+    show_about_dialog :: proc(parent: ^Window, first_property_name: cstring, #c_vararg var_args: ..any) ---
+
+    @(link_name = "gtk_about_dialog_get_program_name")
+    about_dialog_get_program_name :: proc(about: ^AboutDialog) -> cstring ---
+
+    @(link_name = "gtk_about_dialog_set_program_name")
+    about_dialog_set_program_name :: proc(about: ^AboutDialog, name: cstring) ---
+
+    @(link_name = "gtk_about_dialog_get_version")
+    about_dialog_get_version :: proc(about: ^AboutDialog) -> cstring ---
+
+    @(link_name = "gtk_about_dialog_set_version")
+    about_dialog_set_version :: proc(about: ^AboutDialog, version: cstring) ---
+
+    @(link_name = "gtk_about_dialog_get_copyright")
+    about_dialog_get_copyright :: proc(about: ^AboutDialog) -> cstring ---
+
+    @(link_name = "gtk_about_dialog_set_copyright")
+    about_dialog_set_copyright :: proc(about: ^AboutDialog, copyright: cstring) ---
+
+    @(link_name = "gtk_about_dialog_get_comments")
+    about_dialog_get_comments :: proc(about: ^AboutDialog) -> cstring ---
+
+    @(link_name = "gtk_about_dialog_set_comments")
+    about_dialog_set_comments :: proc(about: ^AboutDialog, comments: cstring) ---
+
+    @(link_name = "gtk_about_dialog_get_license")
+    about_dialog_get_license :: proc(about: ^AboutDialog) -> cstring ---
+
+    @(link_name = "gtk_about_dialog_set_license")
+    about_dialog_set_license :: proc(about: ^AboutDialog, license: cstring) ---
+
+    @(link_name = "gtk_about_dialog_set_license_type")
+    about_dialog_set_license_type :: proc(about: ^AboutDialog, license_type: License) ---
+
+    @(link_name = "gtk_about_dialog_get_license_type")
+    about_dialog_get_license_type :: proc(about: ^AboutDialog) -> License ---
+
+    @(link_name = "gtk_about_dialog_get_wrap_license")
+    about_dialog_get_wrap_license :: proc(about: ^AboutDialog) -> glib.boolean ---
+
+    @(link_name = "gtk_about_dialog_set_wrap_license")
+    about_dialog_set_wrap_license :: proc(about: ^AboutDialog, wrap_license: glib.boolean) ---
+
+    @(link_name = "gtk_about_dialog_get_system_information")
+    about_dialog_get_system_information :: proc(about: ^AboutDialog) -> cstring ---
+
+    @(link_name = "gtk_about_dialog_set_system_information")
+    about_dialog_set_system_information :: proc(about: ^AboutDialog, system_information: cstring) ---
+
+    @(link_name = "gtk_about_dialog_get_website")
+    about_dialog_get_website :: proc(about: ^AboutDialog) -> cstring ---
+
+    @(link_name = "gtk_about_dialog_set_website")
+    about_dialog_set_website :: proc(about: ^AboutDialog, website: cstring) ---
+
+    @(link_name = "gtk_about_dialog_get_website_label")
+    about_dialog_get_website_label :: proc(about: ^AboutDialog) -> cstring ---
+
+    @(link_name = "gtk_about_dialog_set_website_label")
+    about_dialog_set_website_label :: proc(about: ^AboutDialog, website_label: cstring) ---
+
+    @(link_name = "gtk_about_dialog_get_authors")
+    about_dialog_get_authors :: proc(about: ^AboutDialog) -> ^cstring ---
+
+    @(link_name = "gtk_about_dialog_set_authors")
+    about_dialog_set_authors :: proc(about: ^AboutDialog, authors: [^]cstring) ---
+
+    @(link_name = "gtk_about_dialog_get_documenters")
+    about_dialog_get_documenters :: proc(about: ^AboutDialog) -> ^cstring ---
+
+    @(link_name = "gtk_about_dialog_set_documenters")
+    about_dialog_set_documenters :: proc(about: ^AboutDialog, documenters: [^]cstring) ---
+
+    @(link_name = "gtk_about_dialog_get_artists")
+    about_dialog_get_artists :: proc(about: ^AboutDialog) -> ^cstring ---
+
+    @(link_name = "gtk_about_dialog_set_artists")
+    about_dialog_set_artists :: proc(about: ^AboutDialog, artists: [^]cstring) ---
+
+    @(link_name = "gtk_about_dialog_get_translator_credits")
+    about_dialog_get_translator_credits :: proc(about: ^AboutDialog) -> cstring ---
+
+    @(link_name = "gtk_about_dialog_set_translator_credits")
+    about_dialog_set_translator_credits :: proc(about: ^AboutDialog, translator_credits: cstring) ---
+
+    @(link_name = "gtk_about_dialog_get_logo")
+    about_dialog_get_logo :: proc(about: ^AboutDialog) -> ^Paintable ---
+
+    @(link_name = "gtk_about_dialog_set_logo")
+    about_dialog_set_logo :: proc(about: ^AboutDialog, logo: ^Paintable) ---
+
+    @(link_name = "gtk_about_dialog_get_logo_icon_name")
+    about_dialog_get_logo_icon_name :: proc(about: ^AboutDialog) -> cstring ---
+
+    @(link_name = "gtk_about_dialog_set_logo_icon_name")
+    about_dialog_set_logo_icon_name :: proc(about: ^AboutDialog, icon_name: cstring) ---
+
+    @(link_name = "gtk_about_dialog_add_credit_section")
+    about_dialog_add_credit_section :: proc(about: ^AboutDialog, section_name: cstring, people: ^cstring) ---
+
+    @(link_name = "gtk_accessible_get_type")
+    accessible_get_type :: proc() -> gobj.Type ---
+
+    @(link_name = "gtk_accessible_get_at_context")
+    accessible_get_at_context :: proc(self: ^Accessible) -> ^ATContext ---
+
+    @(link_name = "gtk_accessible_get_platform_state")
+    accessible_get_platform_state :: proc(self: ^Accessible, state: AccessiblePlatformState) -> glib.boolean ---
+
+    @(link_name = "gtk_accessible_get_accessible_parent")
+    accessible_get_accessible_parent :: proc(self: ^Accessible) -> ^Accessible ---
+
+    @(link_name = "gtk_accessible_set_accessible_parent")
+    accessible_set_accessible_parent :: proc(self: ^Accessible, parent: ^Accessible, next_sibling: ^Accessible) ---
+
+    @(link_name = "gtk_accessible_get_first_accessible_child")
+    accessible_get_first_accessible_child :: proc(self: ^Accessible) -> ^Accessible ---
+
+    @(link_name = "gtk_accessible_get_next_accessible_sibling")
+    accessible_get_next_accessible_sibling :: proc(self: ^Accessible) -> ^Accessible ---
+
+    @(link_name = "gtk_accessible_update_next_accessible_sibling")
+    accessible_update_next_accessible_sibling :: proc(self: ^Accessible, new_sibling: ^Accessible) ---
+
+    @(link_name = "gtk_accessible_get_bounds")
+    accessible_get_bounds :: proc(self: ^Accessible, x: ^i32, y: ^i32, width: ^i32, height: ^i32) -> glib.boolean ---
+
+    @(link_name = "gtk_accessible_get_accessible_role")
+    accessible_get_accessible_role :: proc(self: ^Accessible) -> AccessibleRole ---
+
+    @(link_name = "gtk_accessible_update_state")
+    accessible_update_state :: proc(self: ^Accessible, first_state: AccessibleState, #c_vararg var_args: ..any) ---
+
+    @(link_name = "gtk_accessible_update_property")
+    accessible_update_property :: proc(self: ^Accessible, first_property: AccessibleProperty, #c_vararg var_args: ..any) ---
+
+    @(link_name = "gtk_accessible_update_relation")
+    accessible_update_relation :: proc(self: ^Accessible, first_relation: AccessibleRelation, #c_vararg var_args: ..any) ---
+
+    @(link_name = "gtk_accessible_update_state_value")
+    accessible_update_state_value :: proc(self: ^Accessible, n_states: i32, states: [^]AccessibleState, values: [^]gobj.Value) ---
+
+    @(link_name = "gtk_accessible_update_property_value")
+    accessible_update_property_value :: proc(self: ^Accessible, n_properties: i32, properties: [^]AccessibleProperty, values: [^]gobj.Value) ---
+
+    @(link_name = "gtk_accessible_update_relation_value")
+    accessible_update_relation_value :: proc(self: ^Accessible, n_relations: i32, relations: [^]AccessibleRelation, values: [^]gobj.Value) ---
+
+    @(link_name = "gtk_accessible_reset_state")
+    accessible_reset_state :: proc(self: ^Accessible, state: AccessibleState) ---
+
+    @(link_name = "gtk_accessible_reset_property")
+    accessible_reset_property :: proc(self: ^Accessible, property: AccessibleProperty) ---
+
+    @(link_name = "gtk_accessible_reset_relation")
+    accessible_reset_relation :: proc(self: ^Accessible, relation: AccessibleRelation) ---
+
+    @(link_name = "gtk_accessible_state_init_value")
+    accessible_state_init_value :: proc(state: AccessibleState, value: ^gobj.Value) ---
+
+    @(link_name = "gtk_accessible_property_init_value")
+    accessible_property_init_value :: proc(property: AccessibleProperty, value: ^gobj.Value) ---
+
+    @(link_name = "gtk_accessible_relation_init_value")
+    accessible_relation_init_value :: proc(relation: AccessibleRelation, value: ^gobj.Value) ---
+
+    @(link_name = "gtk_accessible_list_get_type")
+    accessible_list_get_type :: proc() -> gobj.Type ---
+
+    @(link_name = "gtk_accessible_list_get_objects")
+    accessible_list_get_objects :: proc(accessible_list: ^AccessibleList) -> ^glib.List ---
+
+    @(link_name = "gtk_accessible_list_new_from_list")
+    accessible_list_new_from_list :: proc(list: ^glib.List) -> ^AccessibleList ---
+
+    @(link_name = "gtk_accessible_list_new_from_array")
+    accessible_list_new_from_array :: proc(accessibles: [^]^Accessible, n_accessibles: glib.size) -> ^AccessibleList ---
+
+    @(link_name = "gtk_accessible_announce")
+    accessible_announce :: proc(self: ^Accessible, message: cstring, priority: AccessibleAnnouncementPriority) ---
+
+    @(link_name = "gtk_accessible_range_get_type")
+    accessible_range_get_type :: proc() -> gobj.Type ---
+
+    @(link_name = "gtk_accessible_text_get_type")
+    accessible_text_get_type :: proc() -> gobj.Type ---
+
+    @(link_name = "gtk_accessible_text_update_caret_position")
+    accessible_text_update_caret_position :: proc(self: ^AccessibleText) ---
+
+    @(link_name = "gtk_accessible_text_update_selection_bound")
+    accessible_text_update_selection_bound :: proc(self: ^AccessibleText) ---
+
+    @(link_name = "gtk_accessible_text_update_contents")
+    accessible_text_update_contents :: proc(self: ^AccessibleText, change: AccessibleTextContentChange, start: u32, end: u32) ---
+
+    @(link_name = "gtk_actionable_get_type")
+    actionable_get_type :: proc() -> gobj.Type ---
+
+    @(link_name = "gtk_actionable_get_action_name")
+    actionable_get_action_name :: proc(actionable: ^Actionable) -> cstring ---
+
+    @(link_name = "gtk_actionable_set_action_name")
+    actionable_set_action_name :: proc(actionable: ^Actionable, action_name: cstring) ---
+
+    @(link_name = "gtk_actionable_get_action_target_value")
+    actionable_get_action_target_value :: proc(actionable: ^Actionable) -> ^glib.Variant ---
+
+    @(link_name = "gtk_actionable_set_action_target_value")
+    actionable_set_action_target_value :: proc(actionable: ^Actionable, target_value: ^glib.Variant) ---
+
+    @(link_name = "gtk_actionable_set_action_target")
+    actionable_set_action_target :: proc(actionable: ^Actionable, format_string: cstring, #c_vararg var_args: ..any) ---
+
+    @(link_name = "gtk_actionable_set_detailed_action_name")
+    actionable_set_detailed_action_name :: proc(actionable: ^Actionable, detailed_action_name: cstring) ---
+
+    @(link_name = "gtk_action_bar_get_type")
+    action_bar_get_type :: proc() -> gobj.Type ---
+
+    @(link_name = "gtk_action_bar_new")
+    action_bar_new :: proc() -> ^Widget ---
+
+    @(link_name = "gtk_action_bar_get_center_widget")
+    action_bar_get_center_widget :: proc(action_bar: ^ActionBar) -> ^Widget ---
+
+    @(link_name = "gtk_action_bar_set_center_widget")
+    action_bar_set_center_widget :: proc(action_bar: ^ActionBar, center_widget: ^Widget) ---
+
+    @(link_name = "gtk_action_bar_pack_start")
+    action_bar_pack_start :: proc(action_bar: ^ActionBar, child: ^Widget) ---
+
+    @(link_name = "gtk_action_bar_pack_end")
+    action_bar_pack_end :: proc(action_bar: ^ActionBar, child: ^Widget) ---
+
+    @(link_name = "gtk_action_bar_remove")
+    action_bar_remove :: proc(action_bar: ^ActionBar, child: ^Widget) ---
+
+    @(link_name = "gtk_action_bar_set_revealed")
+    action_bar_set_revealed :: proc(action_bar: ^ActionBar, revealed: glib.boolean) ---
+
+    @(link_name = "gtk_action_bar_get_revealed")
+    action_bar_get_revealed :: proc(action_bar: ^ActionBar) -> glib.boolean ---
+
+    @(link_name = "gtk_adjustment_get_type")
+    adjustment_get_type :: proc() -> gobj.Type ---
+
+    @(link_name = "gtk_adjustment_new")
+    adjustment_new :: proc(value: f64, lower: f64, upper: f64, step_increment: f64, page_increment: f64, page_size: f64) -> ^Adjustment ---
+
+    @(link_name = "gtk_adjustment_clamp_page")
+    adjustment_clamp_page :: proc(adjustment: ^Adjustment, lower: f64, upper: f64) ---
+
+    @(link_name = "gtk_adjustment_get_value")
+    adjustment_get_value :: proc(adjustment: ^Adjustment) -> f64 ---
+
+    @(link_name = "gtk_adjustment_set_value")
+    adjustment_set_value :: proc(adjustment: ^Adjustment, value: f64) ---
+
+    @(link_name = "gtk_adjustment_get_lower")
+    adjustment_get_lower :: proc(adjustment: ^Adjustment) -> f64 ---
+
+    @(link_name = "gtk_adjustment_set_lower")
+    adjustment_set_lower :: proc(adjustment: ^Adjustment, lower: f64) ---
+
+    @(link_name = "gtk_adjustment_get_upper")
+    adjustment_get_upper :: proc(adjustment: ^Adjustment) -> f64 ---
+
+    @(link_name = "gtk_adjustment_set_upper")
+    adjustment_set_upper :: proc(adjustment: ^Adjustment, upper: f64) ---
+
+    @(link_name = "gtk_adjustment_get_step_increment")
+    adjustment_get_step_increment :: proc(adjustment: ^Adjustment) -> f64 ---
+
+    @(link_name = "gtk_adjustment_set_step_increment")
+    adjustment_set_step_increment :: proc(adjustment: ^Adjustment, step_increment: f64) ---
+
+    @(link_name = "gtk_adjustment_get_page_increment")
+    adjustment_get_page_increment :: proc(adjustment: ^Adjustment) -> f64 ---
+
+    @(link_name = "gtk_adjustment_set_page_increment")
+    adjustment_set_page_increment :: proc(adjustment: ^Adjustment, page_increment: f64) ---
+
+    @(link_name = "gtk_adjustment_get_page_size")
+    adjustment_get_page_size :: proc(adjustment: ^Adjustment) -> f64 ---
+
+    @(link_name = "gtk_adjustment_set_page_size")
+    adjustment_set_page_size :: proc(adjustment: ^Adjustment, page_size: f64) ---
+
+    @(link_name = "gtk_adjustment_configure")
+    adjustment_configure :: proc(adjustment: ^Adjustment, value: f64, lower: f64, upper: f64, step_increment: f64, page_increment: f64, page_size: f64) ---
+
+    @(link_name = "gtk_adjustment_get_minimum_increment")
+    adjustment_get_minimum_increment :: proc(adjustment: ^Adjustment) -> f64 ---
+
+    @(link_name = "gtk_alert_dialog_get_type")
+    alert_dialog_get_type :: proc() -> gobj.Type ---
+
+    @(link_name = "gtk_alert_dialog_new")
+    alert_dialog_new :: proc(format: cstring, #c_vararg var_args: ..any) -> ^AlertDialog ---
+
+    @(link_name = "gtk_alert_dialog_get_modal")
+    alert_dialog_get_modal :: proc(self: ^AlertDialog) -> glib.boolean ---
+
+    @(link_name = "gtk_alert_dialog_set_modal")
+    alert_dialog_set_modal :: proc(self: ^AlertDialog, modal: glib.boolean) ---
+
+    @(link_name = "gtk_alert_dialog_get_message")
+    alert_dialog_get_message :: proc(self: ^AlertDialog) -> cstring ---
+
+    @(link_name = "gtk_alert_dialog_set_message")
+    alert_dialog_set_message :: proc(self: ^AlertDialog, message: cstring) ---
+
+    @(link_name = "gtk_alert_dialog_get_detail")
+    alert_dialog_get_detail :: proc(self: ^AlertDialog) -> cstring ---
+
+    @(link_name = "gtk_alert_dialog_set_detail")
+    alert_dialog_set_detail :: proc(self: ^AlertDialog, detail: cstring) ---
+
+    @(link_name = "gtk_alert_dialog_get_buttons")
+    alert_dialog_get_buttons :: proc(self: ^AlertDialog) -> ^cstring ---
+
+    @(link_name = "gtk_alert_dialog_set_buttons")
+    alert_dialog_set_buttons :: proc(self: ^AlertDialog, labels: [^]cstring) ---
+
+    @(link_name = "gtk_alert_dialog_get_cancel_button")
+    alert_dialog_get_cancel_button :: proc(self: ^AlertDialog) -> i32 ---
+
+    @(link_name = "gtk_alert_dialog_set_cancel_button")
+    alert_dialog_set_cancel_button :: proc(self: ^AlertDialog, button: i32) ---
+
+    @(link_name = "gtk_alert_dialog_get_default_button")
+    alert_dialog_get_default_button :: proc(self: ^AlertDialog) -> i32 ---
+
+    @(link_name = "gtk_alert_dialog_set_default_button")
+    alert_dialog_set_default_button :: proc(self: ^AlertDialog, button: i32) ---
+
+    @(link_name = "gtk_alert_dialog_choose")
+    alert_dialog_choose :: proc(self: ^AlertDialog, parent: ^Window, cancellable: ^gio.Cancellable, callback: gio.AsyncReadyCallback, user_data: glib.pointer) ---
+
+    @(link_name = "gtk_alert_dialog_choose_finish")
+    alert_dialog_choose_finish :: proc(self: ^AlertDialog, result: ^gio.AsyncResult, error: ^^glib.Error) -> i32 ---
+
+    @(link_name = "gtk_alert_dialog_show")
+    alert_dialog_show :: proc(self: ^AlertDialog, parent: ^Window) ---
+
+    @(link_name = "gtk_app_chooser_get_type")
+    app_chooser_get_type :: proc() -> gobj.Type ---
+
+    @(link_name = "gtk_app_chooser_get_app_info")
+    app_chooser_get_app_info :: proc(self: ^AppChooser) -> ^gio.AppInfo ---
+
+    @(link_name = "gtk_app_chooser_get_content_type")
+    app_chooser_get_content_type :: proc(self: ^AppChooser) -> cstring ---
+
+    @(link_name = "gtk_app_chooser_refresh")
+    app_chooser_refresh :: proc(self: ^AppChooser) ---
+
+    @(link_name = "gtk_dialog_get_type")
+    dialog_get_type :: proc() -> gobj.Type ---
+
+    @(link_name = "gtk_dialog_new")
+    dialog_new :: proc() -> ^Widget ---
+
+    @(link_name = "gtk_dialog_new_with_buttons")
+    dialog_new_with_buttons :: proc(title: cstring, parent: ^Window, flags: DialogFlags, first_button_text: cstring, #c_vararg var_args: ..any) -> ^Widget ---
+
+    @(link_name = "gtk_dialog_add_action_widget")
+    dialog_add_action_widget :: proc(dialog: ^Dialog, child: ^Widget, response_id: i32) ---
+
+    @(link_name = "gtk_dialog_add_button")
+    dialog_add_button :: proc(dialog: ^Dialog, button_text: cstring, response_id: i32) -> ^Widget ---
+
+    @(link_name = "gtk_dialog_add_buttons")
+    dialog_add_buttons :: proc(dialog: ^Dialog, first_button_text: cstring, #c_vararg var_args: ..any) ---
+
+    @(link_name = "gtk_dialog_set_response_sensitive")
+    dialog_set_response_sensitive :: proc(dialog: ^Dialog, response_id: i32, setting: glib.boolean) ---
+
+    @(link_name = "gtk_dialog_set_default_response")
+    dialog_set_default_response :: proc(dialog: ^Dialog, response_id: i32) ---
+
+    @(link_name = "gtk_dialog_get_widget_for_response")
+    dialog_get_widget_for_response :: proc(dialog: ^Dialog, response_id: i32) -> ^Widget ---
+
+    @(link_name = "gtk_dialog_get_response_for_widget")
+    dialog_get_response_for_widget :: proc(dialog: ^Dialog, widget: ^Widget) -> i32 ---
+
+    @(link_name = "gtk_dialog_response")
+    dialog_response :: proc(dialog: ^Dialog, response_id: i32) ---
+
+    @(link_name = "gtk_dialog_get_content_area")
+    dialog_get_content_area :: proc(dialog: ^Dialog) -> ^Widget ---
+
+    @(link_name = "gtk_dialog_get_header_bar")
+    dialog_get_header_bar :: proc(dialog: ^Dialog) -> ^Widget ---
+
+    @(link_name = "gtk_app_chooser_dialog_get_type")
+    app_chooser_dialog_get_type :: proc() -> gobj.Type ---
+
+    @(link_name = "gtk_app_chooser_dialog_new")
+    app_chooser_dialog_new :: proc(parent: ^Window, flags: DialogFlags, file: ^gio.File) -> ^Widget ---
+
+    @(link_name = "gtk_app_chooser_dialog_new_for_content_type")
+    app_chooser_dialog_new_for_content_type :: proc(parent: ^Window, flags: DialogFlags, content_type: cstring) -> ^Widget ---
+
+    @(link_name = "gtk_app_chooser_dialog_get_widget")
+    app_chooser_dialog_get_widget :: proc(self: ^AppChooserDialog) -> ^Widget ---
+
+    @(link_name = "gtk_app_chooser_dialog_set_heading")
+    app_chooser_dialog_set_heading :: proc(self: ^AppChooserDialog, heading: cstring) ---
+
+    @(link_name = "gtk_app_chooser_dialog_get_heading")
+    app_chooser_dialog_get_heading :: proc(self: ^AppChooserDialog) -> cstring ---
+
+    @(link_name = "gtk_app_chooser_widget_get_type")
+    app_chooser_widget_get_type :: proc() -> gobj.Type ---
+
+    @(link_name = "gtk_app_chooser_widget_new")
+    app_chooser_widget_new :: proc(content_type: cstring) -> ^Widget ---
+
+    @(link_name = "gtk_app_chooser_widget_set_show_default")
+    app_chooser_widget_set_show_default :: proc(self: ^AppChooserWidget, setting: glib.boolean) ---
+
+    @(link_name = "gtk_app_chooser_widget_get_show_default")
+    app_chooser_widget_get_show_default :: proc(self: ^AppChooserWidget) -> glib.boolean ---
+
+    @(link_name = "gtk_app_chooser_widget_set_show_recommended")
+    app_chooser_widget_set_show_recommended :: proc(self: ^AppChooserWidget, setting: glib.boolean) ---
+
+    @(link_name = "gtk_app_chooser_widget_get_show_recommended")
+    app_chooser_widget_get_show_recommended :: proc(self: ^AppChooserWidget) -> glib.boolean ---
+
+    @(link_name = "gtk_app_chooser_widget_set_show_fallback")
+    app_chooser_widget_set_show_fallback :: proc(self: ^AppChooserWidget, setting: glib.boolean) ---
+
+    @(link_name = "gtk_app_chooser_widget_get_show_fallback")
+    app_chooser_widget_get_show_fallback :: proc(self: ^AppChooserWidget) -> glib.boolean ---
+
+    @(link_name = "gtk_app_chooser_widget_set_show_other")
+    app_chooser_widget_set_show_other :: proc(self: ^AppChooserWidget, setting: glib.boolean) ---
+
+    @(link_name = "gtk_app_chooser_widget_get_show_other")
+    app_chooser_widget_get_show_other :: proc(self: ^AppChooserWidget) -> glib.boolean ---
+
+    @(link_name = "gtk_app_chooser_widget_set_show_all")
+    app_chooser_widget_set_show_all :: proc(self: ^AppChooserWidget, setting: glib.boolean) ---
+
+    @(link_name = "gtk_app_chooser_widget_get_show_all")
+    app_chooser_widget_get_show_all :: proc(self: ^AppChooserWidget) -> glib.boolean ---
+
+    @(link_name = "gtk_app_chooser_widget_set_default_text")
+    app_chooser_widget_set_default_text :: proc(self: ^AppChooserWidget, text: cstring) ---
+
+    @(link_name = "gtk_app_chooser_widget_get_default_text")
+    app_chooser_widget_get_default_text :: proc(self: ^AppChooserWidget) -> cstring ---
+
+    @(link_name = "gtk_app_chooser_button_get_type")
+    app_chooser_button_get_type :: proc() -> gobj.Type ---
+
+    @(link_name = "gtk_app_chooser_button_new")
+    app_chooser_button_new :: proc(content_type: cstring) -> ^Widget ---
+
+    @(link_name = "gtk_app_chooser_button_append_separator")
+    app_chooser_button_append_separator :: proc(self: ^AppChooserButton) ---
+
+    @(link_name = "gtk_app_chooser_button_append_custom_item")
+    app_chooser_button_append_custom_item :: proc(self: ^AppChooserButton, name: cstring, label: cstring, icon: ^gio.Icon) ---
+
+    @(link_name = "gtk_app_chooser_button_set_active_custom_item")
+    app_chooser_button_set_active_custom_item :: proc(self: ^AppChooserButton, name: cstring) ---
+
+    @(link_name = "gtk_app_chooser_button_set_show_dialog_item")
+    app_chooser_button_set_show_dialog_item :: proc(self: ^AppChooserButton, setting: glib.boolean) ---
+
+    @(link_name = "gtk_app_chooser_button_get_show_dialog_item")
+    app_chooser_button_get_show_dialog_item :: proc(self: ^AppChooserButton) -> glib.boolean ---
+
+    @(link_name = "gtk_app_chooser_button_set_heading")
+    app_chooser_button_set_heading :: proc(self: ^AppChooserButton, heading: cstring) ---
+
+    @(link_name = "gtk_app_chooser_button_get_heading")
+    app_chooser_button_get_heading :: proc(self: ^AppChooserButton) -> cstring ---
+
+    @(link_name = "gtk_app_chooser_button_set_show_default_item")
+    app_chooser_button_set_show_default_item :: proc(self: ^AppChooserButton, setting: glib.boolean) ---
+
+    @(link_name = "gtk_app_chooser_button_get_show_default_item")
+    app_chooser_button_get_show_default_item :: proc(self: ^AppChooserButton) -> glib.boolean ---
+
+    @(link_name = "gtk_app_chooser_button_get_modal")
+    app_chooser_button_get_modal :: proc(self: ^AppChooserButton) -> glib.boolean ---
+
+    @(link_name = "gtk_app_chooser_button_set_modal")
+    app_chooser_button_set_modal :: proc(self: ^AppChooserButton, modal: glib.boolean) ---
+
+    @(link_name = "gtk_shortcuts_shortcut_get_type")
+    shortcuts_shortcut_get_type :: proc() -> gobj.Type ---
+
+    @(link_name = "gtk_shortcuts_group_get_type")
+    shortcuts_group_get_type :: proc() -> gobj.Type ---
+
+    @(link_name = "gtk_shortcuts_group_add_shortcut")
+    shortcuts_group_add_shortcut :: proc(self: ^ShortcutsGroup, shortcut: ^ShortcutsShortcut) ---
+
+    @(link_name = "gtk_shortcuts_section_get_type")
+    shortcuts_section_get_type :: proc() -> gobj.Type ---
+
+    @(link_name = "gtk_shortcuts_section_add_group")
+    shortcuts_section_add_group :: proc(self: ^ShortcutsSection, group: ^ShortcutsGroup) ---
+
+    @(link_name = "gtk_shortcuts_window_get_type")
+    shortcuts_window_get_type :: proc() -> gobj.Type ---
+
+    @(link_name = "gtk_shortcuts_window_add_section")
+    shortcuts_window_add_section :: proc(self: ^ShortcutsWindow, section: ^ShortcutsSection) ---
+
+    @(link_name = "gtk_application_window_get_type")
+    application_window_get_type :: proc() -> gobj.Type ---
+
+    @(link_name = "gtk_application_window_new")
+    application_window_new :: proc(application: ^Application) -> ^Widget ---
+
+    @(link_name = "gtk_application_window_set_show_menubar")
+    application_window_set_show_menubar :: proc(window: ^ApplicationWindow, show_menubar: glib.boolean) ---
+
+    @(link_name = "gtk_application_window_get_show_menubar")
+    application_window_get_show_menubar :: proc(window: ^ApplicationWindow) -> glib.boolean ---
+
+    @(link_name = "gtk_application_window_get_id")
+    application_window_get_id :: proc(window: ^ApplicationWindow) -> glib.uint_ ---
+
+    @(link_name = "gtk_application_window_set_help_overlay")
+    application_window_set_help_overlay :: proc(window: ^ApplicationWindow, help_overlay: ^ShortcutsWindow) ---
+
+    @(link_name = "gtk_application_window_get_help_overlay")
+    application_window_get_help_overlay :: proc(window: ^ApplicationWindow) -> ^ShortcutsWindow ---
+
+    @(link_name = "gtk_aspect_frame_get_type")
+    aspect_frame_get_type :: proc() -> gobj.Type ---
+
+    @(link_name = "gtk_aspect_frame_new")
+    aspect_frame_new :: proc(xalign: f32, yalign: f32, ratio: f32, obey_child: glib.boolean) -> ^Widget ---
+
+    @(link_name = "gtk_aspect_frame_set_xalign")
+    aspect_frame_set_xalign :: proc(self: ^AspectFrame, xalign: f32) ---
+
+    @(link_name = "gtk_aspect_frame_get_xalign")
+    aspect_frame_get_xalign :: proc(self: ^AspectFrame) -> f32 ---
+
+    @(link_name = "gtk_aspect_frame_set_yalign")
+    aspect_frame_set_yalign :: proc(self: ^AspectFrame, yalign: f32) ---
+
+    @(link_name = "gtk_aspect_frame_get_yalign")
+    aspect_frame_get_yalign :: proc(self: ^AspectFrame) -> f32 ---
+
+    @(link_name = "gtk_aspect_frame_set_ratio")
+    aspect_frame_set_ratio :: proc(self: ^AspectFrame, ratio: f32) ---
+
+    @(link_name = "gtk_aspect_frame_get_ratio")
+    aspect_frame_get_ratio :: proc(self: ^AspectFrame) -> f32 ---
+
+    @(link_name = "gtk_aspect_frame_set_obey_child")
+    aspect_frame_set_obey_child :: proc(self: ^AspectFrame, obey_child: glib.boolean) ---
+
+    @(link_name = "gtk_aspect_frame_get_obey_child")
+    aspect_frame_get_obey_child :: proc(self: ^AspectFrame) -> glib.boolean ---
+
+    @(link_name = "gtk_aspect_frame_set_child")
+    aspect_frame_set_child :: proc(self: ^AspectFrame, child: ^Widget) ---
+
+    @(link_name = "gtk_aspect_frame_get_child")
+    aspect_frame_get_child :: proc(self: ^AspectFrame) -> ^Widget ---
+
+    @(link_name = "gtk_assistant_page_get_type")
+    assistant_page_get_type :: proc() -> gobj.Type ---
+
+    @(link_name = "gtk_assistant_get_type")
+    assistant_get_type :: proc() -> gobj.Type ---
+
+    @(link_name = "gtk_assistant_new")
+    assistant_new :: proc() -> ^Widget ---
+
+    @(link_name = "gtk_assistant_next_page")
+    assistant_next_page :: proc(assistant: ^Assistant) ---
+
+    @(link_name = "gtk_assistant_previous_page")
+    assistant_previous_page :: proc(assistant: ^Assistant) ---
+
+    @(link_name = "gtk_assistant_get_current_page")
+    assistant_get_current_page :: proc(assistant: ^Assistant) -> i32 ---
+
+    @(link_name = "gtk_assistant_set_current_page")
+    assistant_set_current_page :: proc(assistant: ^Assistant, page_num: i32) ---
+
+    @(link_name = "gtk_assistant_get_n_pages")
+    assistant_get_n_pages :: proc(assistant: ^Assistant) -> i32 ---
+
+    @(link_name = "gtk_assistant_get_nth_page")
+    assistant_get_nth_page :: proc(assistant: ^Assistant, page_num: i32) -> ^Widget ---
+
+    @(link_name = "gtk_assistant_prepend_page")
+    assistant_prepend_page :: proc(assistant: ^Assistant, page: ^Widget) -> i32 ---
+
+    @(link_name = "gtk_assistant_append_page")
+    assistant_append_page :: proc(assistant: ^Assistant, page: ^Widget) -> i32 ---
+
+    @(link_name = "gtk_assistant_insert_page")
+    assistant_insert_page :: proc(assistant: ^Assistant, page: ^Widget, position: i32) -> i32 ---
+
+    @(link_name = "gtk_assistant_remove_page")
+    assistant_remove_page :: proc(assistant: ^Assistant, page_num: i32) ---
+
+    @(link_name = "gtk_assistant_set_forward_page_func")
+    assistant_set_forward_page_func :: proc(assistant: ^Assistant, page_func: AssistantPageFunc, data: glib.pointer, destroy: glib.DestroyNotify) ---
+
+    @(link_name = "gtk_assistant_set_page_type")
+    assistant_set_page_type :: proc(assistant: ^Assistant, page: ^Widget, type: AssistantPageType) ---
+
+    @(link_name = "gtk_assistant_get_page_type")
+    assistant_get_page_type :: proc(assistant: ^Assistant, page: ^Widget) -> AssistantPageType ---
+
+    @(link_name = "gtk_assistant_set_page_title")
+    assistant_set_page_title :: proc(assistant: ^Assistant, page: ^Widget, title: cstring) ---
+
+    @(link_name = "gtk_assistant_get_page_title")
+    assistant_get_page_title :: proc(assistant: ^Assistant, page: ^Widget) -> cstring ---
+
+    @(link_name = "gtk_assistant_set_page_complete")
+    assistant_set_page_complete :: proc(assistant: ^Assistant, page: ^Widget, complete: glib.boolean) ---
+
+    @(link_name = "gtk_assistant_get_page_complete")
+    assistant_get_page_complete :: proc(assistant: ^Assistant, page: ^Widget) -> glib.boolean ---
+
+    @(link_name = "gtk_assistant_add_action_widget")
+    assistant_add_action_widget :: proc(assistant: ^Assistant, child: ^Widget) ---
+
+    @(link_name = "gtk_assistant_remove_action_widget")
+    assistant_remove_action_widget :: proc(assistant: ^Assistant, child: ^Widget) ---
+
+    @(link_name = "gtk_assistant_update_buttons_state")
+    assistant_update_buttons_state :: proc(assistant: ^Assistant) ---
+
+    @(link_name = "gtk_assistant_commit")
+    assistant_commit :: proc(assistant: ^Assistant) ---
+
+    @(link_name = "gtk_assistant_get_page")
+    assistant_get_page :: proc(assistant: ^Assistant, child: ^Widget) -> ^AssistantPage ---
+
+    @(link_name = "gtk_assistant_page_get_child")
+    assistant_page_get_child :: proc(page: ^AssistantPage) -> ^Widget ---
+
+    @(link_name = "gtk_assistant_get_pages")
+    assistant_get_pages :: proc(assistant: ^Assistant) -> ^gio.ListModel ---
+
+    @(link_name = "gtk_at_context_get_type")
+    at_context_get_type :: proc() -> gobj.Type ---
+
+    @(link_name = "gtk_at_context_get_accessible")
+    at_context_get_accessible :: proc(self: ^ATContext) -> ^Accessible ---
+
+    @(link_name = "gtk_at_context_get_accessible_role")
+    at_context_get_accessible_role :: proc(self: ^ATContext) -> AccessibleRole ---
+
+    @(link_name = "gtk_at_context_create")
+    at_context_create :: proc(accessible_role: AccessibleRole, accessible: ^Accessible, display: ^Display) -> ^ATContext ---
+
+    @(link_name = "gtk_layout_child_get_type")
+    layout_child_get_type :: proc() -> gobj.Type ---
+
+    @(link_name = "gtk_layout_child_get_layout_manager")
+    layout_child_get_layout_manager :: proc(layout_child: ^LayoutChild) -> ^LayoutManager ---
+
+    @(link_name = "gtk_layout_child_get_child_widget")
+    layout_child_get_child_widget :: proc(layout_child: ^LayoutChild) -> ^Widget ---
+
+    @(link_name = "gtk_layout_manager_get_type")
+    layout_manager_get_type :: proc() -> gobj.Type ---
+
+    @(link_name = "gtk_layout_manager_measure")
+    layout_manager_measure :: proc(manager: ^LayoutManager, widget: ^Widget, orientation: Orientation, for_size: i32, minimum: ^i32, natural: ^i32, minimum_baseline: ^i32, natural_baseline: ^i32) ---
+
+    @(link_name = "gtk_layout_manager_allocate")
+    layout_manager_allocate :: proc(manager: ^LayoutManager, widget: ^Widget, width: i32, height: i32, baseline: i32) ---
+
+    @(link_name = "gtk_layout_manager_get_request_mode")
+    layout_manager_get_request_mode :: proc(manager: ^LayoutManager) -> SizeRequestMode ---
+
+    @(link_name = "gtk_layout_manager_get_widget")
+    layout_manager_get_widget :: proc(manager: ^LayoutManager) -> ^Widget ---
+
+    @(link_name = "gtk_layout_manager_layout_changed")
+    layout_manager_layout_changed :: proc(manager: ^LayoutManager) ---
+
+    @(link_name = "gtk_layout_manager_get_layout_child")
+    layout_manager_get_layout_child :: proc(manager: ^LayoutManager, child: ^Widget) -> ^LayoutChild ---
+
+    @(link_name = "gtk_bin_layout_get_type")
+    bin_layout_get_type :: proc() -> gobj.Type ---
+
+    @(link_name = "gtk_bin_layout_new")
+    bin_layout_new :: proc() -> ^LayoutManager ---
+
+    @(link_name = "gtk_bitset_get_type")
+    bitset_get_type :: proc() -> gobj.Type ---
+
+    @(link_name = "gtk_bitset_ref")
+    bitset_ref :: proc(self: ^Bitset) -> ^Bitset ---
+
+    @(link_name = "gtk_bitset_unref")
+    bitset_unref :: proc(self: ^Bitset) ---
+
+    @(link_name = "gtk_bitset_contains")
+    bitset_contains :: proc(self: ^Bitset, value: glib.uint_) -> glib.boolean ---
+
+    @(link_name = "gtk_bitset_is_empty")
+    bitset_is_empty :: proc(self: ^Bitset) -> glib.boolean ---
+
+    @(link_name = "gtk_bitset_equals")
+    bitset_equals :: proc(self: ^Bitset, other: ^Bitset) -> glib.boolean ---
+
+    @(link_name = "gtk_bitset_get_size")
+    bitset_get_size :: proc(self: ^Bitset) -> glib.uint64 ---
+
+    @(link_name = "gtk_bitset_get_size_in_range")
+    bitset_get_size_in_range :: proc(self: ^Bitset, first: glib.uint_, last: glib.uint_) -> glib.uint64 ---
+
+    @(link_name = "gtk_bitset_get_nth")
+    bitset_get_nth :: proc(self: ^Bitset, nth: glib.uint_) -> glib.uint_ ---
+
+    @(link_name = "gtk_bitset_get_minimum")
+    bitset_get_minimum :: proc(self: ^Bitset) -> glib.uint_ ---
+
+    @(link_name = "gtk_bitset_get_maximum")
+    bitset_get_maximum :: proc(self: ^Bitset) -> glib.uint_ ---
+
+    @(link_name = "gtk_bitset_new_empty")
+    bitset_new_empty :: proc() -> ^Bitset ---
+
+    @(link_name = "gtk_bitset_copy")
+    bitset_copy :: proc(self: ^Bitset) -> ^Bitset ---
+
+    @(link_name = "gtk_bitset_new_range")
+    bitset_new_range :: proc(start: glib.uint_, n_items: glib.uint_) -> ^Bitset ---
+
+    @(link_name = "gtk_bitset_remove_all")
+    bitset_remove_all :: proc(self: ^Bitset) ---
+
+    @(link_name = "gtk_bitset_add")
+    bitset_add :: proc(self: ^Bitset, value: glib.uint_) -> glib.boolean ---
+
+    @(link_name = "gtk_bitset_remove")
+    bitset_remove :: proc(self: ^Bitset, value: glib.uint_) -> glib.boolean ---
+
+    @(link_name = "gtk_bitset_add_range")
+    bitset_add_range :: proc(self: ^Bitset, start: glib.uint_, n_items: glib.uint_) ---
+
+    @(link_name = "gtk_bitset_remove_range")
+    bitset_remove_range :: proc(self: ^Bitset, start: glib.uint_, n_items: glib.uint_) ---
+
+    @(link_name = "gtk_bitset_add_range_closed")
+    bitset_add_range_closed :: proc(self: ^Bitset, first: glib.uint_, last: glib.uint_) ---
+
+    @(link_name = "gtk_bitset_remove_range_closed")
+    bitset_remove_range_closed :: proc(self: ^Bitset, first: glib.uint_, last: glib.uint_) ---
+
+    @(link_name = "gtk_bitset_add_rectangle")
+    bitset_add_rectangle :: proc(self: ^Bitset, start: glib.uint_, width: glib.uint_, height: glib.uint_, stride: glib.uint_) ---
+
+    @(link_name = "gtk_bitset_remove_rectangle")
+    bitset_remove_rectangle :: proc(self: ^Bitset, start: glib.uint_, width: glib.uint_, height: glib.uint_, stride: glib.uint_) ---
+
+    @(link_name = "gtk_bitset_union")
+    bitset_union :: proc(self: ^Bitset, other: ^Bitset) ---
+
+    @(link_name = "gtk_bitset_intersect")
+    bitset_intersect :: proc(self: ^Bitset, other: ^Bitset) ---
+
+    @(link_name = "gtk_bitset_subtract")
+    bitset_subtract :: proc(self: ^Bitset, other: ^Bitset) ---
+
+    @(link_name = "gtk_bitset_difference")
+    bitset_difference :: proc(self: ^Bitset, other: ^Bitset) ---
+
+    @(link_name = "gtk_bitset_shift_left")
+    bitset_shift_left :: proc(self: ^Bitset, amount: glib.uint_) ---
+
+    @(link_name = "gtk_bitset_shift_right")
+    bitset_shift_right :: proc(self: ^Bitset, amount: glib.uint_) ---
+
+    @(link_name = "gtk_bitset_splice")
+    bitset_splice :: proc(self: ^Bitset, position: glib.uint_, removed: glib.uint_, added: glib.uint_) ---
+
+    @(link_name = "gtk_bitset_iter_get_type")
+    bitset_iter_get_type :: proc() -> gobj.Type ---
+
+    @(link_name = "gtk_bitset_iter_init_first")
+    bitset_iter_init_first :: proc(iter: ^BitsetIter, set: ^Bitset, value: ^glib.uint_) -> glib.boolean ---
+
+    @(link_name = "gtk_bitset_iter_init_last")
+    bitset_iter_init_last :: proc(iter: ^BitsetIter, set: ^Bitset, value: ^glib.uint_) -> glib.boolean ---
+
+    @(link_name = "gtk_bitset_iter_init_at")
+    bitset_iter_init_at :: proc(iter: ^BitsetIter, set: ^Bitset, target: glib.uint_, value: ^glib.uint_) -> glib.boolean ---
+
+    @(link_name = "gtk_bitset_iter_next")
+    bitset_iter_next :: proc(iter: ^BitsetIter, value: ^glib.uint_) -> glib.boolean ---
+
+    @(link_name = "gtk_bitset_iter_previous")
+    bitset_iter_previous :: proc(iter: ^BitsetIter, value: ^glib.uint_) -> glib.boolean ---
+
+    @(link_name = "gtk_bitset_iter_get_value")
+    bitset_iter_get_value :: proc(iter: ^BitsetIter) -> glib.uint_ ---
+
+    @(link_name = "gtk_bitset_iter_is_valid")
+    bitset_iter_is_valid :: proc(iter: ^BitsetIter) -> glib.boolean ---
+
+    @(link_name = "gtk_bookmark_list_get_type")
+    bookmark_list_get_type :: proc() -> gobj.Type ---
+
+    @(link_name = "gtk_bookmark_list_new")
+    bookmark_list_new :: proc(filename: cstring, attributes: cstring) -> ^BookmarkList ---
+
+    @(link_name = "gtk_bookmark_list_get_filename")
+    bookmark_list_get_filename :: proc(self: ^BookmarkList) -> cstring ---
+
+    @(link_name = "gtk_bookmark_list_set_attributes")
+    bookmark_list_set_attributes :: proc(self: ^BookmarkList, attributes: cstring) ---
+
+    @(link_name = "gtk_bookmark_list_get_attributes")
+    bookmark_list_get_attributes :: proc(self: ^BookmarkList) -> cstring ---
+
+    @(link_name = "gtk_bookmark_list_set_io_priority")
+    bookmark_list_set_io_priority :: proc(self: ^BookmarkList, io_priority: i32) ---
+
+    @(link_name = "gtk_bookmark_list_get_io_priority")
+    bookmark_list_get_io_priority :: proc(self: ^BookmarkList) -> i32 ---
+
+    @(link_name = "gtk_bookmark_list_is_loading")
+    bookmark_list_is_loading :: proc(self: ^BookmarkList) -> glib.boolean ---
+
+    @(link_name = "gtk_expression_get_type")
+    expression_get_type :: proc() -> gobj.Type ---
+
+    @(link_name = "gtk_expression_ref")
+    expression_ref :: proc(self: ^Expression) -> ^Expression ---
+
+    @(link_name = "gtk_expression_unref")
+    expression_unref :: proc(self: ^Expression) ---
+
+    @(link_name = "gtk_expression_get_value_type")
+    expression_get_value_type :: proc(self: ^Expression) -> gobj.Type ---
+
+    @(link_name = "gtk_expression_is_static")
+    expression_is_static :: proc(self: ^Expression) -> glib.boolean ---
+
+    @(link_name = "gtk_expression_evaluate")
+    expression_evaluate :: proc(self: ^Expression, this_: glib.pointer, value: ^gobj.Value) -> glib.boolean ---
+
+    @(link_name = "gtk_expression_watch")
+    expression_watch :: proc(self: ^Expression, this_: glib.pointer, notify: ExpressionNotify, user_data: glib.pointer, user_destroy: glib.DestroyNotify) -> ^ExpressionWatch ---
+
+    @(link_name = "gtk_expression_bind")
+    expression_bind :: proc(self: ^Expression, target: glib.pointer, property: cstring, this_: glib.pointer) -> ^ExpressionWatch ---
+
+    @(link_name = "gtk_expression_watch_get_type")
+    expression_watch_get_type :: proc() -> gobj.Type ---
+
+    @(link_name = "gtk_expression_watch_ref")
+    expression_watch_ref :: proc(watch: ^ExpressionWatch) -> ^ExpressionWatch ---
+
+    @(link_name = "gtk_expression_watch_unref")
+    expression_watch_unref :: proc(watch: ^ExpressionWatch) ---
+
+    @(link_name = "gtk_expression_watch_evaluate")
+    expression_watch_evaluate :: proc(watch: ^ExpressionWatch, value: ^gobj.Value) -> glib.boolean ---
+
+    @(link_name = "gtk_expression_watch_unwatch")
+    expression_watch_unwatch :: proc(watch: ^ExpressionWatch) ---
+
+    @(link_name = "gtk_property_expression_get_type")
+    property_expression_get_type :: proc() -> gobj.Type ---
+
+    @(link_name = "gtk_property_expression_new")
+    property_expression_new :: proc(this_type: gobj.Type, expression: ^Expression, property_name: cstring) -> ^Expression ---
+
+    @(link_name = "gtk_property_expression_new_for_pspec")
+    property_expression_new_for_pspec :: proc(expression: ^Expression, pspec: ^gobj.ParamSpec) -> ^Expression ---
+
+    @(link_name = "gtk_property_expression_get_expression")
+    property_expression_get_expression :: proc(expression: ^Expression) -> ^Expression ---
+
+    @(link_name = "gtk_property_expression_get_pspec")
+    property_expression_get_pspec :: proc(expression: ^Expression) -> ^gobj.ParamSpec ---
+
+    @(link_name = "gtk_constant_expression_get_type")
+    constant_expression_get_type :: proc() -> gobj.Type ---
+
+    @(link_name = "gtk_constant_expression_new")
+    constant_expression_new :: proc(value_type: gobj.Type, #c_vararg var_args: ..any) -> ^Expression ---
+
+    @(link_name = "gtk_constant_expression_new_for_value")
+    constant_expression_new_for_value :: proc(value: ^gobj.Value) -> ^Expression ---
+
+    @(link_name = "gtk_constant_expression_get_value")
+    constant_expression_get_value :: proc(expression: ^Expression) -> ^gobj.Value ---
+
+    @(link_name = "gtk_object_expression_get_type")
+    object_expression_get_type :: proc() -> gobj.Type ---
+
+    @(link_name = "gtk_object_expression_new")
+    object_expression_new :: proc(object: ^gobj.Object) -> ^Expression ---
+
+    @(link_name = "gtk_object_expression_get_object")
+    object_expression_get_object :: proc(expression: ^Expression) -> ^gobj.Object ---
+
+    @(link_name = "gtk_closure_expression_get_type")
+    closure_expression_get_type :: proc() -> gobj.Type ---
+
+    @(link_name = "gtk_closure_expression_new")
+    closure_expression_new :: proc(value_type: gobj.Type, closure: ^gobj.Closure, n_params: glib.uint_, params: [^]^Expression) -> ^Expression ---
+
+    @(link_name = "gtk_cclosure_expression_get_type")
+    cclosure_expression_get_type :: proc() -> gobj.Type ---
+
+    @(link_name = "gtk_cclosure_expression_new")
+    cclosure_expression_new :: proc(value_type: gobj.Type, marshal: gobj.ClosureMarshal, n_params: glib.uint_, params: [^]^Expression, callback_func: gobj.Callback, user_data: glib.pointer, user_destroy: gobj.ClosureNotify) -> ^Expression ---
+
+    @(link_name = "gtk_value_set_expression")
+    value_set_expression :: proc(value: ^gobj.Value, expression: ^Expression) ---
+
+    @(link_name = "gtk_value_take_expression")
+    value_take_expression :: proc(value: ^gobj.Value, expression: ^Expression) ---
+
+    @(link_name = "gtk_value_get_expression")
+    value_get_expression :: proc(value: ^gobj.Value) -> ^Expression ---
+
+    @(link_name = "gtk_value_dup_expression")
+    value_dup_expression :: proc(value: ^gobj.Value) -> ^Expression ---
+
+    @(link_name = "gtk_param_expression_get_type")
+    param_expression_get_type :: proc() -> gobj.Type ---
+
+    @(link_name = "gtk_param_spec_expression")
+    param_spec_expression :: proc(name: cstring, nick: cstring, blurb: cstring, flags: gobj.ParamFlags) -> ^gobj.ParamSpec ---
+
+    @(link_name = "gtk_filter_get_type")
+    filter_get_type :: proc() -> gobj.Type ---
+
+    @(link_name = "gtk_filter_match")
+    filter_match :: proc(self: ^Filter, item: glib.pointer) -> glib.boolean ---
+
+    @(link_name = "gtk_filter_get_strictness")
+    filter_get_strictness :: proc(self: ^Filter) -> FilterMatch ---
+
+    @(link_name = "gtk_filter_changed")
+    filter_changed :: proc(self: ^Filter, change: FilterChange) ---
+
+    @(link_name = "gtk_bool_filter_get_type")
+    bool_filter_get_type :: proc() -> gobj.Type ---
+
+    @(link_name = "gtk_bool_filter_new")
+    bool_filter_new :: proc(expression: ^Expression) -> ^BoolFilter ---
+
+    @(link_name = "gtk_bool_filter_get_expression")
+    bool_filter_get_expression :: proc(self: ^BoolFilter) -> ^Expression ---
+
+    @(link_name = "gtk_bool_filter_set_expression")
+    bool_filter_set_expression :: proc(self: ^BoolFilter, expression: ^Expression) ---
+
+    @(link_name = "gtk_bool_filter_get_invert")
+    bool_filter_get_invert :: proc(self: ^BoolFilter) -> glib.boolean ---
+
+    @(link_name = "gtk_bool_filter_set_invert")
+    bool_filter_set_invert :: proc(self: ^BoolFilter, invert: glib.boolean) ---
+
+    @(link_name = "gtk_border_get_type")
+    border_get_type :: proc() -> gobj.Type ---
+
+    @(link_name = "gtk_border_new")
+    border_new :: proc() -> ^Border ---
+
+    @(link_name = "gtk_border_copy")
+    border_copy :: proc(border_: ^Border) -> ^Border ---
+
+    @(link_name = "gtk_border_free")
+    border_free :: proc(border_: ^Border) ---
+
+    @(link_name = "gtk_box_layout_get_type")
+    box_layout_get_type :: proc() -> gobj.Type ---
+
+    @(link_name = "gtk_box_layout_new")
+    box_layout_new :: proc(orientation: Orientation) -> ^LayoutManager ---
+
+    @(link_name = "gtk_box_layout_set_homogeneous")
+    box_layout_set_homogeneous :: proc(box_layout: ^BoxLayout, homogeneous: glib.boolean) ---
+
+    @(link_name = "gtk_box_layout_get_homogeneous")
+    box_layout_get_homogeneous :: proc(box_layout: ^BoxLayout) -> glib.boolean ---
+
+    @(link_name = "gtk_box_layout_set_spacing")
+    box_layout_set_spacing :: proc(box_layout: ^BoxLayout, spacing: glib.uint_) ---
+
+    @(link_name = "gtk_box_layout_get_spacing")
+    box_layout_get_spacing :: proc(box_layout: ^BoxLayout) -> glib.uint_ ---
+
+    @(link_name = "gtk_box_layout_set_baseline_position")
+    box_layout_set_baseline_position :: proc(box_layout: ^BoxLayout, position: BaselinePosition) ---
+
+    @(link_name = "gtk_box_layout_get_baseline_position")
+    box_layout_get_baseline_position :: proc(box_layout: ^BoxLayout) -> BaselinePosition ---
+
+    @(link_name = "gtk_box_layout_set_baseline_child")
+    box_layout_set_baseline_child :: proc(box_layout: ^BoxLayout, child: i32) ---
+
+    @(link_name = "gtk_box_layout_get_baseline_child")
+    box_layout_get_baseline_child :: proc(box_layout: ^BoxLayout) -> i32 ---
+
+    @(link_name = "gtk_box_get_type")
+    box_get_type :: proc() -> gobj.Type ---
+
+    @(link_name = "gtk_box_new")
+    box_new :: proc(orientation: Orientation, spacing: i32) -> ^Widget ---
+
+    @(link_name = "gtk_box_set_homogeneous")
+    box_set_homogeneous :: proc(box: ^Box, homogeneous: glib.boolean) ---
+
+    @(link_name = "gtk_box_get_homogeneous")
+    box_get_homogeneous :: proc(box: ^Box) -> glib.boolean ---
+
+    @(link_name = "gtk_box_set_spacing")
+    box_set_spacing :: proc(box: ^Box, spacing: i32) ---
+
+    @(link_name = "gtk_box_get_spacing")
+    box_get_spacing :: proc(box: ^Box) -> i32 ---
+
+    @(link_name = "gtk_box_set_baseline_position")
+    box_set_baseline_position :: proc(box: ^Box, position: BaselinePosition) ---
+
+    @(link_name = "gtk_box_get_baseline_position")
+    box_get_baseline_position :: proc(box: ^Box) -> BaselinePosition ---
+
+    @(link_name = "gtk_box_set_baseline_child")
+    box_set_baseline_child :: proc(box: ^Box, child: i32) ---
+
+    @(link_name = "gtk_box_get_baseline_child")
+    box_get_baseline_child :: proc(box: ^Box) -> i32 ---
+
+    @(link_name = "gtk_box_append")
+    box_append :: proc(box: ^Box, child: ^Widget) ---
+
+    @(link_name = "gtk_box_prepend")
+    box_prepend :: proc(box: ^Box, child: ^Widget) ---
+
+    @(link_name = "gtk_box_remove")
+    box_remove :: proc(box: ^Box, child: ^Widget) ---
+
+    @(link_name = "gtk_box_insert_child_after")
+    box_insert_child_after :: proc(box: ^Box, child: ^Widget, sibling: ^Widget) ---
+
+    @(link_name = "gtk_box_reorder_child_after")
+    box_reorder_child_after :: proc(box: ^Box, child: ^Widget, sibling: ^Widget) ---
+
+    @(link_name = "gtk_builder_scope_get_type")
+    builder_scope_get_type :: proc() -> gobj.Type ---
+
+    @(link_name = "gtk_builder_cscope_get_type")
+    builder_cscope_get_type :: proc() -> gobj.Type ---
+
+    @(link_name = "gtk_builder_cscope_new")
+    builder_cscope_new :: proc() -> ^BuilderScope ---
+
+    @(link_name = "gtk_builder_cscope_add_callback_symbol")
+    builder_cscope_add_callback_symbol :: proc(self: ^BuilderCScope, callback_name: cstring, callback_symbol: gobj.Callback) ---
+
+    @(link_name = "gtk_builder_cscope_add_callback_symbols")
+    builder_cscope_add_callback_symbols :: proc(self: ^BuilderCScope, first_callback_name: cstring, first_callback_symbol: gobj.Callback, #c_vararg var_args: ..any) ---
+
+    @(link_name = "gtk_builder_cscope_lookup_callback_symbol")
+    builder_cscope_lookup_callback_symbol :: proc(self: ^BuilderCScope, callback_name: cstring) -> gobj.Callback ---
+
+    @(link_name = "gtk_builder_error_quark")
+    builder_error_quark :: proc() -> glib.Quark ---
+
+    @(link_name = "gtk_builder_get_type")
+    builder_get_type :: proc() -> gobj.Type ---
+
+    @(link_name = "gtk_builder_new")
+    builder_new :: proc() -> ^Builder ---
+
+    @(link_name = "gtk_builder_add_from_file")
+    builder_add_from_file :: proc(builder: ^Builder, filename: cstring, error: ^^glib.Error) -> glib.boolean ---
+
+    @(link_name = "gtk_builder_add_from_resource")
+    builder_add_from_resource :: proc(builder: ^Builder, resource_path: cstring, error: ^^glib.Error) -> glib.boolean ---
+
+    @(link_name = "gtk_builder_add_from_string")
+    builder_add_from_string :: proc(builder: ^Builder, buffer: cstring, length: glib.ssize, error: ^^glib.Error) -> glib.boolean ---
+
+    @(link_name = "gtk_builder_add_objects_from_file")
+    builder_add_objects_from_file :: proc(builder: ^Builder, filename: cstring, object_ids: [^]cstring, error: ^^glib.Error) -> glib.boolean ---
+
+    @(link_name = "gtk_builder_add_objects_from_resource")
+    builder_add_objects_from_resource :: proc(builder: ^Builder, resource_path: cstring, object_ids: [^]cstring, error: ^^glib.Error) -> glib.boolean ---
+
+    @(link_name = "gtk_builder_add_objects_from_string")
+    builder_add_objects_from_string :: proc(builder: ^Builder, buffer: cstring, length: glib.ssize, object_ids: [^]cstring, error: ^^glib.Error) -> glib.boolean ---
+
+    @(link_name = "gtk_builder_get_object")
+    builder_get_object :: proc(builder: ^Builder, name: cstring) -> ^gobj.Object ---
+
+    @(link_name = "gtk_builder_get_objects")
+    builder_get_objects :: proc(builder: ^Builder) -> ^glib.SList ---
+
+    @(link_name = "gtk_builder_expose_object")
+    builder_expose_object :: proc(builder: ^Builder, name: cstring, object: ^gobj.Object) ---
+
+    @(link_name = "gtk_builder_get_current_object")
+    builder_get_current_object :: proc(builder: ^Builder) -> ^gobj.Object ---
+
+    @(link_name = "gtk_builder_set_current_object")
+    builder_set_current_object :: proc(builder: ^Builder, current_object: ^gobj.Object) ---
+
+    @(link_name = "gtk_builder_set_translation_domain")
+    builder_set_translation_domain :: proc(builder: ^Builder, domain: cstring) ---
+
+    @(link_name = "gtk_builder_get_translation_domain")
+    builder_get_translation_domain :: proc(builder: ^Builder) -> cstring ---
+
+    @(link_name = "gtk_builder_get_scope")
+    builder_get_scope :: proc(builder: ^Builder) -> ^BuilderScope ---
+
+    @(link_name = "gtk_builder_set_scope")
+    builder_set_scope :: proc(builder: ^Builder, scope: ^BuilderScope) ---
+
+    @(link_name = "gtk_builder_get_type_from_name")
+    builder_get_type_from_name :: proc(builder: ^Builder, type_name: cstring) -> gobj.Type ---
+
+    @(link_name = "gtk_builder_value_from_string")
+    builder_value_from_string :: proc(builder: ^Builder, pspec: ^gobj.ParamSpec, string_p: cstring, value: ^gobj.Value, error: ^^glib.Error) -> glib.boolean ---
+
+    @(link_name = "gtk_builder_value_from_string_type")
+    builder_value_from_string_type :: proc(builder: ^Builder, type: gobj.Type, string_p: cstring, value: ^gobj.Value, error: ^^glib.Error) -> glib.boolean ---
+
+    @(link_name = "gtk_builder_new_from_file")
+    builder_new_from_file :: proc(filename: cstring) -> ^Builder ---
+
+    @(link_name = "gtk_builder_new_from_resource")
+    builder_new_from_resource :: proc(resource_path: cstring) -> ^Builder ---
+
+    @(link_name = "gtk_builder_new_from_string")
+    builder_new_from_string :: proc(string_p: cstring, length: glib.ssize) -> ^Builder ---
+
+    @(link_name = "gtk_builder_create_closure")
+    builder_create_closure :: proc(builder: ^Builder, function_name: cstring, flags: BuilderClosureFlags, object: ^gobj.Object, error: ^^glib.Error) -> ^gobj.Closure ---
+
+    @(link_name = "gtk_builder_extend_with_template")
+    builder_extend_with_template :: proc(builder: ^Builder, object: ^gobj.Object, template_type: gobj.Type, buffer: cstring, length: glib.ssize, error: ^^glib.Error) -> glib.boolean ---
+
+    @(link_name = "gtk_buildable_get_type")
+    buildable_get_type :: proc() -> gobj.Type ---
+
+    @(link_name = "gtk_buildable_get_buildable_id")
+    buildable_get_buildable_id :: proc(buildable: ^Buildable) -> cstring ---
+
+    @(link_name = "gtk_buildable_parse_context_push")
+    buildable_parse_context_push :: proc(context_p: ^BuildableParseContext, parser: ^BuildableParser, user_data: glib.pointer) ---
+
+    @(link_name = "gtk_buildable_parse_context_pop")
+    buildable_parse_context_pop :: proc(context_p: ^BuildableParseContext) -> glib.pointer ---
+
+    @(link_name = "gtk_buildable_parse_context_get_element")
+    buildable_parse_context_get_element :: proc(context_p: ^BuildableParseContext) -> cstring ---
+
+    @(link_name = "gtk_buildable_parse_context_get_element_stack")
+    buildable_parse_context_get_element_stack :: proc(context_p: ^BuildableParseContext) -> ^glib.PtrArray ---
+
+    @(link_name = "gtk_buildable_parse_context_get_position")
+    buildable_parse_context_get_position :: proc(context_p: ^BuildableParseContext, line_number: ^i32, char_number: ^i32) ---
+
+    @(link_name = "gtk_list_item_factory_get_type")
+    list_item_factory_get_type :: proc() -> gobj.Type ---
+
+    @(link_name = "gtk_builder_list_item_factory_get_type")
+    builder_list_item_factory_get_type :: proc() -> gobj.Type ---
+
+    @(link_name = "gtk_builder_list_item_factory_new_from_bytes")
+    builder_list_item_factory_new_from_bytes :: proc(scope: ^BuilderScope, bytes: ^glib.Bytes) -> ^ListItemFactory ---
+
+    @(link_name = "gtk_builder_list_item_factory_new_from_resource")
+    builder_list_item_factory_new_from_resource :: proc(scope: ^BuilderScope, resource_path: cstring) -> ^ListItemFactory ---
+
+    @(link_name = "gtk_builder_list_item_factory_get_bytes")
+    builder_list_item_factory_get_bytes :: proc(self: ^BuilderListItemFactory) -> ^glib.Bytes ---
+
+    @(link_name = "gtk_builder_list_item_factory_get_resource")
+    builder_list_item_factory_get_resource :: proc(self: ^BuilderListItemFactory) -> cstring ---
+
+    @(link_name = "gtk_builder_list_item_factory_get_scope")
+    builder_list_item_factory_get_scope :: proc(self: ^BuilderListItemFactory) -> ^BuilderScope ---
+
+    @(link_name = "gtk_button_get_type")
+    button_get_type :: proc() -> gobj.Type ---
+
+    @(link_name = "gtk_button_new")
+    button_new :: proc() -> ^Widget ---
+
+    @(link_name = "gtk_button_new_with_label")
+    button_new_with_label :: proc(label: cstring) -> ^Widget ---
+
+    @(link_name = "gtk_button_new_from_icon_name")
+    button_new_from_icon_name :: proc(icon_name: cstring) -> ^Widget ---
+
+    @(link_name = "gtk_button_new_with_mnemonic")
+    button_new_with_mnemonic :: proc(label: cstring) -> ^Widget ---
+
+    @(link_name = "gtk_button_set_has_frame")
+    button_set_has_frame :: proc(button: ^Button, has_frame: glib.boolean) ---
+
+    @(link_name = "gtk_button_get_has_frame")
+    button_get_has_frame :: proc(button: ^Button) -> glib.boolean ---
+
+    @(link_name = "gtk_button_set_label")
+    button_set_label :: proc(button: ^Button, label: cstring) ---
+
+    @(link_name = "gtk_button_get_label")
+    button_get_label :: proc(button: ^Button) -> cstring ---
+
+    @(link_name = "gtk_button_set_use_underline")
+    button_set_use_underline :: proc(button: ^Button, use_underline: glib.boolean) ---
+
+    @(link_name = "gtk_button_get_use_underline")
+    button_get_use_underline :: proc(button: ^Button) -> glib.boolean ---
+
+    @(link_name = "gtk_button_set_icon_name")
+    button_set_icon_name :: proc(button: ^Button, icon_name: cstring) ---
+
+    @(link_name = "gtk_button_get_icon_name")
+    button_get_icon_name :: proc(button: ^Button) -> cstring ---
+
+    @(link_name = "gtk_button_set_child")
+    button_set_child :: proc(button: ^Button, child: ^Widget) ---
+
+    @(link_name = "gtk_button_get_child")
+    button_get_child :: proc(button: ^Button) -> ^Widget ---
+
+    @(link_name = "gtk_button_set_can_shrink")
+    button_set_can_shrink :: proc(button: ^Button, can_shrink: glib.boolean) ---
+
+    @(link_name = "gtk_button_get_can_shrink")
+    button_get_can_shrink :: proc(button: ^Button) -> glib.boolean ---
+
+    @(link_name = "gtk_calendar_get_type")
+    calendar_get_type :: proc() -> gobj.Type ---
+
+    @(link_name = "gtk_calendar_new")
+    calendar_new :: proc() -> ^Widget ---
+
+    @(link_name = "gtk_calendar_select_day")
+    calendar_select_day :: proc(self: ^Calendar, date: ^glib.DateTime) ---
+
+    @(link_name = "gtk_calendar_mark_day")
+    calendar_mark_day :: proc(calendar: ^Calendar, day: glib.uint_) ---
+
+    @(link_name = "gtk_calendar_unmark_day")
+    calendar_unmark_day :: proc(calendar: ^Calendar, day: glib.uint_) ---
+
+    @(link_name = "gtk_calendar_clear_marks")
+    calendar_clear_marks :: proc(calendar: ^Calendar) ---
+
+    @(link_name = "gtk_calendar_set_show_week_numbers")
+    calendar_set_show_week_numbers :: proc(self: ^Calendar, value: glib.boolean) ---
+
+    @(link_name = "gtk_calendar_get_show_week_numbers")
+    calendar_get_show_week_numbers :: proc(self: ^Calendar) -> glib.boolean ---
+
+    @(link_name = "gtk_calendar_set_show_heading")
+    calendar_set_show_heading :: proc(self: ^Calendar, value: glib.boolean) ---
+
+    @(link_name = "gtk_calendar_get_show_heading")
+    calendar_get_show_heading :: proc(self: ^Calendar) -> glib.boolean ---
+
+    @(link_name = "gtk_calendar_set_show_day_names")
+    calendar_set_show_day_names :: proc(self: ^Calendar, value: glib.boolean) ---
+
+    @(link_name = "gtk_calendar_get_show_day_names")
+    calendar_get_show_day_names :: proc(self: ^Calendar) -> glib.boolean ---
+
+    @(link_name = "gtk_calendar_set_day")
+    calendar_set_day :: proc(self: ^Calendar, day: i32) ---
+
+    @(link_name = "gtk_calendar_get_day")
+    calendar_get_day :: proc(self: ^Calendar) -> i32 ---
+
+    @(link_name = "gtk_calendar_set_month")
+    calendar_set_month :: proc(self: ^Calendar, month: i32) ---
+
+    @(link_name = "gtk_calendar_get_month")
+    calendar_get_month :: proc(self: ^Calendar) -> i32 ---
+
+    @(link_name = "gtk_calendar_set_year")
+    calendar_set_year :: proc(self: ^Calendar, year: i32) ---
+
+    @(link_name = "gtk_calendar_get_year")
+    calendar_get_year :: proc(self: ^Calendar) -> i32 ---
+
+    @(link_name = "gtk_calendar_get_date")
+    calendar_get_date :: proc(self: ^Calendar) -> ^glib.DateTime ---
+
+    @(link_name = "gtk_calendar_get_day_is_marked")
+    calendar_get_day_is_marked :: proc(calendar: ^Calendar, day: glib.uint_) -> glib.boolean ---
+
+    @(link_name = "gtk_cell_editable_get_type")
+    cell_editable_get_type :: proc() -> gobj.Type ---
+
+    @(link_name = "gtk_cell_editable_start_editing")
+    cell_editable_start_editing :: proc(cell_editable: ^CellEditable, event: ^Event) ---
+
+    @(link_name = "gtk_cell_editable_editing_done")
+    cell_editable_editing_done :: proc(cell_editable: ^CellEditable) ---
+
+    @(link_name = "gtk_cell_editable_remove_widget")
+    cell_editable_remove_widget :: proc(cell_editable: ^CellEditable) ---
+
+    @(link_name = "gtk_cell_renderer_get_type")
+    cell_renderer_get_type :: proc() -> gobj.Type ---
+
+    @(link_name = "gtk_cell_renderer_get_request_mode")
+    cell_renderer_get_request_mode :: proc(cell: ^CellRenderer) -> SizeRequestMode ---
+
+    @(link_name = "gtk_cell_renderer_get_preferred_width")
+    cell_renderer_get_preferred_width :: proc(cell: ^CellRenderer, widget: ^Widget, minimum_size: ^i32, natural_size: ^i32) ---
+
+    @(link_name = "gtk_cell_renderer_get_preferred_height_for_width")
+    cell_renderer_get_preferred_height_for_width :: proc(cell: ^CellRenderer, widget: ^Widget, width: i32, minimum_height: ^i32, natural_height: ^i32) ---
+
+    @(link_name = "gtk_cell_renderer_get_preferred_height")
+    cell_renderer_get_preferred_height :: proc(cell: ^CellRenderer, widget: ^Widget, minimum_size: ^i32, natural_size: ^i32) ---
+
+    @(link_name = "gtk_cell_renderer_get_preferred_width_for_height")
+    cell_renderer_get_preferred_width_for_height :: proc(cell: ^CellRenderer, widget: ^Widget, height: i32, minimum_width: ^i32, natural_width: ^i32) ---
+
+    @(link_name = "gtk_cell_renderer_get_preferred_size")
+    cell_renderer_get_preferred_size :: proc(cell: ^CellRenderer, widget: ^Widget, minimum_size: ^Requisition, natural_size: ^Requisition) ---
+
+    @(link_name = "gtk_cell_renderer_get_aligned_area")
+    cell_renderer_get_aligned_area :: proc(cell: ^CellRenderer, widget: ^Widget, flags: CellRendererState, cell_area: ^Rectangle, aligned_area: ^Rectangle) ---
+
+    @(link_name = "gtk_cell_renderer_snapshot")
+    cell_renderer_snapshot :: proc(cell: ^CellRenderer, snapshot: ^Snapshot, widget: ^Widget, background_area: ^Rectangle, cell_area: ^Rectangle, flags: CellRendererState) ---
+
+    @(link_name = "gtk_cell_renderer_activate")
+    cell_renderer_activate :: proc(cell: ^CellRenderer, event: ^Event, widget: ^Widget, path_p: cstring, background_area: ^Rectangle, cell_area: ^Rectangle, flags: CellRendererState) -> glib.boolean ---
+
+    @(link_name = "gtk_cell_renderer_start_editing")
+    cell_renderer_start_editing :: proc(cell: ^CellRenderer, event: ^Event, widget: ^Widget, path_p: cstring, background_area: ^Rectangle, cell_area: ^Rectangle, flags: CellRendererState) -> ^CellEditable ---
+
+    @(link_name = "gtk_cell_renderer_set_fixed_size")
+    cell_renderer_set_fixed_size :: proc(cell: ^CellRenderer, width: i32, height: i32) ---
+
+    @(link_name = "gtk_cell_renderer_get_fixed_size")
+    cell_renderer_get_fixed_size :: proc(cell: ^CellRenderer, width: ^i32, height: ^i32) ---
+
+    @(link_name = "gtk_cell_renderer_set_alignment")
+    cell_renderer_set_alignment :: proc(cell: ^CellRenderer, xalign: f32, yalign: f32) ---
+
+    @(link_name = "gtk_cell_renderer_get_alignment")
+    cell_renderer_get_alignment :: proc(cell: ^CellRenderer, xalign: ^f32, yalign: ^f32) ---
+
+    @(link_name = "gtk_cell_renderer_set_padding")
+    cell_renderer_set_padding :: proc(cell: ^CellRenderer, xpad: i32, ypad: i32) ---
+
+    @(link_name = "gtk_cell_renderer_get_padding")
+    cell_renderer_get_padding :: proc(cell: ^CellRenderer, xpad: ^i32, ypad: ^i32) ---
+
+    @(link_name = "gtk_cell_renderer_set_visible")
+    cell_renderer_set_visible :: proc(cell: ^CellRenderer, visible: glib.boolean) ---
+
+    @(link_name = "gtk_cell_renderer_get_visible")
+    cell_renderer_get_visible :: proc(cell: ^CellRenderer) -> glib.boolean ---
+
+    @(link_name = "gtk_cell_renderer_set_sensitive")
+    cell_renderer_set_sensitive :: proc(cell: ^CellRenderer, sensitive: glib.boolean) ---
+
+    @(link_name = "gtk_cell_renderer_get_sensitive")
+    cell_renderer_get_sensitive :: proc(cell: ^CellRenderer) -> glib.boolean ---
+
+    @(link_name = "gtk_cell_renderer_is_activatable")
+    cell_renderer_is_activatable :: proc(cell: ^CellRenderer) -> glib.boolean ---
+
+    @(link_name = "gtk_cell_renderer_set_is_expander")
+    cell_renderer_set_is_expander :: proc(cell: ^CellRenderer, is_expander: glib.boolean) ---
+
+    @(link_name = "gtk_cell_renderer_get_is_expander")
+    cell_renderer_get_is_expander :: proc(cell: ^CellRenderer) -> glib.boolean ---
+
+    @(link_name = "gtk_cell_renderer_set_is_expanded")
+    cell_renderer_set_is_expanded :: proc(cell: ^CellRenderer, is_expanded: glib.boolean) ---
+
+    @(link_name = "gtk_cell_renderer_get_is_expanded")
+    cell_renderer_get_is_expanded :: proc(cell: ^CellRenderer) -> glib.boolean ---
+
+    @(link_name = "gtk_cell_renderer_stop_editing")
+    cell_renderer_stop_editing :: proc(cell: ^CellRenderer, canceled: glib.boolean) ---
+
+    @(link_name = "_gtk_cell_renderer_calc_offset")
+    _gtk_cell_renderer_calc_offset :: proc(cell: ^CellRenderer, cell_area: ^Rectangle, direction: TextDirection, width: i32, height: i32, x_offset: ^i32, y_offset: ^i32) ---
+
+    @(link_name = "gtk_cell_renderer_get_state")
+    cell_renderer_get_state :: proc(cell: ^CellRenderer, widget: ^Widget, cell_state: CellRendererState) -> StateFlags ---
+
+    @(link_name = "gtk_tree_path_new")
+    tree_path_new :: proc() -> ^TreePath ---
+
+    @(link_name = "gtk_tree_path_new_from_string")
+    tree_path_new_from_string :: proc(path_p: cstring) -> ^TreePath ---
+
+    @(link_name = "gtk_tree_path_new_from_indices")
+    tree_path_new_from_indices :: proc(first_index: i32, #c_vararg var_args: ..any) -> ^TreePath ---
+
+    @(link_name = "gtk_tree_path_new_from_indicesv")
+    tree_path_new_from_indicesv :: proc(indices: [^]i32, length: glib.size) -> ^TreePath ---
+
+    @(link_name = "gtk_tree_path_to_string")
+    tree_path_to_string :: proc(path_p: ^TreePath) -> cstring ---
+
+    @(link_name = "gtk_tree_path_new_first")
+    tree_path_new_first :: proc() -> ^TreePath ---
+
+    @(link_name = "gtk_tree_path_append_index")
+    tree_path_append_index :: proc(path_p: ^TreePath, index_: i32) ---
+
+    @(link_name = "gtk_tree_path_prepend_index")
+    tree_path_prepend_index :: proc(path_p: ^TreePath, index_: i32) ---
+
+    @(link_name = "gtk_tree_path_get_depth")
+    tree_path_get_depth :: proc(path_p: ^TreePath) -> i32 ---
+
+    @(link_name = "gtk_tree_path_get_indices")
+    tree_path_get_indices :: proc(path_p: ^TreePath) -> ^i32 ---
+
+    @(link_name = "gtk_tree_path_get_indices_with_depth")
+    tree_path_get_indices_with_depth :: proc(path_p: ^TreePath, depth: ^i32) -> ^i32 ---
+
+    @(link_name = "gtk_tree_path_free")
+    tree_path_free :: proc(path_p: ^TreePath) ---
+
+    @(link_name = "gtk_tree_path_copy")
+    tree_path_copy :: proc(path_p: ^TreePath) -> ^TreePath ---
+
+    @(link_name = "gtk_tree_path_get_type")
+    tree_path_get_type :: proc() -> gobj.Type ---
+
+    @(link_name = "gtk_tree_path_compare")
+    tree_path_compare :: proc(a: ^TreePath, b: ^TreePath) -> i32 ---
+
+    @(link_name = "gtk_tree_path_next")
+    tree_path_next :: proc(path_p: ^TreePath) ---
+
+    @(link_name = "gtk_tree_path_prev")
+    tree_path_prev :: proc(path_p: ^TreePath) -> glib.boolean ---
+
+    @(link_name = "gtk_tree_path_up")
+    tree_path_up :: proc(path_p: ^TreePath) -> glib.boolean ---
+
+    @(link_name = "gtk_tree_path_down")
+    tree_path_down :: proc(path_p: ^TreePath) ---
+
+    @(link_name = "gtk_tree_path_is_ancestor")
+    tree_path_is_ancestor :: proc(path_p: ^TreePath, descendant: ^TreePath) -> glib.boolean ---
+
+    @(link_name = "gtk_tree_path_is_descendant")
+    tree_path_is_descendant :: proc(path_p: ^TreePath, ancestor: ^TreePath) -> glib.boolean ---
+
+    @(link_name = "gtk_tree_row_reference_get_type")
+    tree_row_reference_get_type :: proc() -> gobj.Type ---
+
+    @(link_name = "gtk_tree_row_reference_new")
+    tree_row_reference_new :: proc(model: ^TreeModel, path_p: ^TreePath) -> ^TreeRowReference ---
+
+    @(link_name = "gtk_tree_row_reference_new_proxy")
+    tree_row_reference_new_proxy :: proc(proxy: ^gobj.Object, model: ^TreeModel, path_p: ^TreePath) -> ^TreeRowReference ---
+
+    @(link_name = "gtk_tree_row_reference_get_path")
+    tree_row_reference_get_path :: proc(reference: ^TreeRowReference) -> ^TreePath ---
+
+    @(link_name = "gtk_tree_row_reference_get_model")
+    tree_row_reference_get_model :: proc(reference: ^TreeRowReference) -> ^TreeModel ---
+
+    @(link_name = "gtk_tree_row_reference_valid")
+    tree_row_reference_valid :: proc(reference: ^TreeRowReference) -> glib.boolean ---
+
+    @(link_name = "gtk_tree_row_reference_copy")
+    tree_row_reference_copy :: proc(reference: ^TreeRowReference) -> ^TreeRowReference ---
+
+    @(link_name = "gtk_tree_row_reference_free")
+    tree_row_reference_free :: proc(reference: ^TreeRowReference) ---
+
+    @(link_name = "gtk_tree_row_reference_inserted")
+    tree_row_reference_inserted :: proc(proxy: ^gobj.Object, path_p: ^TreePath) ---
+
+    @(link_name = "gtk_tree_row_reference_deleted")
+    tree_row_reference_deleted :: proc(proxy: ^gobj.Object, path_p: ^TreePath) ---
+
+    @(link_name = "gtk_tree_row_reference_reordered")
+    tree_row_reference_reordered :: proc(proxy: ^gobj.Object, path_p: ^TreePath, iter: ^TreeIter, new_order: ^i32) ---
+
+    @(link_name = "gtk_tree_iter_copy")
+    tree_iter_copy :: proc(iter: ^TreeIter) -> ^TreeIter ---
+
+    @(link_name = "gtk_tree_iter_free")
+    tree_iter_free :: proc(iter: ^TreeIter) ---
+
+    @(link_name = "gtk_tree_iter_get_type")
+    tree_iter_get_type :: proc() -> gobj.Type ---
+
+    @(link_name = "gtk_tree_model_get_type")
+    tree_model_get_type :: proc() -> gobj.Type ---
+
+    @(link_name = "gtk_tree_model_get_flags")
+    tree_model_get_flags :: proc(tree_model: ^TreeModel) -> TreeModelFlags ---
+
+    @(link_name = "gtk_tree_model_get_n_columns")
+    tree_model_get_n_columns :: proc(tree_model: ^TreeModel) -> i32 ---
+
+    @(link_name = "gtk_tree_model_get_column_type")
+    tree_model_get_column_type :: proc(tree_model: ^TreeModel, index_: i32) -> gobj.Type ---
+
+    @(link_name = "gtk_tree_model_get_iter")
+    tree_model_get_iter :: proc(tree_model: ^TreeModel, iter: ^TreeIter, path_p: ^TreePath) -> glib.boolean ---
+
+    @(link_name = "gtk_tree_model_get_iter_from_string")
+    tree_model_get_iter_from_string :: proc(tree_model: ^TreeModel, iter: ^TreeIter, path_string: cstring) -> glib.boolean ---
+
+    @(link_name = "gtk_tree_model_get_string_from_iter")
+    tree_model_get_string_from_iter :: proc(tree_model: ^TreeModel, iter: ^TreeIter) -> cstring ---
+
+    @(link_name = "gtk_tree_model_get_iter_first")
+    tree_model_get_iter_first :: proc(tree_model: ^TreeModel, iter: ^TreeIter) -> glib.boolean ---
+
+    @(link_name = "gtk_tree_model_get_path")
+    tree_model_get_path :: proc(tree_model: ^TreeModel, iter: ^TreeIter) -> ^TreePath ---
+
+    @(link_name = "gtk_tree_model_get_value")
+    tree_model_get_value :: proc(tree_model: ^TreeModel, iter: ^TreeIter, column: i32, value: ^gobj.Value) ---
+
+    @(link_name = "gtk_tree_model_iter_previous")
+    tree_model_iter_previous :: proc(tree_model: ^TreeModel, iter: ^TreeIter) -> glib.boolean ---
+
+    @(link_name = "gtk_tree_model_iter_next")
+    tree_model_iter_next :: proc(tree_model: ^TreeModel, iter: ^TreeIter) -> glib.boolean ---
+
+    @(link_name = "gtk_tree_model_iter_children")
+    tree_model_iter_children :: proc(tree_model: ^TreeModel, iter: ^TreeIter, parent: ^TreeIter) -> glib.boolean ---
+
+    @(link_name = "gtk_tree_model_iter_has_child")
+    tree_model_iter_has_child :: proc(tree_model: ^TreeModel, iter: ^TreeIter) -> glib.boolean ---
+
+    @(link_name = "gtk_tree_model_iter_n_children")
+    tree_model_iter_n_children :: proc(tree_model: ^TreeModel, iter: ^TreeIter) -> i32 ---
+
+    @(link_name = "gtk_tree_model_iter_nth_child")
+    tree_model_iter_nth_child :: proc(tree_model: ^TreeModel, iter: ^TreeIter, parent: ^TreeIter, n: i32) -> glib.boolean ---
+
+    @(link_name = "gtk_tree_model_iter_parent")
+    tree_model_iter_parent :: proc(tree_model: ^TreeModel, iter: ^TreeIter, child: ^TreeIter) -> glib.boolean ---
+
+    @(link_name = "gtk_tree_model_ref_node")
+    tree_model_ref_node :: proc(tree_model: ^TreeModel, iter: ^TreeIter) ---
+
+    @(link_name = "gtk_tree_model_unref_node")
+    tree_model_unref_node :: proc(tree_model: ^TreeModel, iter: ^TreeIter) ---
+
+    @(link_name = "gtk_tree_model_get")
+    tree_model_get :: proc(tree_model: ^TreeModel, iter: ^TreeIter, #c_vararg var_args: ..any) ---
+
+    // tree_model_get_valist skipped: its trailing va_list is dropped by runic, so it would be a wrong #c_vararg ..any call
+
+    @(link_name = "gtk_tree_model_foreach")
+    tree_model_foreach :: proc(model: ^TreeModel, func: TreeModelForeachFunc, user_data: glib.pointer) ---
+
+    @(link_name = "gtk_tree_model_row_changed")
+    tree_model_row_changed :: proc(tree_model: ^TreeModel, path_p: ^TreePath, iter: ^TreeIter) ---
+
+    @(link_name = "gtk_tree_model_row_inserted")
+    tree_model_row_inserted :: proc(tree_model: ^TreeModel, path_p: ^TreePath, iter: ^TreeIter) ---
+
+    @(link_name = "gtk_tree_model_row_has_child_toggled")
+    tree_model_row_has_child_toggled :: proc(tree_model: ^TreeModel, path_p: ^TreePath, iter: ^TreeIter) ---
+
+    @(link_name = "gtk_tree_model_row_deleted")
+    tree_model_row_deleted :: proc(tree_model: ^TreeModel, path_p: ^TreePath) ---
+
+    @(link_name = "gtk_tree_model_rows_reordered")
+    tree_model_rows_reordered :: proc(tree_model: ^TreeModel, path_p: ^TreePath, iter: ^TreeIter, new_order: ^i32) ---
+
+    @(link_name = "gtk_tree_model_rows_reordered_with_length")
+    tree_model_rows_reordered_with_length :: proc(tree_model: ^TreeModel, path_p: ^TreePath, iter: ^TreeIter, new_order: ^i32, length: i32) ---
+
+    @(link_name = "gtk_cell_area_get_type")
+    cell_area_get_type :: proc() -> gobj.Type ---
+
+    @(link_name = "gtk_cell_area_add")
+    cell_area_add :: proc(area: ^CellArea, renderer: ^CellRenderer) ---
+
+    @(link_name = "gtk_cell_area_remove")
+    cell_area_remove :: proc(area: ^CellArea, renderer: ^CellRenderer) ---
+
+    @(link_name = "gtk_cell_area_has_renderer")
+    cell_area_has_renderer :: proc(area: ^CellArea, renderer: ^CellRenderer) -> glib.boolean ---
+
+    @(link_name = "gtk_cell_area_foreach")
+    cell_area_foreach :: proc(area: ^CellArea, callback: CellCallback, callback_data: glib.pointer) ---
+
+    @(link_name = "gtk_cell_area_foreach_alloc")
+    cell_area_foreach_alloc :: proc(area: ^CellArea, context_p: ^CellAreaContext, widget: ^Widget, cell_area: ^Rectangle, background_area: ^Rectangle, callback: CellAllocCallback, callback_data: glib.pointer) ---
+
+    @(link_name = "gtk_cell_area_event")
+    cell_area_event :: proc(area: ^CellArea, context_p: ^CellAreaContext, widget: ^Widget, event: ^Event, cell_area: ^Rectangle, flags: CellRendererState) -> i32 ---
+
+    @(link_name = "gtk_cell_area_snapshot")
+    cell_area_snapshot :: proc(area: ^CellArea, context_p: ^CellAreaContext, widget: ^Widget, snapshot: ^Snapshot, background_area: ^Rectangle, cell_area: ^Rectangle, flags: CellRendererState, paint_focus: glib.boolean) ---
+
+    @(link_name = "gtk_cell_area_get_cell_allocation")
+    cell_area_get_cell_allocation :: proc(area: ^CellArea, context_p: ^CellAreaContext, widget: ^Widget, renderer: ^CellRenderer, cell_area: ^Rectangle, allocation: ^Rectangle) ---
+
+    @(link_name = "gtk_cell_area_get_cell_at_position")
+    cell_area_get_cell_at_position :: proc(area: ^CellArea, context_p: ^CellAreaContext, widget: ^Widget, cell_area: ^Rectangle, x: i32, y: i32, alloc_area: ^Rectangle) -> ^CellRenderer ---
+
+    @(link_name = "gtk_cell_area_create_context")
+    cell_area_create_context :: proc(area: ^CellArea) -> ^CellAreaContext ---
+
+    @(link_name = "gtk_cell_area_copy_context")
+    cell_area_copy_context :: proc(area: ^CellArea, context_p: ^CellAreaContext) -> ^CellAreaContext ---
+
+    @(link_name = "gtk_cell_area_get_request_mode")
+    cell_area_get_request_mode :: proc(area: ^CellArea) -> SizeRequestMode ---
+
+    @(link_name = "gtk_cell_area_get_preferred_width")
+    cell_area_get_preferred_width :: proc(area: ^CellArea, context_p: ^CellAreaContext, widget: ^Widget, minimum_width: ^i32, natural_width: ^i32) ---
+
+    @(link_name = "gtk_cell_area_get_preferred_height_for_width")
+    cell_area_get_preferred_height_for_width :: proc(area: ^CellArea, context_p: ^CellAreaContext, widget: ^Widget, width: i32, minimum_height: ^i32, natural_height: ^i32) ---
+
+    @(link_name = "gtk_cell_area_get_preferred_height")
+    cell_area_get_preferred_height :: proc(area: ^CellArea, context_p: ^CellAreaContext, widget: ^Widget, minimum_height: ^i32, natural_height: ^i32) ---
+
+    @(link_name = "gtk_cell_area_get_preferred_width_for_height")
+    cell_area_get_preferred_width_for_height :: proc(area: ^CellArea, context_p: ^CellAreaContext, widget: ^Widget, height: i32, minimum_width: ^i32, natural_width: ^i32) ---
+
+    @(link_name = "gtk_cell_area_get_current_path_string")
+    cell_area_get_current_path_string :: proc(area: ^CellArea) -> cstring ---
+
+    @(link_name = "gtk_cell_area_apply_attributes")
+    cell_area_apply_attributes :: proc(area: ^CellArea, tree_model: ^TreeModel, iter: ^TreeIter, is_expander: glib.boolean, is_expanded: glib.boolean) ---
+
+    @(link_name = "gtk_cell_area_attribute_connect")
+    cell_area_attribute_connect :: proc(area: ^CellArea, renderer: ^CellRenderer, attribute: cstring, column: i32) ---
+
+    @(link_name = "gtk_cell_area_attribute_disconnect")
+    cell_area_attribute_disconnect :: proc(area: ^CellArea, renderer: ^CellRenderer, attribute: cstring) ---
+
+    @(link_name = "gtk_cell_area_attribute_get_column")
+    cell_area_attribute_get_column :: proc(area: ^CellArea, renderer: ^CellRenderer, attribute: cstring) -> i32 ---
+
+    @(link_name = "gtk_cell_area_class_install_cell_property")
+    cell_area_class_install_cell_property :: proc(aclass: ^CellAreaClass, property_id: glib.uint_, pspec: ^gobj.ParamSpec) ---
+
+    @(link_name = "gtk_cell_area_class_find_cell_property")
+    cell_area_class_find_cell_property :: proc(aclass: ^CellAreaClass, property_name: cstring) -> ^gobj.ParamSpec ---
+
+    @(link_name = "gtk_cell_area_class_list_cell_properties")
+    cell_area_class_list_cell_properties :: proc(aclass: ^CellAreaClass, n_properties: ^glib.uint_) -> ^^gobj.ParamSpec ---
+
+    @(link_name = "gtk_cell_area_add_with_properties")
+    cell_area_add_with_properties :: proc(area: ^CellArea, renderer: ^CellRenderer, first_prop_name: cstring, #c_vararg var_args: ..any) ---
+
+    @(link_name = "gtk_cell_area_cell_set")
+    cell_area_cell_set :: proc(area: ^CellArea, renderer: ^CellRenderer, first_prop_name: cstring, #c_vararg var_args: ..any) ---
+
+    @(link_name = "gtk_cell_area_cell_get")
+    cell_area_cell_get :: proc(area: ^CellArea, renderer: ^CellRenderer, first_prop_name: cstring, #c_vararg var_args: ..any) ---
+
+    // cell_area_cell_set_valist skipped: its trailing va_list is dropped by runic, so it would be a wrong #c_vararg ..any call
+
+    // cell_area_cell_get_valist skipped: its trailing va_list is dropped by runic, so it would be a wrong #c_vararg ..any call
+
+    @(link_name = "gtk_cell_area_cell_set_property")
+    cell_area_cell_set_property :: proc(area: ^CellArea, renderer: ^CellRenderer, property_name: cstring, value: ^gobj.Value) ---
+
+    @(link_name = "gtk_cell_area_cell_get_property")
+    cell_area_cell_get_property :: proc(area: ^CellArea, renderer: ^CellRenderer, property_name: cstring, value: ^gobj.Value) ---
+
+    @(link_name = "gtk_cell_area_is_activatable")
+    cell_area_is_activatable :: proc(area: ^CellArea) -> glib.boolean ---
+
+    @(link_name = "gtk_cell_area_activate")
+    cell_area_activate :: proc(area: ^CellArea, context_p: ^CellAreaContext, widget: ^Widget, cell_area: ^Rectangle, flags: CellRendererState, edit_only: glib.boolean) -> glib.boolean ---
+
+    @(link_name = "gtk_cell_area_focus")
+    cell_area_focus :: proc(area: ^CellArea, direction: DirectionType) -> glib.boolean ---
+
+    @(link_name = "gtk_cell_area_set_focus_cell")
+    cell_area_set_focus_cell :: proc(area: ^CellArea, renderer: ^CellRenderer) ---
+
+    @(link_name = "gtk_cell_area_get_focus_cell")
+    cell_area_get_focus_cell :: proc(area: ^CellArea) -> ^CellRenderer ---
+
+    @(link_name = "gtk_cell_area_add_focus_sibling")
+    cell_area_add_focus_sibling :: proc(area: ^CellArea, renderer: ^CellRenderer, sibling: ^CellRenderer) ---
+
+    @(link_name = "gtk_cell_area_remove_focus_sibling")
+    cell_area_remove_focus_sibling :: proc(area: ^CellArea, renderer: ^CellRenderer, sibling: ^CellRenderer) ---
+
+    @(link_name = "gtk_cell_area_is_focus_sibling")
+    cell_area_is_focus_sibling :: proc(area: ^CellArea, renderer: ^CellRenderer, sibling: ^CellRenderer) -> glib.boolean ---
+
+    @(link_name = "gtk_cell_area_get_focus_siblings")
+    cell_area_get_focus_siblings :: proc(area: ^CellArea, renderer: ^CellRenderer) -> ^glib.List ---
+
+    @(link_name = "gtk_cell_area_get_focus_from_sibling")
+    cell_area_get_focus_from_sibling :: proc(area: ^CellArea, renderer: ^CellRenderer) -> ^CellRenderer ---
+
+    @(link_name = "gtk_cell_area_get_edited_cell")
+    cell_area_get_edited_cell :: proc(area: ^CellArea) -> ^CellRenderer ---
+
+    @(link_name = "gtk_cell_area_get_edit_widget")
+    cell_area_get_edit_widget :: proc(area: ^CellArea) -> ^CellEditable ---
+
+    @(link_name = "gtk_cell_area_activate_cell")
+    cell_area_activate_cell :: proc(area: ^CellArea, widget: ^Widget, renderer: ^CellRenderer, event: ^Event, cell_area: ^Rectangle, flags: CellRendererState) -> glib.boolean ---
+
+    @(link_name = "gtk_cell_area_stop_editing")
+    cell_area_stop_editing :: proc(area: ^CellArea, canceled: glib.boolean) ---
+
+    @(link_name = "gtk_cell_area_inner_cell_area")
+    cell_area_inner_cell_area :: proc(area: ^CellArea, widget: ^Widget, cell_area: ^Rectangle, inner_area: ^Rectangle) ---
+
+    @(link_name = "gtk_cell_area_request_renderer")
+    cell_area_request_renderer :: proc(area: ^CellArea, renderer: ^CellRenderer, orientation: Orientation, widget: ^Widget, for_size: i32, minimum_size: ^i32, natural_size: ^i32) ---
+
+    @(link_name = "_gtk_cell_area_set_cell_data_func_with_proxy")
+    _gtk_cell_area_set_cell_data_func_with_proxy :: proc(area: ^CellArea, cell: ^CellRenderer, func: glib.Func, func_data: glib.pointer, destroy: glib.DestroyNotify, proxy: glib.pointer) ---
+
+    @(link_name = "gtk_cell_area_box_get_type")
+    cell_area_box_get_type :: proc() -> gobj.Type ---
+
+    @(link_name = "gtk_cell_area_box_new")
+    cell_area_box_new :: proc() -> ^CellArea ---
+
+    @(link_name = "gtk_cell_area_box_pack_start")
+    cell_area_box_pack_start :: proc(box: ^CellAreaBox, renderer: ^CellRenderer, expand: glib.boolean, align: glib.boolean, fixed: glib.boolean) ---
+
+    @(link_name = "gtk_cell_area_box_pack_end")
+    cell_area_box_pack_end :: proc(box: ^CellAreaBox, renderer: ^CellRenderer, expand: glib.boolean, align: glib.boolean, fixed: glib.boolean) ---
+
+    @(link_name = "gtk_cell_area_box_get_spacing")
+    cell_area_box_get_spacing :: proc(box: ^CellAreaBox) -> i32 ---
+
+    @(link_name = "gtk_cell_area_box_set_spacing")
+    cell_area_box_set_spacing :: proc(box: ^CellAreaBox, spacing: i32) ---
+
+    @(link_name = "_gtk_cell_area_box_group_visible")
+    _gtk_cell_area_box_group_visible :: proc(box: ^CellAreaBox, group_idx: i32) -> glib.boolean ---
+
+    @(link_name = "gtk_cell_area_context_get_type")
+    cell_area_context_get_type :: proc() -> gobj.Type ---
+
+    @(link_name = "gtk_cell_area_context_get_area")
+    cell_area_context_get_area :: proc(context_p: ^CellAreaContext) -> ^CellArea ---
+
+    @(link_name = "gtk_cell_area_context_allocate")
+    cell_area_context_allocate :: proc(context_p: ^CellAreaContext, width: i32, height: i32) ---
+
+    @(link_name = "gtk_cell_area_context_reset")
+    cell_area_context_reset :: proc(context_p: ^CellAreaContext) ---
+
+    @(link_name = "gtk_cell_area_context_get_preferred_width")
+    cell_area_context_get_preferred_width :: proc(context_p: ^CellAreaContext, minimum_width: ^i32, natural_width: ^i32) ---
+
+    @(link_name = "gtk_cell_area_context_get_preferred_height")
+    cell_area_context_get_preferred_height :: proc(context_p: ^CellAreaContext, minimum_height: ^i32, natural_height: ^i32) ---
+
+    @(link_name = "gtk_cell_area_context_get_preferred_height_for_width")
+    cell_area_context_get_preferred_height_for_width :: proc(context_p: ^CellAreaContext, width: i32, minimum_height: ^i32, natural_height: ^i32) ---
+
+    @(link_name = "gtk_cell_area_context_get_preferred_width_for_height")
+    cell_area_context_get_preferred_width_for_height :: proc(context_p: ^CellAreaContext, height: i32, minimum_width: ^i32, natural_width: ^i32) ---
+
+    @(link_name = "gtk_cell_area_context_get_allocation")
+    cell_area_context_get_allocation :: proc(context_p: ^CellAreaContext, width: ^i32, height: ^i32) ---
+
+    @(link_name = "gtk_cell_area_context_push_preferred_width")
+    cell_area_context_push_preferred_width :: proc(context_p: ^CellAreaContext, minimum_width: i32, natural_width: i32) ---
+
+    @(link_name = "gtk_cell_area_context_push_preferred_height")
+    cell_area_context_push_preferred_height :: proc(context_p: ^CellAreaContext, minimum_height: i32, natural_height: i32) ---
+
+    @(link_name = "gtk_cell_layout_get_type")
+    cell_layout_get_type :: proc() -> gobj.Type ---
+
+    @(link_name = "gtk_cell_layout_pack_start")
+    cell_layout_pack_start :: proc(cell_layout: ^CellLayout, cell: ^CellRenderer, expand: glib.boolean) ---
+
+    @(link_name = "gtk_cell_layout_pack_end")
+    cell_layout_pack_end :: proc(cell_layout: ^CellLayout, cell: ^CellRenderer, expand: glib.boolean) ---
+
+    @(link_name = "gtk_cell_layout_get_cells")
+    cell_layout_get_cells :: proc(cell_layout: ^CellLayout) -> ^glib.List ---
+
+    @(link_name = "gtk_cell_layout_clear")
+    cell_layout_clear :: proc(cell_layout: ^CellLayout) ---
+
+    @(link_name = "gtk_cell_layout_set_attributes")
+    cell_layout_set_attributes :: proc(cell_layout: ^CellLayout, cell: ^CellRenderer, #c_vararg var_args: ..any) ---
+
+    @(link_name = "gtk_cell_layout_add_attribute")
+    cell_layout_add_attribute :: proc(cell_layout: ^CellLayout, cell: ^CellRenderer, attribute: cstring, column: i32) ---
+
+    @(link_name = "gtk_cell_layout_set_cell_data_func")
+    cell_layout_set_cell_data_func :: proc(cell_layout: ^CellLayout, cell: ^CellRenderer, func: CellLayoutDataFunc, func_data: glib.pointer, destroy: glib.DestroyNotify) ---
+
+    @(link_name = "gtk_cell_layout_clear_attributes")
+    cell_layout_clear_attributes :: proc(cell_layout: ^CellLayout, cell: ^CellRenderer) ---
+
+    @(link_name = "gtk_cell_layout_reorder")
+    cell_layout_reorder :: proc(cell_layout: ^CellLayout, cell: ^CellRenderer, position: i32) ---
+
+    @(link_name = "gtk_cell_layout_get_area")
+    cell_layout_get_area :: proc(cell_layout: ^CellLayout) -> ^CellArea ---
+
+    @(link_name = "_gtk_cell_layout_buildable_custom_tag_start")
+    _gtk_cell_layout_buildable_custom_tag_start :: proc(buildable: ^Buildable, builder: ^Builder, child: ^gobj.Object, tagname: cstring, parser: ^BuildableParser, data: ^glib.pointer) -> glib.boolean ---
+
+    @(link_name = "_gtk_cell_layout_buildable_custom_tag_end")
+    _gtk_cell_layout_buildable_custom_tag_end :: proc(buildable: ^Buildable, builder: ^Builder, child: ^gobj.Object, tagname: cstring, data: ^glib.pointer) -> glib.boolean ---
+
+    @(link_name = "_gtk_cell_layout_buildable_add_child")
+    _gtk_cell_layout_buildable_add_child :: proc(buildable: ^Buildable, builder: ^Builder, child: ^gobj.Object, type: cstring) ---
+
+    @(link_name = "gtk_cell_renderer_text_get_type")
+    cell_renderer_text_get_type :: proc() -> gobj.Type ---
+
+    @(link_name = "gtk_cell_renderer_text_new")
+    cell_renderer_text_new :: proc() -> ^CellRenderer ---
+
+    @(link_name = "gtk_cell_renderer_text_set_fixed_height_from_font")
+    cell_renderer_text_set_fixed_height_from_font :: proc(renderer: ^CellRendererText, number_of_rows: i32) ---
+
+    @(link_name = "gtk_cell_renderer_accel_get_type")
+    cell_renderer_accel_get_type :: proc() -> gobj.Type ---
+
+    @(link_name = "gtk_cell_renderer_accel_new")
+    cell_renderer_accel_new :: proc() -> ^CellRenderer ---
+
+    @(link_name = "gtk_cell_renderer_combo_get_type")
+    cell_renderer_combo_get_type :: proc() -> gobj.Type ---
+
+    @(link_name = "gtk_cell_renderer_combo_new")
+    cell_renderer_combo_new :: proc() -> ^CellRenderer ---
+
+    @(link_name = "gtk_cell_renderer_pixbuf_get_type")
+    cell_renderer_pixbuf_get_type :: proc() -> gobj.Type ---
+
+    @(link_name = "gtk_cell_renderer_pixbuf_new")
+    cell_renderer_pixbuf_new :: proc() -> ^CellRenderer ---
+
+    @(link_name = "gtk_cell_renderer_progress_get_type")
+    cell_renderer_progress_get_type :: proc() -> gobj.Type ---
+
+    @(link_name = "gtk_cell_renderer_progress_new")
+    cell_renderer_progress_new :: proc() -> ^CellRenderer ---
+
+    @(link_name = "gtk_cell_renderer_spin_get_type")
+    cell_renderer_spin_get_type :: proc() -> gobj.Type ---
+
+    @(link_name = "gtk_cell_renderer_spin_new")
+    cell_renderer_spin_new :: proc() -> ^CellRenderer ---
+
+    @(link_name = "gtk_cell_renderer_spinner_get_type")
+    cell_renderer_spinner_get_type :: proc() -> gobj.Type ---
+
+    @(link_name = "gtk_cell_renderer_spinner_new")
+    cell_renderer_spinner_new :: proc() -> ^CellRenderer ---
+
+    @(link_name = "gtk_cell_renderer_toggle_get_type")
+    cell_renderer_toggle_get_type :: proc() -> gobj.Type ---
+
+    @(link_name = "gtk_cell_renderer_toggle_new")
+    cell_renderer_toggle_new :: proc() -> ^CellRenderer ---
+
+    @(link_name = "gtk_cell_renderer_toggle_get_radio")
+    cell_renderer_toggle_get_radio :: proc(toggle: ^CellRendererToggle) -> glib.boolean ---
+
+    @(link_name = "gtk_cell_renderer_toggle_set_radio")
+    cell_renderer_toggle_set_radio :: proc(toggle: ^CellRendererToggle, radio: glib.boolean) ---
+
+    @(link_name = "gtk_cell_renderer_toggle_get_active")
+    cell_renderer_toggle_get_active :: proc(toggle: ^CellRendererToggle) -> glib.boolean ---
+
+    @(link_name = "gtk_cell_renderer_toggle_set_active")
+    cell_renderer_toggle_set_active :: proc(toggle: ^CellRendererToggle, setting: glib.boolean) ---
+
+    @(link_name = "gtk_cell_renderer_toggle_get_activatable")
+    cell_renderer_toggle_get_activatable :: proc(toggle: ^CellRendererToggle) -> glib.boolean ---
+
+    @(link_name = "gtk_cell_renderer_toggle_set_activatable")
+    cell_renderer_toggle_set_activatable :: proc(toggle: ^CellRendererToggle, setting: glib.boolean) ---
+
+    @(link_name = "gtk_cell_view_get_type")
+    cell_view_get_type :: proc() -> gobj.Type ---
+
+    @(link_name = "gtk_cell_view_new")
+    cell_view_new :: proc() -> ^Widget ---
+
+    @(link_name = "gtk_cell_view_new_with_context")
+    cell_view_new_with_context :: proc(area: ^CellArea, context_p: ^CellAreaContext) -> ^Widget ---
+
+    @(link_name = "gtk_cell_view_new_with_text")
+    cell_view_new_with_text :: proc(text: cstring) -> ^Widget ---
+
+    @(link_name = "gtk_cell_view_new_with_markup")
+    cell_view_new_with_markup :: proc(markup: cstring) -> ^Widget ---
+
+    @(link_name = "gtk_cell_view_new_with_texture")
+    cell_view_new_with_texture :: proc(texture: ^Texture) -> ^Widget ---
+
+    @(link_name = "gtk_cell_view_set_model")
+    cell_view_set_model :: proc(cell_view: ^CellView, model: ^TreeModel) ---
+
+    @(link_name = "gtk_cell_view_get_model")
+    cell_view_get_model :: proc(cell_view: ^CellView) -> ^TreeModel ---
+
+    @(link_name = "gtk_cell_view_set_displayed_row")
+    cell_view_set_displayed_row :: proc(cell_view: ^CellView, path_p: ^TreePath) ---
+
+    @(link_name = "gtk_cell_view_get_displayed_row")
+    cell_view_get_displayed_row :: proc(cell_view: ^CellView) -> ^TreePath ---
+
+    @(link_name = "gtk_cell_view_get_draw_sensitive")
+    cell_view_get_draw_sensitive :: proc(cell_view: ^CellView) -> glib.boolean ---
+
+    @(link_name = "gtk_cell_view_set_draw_sensitive")
+    cell_view_set_draw_sensitive :: proc(cell_view: ^CellView, draw_sensitive: glib.boolean) ---
+
+    @(link_name = "gtk_cell_view_get_fit_model")
+    cell_view_get_fit_model :: proc(cell_view: ^CellView) -> glib.boolean ---
+
+    @(link_name = "gtk_cell_view_set_fit_model")
+    cell_view_set_fit_model :: proc(cell_view: ^CellView, fit_model: glib.boolean) ---
+
+    @(link_name = "gtk_center_box_get_type")
+    center_box_get_type :: proc() -> gobj.Type ---
+
+    @(link_name = "gtk_center_box_new")
+    center_box_new :: proc() -> ^Widget ---
+
+    @(link_name = "gtk_center_box_set_start_widget")
+    center_box_set_start_widget :: proc(self: ^CenterBox, child: ^Widget) ---
+
+    @(link_name = "gtk_center_box_set_center_widget")
+    center_box_set_center_widget :: proc(self: ^CenterBox, child: ^Widget) ---
+
+    @(link_name = "gtk_center_box_set_end_widget")
+    center_box_set_end_widget :: proc(self: ^CenterBox, child: ^Widget) ---
+
+    @(link_name = "gtk_center_box_get_start_widget")
+    center_box_get_start_widget :: proc(self: ^CenterBox) -> ^Widget ---
+
+    @(link_name = "gtk_center_box_get_center_widget")
+    center_box_get_center_widget :: proc(self: ^CenterBox) -> ^Widget ---
+
+    @(link_name = "gtk_center_box_get_end_widget")
+    center_box_get_end_widget :: proc(self: ^CenterBox) -> ^Widget ---
+
+    @(link_name = "gtk_center_box_set_baseline_position")
+    center_box_set_baseline_position :: proc(self: ^CenterBox, position: BaselinePosition) ---
+
+    @(link_name = "gtk_center_box_get_baseline_position")
+    center_box_get_baseline_position :: proc(self: ^CenterBox) -> BaselinePosition ---
+
+    @(link_name = "gtk_center_box_set_shrink_center_last")
+    center_box_set_shrink_center_last :: proc(self: ^CenterBox, shrink_center_last: glib.boolean) ---
+
+    @(link_name = "gtk_center_box_get_shrink_center_last")
+    center_box_get_shrink_center_last :: proc(self: ^CenterBox) -> glib.boolean ---
+
+    @(link_name = "gtk_center_layout_get_type")
+    center_layout_get_type :: proc() -> gobj.Type ---
+
+    @(link_name = "gtk_center_layout_new")
+    center_layout_new :: proc() -> ^LayoutManager ---
+
+    @(link_name = "gtk_center_layout_set_orientation")
+    center_layout_set_orientation :: proc(self: ^CenterLayout, orientation: Orientation) ---
+
+    @(link_name = "gtk_center_layout_get_orientation")
+    center_layout_get_orientation :: proc(self: ^CenterLayout) -> Orientation ---
+
+    @(link_name = "gtk_center_layout_set_baseline_position")
+    center_layout_set_baseline_position :: proc(self: ^CenterLayout, baseline_position: BaselinePosition) ---
+
+    @(link_name = "gtk_center_layout_get_baseline_position")
+    center_layout_get_baseline_position :: proc(self: ^CenterLayout) -> BaselinePosition ---
+
+    @(link_name = "gtk_center_layout_set_start_widget")
+    center_layout_set_start_widget :: proc(self: ^CenterLayout, widget: ^Widget) ---
+
+    @(link_name = "gtk_center_layout_get_start_widget")
+    center_layout_get_start_widget :: proc(self: ^CenterLayout) -> ^Widget ---
+
+    @(link_name = "gtk_center_layout_set_center_widget")
+    center_layout_set_center_widget :: proc(self: ^CenterLayout, widget: ^Widget) ---
+
+    @(link_name = "gtk_center_layout_get_center_widget")
+    center_layout_get_center_widget :: proc(self: ^CenterLayout) -> ^Widget ---
+
+    @(link_name = "gtk_center_layout_set_end_widget")
+    center_layout_set_end_widget :: proc(self: ^CenterLayout, widget: ^Widget) ---
+
+    @(link_name = "gtk_center_layout_get_end_widget")
+    center_layout_get_end_widget :: proc(self: ^CenterLayout) -> ^Widget ---
+
+    @(link_name = "gtk_center_layout_set_shrink_center_last")
+    center_layout_set_shrink_center_last :: proc(self: ^CenterLayout, shrink_center_last: glib.boolean) ---
+
+    @(link_name = "gtk_center_layout_get_shrink_center_last")
+    center_layout_get_shrink_center_last :: proc(self: ^CenterLayout) -> glib.boolean ---
+
+    @(link_name = "gtk_toggle_button_get_type")
+    toggle_button_get_type :: proc() -> gobj.Type ---
+
+    @(link_name = "gtk_toggle_button_new")
+    toggle_button_new :: proc() -> ^Widget ---
+
+    @(link_name = "gtk_toggle_button_new_with_label")
+    toggle_button_new_with_label :: proc(label: cstring) -> ^Widget ---
+
+    @(link_name = "gtk_toggle_button_new_with_mnemonic")
+    toggle_button_new_with_mnemonic :: proc(label: cstring) -> ^Widget ---
+
+    @(link_name = "gtk_toggle_button_set_active")
+    toggle_button_set_active :: proc(toggle_button: ^ToggleButton, is_active: glib.boolean) ---
+
+    @(link_name = "gtk_toggle_button_get_active")
+    toggle_button_get_active :: proc(toggle_button: ^ToggleButton) -> glib.boolean ---
+
+    @(link_name = "gtk_toggle_button_toggled")
+    toggle_button_toggled :: proc(toggle_button: ^ToggleButton) ---
+
+    @(link_name = "gtk_toggle_button_set_group")
+    toggle_button_set_group :: proc(toggle_button: ^ToggleButton, group: ^ToggleButton) ---
+
+    @(link_name = "gtk_check_button_get_type")
+    check_button_get_type :: proc() -> gobj.Type ---
+
+    @(link_name = "gtk_check_button_new")
+    check_button_new :: proc() -> ^Widget ---
+
+    @(link_name = "gtk_check_button_new_with_label")
+    check_button_new_with_label :: proc(label: cstring) -> ^Widget ---
+
+    @(link_name = "gtk_check_button_new_with_mnemonic")
+    check_button_new_with_mnemonic :: proc(label: cstring) -> ^Widget ---
+
+    @(link_name = "gtk_check_button_set_inconsistent")
+    check_button_set_inconsistent :: proc(check_button: ^CheckButton, inconsistent: glib.boolean) ---
+
+    @(link_name = "gtk_check_button_get_inconsistent")
+    check_button_get_inconsistent :: proc(check_button: ^CheckButton) -> glib.boolean ---
+
+    @(link_name = "gtk_check_button_get_active")
+    check_button_get_active :: proc(self: ^CheckButton) -> glib.boolean ---
+
+    @(link_name = "gtk_check_button_set_active")
+    check_button_set_active :: proc(self: ^CheckButton, setting: glib.boolean) ---
+
+    @(link_name = "gtk_check_button_get_label")
+    check_button_get_label :: proc(self: ^CheckButton) -> cstring ---
+
+    @(link_name = "gtk_check_button_set_label")
+    check_button_set_label :: proc(self: ^CheckButton, label: cstring) ---
+
+    @(link_name = "gtk_check_button_set_group")
+    check_button_set_group :: proc(self: ^CheckButton, group: ^CheckButton) ---
+
+    @(link_name = "gtk_check_button_get_use_underline")
+    check_button_get_use_underline :: proc(self: ^CheckButton) -> glib.boolean ---
+
+    @(link_name = "gtk_check_button_set_use_underline")
+    check_button_set_use_underline :: proc(self: ^CheckButton, setting: glib.boolean) ---
+
+    @(link_name = "gtk_check_button_get_child")
+    check_button_get_child :: proc(button: ^CheckButton) -> ^Widget ---
+
+    @(link_name = "gtk_check_button_set_child")
+    check_button_set_child :: proc(button: ^CheckButton, child: ^Widget) ---
+
+    @(link_name = "gtk_color_button_get_type")
+    color_button_get_type :: proc() -> gobj.Type ---
+
+    @(link_name = "gtk_color_button_new")
+    color_button_new :: proc() -> ^Widget ---
+
+    @(link_name = "gtk_color_button_new_with_rgba")
+    color_button_new_with_rgba :: proc(rgba: ^RGBA) -> ^Widget ---
+
+    @(link_name = "gtk_color_button_set_title")
+    color_button_set_title :: proc(button: ^ColorButton, title: cstring) ---
+
+    @(link_name = "gtk_color_button_get_title")
+    color_button_get_title :: proc(button: ^ColorButton) -> cstring ---
+
+    @(link_name = "gtk_color_button_get_modal")
+    color_button_get_modal :: proc(button: ^ColorButton) -> glib.boolean ---
+
+    @(link_name = "gtk_color_button_set_modal")
+    color_button_set_modal :: proc(button: ^ColorButton, modal: glib.boolean) ---
+
+    @(link_name = "gtk_color_chooser_get_type")
+    color_chooser_get_type :: proc() -> gobj.Type ---
+
+    @(link_name = "gtk_color_chooser_get_rgba")
+    color_chooser_get_rgba :: proc(chooser: ^ColorChooser, color: ^RGBA) ---
+
+    @(link_name = "gtk_color_chooser_set_rgba")
+    color_chooser_set_rgba :: proc(chooser: ^ColorChooser, color: ^RGBA) ---
+
+    @(link_name = "gtk_color_chooser_get_use_alpha")
+    color_chooser_get_use_alpha :: proc(chooser: ^ColorChooser) -> glib.boolean ---
+
+    @(link_name = "gtk_color_chooser_set_use_alpha")
+    color_chooser_set_use_alpha :: proc(chooser: ^ColorChooser, use_alpha: glib.boolean) ---
+
+    @(link_name = "gtk_color_chooser_add_palette")
+    color_chooser_add_palette :: proc(chooser: ^ColorChooser, orientation: Orientation, colors_per_line: i32, n_colors: i32, colors: [^]RGBA) ---
+
+    @(link_name = "gtk_color_chooser_dialog_get_type")
+    color_chooser_dialog_get_type :: proc() -> gobj.Type ---
+
+    @(link_name = "gtk_color_chooser_dialog_new")
+    color_chooser_dialog_new :: proc(title: cstring, parent: ^Window) -> ^Widget ---
+
+    @(link_name = "gtk_color_chooser_widget_get_type")
+    color_chooser_widget_get_type :: proc() -> gobj.Type ---
+
+    @(link_name = "gtk_color_chooser_widget_new")
+    color_chooser_widget_new :: proc() -> ^Widget ---
+
+    @(link_name = "gtk_color_dialog_get_type")
+    color_dialog_get_type :: proc() -> gobj.Type ---
+
+    @(link_name = "gtk_color_dialog_new")
+    color_dialog_new :: proc() -> ^ColorDialog ---
+
+    @(link_name = "gtk_color_dialog_get_title")
+    color_dialog_get_title :: proc(self: ^ColorDialog) -> cstring ---
+
+    @(link_name = "gtk_color_dialog_set_title")
+    color_dialog_set_title :: proc(self: ^ColorDialog, title: cstring) ---
+
+    @(link_name = "gtk_color_dialog_get_modal")
+    color_dialog_get_modal :: proc(self: ^ColorDialog) -> glib.boolean ---
+
+    @(link_name = "gtk_color_dialog_set_modal")
+    color_dialog_set_modal :: proc(self: ^ColorDialog, modal: glib.boolean) ---
+
+    @(link_name = "gtk_color_dialog_get_with_alpha")
+    color_dialog_get_with_alpha :: proc(self: ^ColorDialog) -> glib.boolean ---
+
+    @(link_name = "gtk_color_dialog_set_with_alpha")
+    color_dialog_set_with_alpha :: proc(self: ^ColorDialog, with_alpha: glib.boolean) ---
+
+    @(link_name = "gtk_color_dialog_choose_rgba")
+    color_dialog_choose_rgba :: proc(self: ^ColorDialog, parent: ^Window, initial_color: ^RGBA, cancellable: ^gio.Cancellable, callback: gio.AsyncReadyCallback, user_data: glib.pointer) ---
+
+    @(link_name = "gtk_color_dialog_choose_rgba_finish")
+    color_dialog_choose_rgba_finish :: proc(self: ^ColorDialog, result: ^gio.AsyncResult, error: ^^glib.Error) -> ^RGBA ---
+
+    @(link_name = "gtk_color_dialog_button_get_type")
+    color_dialog_button_get_type :: proc() -> gobj.Type ---
+
+    @(link_name = "gtk_color_dialog_button_new")
+    color_dialog_button_new :: proc(dialog: ^ColorDialog) -> ^Widget ---
+
+    @(link_name = "gtk_color_dialog_button_get_dialog")
+    color_dialog_button_get_dialog :: proc(self: ^ColorDialogButton) -> ^ColorDialog ---
+
+    @(link_name = "gtk_color_dialog_button_set_dialog")
+    color_dialog_button_set_dialog :: proc(self: ^ColorDialogButton, dialog: ^ColorDialog) ---
+
+    @(link_name = "gtk_color_dialog_button_get_rgba")
+    color_dialog_button_get_rgba :: proc(self: ^ColorDialogButton) -> ^RGBA ---
+
+    @(link_name = "gtk_color_dialog_button_set_rgba")
+    color_dialog_button_set_rgba :: proc(self: ^ColorDialogButton, color: ^RGBA) ---
+
+    @(link_name = "gtk_hsv_to_rgb")
+    hsv_to_rgb :: proc(h: f32, s: f32, v: f32, r: ^f32, g: ^f32, b: ^f32) ---
+
+    @(link_name = "gtk_rgb_to_hsv")
+    rgb_to_hsv :: proc(r: f32, g: f32, b: f32, h: ^f32, s: ^f32, v: ^f32) ---
+
+    @(link_name = "gtk_sorter_get_type")
+    sorter_get_type :: proc() -> gobj.Type ---
+
+    @(link_name = "gtk_sorter_compare")
+    sorter_compare :: proc(self: ^Sorter, item1: glib.pointer, item2: glib.pointer) -> Ordering ---
+
+    @(link_name = "gtk_sorter_get_order")
+    sorter_get_order :: proc(self: ^Sorter) -> SorterOrder ---
+
+    @(link_name = "gtk_sorter_changed")
+    sorter_changed :: proc(self: ^Sorter, change: SorterChange) ---
+
+    @(link_name = "gtk_sort_list_model_get_type")
+    sort_list_model_get_type :: proc() -> gobj.Type ---
+
+    @(link_name = "gtk_sort_list_model_new")
+    sort_list_model_new :: proc(model: ^gio.ListModel, sorter: ^Sorter) -> ^SortListModel ---
+
+    @(link_name = "gtk_sort_list_model_set_sorter")
+    sort_list_model_set_sorter :: proc(self: ^SortListModel, sorter: ^Sorter) ---
+
+    @(link_name = "gtk_sort_list_model_get_sorter")
+    sort_list_model_get_sorter :: proc(self: ^SortListModel) -> ^Sorter ---
+
+    @(link_name = "gtk_sort_list_model_set_section_sorter")
+    sort_list_model_set_section_sorter :: proc(self: ^SortListModel, sorter: ^Sorter) ---
+
+    @(link_name = "gtk_sort_list_model_get_section_sorter")
+    sort_list_model_get_section_sorter :: proc(self: ^SortListModel) -> ^Sorter ---
+
+    @(link_name = "gtk_sort_list_model_set_model")
+    sort_list_model_set_model :: proc(self: ^SortListModel, model: ^gio.ListModel) ---
+
+    @(link_name = "gtk_sort_list_model_get_model")
+    sort_list_model_get_model :: proc(self: ^SortListModel) -> ^gio.ListModel ---
+
+    @(link_name = "gtk_sort_list_model_set_incremental")
+    sort_list_model_set_incremental :: proc(self: ^SortListModel, incremental: glib.boolean) ---
+
+    @(link_name = "gtk_sort_list_model_get_incremental")
+    sort_list_model_get_incremental :: proc(self: ^SortListModel) -> glib.boolean ---
+
+    @(link_name = "gtk_sort_list_model_get_pending")
+    sort_list_model_get_pending :: proc(self: ^SortListModel) -> glib.uint_ ---
+
+    @(link_name = "gtk_selection_model_get_type")
+    selection_model_get_type :: proc() -> gobj.Type ---
+
+    @(link_name = "gtk_selection_model_is_selected")
+    selection_model_is_selected :: proc(model: ^SelectionModel, position: glib.uint_) -> glib.boolean ---
+
+    @(link_name = "gtk_selection_model_get_selection")
+    selection_model_get_selection :: proc(model: ^SelectionModel) -> ^Bitset ---
+
+    @(link_name = "gtk_selection_model_get_selection_in_range")
+    selection_model_get_selection_in_range :: proc(model: ^SelectionModel, position: glib.uint_, n_items: glib.uint_) -> ^Bitset ---
+
+    @(link_name = "gtk_selection_model_select_item")
+    selection_model_select_item :: proc(model: ^SelectionModel, position: glib.uint_, unselect_rest: glib.boolean) -> glib.boolean ---
+
+    @(link_name = "gtk_selection_model_unselect_item")
+    selection_model_unselect_item :: proc(model: ^SelectionModel, position: glib.uint_) -> glib.boolean ---
+
+    @(link_name = "gtk_selection_model_select_range")
+    selection_model_select_range :: proc(model: ^SelectionModel, position: glib.uint_, n_items: glib.uint_, unselect_rest: glib.boolean) -> glib.boolean ---
+
+    @(link_name = "gtk_selection_model_unselect_range")
+    selection_model_unselect_range :: proc(model: ^SelectionModel, position: glib.uint_, n_items: glib.uint_) -> glib.boolean ---
+
+    @(link_name = "gtk_selection_model_select_all")
+    selection_model_select_all :: proc(model: ^SelectionModel) -> glib.boolean ---
+
+    @(link_name = "gtk_selection_model_unselect_all")
+    selection_model_unselect_all :: proc(model: ^SelectionModel) -> glib.boolean ---
+
+    @(link_name = "gtk_selection_model_set_selection")
+    selection_model_set_selection :: proc(model: ^SelectionModel, selected: ^Bitset, mask: ^Bitset) -> glib.boolean ---
+
+    @(link_name = "gtk_selection_model_selection_changed")
+    selection_model_selection_changed :: proc(model: ^SelectionModel, position: glib.uint_, n_items: glib.uint_) ---
+
+    @(link_name = "gtk_column_view_get_type")
+    column_view_get_type :: proc() -> gobj.Type ---
+
+    @(link_name = "gtk_column_view_new")
+    column_view_new :: proc(model: ^SelectionModel) -> ^Widget ---
+
+    @(link_name = "gtk_column_view_get_columns")
+    column_view_get_columns :: proc(self: ^ColumnView) -> ^gio.ListModel ---
+
+    @(link_name = "gtk_column_view_append_column")
+    column_view_append_column :: proc(self: ^ColumnView, column: ^ColumnViewColumn) ---
+
+    @(link_name = "gtk_column_view_remove_column")
+    column_view_remove_column :: proc(self: ^ColumnView, column: ^ColumnViewColumn) ---
+
+    @(link_name = "gtk_column_view_insert_column")
+    column_view_insert_column :: proc(self: ^ColumnView, position: glib.uint_, column: ^ColumnViewColumn) ---
+
+    @(link_name = "gtk_column_view_get_model")
+    column_view_get_model :: proc(self: ^ColumnView) -> ^SelectionModel ---
+
+    @(link_name = "gtk_column_view_set_model")
+    column_view_set_model :: proc(self: ^ColumnView, model: ^SelectionModel) ---
+
+    @(link_name = "gtk_column_view_get_show_row_separators")
+    column_view_get_show_row_separators :: proc(self: ^ColumnView) -> glib.boolean ---
+
+    @(link_name = "gtk_column_view_set_show_row_separators")
+    column_view_set_show_row_separators :: proc(self: ^ColumnView, show_row_separators: glib.boolean) ---
+
+    @(link_name = "gtk_column_view_get_show_column_separators")
+    column_view_get_show_column_separators :: proc(self: ^ColumnView) -> glib.boolean ---
+
+    @(link_name = "gtk_column_view_set_show_column_separators")
+    column_view_set_show_column_separators :: proc(self: ^ColumnView, show_column_separators: glib.boolean) ---
+
+    @(link_name = "gtk_column_view_get_sorter")
+    column_view_get_sorter :: proc(self: ^ColumnView) -> ^Sorter ---
+
+    @(link_name = "gtk_column_view_sort_by_column")
+    column_view_sort_by_column :: proc(self: ^ColumnView, column: ^ColumnViewColumn, direction: SortType) ---
+
+    @(link_name = "gtk_column_view_set_single_click_activate")
+    column_view_set_single_click_activate :: proc(self: ^ColumnView, single_click_activate: glib.boolean) ---
+
+    @(link_name = "gtk_column_view_get_single_click_activate")
+    column_view_get_single_click_activate :: proc(self: ^ColumnView) -> glib.boolean ---
+
+    @(link_name = "gtk_column_view_set_reorderable")
+    column_view_set_reorderable :: proc(self: ^ColumnView, reorderable: glib.boolean) ---
+
+    @(link_name = "gtk_column_view_get_reorderable")
+    column_view_get_reorderable :: proc(self: ^ColumnView) -> glib.boolean ---
+
+    @(link_name = "gtk_column_view_set_enable_rubberband")
+    column_view_set_enable_rubberband :: proc(self: ^ColumnView, enable_rubberband: glib.boolean) ---
+
+    @(link_name = "gtk_column_view_get_enable_rubberband")
+    column_view_get_enable_rubberband :: proc(self: ^ColumnView) -> glib.boolean ---
+
+    @(link_name = "gtk_column_view_set_tab_behavior")
+    column_view_set_tab_behavior :: proc(self: ^ColumnView, tab_behavior: ListTabBehavior) ---
+
+    @(link_name = "gtk_column_view_get_tab_behavior")
+    column_view_get_tab_behavior :: proc(self: ^ColumnView) -> ListTabBehavior ---
+
+    @(link_name = "gtk_column_view_set_row_factory")
+    column_view_set_row_factory :: proc(self: ^ColumnView, factory: ^ListItemFactory) ---
+
+    @(link_name = "gtk_column_view_get_row_factory")
+    column_view_get_row_factory :: proc(self: ^ColumnView) -> ^ListItemFactory ---
+
+    @(link_name = "gtk_column_view_set_header_factory")
+    column_view_set_header_factory :: proc(self: ^ColumnView, factory: ^ListItemFactory) ---
+
+    @(link_name = "gtk_column_view_get_header_factory")
+    column_view_get_header_factory :: proc(self: ^ColumnView) -> ^ListItemFactory ---
+
+    @(link_name = "gtk_column_view_scroll_to")
+    column_view_scroll_to :: proc(self: ^ColumnView, pos: glib.uint_, column: ^ColumnViewColumn, flags: ListScrollFlags, scroll: ^ScrollInfo) ---
+
+    @(link_name = "gtk_list_item_get_type")
+    list_item_get_type :: proc() -> gobj.Type ---
+
+    @(link_name = "gtk_list_item_get_item")
+    list_item_get_item :: proc(self: ^ListItem) -> glib.pointer ---
+
+    @(link_name = "gtk_list_item_get_position")
+    list_item_get_position :: proc(self: ^ListItem) -> glib.uint_ ---
+
+    @(link_name = "gtk_list_item_get_selected")
+    list_item_get_selected :: proc(self: ^ListItem) -> glib.boolean ---
+
+    @(link_name = "gtk_list_item_get_selectable")
+    list_item_get_selectable :: proc(self: ^ListItem) -> glib.boolean ---
+
+    @(link_name = "gtk_list_item_set_selectable")
+    list_item_set_selectable :: proc(self: ^ListItem, selectable: glib.boolean) ---
+
+    @(link_name = "gtk_list_item_get_activatable")
+    list_item_get_activatable :: proc(self: ^ListItem) -> glib.boolean ---
+
+    @(link_name = "gtk_list_item_set_activatable")
+    list_item_set_activatable :: proc(self: ^ListItem, activatable: glib.boolean) ---
+
+    @(link_name = "gtk_list_item_get_focusable")
+    list_item_get_focusable :: proc(self: ^ListItem) -> glib.boolean ---
+
+    @(link_name = "gtk_list_item_set_focusable")
+    list_item_set_focusable :: proc(self: ^ListItem, focusable: glib.boolean) ---
+
+    @(link_name = "gtk_list_item_set_child")
+    list_item_set_child :: proc(self: ^ListItem, child: ^Widget) ---
+
+    @(link_name = "gtk_list_item_get_child")
+    list_item_get_child :: proc(self: ^ListItem) -> ^Widget ---
+
+    @(link_name = "gtk_list_item_set_accessible_description")
+    list_item_set_accessible_description :: proc(self: ^ListItem, description: cstring) ---
+
+    @(link_name = "gtk_list_item_get_accessible_description")
+    list_item_get_accessible_description :: proc(self: ^ListItem) -> cstring ---
+
+    @(link_name = "gtk_list_item_set_accessible_label")
+    list_item_set_accessible_label :: proc(self: ^ListItem, label: cstring) ---
+
+    @(link_name = "gtk_list_item_get_accessible_label")
+    list_item_get_accessible_label :: proc(self: ^ListItem) -> cstring ---
+
+    @(link_name = "gtk_column_view_cell_get_type")
+    column_view_cell_get_type :: proc() -> gobj.Type ---
+
+    @(link_name = "gtk_column_view_cell_get_item")
+    column_view_cell_get_item :: proc(self: ^ColumnViewCell) -> glib.pointer ---
+
+    @(link_name = "gtk_column_view_cell_get_position")
+    column_view_cell_get_position :: proc(self: ^ColumnViewCell) -> glib.uint_ ---
+
+    @(link_name = "gtk_column_view_cell_get_selected")
+    column_view_cell_get_selected :: proc(self: ^ColumnViewCell) -> glib.boolean ---
+
+    @(link_name = "gtk_column_view_cell_get_focusable")
+    column_view_cell_get_focusable :: proc(self: ^ColumnViewCell) -> glib.boolean ---
+
+    @(link_name = "gtk_column_view_cell_set_focusable")
+    column_view_cell_set_focusable :: proc(self: ^ColumnViewCell, focusable: glib.boolean) ---
+
+    @(link_name = "gtk_column_view_cell_set_child")
+    column_view_cell_set_child :: proc(self: ^ColumnViewCell, child: ^Widget) ---
+
+    @(link_name = "gtk_column_view_cell_get_child")
+    column_view_cell_get_child :: proc(self: ^ColumnViewCell) -> ^Widget ---
+
+    @(link_name = "gtk_column_view_column_get_type")
+    column_view_column_get_type :: proc() -> gobj.Type ---
+
+    @(link_name = "gtk_column_view_column_new")
+    column_view_column_new :: proc(title: cstring, factory: ^ListItemFactory) -> ^ColumnViewColumn ---
+
+    @(link_name = "gtk_column_view_column_get_column_view")
+    column_view_column_get_column_view :: proc(self: ^ColumnViewColumn) -> ^ColumnView ---
+
+    @(link_name = "gtk_column_view_column_set_factory")
+    column_view_column_set_factory :: proc(self: ^ColumnViewColumn, factory: ^ListItemFactory) ---
+
+    @(link_name = "gtk_column_view_column_get_factory")
+    column_view_column_get_factory :: proc(self: ^ColumnViewColumn) -> ^ListItemFactory ---
+
+    @(link_name = "gtk_column_view_column_set_title")
+    column_view_column_set_title :: proc(self: ^ColumnViewColumn, title: cstring) ---
+
+    @(link_name = "gtk_column_view_column_get_title")
+    column_view_column_get_title :: proc(self: ^ColumnViewColumn) -> cstring ---
+
+    @(link_name = "gtk_column_view_column_set_sorter")
+    column_view_column_set_sorter :: proc(self: ^ColumnViewColumn, sorter: ^Sorter) ---
+
+    @(link_name = "gtk_column_view_column_get_sorter")
+    column_view_column_get_sorter :: proc(self: ^ColumnViewColumn) -> ^Sorter ---
+
+    @(link_name = "gtk_column_view_column_set_visible")
+    column_view_column_set_visible :: proc(self: ^ColumnViewColumn, visible: glib.boolean) ---
+
+    @(link_name = "gtk_column_view_column_get_visible")
+    column_view_column_get_visible :: proc(self: ^ColumnViewColumn) -> glib.boolean ---
+
+    @(link_name = "gtk_column_view_column_set_header_menu")
+    column_view_column_set_header_menu :: proc(self: ^ColumnViewColumn, menu: ^gio.MenuModel) ---
+
+    @(link_name = "gtk_column_view_column_get_header_menu")
+    column_view_column_get_header_menu :: proc(self: ^ColumnViewColumn) -> ^gio.MenuModel ---
+
+    @(link_name = "gtk_column_view_column_set_fixed_width")
+    column_view_column_set_fixed_width :: proc(self: ^ColumnViewColumn, fixed_width: i32) ---
+
+    @(link_name = "gtk_column_view_column_get_fixed_width")
+    column_view_column_get_fixed_width :: proc(self: ^ColumnViewColumn) -> i32 ---
+
+    @(link_name = "gtk_column_view_column_set_resizable")
+    column_view_column_set_resizable :: proc(self: ^ColumnViewColumn, resizable: glib.boolean) ---
+
+    @(link_name = "gtk_column_view_column_get_resizable")
+    column_view_column_get_resizable :: proc(self: ^ColumnViewColumn) -> glib.boolean ---
+
+    @(link_name = "gtk_column_view_column_set_expand")
+    column_view_column_set_expand :: proc(self: ^ColumnViewColumn, expand: glib.boolean) ---
+
+    @(link_name = "gtk_column_view_column_get_expand")
+    column_view_column_get_expand :: proc(self: ^ColumnViewColumn) -> glib.boolean ---
+
+    @(link_name = "gtk_column_view_column_set_id")
+    column_view_column_set_id :: proc(self: ^ColumnViewColumn, id: cstring) ---
+
+    @(link_name = "gtk_column_view_column_get_id")
+    column_view_column_get_id :: proc(self: ^ColumnViewColumn) -> cstring ---
+
+    @(link_name = "gtk_column_view_row_get_type")
+    column_view_row_get_type :: proc() -> gobj.Type ---
+
+    @(link_name = "gtk_column_view_row_get_item")
+    column_view_row_get_item :: proc(self: ^ColumnViewRow) -> glib.pointer ---
+
+    @(link_name = "gtk_column_view_row_get_position")
+    column_view_row_get_position :: proc(self: ^ColumnViewRow) -> glib.uint_ ---
+
+    @(link_name = "gtk_column_view_row_get_selected")
+    column_view_row_get_selected :: proc(self: ^ColumnViewRow) -> glib.boolean ---
+
+    @(link_name = "gtk_column_view_row_get_selectable")
+    column_view_row_get_selectable :: proc(self: ^ColumnViewRow) -> glib.boolean ---
+
+    @(link_name = "gtk_column_view_row_set_selectable")
+    column_view_row_set_selectable :: proc(self: ^ColumnViewRow, selectable: glib.boolean) ---
+
+    @(link_name = "gtk_column_view_row_get_activatable")
+    column_view_row_get_activatable :: proc(self: ^ColumnViewRow) -> glib.boolean ---
+
+    @(link_name = "gtk_column_view_row_set_activatable")
+    column_view_row_set_activatable :: proc(self: ^ColumnViewRow, activatable: glib.boolean) ---
+
+    @(link_name = "gtk_column_view_row_get_focusable")
+    column_view_row_get_focusable :: proc(self: ^ColumnViewRow) -> glib.boolean ---
+
+    @(link_name = "gtk_column_view_row_set_focusable")
+    column_view_row_set_focusable :: proc(self: ^ColumnViewRow, focusable: glib.boolean) ---
+
+    @(link_name = "gtk_column_view_row_get_accessible_description")
+    column_view_row_get_accessible_description :: proc(self: ^ColumnViewRow) -> cstring ---
+
+    @(link_name = "gtk_column_view_row_set_accessible_description")
+    column_view_row_set_accessible_description :: proc(self: ^ColumnViewRow, description: cstring) ---
+
+    @(link_name = "gtk_column_view_row_get_accessible_label")
+    column_view_row_get_accessible_label :: proc(self: ^ColumnViewRow) -> cstring ---
+
+    @(link_name = "gtk_column_view_row_set_accessible_label")
+    column_view_row_set_accessible_label :: proc(self: ^ColumnViewRow, label: cstring) ---
+
+    @(link_name = "gtk_column_view_sorter_get_type")
+    column_view_sorter_get_type :: proc() -> gobj.Type ---
+
+    @(link_name = "gtk_column_view_sorter_get_primary_sort_column")
+    column_view_sorter_get_primary_sort_column :: proc(self: ^ColumnViewSorter) -> ^ColumnViewColumn ---
+
+    @(link_name = "gtk_column_view_sorter_get_primary_sort_order")
+    column_view_sorter_get_primary_sort_order :: proc(self: ^ColumnViewSorter) -> SortType ---
+
+    @(link_name = "gtk_column_view_sorter_get_n_sort_columns")
+    column_view_sorter_get_n_sort_columns :: proc(self: ^ColumnViewSorter) -> glib.uint_ ---
+
+    @(link_name = "gtk_column_view_sorter_get_nth_sort_column")
+    column_view_sorter_get_nth_sort_column :: proc(self: ^ColumnViewSorter, position: glib.uint_, sort_order: ^SortType) -> ^ColumnViewColumn ---
+
+    @(link_name = "gtk_tree_sortable_get_type")
+    tree_sortable_get_type :: proc() -> gobj.Type ---
+
+    @(link_name = "gtk_tree_sortable_sort_column_changed")
+    tree_sortable_sort_column_changed :: proc(sortable: ^TreeSortable) ---
+
+    @(link_name = "gtk_tree_sortable_get_sort_column_id")
+    tree_sortable_get_sort_column_id :: proc(sortable: ^TreeSortable, sort_column_id: ^i32, order: ^SortType) -> glib.boolean ---
+
+    @(link_name = "gtk_tree_sortable_set_sort_column_id")
+    tree_sortable_set_sort_column_id :: proc(sortable: ^TreeSortable, sort_column_id: i32, order: SortType) ---
+
+    @(link_name = "gtk_tree_sortable_set_sort_func")
+    tree_sortable_set_sort_func :: proc(sortable: ^TreeSortable, sort_column_id: i32, sort_func: TreeIterCompareFunc, user_data: glib.pointer, destroy: glib.DestroyNotify) ---
+
+    @(link_name = "gtk_tree_sortable_set_default_sort_func")
+    tree_sortable_set_default_sort_func :: proc(sortable: ^TreeSortable, sort_func: TreeIterCompareFunc, user_data: glib.pointer, destroy: glib.DestroyNotify) ---
+
+    @(link_name = "gtk_tree_sortable_has_default_sort_func")
+    tree_sortable_has_default_sort_func :: proc(sortable: ^TreeSortable) -> glib.boolean ---
+
+    @(link_name = "gtk_tree_view_column_get_type")
+    tree_view_column_get_type :: proc() -> gobj.Type ---
+
+    @(link_name = "gtk_tree_view_column_new")
+    tree_view_column_new :: proc() -> ^TreeViewColumn ---
+
+    @(link_name = "gtk_tree_view_column_new_with_area")
+    tree_view_column_new_with_area :: proc(area: ^CellArea) -> ^TreeViewColumn ---
+
+    @(link_name = "gtk_tree_view_column_new_with_attributes")
+    tree_view_column_new_with_attributes :: proc(title: cstring, cell: ^CellRenderer, #c_vararg var_args: ..any) -> ^TreeViewColumn ---
+
+    @(link_name = "gtk_tree_view_column_pack_start")
+    tree_view_column_pack_start :: proc(tree_column: ^TreeViewColumn, cell: ^CellRenderer, expand: glib.boolean) ---
+
+    @(link_name = "gtk_tree_view_column_pack_end")
+    tree_view_column_pack_end :: proc(tree_column: ^TreeViewColumn, cell: ^CellRenderer, expand: glib.boolean) ---
+
+    @(link_name = "gtk_tree_view_column_clear")
+    tree_view_column_clear :: proc(tree_column: ^TreeViewColumn) ---
+
+    @(link_name = "gtk_tree_view_column_add_attribute")
+    tree_view_column_add_attribute :: proc(tree_column: ^TreeViewColumn, cell_renderer: ^CellRenderer, attribute: cstring, column: i32) ---
+
+    @(link_name = "gtk_tree_view_column_set_attributes")
+    tree_view_column_set_attributes :: proc(tree_column: ^TreeViewColumn, cell_renderer: ^CellRenderer, #c_vararg var_args: ..any) ---
+
+    @(link_name = "gtk_tree_view_column_set_cell_data_func")
+    tree_view_column_set_cell_data_func :: proc(tree_column: ^TreeViewColumn, cell_renderer: ^CellRenderer, func: TreeCellDataFunc, func_data: glib.pointer, destroy: glib.DestroyNotify) ---
+
+    @(link_name = "gtk_tree_view_column_clear_attributes")
+    tree_view_column_clear_attributes :: proc(tree_column: ^TreeViewColumn, cell_renderer: ^CellRenderer) ---
+
+    @(link_name = "gtk_tree_view_column_set_spacing")
+    tree_view_column_set_spacing :: proc(tree_column: ^TreeViewColumn, spacing: i32) ---
+
+    @(link_name = "gtk_tree_view_column_get_spacing")
+    tree_view_column_get_spacing :: proc(tree_column: ^TreeViewColumn) -> i32 ---
+
+    @(link_name = "gtk_tree_view_column_set_visible")
+    tree_view_column_set_visible :: proc(tree_column: ^TreeViewColumn, visible: glib.boolean) ---
+
+    @(link_name = "gtk_tree_view_column_get_visible")
+    tree_view_column_get_visible :: proc(tree_column: ^TreeViewColumn) -> glib.boolean ---
+
+    @(link_name = "gtk_tree_view_column_set_resizable")
+    tree_view_column_set_resizable :: proc(tree_column: ^TreeViewColumn, resizable: glib.boolean) ---
+
+    @(link_name = "gtk_tree_view_column_get_resizable")
+    tree_view_column_get_resizable :: proc(tree_column: ^TreeViewColumn) -> glib.boolean ---
+
+    @(link_name = "gtk_tree_view_column_set_sizing")
+    tree_view_column_set_sizing :: proc(tree_column: ^TreeViewColumn, type: TreeViewColumnSizing) ---
+
+    @(link_name = "gtk_tree_view_column_get_sizing")
+    tree_view_column_get_sizing :: proc(tree_column: ^TreeViewColumn) -> TreeViewColumnSizing ---
+
+    @(link_name = "gtk_tree_view_column_get_x_offset")
+    tree_view_column_get_x_offset :: proc(tree_column: ^TreeViewColumn) -> i32 ---
+
+    @(link_name = "gtk_tree_view_column_get_width")
+    tree_view_column_get_width :: proc(tree_column: ^TreeViewColumn) -> i32 ---
+
+    @(link_name = "gtk_tree_view_column_get_fixed_width")
+    tree_view_column_get_fixed_width :: proc(tree_column: ^TreeViewColumn) -> i32 ---
+
+    @(link_name = "gtk_tree_view_column_set_fixed_width")
+    tree_view_column_set_fixed_width :: proc(tree_column: ^TreeViewColumn, fixed_width: i32) ---
+
+    @(link_name = "gtk_tree_view_column_set_min_width")
+    tree_view_column_set_min_width :: proc(tree_column: ^TreeViewColumn, min_width: i32) ---
+
+    @(link_name = "gtk_tree_view_column_get_min_width")
+    tree_view_column_get_min_width :: proc(tree_column: ^TreeViewColumn) -> i32 ---
+
+    @(link_name = "gtk_tree_view_column_set_max_width")
+    tree_view_column_set_max_width :: proc(tree_column: ^TreeViewColumn, max_width: i32) ---
+
+    @(link_name = "gtk_tree_view_column_get_max_width")
+    tree_view_column_get_max_width :: proc(tree_column: ^TreeViewColumn) -> i32 ---
+
+    @(link_name = "gtk_tree_view_column_clicked")
+    tree_view_column_clicked :: proc(tree_column: ^TreeViewColumn) ---
+
+    @(link_name = "gtk_tree_view_column_set_title")
+    tree_view_column_set_title :: proc(tree_column: ^TreeViewColumn, title: cstring) ---
+
+    @(link_name = "gtk_tree_view_column_get_title")
+    tree_view_column_get_title :: proc(tree_column: ^TreeViewColumn) -> cstring ---
+
+    @(link_name = "gtk_tree_view_column_set_expand")
+    tree_view_column_set_expand :: proc(tree_column: ^TreeViewColumn, expand: glib.boolean) ---
+
+    @(link_name = "gtk_tree_view_column_get_expand")
+    tree_view_column_get_expand :: proc(tree_column: ^TreeViewColumn) -> glib.boolean ---
+
+    @(link_name = "gtk_tree_view_column_set_clickable")
+    tree_view_column_set_clickable :: proc(tree_column: ^TreeViewColumn, clickable: glib.boolean) ---
+
+    @(link_name = "gtk_tree_view_column_get_clickable")
+    tree_view_column_get_clickable :: proc(tree_column: ^TreeViewColumn) -> glib.boolean ---
+
+    @(link_name = "gtk_tree_view_column_set_widget")
+    tree_view_column_set_widget :: proc(tree_column: ^TreeViewColumn, widget: ^Widget) ---
+
+    @(link_name = "gtk_tree_view_column_get_widget")
+    tree_view_column_get_widget :: proc(tree_column: ^TreeViewColumn) -> ^Widget ---
+
+    @(link_name = "gtk_tree_view_column_set_alignment")
+    tree_view_column_set_alignment :: proc(tree_column: ^TreeViewColumn, xalign: f32) ---
+
+    @(link_name = "gtk_tree_view_column_get_alignment")
+    tree_view_column_get_alignment :: proc(tree_column: ^TreeViewColumn) -> f32 ---
+
+    @(link_name = "gtk_tree_view_column_set_reorderable")
+    tree_view_column_set_reorderable :: proc(tree_column: ^TreeViewColumn, reorderable: glib.boolean) ---
+
+    @(link_name = "gtk_tree_view_column_get_reorderable")
+    tree_view_column_get_reorderable :: proc(tree_column: ^TreeViewColumn) -> glib.boolean ---
+
+    @(link_name = "gtk_tree_view_column_set_sort_column_id")
+    tree_view_column_set_sort_column_id :: proc(tree_column: ^TreeViewColumn, sort_column_id: i32) ---
+
+    @(link_name = "gtk_tree_view_column_get_sort_column_id")
+    tree_view_column_get_sort_column_id :: proc(tree_column: ^TreeViewColumn) -> i32 ---
+
+    @(link_name = "gtk_tree_view_column_set_sort_indicator")
+    tree_view_column_set_sort_indicator :: proc(tree_column: ^TreeViewColumn, setting: glib.boolean) ---
+
+    @(link_name = "gtk_tree_view_column_get_sort_indicator")
+    tree_view_column_get_sort_indicator :: proc(tree_column: ^TreeViewColumn) -> glib.boolean ---
+
+    @(link_name = "gtk_tree_view_column_set_sort_order")
+    tree_view_column_set_sort_order :: proc(tree_column: ^TreeViewColumn, order: SortType) ---
+
+    @(link_name = "gtk_tree_view_column_get_sort_order")
+    tree_view_column_get_sort_order :: proc(tree_column: ^TreeViewColumn) -> SortType ---
+
+    @(link_name = "gtk_tree_view_column_cell_set_cell_data")
+    tree_view_column_cell_set_cell_data :: proc(tree_column: ^TreeViewColumn, tree_model: ^TreeModel, iter: ^TreeIter, is_expander: glib.boolean, is_expanded: glib.boolean) ---
+
+    @(link_name = "gtk_tree_view_column_cell_get_size")
+    tree_view_column_cell_get_size :: proc(tree_column: ^TreeViewColumn, x_offset: ^i32, y_offset: ^i32, width: ^i32, height: ^i32) ---
+
+    @(link_name = "gtk_tree_view_column_cell_is_visible")
+    tree_view_column_cell_is_visible :: proc(tree_column: ^TreeViewColumn) -> glib.boolean ---
+
+    @(link_name = "gtk_tree_view_column_focus_cell")
+    tree_view_column_focus_cell :: proc(tree_column: ^TreeViewColumn, cell: ^CellRenderer) ---
+
+    @(link_name = "gtk_tree_view_column_cell_get_position")
+    tree_view_column_cell_get_position :: proc(tree_column: ^TreeViewColumn, cell_renderer: ^CellRenderer, x_offset: ^i32, width: ^i32) -> glib.boolean ---
+
+    @(link_name = "gtk_tree_view_column_queue_resize")
+    tree_view_column_queue_resize :: proc(tree_column: ^TreeViewColumn) ---
+
+    @(link_name = "gtk_tree_view_column_get_tree_view")
+    tree_view_column_get_tree_view :: proc(tree_column: ^TreeViewColumn) -> ^Widget ---
+
+    @(link_name = "gtk_tree_view_column_get_button")
+    tree_view_column_get_button :: proc(tree_column: ^TreeViewColumn) -> ^Widget ---
+
+    @(link_name = "gtk_editable_get_type")
+    editable_get_type :: proc() -> gobj.Type ---
+
+    @(link_name = "gtk_editable_get_text")
+    editable_get_text :: proc(editable: ^Editable) -> cstring ---
+
+    @(link_name = "gtk_editable_set_text")
+    editable_set_text :: proc(editable: ^Editable, text: cstring) ---
+
+    @(link_name = "gtk_editable_get_chars")
+    editable_get_chars :: proc(editable: ^Editable, start_pos: i32, end_pos: i32) -> cstring ---
+
+    @(link_name = "gtk_editable_insert_text")
+    editable_insert_text :: proc(editable: ^Editable, text: cstring, length: i32, position: ^i32) ---
+
+    @(link_name = "gtk_editable_delete_text")
+    editable_delete_text :: proc(editable: ^Editable, start_pos: i32, end_pos: i32) ---
+
+    @(link_name = "gtk_editable_get_selection_bounds")
+    editable_get_selection_bounds :: proc(editable: ^Editable, start_pos: ^i32, end_pos: ^i32) -> glib.boolean ---
+
+    @(link_name = "gtk_editable_delete_selection")
+    editable_delete_selection :: proc(editable: ^Editable) ---
+
+    @(link_name = "gtk_editable_select_region")
+    editable_select_region :: proc(editable: ^Editable, start_pos: i32, end_pos: i32) ---
+
+    @(link_name = "gtk_editable_set_position")
+    editable_set_position :: proc(editable: ^Editable, position: i32) ---
+
+    @(link_name = "gtk_editable_get_position")
+    editable_get_position :: proc(editable: ^Editable) -> i32 ---
+
+    @(link_name = "gtk_editable_get_editable")
+    editable_get_editable :: proc(editable: ^Editable) -> glib.boolean ---
+
+    @(link_name = "gtk_editable_set_editable")
+    editable_set_editable :: proc(editable: ^Editable, is_editable: glib.boolean) ---
+
+    @(link_name = "gtk_editable_get_alignment")
+    editable_get_alignment :: proc(editable: ^Editable) -> f32 ---
+
+    @(link_name = "gtk_editable_set_alignment")
+    editable_set_alignment :: proc(editable: ^Editable, xalign: f32) ---
+
+    @(link_name = "gtk_editable_get_width_chars")
+    editable_get_width_chars :: proc(editable: ^Editable) -> i32 ---
+
+    @(link_name = "gtk_editable_set_width_chars")
+    editable_set_width_chars :: proc(editable: ^Editable, n_chars: i32) ---
+
+    @(link_name = "gtk_editable_get_max_width_chars")
+    editable_get_max_width_chars :: proc(editable: ^Editable) -> i32 ---
+
+    @(link_name = "gtk_editable_set_max_width_chars")
+    editable_set_max_width_chars :: proc(editable: ^Editable, n_chars: i32) ---
+
+    @(link_name = "gtk_editable_get_enable_undo")
+    editable_get_enable_undo :: proc(editable: ^Editable) -> glib.boolean ---
+
+    @(link_name = "gtk_editable_set_enable_undo")
+    editable_set_enable_undo :: proc(editable: ^Editable, enable_undo: glib.boolean) ---
+
+    @(link_name = "gtk_editable_install_properties")
+    editable_install_properties :: proc(object_class: ^gobj.ObjectClass, first_prop: glib.uint_) -> glib.uint_ ---
+
+    @(link_name = "gtk_editable_get_delegate")
+    editable_get_delegate :: proc(editable: ^Editable) -> ^Editable ---
+
+    @(link_name = "gtk_editable_init_delegate")
+    editable_init_delegate :: proc(editable: ^Editable) ---
+
+    @(link_name = "gtk_editable_finish_delegate")
+    editable_finish_delegate :: proc(editable: ^Editable) ---
+
+    @(link_name = "gtk_editable_delegate_set_property")
+    editable_delegate_set_property :: proc(object: ^gobj.Object, prop_id: glib.uint_, value: ^gobj.Value, pspec: ^gobj.ParamSpec) -> glib.boolean ---
+
+    @(link_name = "gtk_editable_delegate_get_property")
+    editable_delegate_get_property :: proc(object: ^gobj.Object, prop_id: glib.uint_, value: ^gobj.Value, pspec: ^gobj.ParamSpec) -> glib.boolean ---
+
+    @(link_name = "gtk_editable_delegate_get_accessible_platform_state")
+    editable_delegate_get_accessible_platform_state :: proc(editable: ^Editable, state: AccessiblePlatformState) -> glib.boolean ---
+
+    @(link_name = "gtk_im_context_get_type")
+    im_context_get_type :: proc() -> gobj.Type ---
+
+    @(link_name = "gtk_im_context_set_client_widget")
+    im_context_set_client_widget :: proc(context_p: ^IMContext, widget: ^Widget) ---
+
+    @(link_name = "gtk_im_context_get_preedit_string")
+    im_context_get_preedit_string :: proc(context_p: ^IMContext, str: ^cstring, attrs: ^^pango.AttrList, cursor_pos: ^i32) ---
+
+    @(link_name = "gtk_im_context_filter_keypress")
+    im_context_filter_keypress :: proc(context_p: ^IMContext, event: ^Event) -> glib.boolean ---
+
+    @(link_name = "gtk_im_context_filter_key")
+    im_context_filter_key :: proc(context_p: ^IMContext, press: glib.boolean, surface: ^Surface, device: ^Device, time: glib.uint32, keycode: glib.uint_, state: ModifierType, group: i32) -> glib.boolean ---
+
+    @(link_name = "gtk_im_context_focus_in")
+    im_context_focus_in :: proc(context_p: ^IMContext) ---
+
+    @(link_name = "gtk_im_context_focus_out")
+    im_context_focus_out :: proc(context_p: ^IMContext) ---
+
+    @(link_name = "gtk_im_context_reset")
+    im_context_reset :: proc(context_p: ^IMContext) ---
+
+    @(link_name = "gtk_im_context_set_cursor_location")
+    im_context_set_cursor_location :: proc(context_p: ^IMContext, area: ^Rectangle) ---
+
+    @(link_name = "gtk_im_context_set_use_preedit")
+    im_context_set_use_preedit :: proc(context_p: ^IMContext, use_preedit: glib.boolean) ---
+
+    @(link_name = "gtk_im_context_set_surrounding")
+    im_context_set_surrounding :: proc(context_p: ^IMContext, text: cstring, len: i32, cursor_index: i32) ---
+
+    @(link_name = "gtk_im_context_get_surrounding")
+    im_context_get_surrounding :: proc(context_p: ^IMContext, text: ^cstring, cursor_index: ^i32) -> glib.boolean ---
+
+    @(link_name = "gtk_im_context_set_surrounding_with_selection")
+    im_context_set_surrounding_with_selection :: proc(context_p: ^IMContext, text: cstring, len: i32, cursor_index: i32, anchor_index: i32) ---
+
+    @(link_name = "gtk_im_context_get_surrounding_with_selection")
+    im_context_get_surrounding_with_selection :: proc(context_p: ^IMContext, text: ^cstring, cursor_index: ^i32, anchor_index: ^i32) -> glib.boolean ---
+
+    @(link_name = "gtk_im_context_delete_surrounding")
+    im_context_delete_surrounding :: proc(context_p: ^IMContext, offset: i32, n_chars: i32) -> glib.boolean ---
+
+    @(link_name = "gtk_im_context_activate_osk")
+    im_context_activate_osk :: proc(context_p: ^IMContext, event: ^Event) -> glib.boolean ---
+
+    @(link_name = "gtk_entry_buffer_get_type")
+    entry_buffer_get_type :: proc() -> gobj.Type ---
+
+    @(link_name = "gtk_entry_buffer_new")
+    entry_buffer_new :: proc(initial_chars: cstring, n_initial_chars: i32) -> ^EntryBuffer ---
+
+    @(link_name = "gtk_entry_buffer_get_bytes")
+    entry_buffer_get_bytes :: proc(buffer: ^EntryBuffer) -> glib.size ---
+
+    @(link_name = "gtk_entry_buffer_get_length")
+    entry_buffer_get_length :: proc(buffer: ^EntryBuffer) -> glib.uint_ ---
+
+    @(link_name = "gtk_entry_buffer_get_text")
+    entry_buffer_get_text :: proc(buffer: ^EntryBuffer) -> cstring ---
+
+    @(link_name = "gtk_entry_buffer_set_text")
+    entry_buffer_set_text :: proc(buffer: ^EntryBuffer, chars: cstring, n_chars: i32) ---
+
+    @(link_name = "gtk_entry_buffer_set_max_length")
+    entry_buffer_set_max_length :: proc(buffer: ^EntryBuffer, max_length: i32) ---
+
+    @(link_name = "gtk_entry_buffer_get_max_length")
+    entry_buffer_get_max_length :: proc(buffer: ^EntryBuffer) -> i32 ---
+
+    @(link_name = "gtk_entry_buffer_insert_text")
+    entry_buffer_insert_text :: proc(buffer: ^EntryBuffer, position: glib.uint_, chars: cstring, n_chars: i32) -> glib.uint_ ---
+
+    @(link_name = "gtk_entry_buffer_delete_text")
+    entry_buffer_delete_text :: proc(buffer: ^EntryBuffer, position: glib.uint_, n_chars: i32) -> glib.uint_ ---
+
+    @(link_name = "gtk_entry_buffer_emit_inserted_text")
+    entry_buffer_emit_inserted_text :: proc(buffer: ^EntryBuffer, position: glib.uint_, chars: cstring, n_chars: glib.uint_) ---
+
+    @(link_name = "gtk_entry_buffer_emit_deleted_text")
+    entry_buffer_emit_deleted_text :: proc(buffer: ^EntryBuffer, position: glib.uint_, n_chars: glib.uint_) ---
+
+    @(link_name = "gtk_list_store_get_type")
+    list_store_get_type :: proc() -> gobj.Type ---
+
+    @(link_name = "gtk_list_store_new")
+    list_store_new :: proc(n_columns: i32, #c_vararg var_args: ..any) -> ^ListStore ---
+
+    @(link_name = "gtk_list_store_newv")
+    list_store_newv :: proc(n_columns: i32, types: [^]gobj.Type) -> ^ListStore ---
+
+    @(link_name = "gtk_list_store_set_column_types")
+    list_store_set_column_types :: proc(list_store: ^ListStore, n_columns: i32, types: [^]gobj.Type) ---
+
+    @(link_name = "gtk_list_store_set_value")
+    list_store_set_value :: proc(list_store: ^ListStore, iter: ^TreeIter, column: i32, value: ^gobj.Value) ---
+
+    @(link_name = "gtk_list_store_set")
+    list_store_set :: proc(list_store: ^ListStore, iter: ^TreeIter, #c_vararg var_args: ..any) ---
+
+    @(link_name = "gtk_list_store_set_valuesv")
+    list_store_set_valuesv :: proc(list_store: ^ListStore, iter: ^TreeIter, columns: [^]i32, values: [^]gobj.Value, n_values: i32) ---
+
+    // list_store_set_valist skipped: its trailing va_list is dropped by runic, so it would be a wrong #c_vararg ..any call
+
+    @(link_name = "gtk_list_store_remove")
+    list_store_remove :: proc(list_store: ^ListStore, iter: ^TreeIter) -> glib.boolean ---
+
+    @(link_name = "gtk_list_store_insert")
+    list_store_insert :: proc(list_store: ^ListStore, iter: ^TreeIter, position: i32) ---
+
+    @(link_name = "gtk_list_store_insert_before")
+    list_store_insert_before :: proc(list_store: ^ListStore, iter: ^TreeIter, sibling: ^TreeIter) ---
+
+    @(link_name = "gtk_list_store_insert_after")
+    list_store_insert_after :: proc(list_store: ^ListStore, iter: ^TreeIter, sibling: ^TreeIter) ---
+
+    @(link_name = "gtk_list_store_insert_with_values")
+    list_store_insert_with_values :: proc(list_store: ^ListStore, iter: ^TreeIter, position: i32, #c_vararg var_args: ..any) ---
+
+    @(link_name = "gtk_list_store_insert_with_valuesv")
+    list_store_insert_with_valuesv :: proc(list_store: ^ListStore, iter: ^TreeIter, position: i32, columns: [^]i32, values: [^]gobj.Value, n_values: i32) ---
+
+    @(link_name = "gtk_list_store_prepend")
+    list_store_prepend :: proc(list_store: ^ListStore, iter: ^TreeIter) ---
+
+    @(link_name = "gtk_list_store_append")
+    list_store_append :: proc(list_store: ^ListStore, iter: ^TreeIter) ---
+
+    @(link_name = "gtk_list_store_clear")
+    list_store_clear :: proc(list_store: ^ListStore) ---
+
+    @(link_name = "gtk_list_store_iter_is_valid")
+    list_store_iter_is_valid :: proc(list_store: ^ListStore, iter: ^TreeIter) -> glib.boolean ---
+
+    @(link_name = "gtk_list_store_reorder")
+    list_store_reorder :: proc(store: ^ListStore, new_order: ^i32) ---
+
+    @(link_name = "gtk_list_store_swap")
+    list_store_swap :: proc(store: ^ListStore, a: ^TreeIter, b: ^TreeIter) ---
+
+    @(link_name = "gtk_list_store_move_after")
+    list_store_move_after :: proc(store: ^ListStore, iter: ^TreeIter, position: ^TreeIter) ---
+
+    @(link_name = "gtk_list_store_move_before")
+    list_store_move_before :: proc(store: ^ListStore, iter: ^TreeIter, position: ^TreeIter) ---
+
+    @(link_name = "gtk_tree_model_filter_get_type")
+    tree_model_filter_get_type :: proc() -> gobj.Type ---
+
+    @(link_name = "gtk_tree_model_filter_new")
+    tree_model_filter_new :: proc(child_model: ^TreeModel, root: ^TreePath) -> ^TreeModel ---
+
+    @(link_name = "gtk_tree_model_filter_set_visible_func")
+    tree_model_filter_set_visible_func :: proc(filter: ^TreeModelFilter, func: TreeModelFilterVisibleFunc, data: glib.pointer, destroy: glib.DestroyNotify) ---
+
+    @(link_name = "gtk_tree_model_filter_set_modify_func")
+    tree_model_filter_set_modify_func :: proc(filter: ^TreeModelFilter, n_columns: i32, types: [^]gobj.Type, func: TreeModelFilterModifyFunc, data: glib.pointer, destroy: glib.DestroyNotify) ---
+
+    @(link_name = "gtk_tree_model_filter_set_visible_column")
+    tree_model_filter_set_visible_column :: proc(filter: ^TreeModelFilter, column: i32) ---
+
+    @(link_name = "gtk_tree_model_filter_get_model")
+    tree_model_filter_get_model :: proc(filter: ^TreeModelFilter) -> ^TreeModel ---
+
+    @(link_name = "gtk_tree_model_filter_convert_child_iter_to_iter")
+    tree_model_filter_convert_child_iter_to_iter :: proc(filter: ^TreeModelFilter, filter_iter: ^TreeIter, child_iter: ^TreeIter) -> glib.boolean ---
+
+    @(link_name = "gtk_tree_model_filter_convert_iter_to_child_iter")
+    tree_model_filter_convert_iter_to_child_iter :: proc(filter: ^TreeModelFilter, child_iter: ^TreeIter, filter_iter: ^TreeIter) ---
+
+    @(link_name = "gtk_tree_model_filter_convert_child_path_to_path")
+    tree_model_filter_convert_child_path_to_path :: proc(filter: ^TreeModelFilter, child_path: ^TreePath) -> ^TreePath ---
+
+    @(link_name = "gtk_tree_model_filter_convert_path_to_child_path")
+    tree_model_filter_convert_path_to_child_path :: proc(filter: ^TreeModelFilter, filter_path: ^TreePath) -> ^TreePath ---
+
+    @(link_name = "gtk_tree_model_filter_refilter")
+    tree_model_filter_refilter :: proc(filter: ^TreeModelFilter) ---
+
+    @(link_name = "gtk_tree_model_filter_clear_cache")
+    tree_model_filter_clear_cache :: proc(filter: ^TreeModelFilter) ---
+
+    @(link_name = "gtk_entry_completion_get_type")
+    entry_completion_get_type :: proc() -> gobj.Type ---
+
+    @(link_name = "gtk_entry_completion_new")
+    entry_completion_new :: proc() -> ^EntryCompletion ---
+
+    @(link_name = "gtk_entry_completion_new_with_area")
+    entry_completion_new_with_area :: proc(area: ^CellArea) -> ^EntryCompletion ---
+
+    @(link_name = "gtk_entry_completion_get_entry")
+    entry_completion_get_entry :: proc(completion: ^EntryCompletion) -> ^Widget ---
+
+    @(link_name = "gtk_entry_completion_set_model")
+    entry_completion_set_model :: proc(completion: ^EntryCompletion, model: ^TreeModel) ---
+
+    @(link_name = "gtk_entry_completion_get_model")
+    entry_completion_get_model :: proc(completion: ^EntryCompletion) -> ^TreeModel ---
+
+    @(link_name = "gtk_entry_completion_set_match_func")
+    entry_completion_set_match_func :: proc(completion: ^EntryCompletion, func: EntryCompletionMatchFunc, func_data: glib.pointer, func_notify: glib.DestroyNotify) ---
+
+    @(link_name = "gtk_entry_completion_set_minimum_key_length")
+    entry_completion_set_minimum_key_length :: proc(completion: ^EntryCompletion, length: i32) ---
+
+    @(link_name = "gtk_entry_completion_get_minimum_key_length")
+    entry_completion_get_minimum_key_length :: proc(completion: ^EntryCompletion) -> i32 ---
+
+    @(link_name = "gtk_entry_completion_compute_prefix")
+    entry_completion_compute_prefix :: proc(completion: ^EntryCompletion, key: cstring) -> cstring ---
+
+    @(link_name = "gtk_entry_completion_complete")
+    entry_completion_complete :: proc(completion: ^EntryCompletion) ---
+
+    @(link_name = "gtk_entry_completion_insert_prefix")
+    entry_completion_insert_prefix :: proc(completion: ^EntryCompletion) ---
+
+    @(link_name = "gtk_entry_completion_set_inline_completion")
+    entry_completion_set_inline_completion :: proc(completion: ^EntryCompletion, inline_completion: glib.boolean) ---
+
+    @(link_name = "gtk_entry_completion_get_inline_completion")
+    entry_completion_get_inline_completion :: proc(completion: ^EntryCompletion) -> glib.boolean ---
+
+    @(link_name = "gtk_entry_completion_set_inline_selection")
+    entry_completion_set_inline_selection :: proc(completion: ^EntryCompletion, inline_selection: glib.boolean) ---
+
+    @(link_name = "gtk_entry_completion_get_inline_selection")
+    entry_completion_get_inline_selection :: proc(completion: ^EntryCompletion) -> glib.boolean ---
+
+    @(link_name = "gtk_entry_completion_set_popup_completion")
+    entry_completion_set_popup_completion :: proc(completion: ^EntryCompletion, popup_completion: glib.boolean) ---
+
+    @(link_name = "gtk_entry_completion_get_popup_completion")
+    entry_completion_get_popup_completion :: proc(completion: ^EntryCompletion) -> glib.boolean ---
+
+    @(link_name = "gtk_entry_completion_set_popup_set_width")
+    entry_completion_set_popup_set_width :: proc(completion: ^EntryCompletion, popup_set_width: glib.boolean) ---
+
+    @(link_name = "gtk_entry_completion_get_popup_set_width")
+    entry_completion_get_popup_set_width :: proc(completion: ^EntryCompletion) -> glib.boolean ---
+
+    @(link_name = "gtk_entry_completion_set_popup_single_match")
+    entry_completion_set_popup_single_match :: proc(completion: ^EntryCompletion, popup_single_match: glib.boolean) ---
+
+    @(link_name = "gtk_entry_completion_get_popup_single_match")
+    entry_completion_get_popup_single_match :: proc(completion: ^EntryCompletion) -> glib.boolean ---
+
+    @(link_name = "gtk_entry_completion_get_completion_prefix")
+    entry_completion_get_completion_prefix :: proc(completion: ^EntryCompletion) -> cstring ---
+
+    @(link_name = "gtk_entry_completion_set_text_column")
+    entry_completion_set_text_column :: proc(completion: ^EntryCompletion, column: i32) ---
+
+    @(link_name = "gtk_entry_completion_get_text_column")
+    entry_completion_get_text_column :: proc(completion: ^EntryCompletion) -> i32 ---
+
+    @(link_name = "gtk_image_get_type")
+    image_get_type :: proc() -> gobj.Type ---
+
+    @(link_name = "gtk_image_new")
+    image_new :: proc() -> ^Widget ---
+
+    @(link_name = "gtk_image_new_from_file")
+    image_new_from_file :: proc(filename: cstring) -> ^Widget ---
+
+    @(link_name = "gtk_image_new_from_resource")
+    image_new_from_resource :: proc(resource_path: cstring) -> ^Widget ---
+
+    @(link_name = "gtk_image_new_from_pixbuf")
+    image_new_from_pixbuf :: proc(pixbuf: ^pixbuf.Pixbuf) -> ^Widget ---
+
+    @(link_name = "gtk_image_new_from_paintable")
+    image_new_from_paintable :: proc(paintable: ^Paintable) -> ^Widget ---
+
+    @(link_name = "gtk_image_new_from_icon_name")
+    image_new_from_icon_name :: proc(icon_name: cstring) -> ^Widget ---
+
+    @(link_name = "gtk_image_new_from_gicon")
+    image_new_from_gicon :: proc(icon: ^gio.Icon) -> ^Widget ---
+
+    @(link_name = "gtk_image_clear")
+    image_clear :: proc(image: ^Image) ---
+
+    @(link_name = "gtk_image_set_from_file")
+    image_set_from_file :: proc(image: ^Image, filename: cstring) ---
+
+    @(link_name = "gtk_image_set_from_resource")
+    image_set_from_resource :: proc(image: ^Image, resource_path: cstring) ---
+
+    @(link_name = "gtk_image_set_from_pixbuf")
+    image_set_from_pixbuf :: proc(image: ^Image, pixbuf: ^pixbuf.Pixbuf) ---
+
+    @(link_name = "gtk_image_set_from_paintable")
+    image_set_from_paintable :: proc(image: ^Image, paintable: ^Paintable) ---
+
+    @(link_name = "gtk_image_set_from_icon_name")
+    image_set_from_icon_name :: proc(image: ^Image, icon_name: cstring) ---
+
+    @(link_name = "gtk_image_set_from_gicon")
+    image_set_from_gicon :: proc(image: ^Image, icon: ^gio.Icon) ---
+
+    @(link_name = "gtk_image_set_pixel_size")
+    image_set_pixel_size :: proc(image: ^Image, pixel_size: i32) ---
+
+    @(link_name = "gtk_image_set_icon_size")
+    image_set_icon_size :: proc(image: ^Image, icon_size: IconSize) ---
+
+    @(link_name = "gtk_image_get_storage_type")
+    image_get_storage_type :: proc(image: ^Image) -> ImageType ---
+
+    @(link_name = "gtk_image_get_paintable")
+    image_get_paintable :: proc(image: ^Image) -> ^Paintable ---
+
+    @(link_name = "gtk_image_get_icon_name")
+    image_get_icon_name :: proc(image: ^Image) -> cstring ---
+
+    @(link_name = "gtk_image_get_gicon")
+    image_get_gicon :: proc(image: ^Image) -> ^gio.Icon ---
+
+    @(link_name = "gtk_image_get_pixel_size")
+    image_get_pixel_size :: proc(image: ^Image) -> i32 ---
+
+    @(link_name = "gtk_image_get_icon_size")
+    image_get_icon_size :: proc(image: ^Image) -> IconSize ---
+
+    @(link_name = "gtk_entry_get_type")
+    entry_get_type :: proc() -> gobj.Type ---
+
+    @(link_name = "gtk_entry_new")
+    entry_new :: proc() -> ^Widget ---
+
+    @(link_name = "gtk_entry_new_with_buffer")
+    entry_new_with_buffer :: proc(buffer: ^EntryBuffer) -> ^Widget ---
+
+    @(link_name = "gtk_entry_get_buffer")
+    entry_get_buffer :: proc(entry: ^Entry) -> ^EntryBuffer ---
+
+    @(link_name = "gtk_entry_set_buffer")
+    entry_set_buffer :: proc(entry: ^Entry, buffer: ^EntryBuffer) ---
+
+    @(link_name = "gtk_entry_set_visibility")
+    entry_set_visibility :: proc(entry: ^Entry, visible: glib.boolean) ---
+
+    @(link_name = "gtk_entry_get_visibility")
+    entry_get_visibility :: proc(entry: ^Entry) -> glib.boolean ---
+
+    @(link_name = "gtk_entry_set_invisible_char")
+    entry_set_invisible_char :: proc(entry: ^Entry, ch: glib.unichar) ---
+
+    @(link_name = "gtk_entry_get_invisible_char")
+    entry_get_invisible_char :: proc(entry: ^Entry) -> glib.unichar ---
+
+    @(link_name = "gtk_entry_unset_invisible_char")
+    entry_unset_invisible_char :: proc(entry: ^Entry) ---
+
+    @(link_name = "gtk_entry_set_has_frame")
+    entry_set_has_frame :: proc(entry: ^Entry, setting: glib.boolean) ---
+
+    @(link_name = "gtk_entry_get_has_frame")
+    entry_get_has_frame :: proc(entry: ^Entry) -> glib.boolean ---
+
+    @(link_name = "gtk_entry_set_overwrite_mode")
+    entry_set_overwrite_mode :: proc(entry: ^Entry, overwrite: glib.boolean) ---
+
+    @(link_name = "gtk_entry_get_overwrite_mode")
+    entry_get_overwrite_mode :: proc(entry: ^Entry) -> glib.boolean ---
+
+    @(link_name = "gtk_entry_set_max_length")
+    entry_set_max_length :: proc(entry: ^Entry, max: i32) ---
+
+    @(link_name = "gtk_entry_get_max_length")
+    entry_get_max_length :: proc(entry: ^Entry) -> i32 ---
+
+    @(link_name = "gtk_entry_get_text_length")
+    entry_get_text_length :: proc(entry: ^Entry) -> glib.uint16 ---
+
+    @(link_name = "gtk_entry_set_activates_default")
+    entry_set_activates_default :: proc(entry: ^Entry, setting: glib.boolean) ---
+
+    @(link_name = "gtk_entry_get_activates_default")
+    entry_get_activates_default :: proc(entry: ^Entry) -> glib.boolean ---
+
+    @(link_name = "gtk_entry_set_alignment")
+    entry_set_alignment :: proc(entry: ^Entry, xalign: f32) ---
+
+    @(link_name = "gtk_entry_get_alignment")
+    entry_get_alignment :: proc(entry: ^Entry) -> f32 ---
+
+    @(link_name = "gtk_entry_set_completion")
+    entry_set_completion :: proc(entry: ^Entry, completion: ^EntryCompletion) ---
+
+    @(link_name = "gtk_entry_get_completion")
+    entry_get_completion :: proc(entry: ^Entry) -> ^EntryCompletion ---
+
+    @(link_name = "gtk_entry_set_progress_fraction")
+    entry_set_progress_fraction :: proc(entry: ^Entry, fraction: f64) ---
+
+    @(link_name = "gtk_entry_get_progress_fraction")
+    entry_get_progress_fraction :: proc(entry: ^Entry) -> f64 ---
+
+    @(link_name = "gtk_entry_set_progress_pulse_step")
+    entry_set_progress_pulse_step :: proc(entry: ^Entry, fraction: f64) ---
+
+    @(link_name = "gtk_entry_get_progress_pulse_step")
+    entry_get_progress_pulse_step :: proc(entry: ^Entry) -> f64 ---
+
+    @(link_name = "gtk_entry_progress_pulse")
+    entry_progress_pulse :: proc(entry: ^Entry) ---
+
+    @(link_name = "gtk_entry_get_placeholder_text")
+    entry_get_placeholder_text :: proc(entry: ^Entry) -> cstring ---
+
+    @(link_name = "gtk_entry_set_placeholder_text")
+    entry_set_placeholder_text :: proc(entry: ^Entry, text: cstring) ---
+
+    @(link_name = "gtk_entry_set_icon_from_paintable")
+    entry_set_icon_from_paintable :: proc(entry: ^Entry, icon_pos: EntryIconPosition, paintable: ^Paintable) ---
+
+    @(link_name = "gtk_entry_set_icon_from_icon_name")
+    entry_set_icon_from_icon_name :: proc(entry: ^Entry, icon_pos: EntryIconPosition, icon_name: cstring) ---
+
+    @(link_name = "gtk_entry_set_icon_from_gicon")
+    entry_set_icon_from_gicon :: proc(entry: ^Entry, icon_pos: EntryIconPosition, icon: ^gio.Icon) ---
+
+    @(link_name = "gtk_entry_get_icon_storage_type")
+    entry_get_icon_storage_type :: proc(entry: ^Entry, icon_pos: EntryIconPosition) -> ImageType ---
+
+    @(link_name = "gtk_entry_get_icon_paintable")
+    entry_get_icon_paintable :: proc(entry: ^Entry, icon_pos: EntryIconPosition) -> ^Paintable ---
+
+    @(link_name = "gtk_entry_get_icon_name")
+    entry_get_icon_name :: proc(entry: ^Entry, icon_pos: EntryIconPosition) -> cstring ---
+
+    @(link_name = "gtk_entry_get_icon_gicon")
+    entry_get_icon_gicon :: proc(entry: ^Entry, icon_pos: EntryIconPosition) -> ^gio.Icon ---
+
+    @(link_name = "gtk_entry_set_icon_activatable")
+    entry_set_icon_activatable :: proc(entry: ^Entry, icon_pos: EntryIconPosition, activatable: glib.boolean) ---
+
+    @(link_name = "gtk_entry_get_icon_activatable")
+    entry_get_icon_activatable :: proc(entry: ^Entry, icon_pos: EntryIconPosition) -> glib.boolean ---
+
+    @(link_name = "gtk_entry_set_icon_sensitive")
+    entry_set_icon_sensitive :: proc(entry: ^Entry, icon_pos: EntryIconPosition, sensitive: glib.boolean) ---
+
+    @(link_name = "gtk_entry_get_icon_sensitive")
+    entry_get_icon_sensitive :: proc(entry: ^Entry, icon_pos: EntryIconPosition) -> glib.boolean ---
+
+    @(link_name = "gtk_entry_get_icon_at_pos")
+    entry_get_icon_at_pos :: proc(entry: ^Entry, x: i32, y: i32) -> i32 ---
+
+    @(link_name = "gtk_entry_set_icon_tooltip_text")
+    entry_set_icon_tooltip_text :: proc(entry: ^Entry, icon_pos: EntryIconPosition, tooltip: cstring) ---
+
+    @(link_name = "gtk_entry_get_icon_tooltip_text")
+    entry_get_icon_tooltip_text :: proc(entry: ^Entry, icon_pos: EntryIconPosition) -> cstring ---
+
+    @(link_name = "gtk_entry_set_icon_tooltip_markup")
+    entry_set_icon_tooltip_markup :: proc(entry: ^Entry, icon_pos: EntryIconPosition, tooltip: cstring) ---
+
+    @(link_name = "gtk_entry_get_icon_tooltip_markup")
+    entry_get_icon_tooltip_markup :: proc(entry: ^Entry, icon_pos: EntryIconPosition) -> cstring ---
+
+    @(link_name = "gtk_entry_set_icon_drag_source")
+    entry_set_icon_drag_source :: proc(entry: ^Entry, icon_pos: EntryIconPosition, provider: ^ContentProvider, actions: DragAction) ---
+
+    @(link_name = "gtk_entry_get_current_icon_drag_source")
+    entry_get_current_icon_drag_source :: proc(entry: ^Entry) -> i32 ---
+
+    @(link_name = "gtk_entry_get_icon_area")
+    entry_get_icon_area :: proc(entry: ^Entry, icon_pos: EntryIconPosition, icon_area: ^Rectangle) ---
+
+    @(link_name = "gtk_entry_reset_im_context")
+    entry_reset_im_context :: proc(entry: ^Entry) ---
+
+    @(link_name = "gtk_entry_set_input_purpose")
+    entry_set_input_purpose :: proc(entry: ^Entry, purpose: InputPurpose) ---
+
+    @(link_name = "gtk_entry_get_input_purpose")
+    entry_get_input_purpose :: proc(entry: ^Entry) -> InputPurpose ---
+
+    @(link_name = "gtk_entry_set_input_hints")
+    entry_set_input_hints :: proc(entry: ^Entry, hints: InputHints) ---
+
+    @(link_name = "gtk_entry_get_input_hints")
+    entry_get_input_hints :: proc(entry: ^Entry) -> InputHints ---
+
+    @(link_name = "gtk_entry_set_attributes")
+    entry_set_attributes :: proc(entry: ^Entry, attrs: ^pango.AttrList) ---
+
+    @(link_name = "gtk_entry_get_attributes")
+    entry_get_attributes :: proc(entry: ^Entry) -> ^pango.AttrList ---
+
+    @(link_name = "gtk_entry_set_tabs")
+    entry_set_tabs :: proc(entry: ^Entry, tabs: ^pango.TabArray) ---
+
+    @(link_name = "gtk_entry_get_tabs")
+    entry_get_tabs :: proc(entry: ^Entry) -> ^pango.TabArray ---
+
+    @(link_name = "gtk_entry_grab_focus_without_selecting")
+    entry_grab_focus_without_selecting :: proc(entry: ^Entry) -> glib.boolean ---
+
+    @(link_name = "gtk_entry_set_extra_menu")
+    entry_set_extra_menu :: proc(entry: ^Entry, model: ^gio.MenuModel) ---
+
+    @(link_name = "gtk_entry_get_extra_menu")
+    entry_get_extra_menu :: proc(entry: ^Entry) -> ^gio.MenuModel ---
+
+    @(link_name = "gtk_tree_view_get_type")
+    tree_view_get_type :: proc() -> gobj.Type ---
+
+    @(link_name = "gtk_tree_view_new")
+    tree_view_new :: proc() -> ^Widget ---
+
+    @(link_name = "gtk_tree_view_new_with_model")
+    tree_view_new_with_model :: proc(model: ^TreeModel) -> ^Widget ---
+
+    @(link_name = "gtk_tree_view_get_model")
+    tree_view_get_model :: proc(tree_view: ^TreeView) -> ^TreeModel ---
+
+    @(link_name = "gtk_tree_view_set_model")
+    tree_view_set_model :: proc(tree_view: ^TreeView, model: ^TreeModel) ---
+
+    @(link_name = "gtk_tree_view_get_selection")
+    tree_view_get_selection :: proc(tree_view: ^TreeView) -> ^TreeSelection ---
+
+    @(link_name = "gtk_tree_view_get_headers_visible")
+    tree_view_get_headers_visible :: proc(tree_view: ^TreeView) -> glib.boolean ---
+
+    @(link_name = "gtk_tree_view_set_headers_visible")
+    tree_view_set_headers_visible :: proc(tree_view: ^TreeView, headers_visible: glib.boolean) ---
+
+    @(link_name = "gtk_tree_view_columns_autosize")
+    tree_view_columns_autosize :: proc(tree_view: ^TreeView) ---
+
+    @(link_name = "gtk_tree_view_get_headers_clickable")
+    tree_view_get_headers_clickable :: proc(tree_view: ^TreeView) -> glib.boolean ---
+
+    @(link_name = "gtk_tree_view_set_headers_clickable")
+    tree_view_set_headers_clickable :: proc(tree_view: ^TreeView, setting: glib.boolean) ---
+
+    @(link_name = "gtk_tree_view_get_activate_on_single_click")
+    tree_view_get_activate_on_single_click :: proc(tree_view: ^TreeView) -> glib.boolean ---
+
+    @(link_name = "gtk_tree_view_set_activate_on_single_click")
+    tree_view_set_activate_on_single_click :: proc(tree_view: ^TreeView, single: glib.boolean) ---
+
+    @(link_name = "gtk_tree_view_append_column")
+    tree_view_append_column :: proc(tree_view: ^TreeView, column: ^TreeViewColumn) -> i32 ---
+
+    @(link_name = "gtk_tree_view_remove_column")
+    tree_view_remove_column :: proc(tree_view: ^TreeView, column: ^TreeViewColumn) -> i32 ---
+
+    @(link_name = "gtk_tree_view_insert_column")
+    tree_view_insert_column :: proc(tree_view: ^TreeView, column: ^TreeViewColumn, position: i32) -> i32 ---
+
+    @(link_name = "gtk_tree_view_insert_column_with_attributes")
+    tree_view_insert_column_with_attributes :: proc(tree_view: ^TreeView, position: i32, title: cstring, cell: ^CellRenderer, #c_vararg var_args: ..any) -> i32 ---
+
+    @(link_name = "gtk_tree_view_insert_column_with_data_func")
+    tree_view_insert_column_with_data_func :: proc(tree_view: ^TreeView, position: i32, title: cstring, cell: ^CellRenderer, func: TreeCellDataFunc, data: glib.pointer, dnotify: glib.DestroyNotify) -> i32 ---
+
+    @(link_name = "gtk_tree_view_get_n_columns")
+    tree_view_get_n_columns :: proc(tree_view: ^TreeView) -> glib.uint_ ---
+
+    @(link_name = "gtk_tree_view_get_column")
+    tree_view_get_column :: proc(tree_view: ^TreeView, n: i32) -> ^TreeViewColumn ---
+
+    @(link_name = "gtk_tree_view_get_columns")
+    tree_view_get_columns :: proc(tree_view: ^TreeView) -> ^glib.List ---
+
+    @(link_name = "gtk_tree_view_move_column_after")
+    tree_view_move_column_after :: proc(tree_view: ^TreeView, column: ^TreeViewColumn, base_column: ^TreeViewColumn) ---
+
+    @(link_name = "gtk_tree_view_set_expander_column")
+    tree_view_set_expander_column :: proc(tree_view: ^TreeView, column: ^TreeViewColumn) ---
+
+    @(link_name = "gtk_tree_view_get_expander_column")
+    tree_view_get_expander_column :: proc(tree_view: ^TreeView) -> ^TreeViewColumn ---
+
+    @(link_name = "gtk_tree_view_set_column_drag_function")
+    tree_view_set_column_drag_function :: proc(tree_view: ^TreeView, func: TreeViewColumnDropFunc, user_data: glib.pointer, destroy: glib.DestroyNotify) ---
+
+    @(link_name = "gtk_tree_view_scroll_to_point")
+    tree_view_scroll_to_point :: proc(tree_view: ^TreeView, tree_x: i32, tree_y: i32) ---
+
+    @(link_name = "gtk_tree_view_scroll_to_cell")
+    tree_view_scroll_to_cell :: proc(tree_view: ^TreeView, path_p: ^TreePath, column: ^TreeViewColumn, use_align: glib.boolean, row_align: f32, col_align: f32) ---
+
+    @(link_name = "gtk_tree_view_row_activated")
+    tree_view_row_activated :: proc(tree_view: ^TreeView, path_p: ^TreePath, column: ^TreeViewColumn) ---
+
+    @(link_name = "gtk_tree_view_expand_all")
+    tree_view_expand_all :: proc(tree_view: ^TreeView) ---
+
+    @(link_name = "gtk_tree_view_collapse_all")
+    tree_view_collapse_all :: proc(tree_view: ^TreeView) ---
+
+    @(link_name = "gtk_tree_view_expand_to_path")
+    tree_view_expand_to_path :: proc(tree_view: ^TreeView, path_p: ^TreePath) ---
+
+    @(link_name = "gtk_tree_view_expand_row")
+    tree_view_expand_row :: proc(tree_view: ^TreeView, path_p: ^TreePath, open_all: glib.boolean) -> glib.boolean ---
+
+    @(link_name = "gtk_tree_view_collapse_row")
+    tree_view_collapse_row :: proc(tree_view: ^TreeView, path_p: ^TreePath) -> glib.boolean ---
+
+    @(link_name = "gtk_tree_view_map_expanded_rows")
+    tree_view_map_expanded_rows :: proc(tree_view: ^TreeView, func: TreeViewMappingFunc, data: glib.pointer) ---
+
+    @(link_name = "gtk_tree_view_row_expanded")
+    tree_view_row_expanded :: proc(tree_view: ^TreeView, path_p: ^TreePath) -> glib.boolean ---
+
+    @(link_name = "gtk_tree_view_set_reorderable")
+    tree_view_set_reorderable :: proc(tree_view: ^TreeView, reorderable: glib.boolean) ---
+
+    @(link_name = "gtk_tree_view_get_reorderable")
+    tree_view_get_reorderable :: proc(tree_view: ^TreeView) -> glib.boolean ---
+
+    @(link_name = "gtk_tree_view_set_cursor")
+    tree_view_set_cursor :: proc(tree_view: ^TreeView, path_p: ^TreePath, focus_column: ^TreeViewColumn, start_editing: glib.boolean) ---
+
+    @(link_name = "gtk_tree_view_set_cursor_on_cell")
+    tree_view_set_cursor_on_cell :: proc(tree_view: ^TreeView, path_p: ^TreePath, focus_column: ^TreeViewColumn, focus_cell: ^CellRenderer, start_editing: glib.boolean) ---
+
+    @(link_name = "gtk_tree_view_get_cursor")
+    tree_view_get_cursor :: proc(tree_view: ^TreeView, path_p: ^^TreePath, focus_column: ^^TreeViewColumn) ---
+
+    @(link_name = "gtk_tree_view_get_path_at_pos")
+    tree_view_get_path_at_pos :: proc(tree_view: ^TreeView, x: i32, y: i32, path_p: ^^TreePath, column: ^^TreeViewColumn, cell_x: ^i32, cell_y: ^i32) -> glib.boolean ---
+
+    @(link_name = "gtk_tree_view_get_cell_area")
+    tree_view_get_cell_area :: proc(tree_view: ^TreeView, path_p: ^TreePath, column: ^TreeViewColumn, rect: ^Rectangle) ---
+
+    @(link_name = "gtk_tree_view_get_background_area")
+    tree_view_get_background_area :: proc(tree_view: ^TreeView, path_p: ^TreePath, column: ^TreeViewColumn, rect: ^Rectangle) ---
+
+    @(link_name = "gtk_tree_view_get_visible_rect")
+    tree_view_get_visible_rect :: proc(tree_view: ^TreeView, visible_rect: ^Rectangle) ---
+
+    @(link_name = "gtk_tree_view_get_visible_range")
+    tree_view_get_visible_range :: proc(tree_view: ^TreeView, start_path: ^^TreePath, end_path: ^^TreePath) -> glib.boolean ---
+
+    @(link_name = "gtk_tree_view_is_blank_at_pos")
+    tree_view_is_blank_at_pos :: proc(tree_view: ^TreeView, x: i32, y: i32, path_p: ^^TreePath, column: ^^TreeViewColumn, cell_x: ^i32, cell_y: ^i32) -> glib.boolean ---
+
+    @(link_name = "gtk_tree_view_enable_model_drag_source")
+    tree_view_enable_model_drag_source :: proc(tree_view: ^TreeView, start_button_mask: ModifierType, formats: ^ContentFormats, actions: DragAction) ---
+
+    @(link_name = "gtk_tree_view_enable_model_drag_dest")
+    tree_view_enable_model_drag_dest :: proc(tree_view: ^TreeView, formats: ^ContentFormats, actions: DragAction) ---
+
+    @(link_name = "gtk_tree_view_unset_rows_drag_source")
+    tree_view_unset_rows_drag_source :: proc(tree_view: ^TreeView) ---
+
+    @(link_name = "gtk_tree_view_unset_rows_drag_dest")
+    tree_view_unset_rows_drag_dest :: proc(tree_view: ^TreeView) ---
+
+    @(link_name = "gtk_tree_view_set_drag_dest_row")
+    tree_view_set_drag_dest_row :: proc(tree_view: ^TreeView, path_p: ^TreePath, pos: TreeViewDropPosition) ---
+
+    @(link_name = "gtk_tree_view_get_drag_dest_row")
+    tree_view_get_drag_dest_row :: proc(tree_view: ^TreeView, path_p: ^^TreePath, pos: ^TreeViewDropPosition) ---
+
+    @(link_name = "gtk_tree_view_get_dest_row_at_pos")
+    tree_view_get_dest_row_at_pos :: proc(tree_view: ^TreeView, drag_x: i32, drag_y: i32, path_p: ^^TreePath, pos: ^TreeViewDropPosition) -> glib.boolean ---
+
+    @(link_name = "gtk_tree_view_create_row_drag_icon")
+    tree_view_create_row_drag_icon :: proc(tree_view: ^TreeView, path_p: ^TreePath) -> ^Paintable ---
+
+    @(link_name = "gtk_tree_view_set_enable_search")
+    tree_view_set_enable_search :: proc(tree_view: ^TreeView, enable_search: glib.boolean) ---
+
+    @(link_name = "gtk_tree_view_get_enable_search")
+    tree_view_get_enable_search :: proc(tree_view: ^TreeView) -> glib.boolean ---
+
+    @(link_name = "gtk_tree_view_get_search_column")
+    tree_view_get_search_column :: proc(tree_view: ^TreeView) -> i32 ---
+
+    @(link_name = "gtk_tree_view_set_search_column")
+    tree_view_set_search_column :: proc(tree_view: ^TreeView, column: i32) ---
+
+    @(link_name = "gtk_tree_view_get_search_equal_func")
+    tree_view_get_search_equal_func :: proc(tree_view: ^TreeView) -> TreeViewSearchEqualFunc ---
+
+    @(link_name = "gtk_tree_view_set_search_equal_func")
+    tree_view_set_search_equal_func :: proc(tree_view: ^TreeView, search_equal_func: TreeViewSearchEqualFunc, search_user_data: glib.pointer, search_destroy: glib.DestroyNotify) ---
+
+    @(link_name = "gtk_tree_view_get_search_entry")
+    tree_view_get_search_entry :: proc(tree_view: ^TreeView) -> ^Editable ---
+
+    @(link_name = "gtk_tree_view_set_search_entry")
+    tree_view_set_search_entry :: proc(tree_view: ^TreeView, entry: ^Editable) ---
+
+    @(link_name = "gtk_tree_view_convert_widget_to_tree_coords")
+    tree_view_convert_widget_to_tree_coords :: proc(tree_view: ^TreeView, wx: i32, wy: i32, tx: ^i32, ty: ^i32) ---
+
+    @(link_name = "gtk_tree_view_convert_tree_to_widget_coords")
+    tree_view_convert_tree_to_widget_coords :: proc(tree_view: ^TreeView, tx: i32, ty: i32, wx: ^i32, wy: ^i32) ---
+
+    @(link_name = "gtk_tree_view_convert_widget_to_bin_window_coords")
+    tree_view_convert_widget_to_bin_window_coords :: proc(tree_view: ^TreeView, wx: i32, wy: i32, bx: ^i32, by: ^i32) ---
+
+    @(link_name = "gtk_tree_view_convert_bin_window_to_widget_coords")
+    tree_view_convert_bin_window_to_widget_coords :: proc(tree_view: ^TreeView, bx: i32, by: i32, wx: ^i32, wy: ^i32) ---
+
+    @(link_name = "gtk_tree_view_convert_tree_to_bin_window_coords")
+    tree_view_convert_tree_to_bin_window_coords :: proc(tree_view: ^TreeView, tx: i32, ty: i32, bx: ^i32, by: ^i32) ---
+
+    @(link_name = "gtk_tree_view_convert_bin_window_to_tree_coords")
+    tree_view_convert_bin_window_to_tree_coords :: proc(tree_view: ^TreeView, bx: i32, by: i32, tx: ^i32, ty: ^i32) ---
+
+    @(link_name = "gtk_tree_view_set_fixed_height_mode")
+    tree_view_set_fixed_height_mode :: proc(tree_view: ^TreeView, enable: glib.boolean) ---
+
+    @(link_name = "gtk_tree_view_get_fixed_height_mode")
+    tree_view_get_fixed_height_mode :: proc(tree_view: ^TreeView) -> glib.boolean ---
+
+    @(link_name = "gtk_tree_view_set_hover_selection")
+    tree_view_set_hover_selection :: proc(tree_view: ^TreeView, hover: glib.boolean) ---
+
+    @(link_name = "gtk_tree_view_get_hover_selection")
+    tree_view_get_hover_selection :: proc(tree_view: ^TreeView) -> glib.boolean ---
+
+    @(link_name = "gtk_tree_view_set_hover_expand")
+    tree_view_set_hover_expand :: proc(tree_view: ^TreeView, expand: glib.boolean) ---
+
+    @(link_name = "gtk_tree_view_get_hover_expand")
+    tree_view_get_hover_expand :: proc(tree_view: ^TreeView) -> glib.boolean ---
+
+    @(link_name = "gtk_tree_view_set_rubber_banding")
+    tree_view_set_rubber_banding :: proc(tree_view: ^TreeView, enable: glib.boolean) ---
+
+    @(link_name = "gtk_tree_view_get_rubber_banding")
+    tree_view_get_rubber_banding :: proc(tree_view: ^TreeView) -> glib.boolean ---
+
+    @(link_name = "gtk_tree_view_is_rubber_banding_active")
+    tree_view_is_rubber_banding_active :: proc(tree_view: ^TreeView) -> glib.boolean ---
+
+    @(link_name = "gtk_tree_view_get_row_separator_func")
+    tree_view_get_row_separator_func :: proc(tree_view: ^TreeView) -> TreeViewRowSeparatorFunc ---
+
+    @(link_name = "gtk_tree_view_set_row_separator_func")
+    tree_view_set_row_separator_func :: proc(tree_view: ^TreeView, func: TreeViewRowSeparatorFunc, data: glib.pointer, destroy: glib.DestroyNotify) ---
+
+    @(link_name = "gtk_tree_view_get_grid_lines")
+    tree_view_get_grid_lines :: proc(tree_view: ^TreeView) -> TreeViewGridLines ---
+
+    @(link_name = "gtk_tree_view_set_grid_lines")
+    tree_view_set_grid_lines :: proc(tree_view: ^TreeView, grid_lines: TreeViewGridLines) ---
+
+    @(link_name = "gtk_tree_view_get_enable_tree_lines")
+    tree_view_get_enable_tree_lines :: proc(tree_view: ^TreeView) -> glib.boolean ---
+
+    @(link_name = "gtk_tree_view_set_enable_tree_lines")
+    tree_view_set_enable_tree_lines :: proc(tree_view: ^TreeView, enabled: glib.boolean) ---
+
+    @(link_name = "gtk_tree_view_set_show_expanders")
+    tree_view_set_show_expanders :: proc(tree_view: ^TreeView, enabled: glib.boolean) ---
+
+    @(link_name = "gtk_tree_view_get_show_expanders")
+    tree_view_get_show_expanders :: proc(tree_view: ^TreeView) -> glib.boolean ---
+
+    @(link_name = "gtk_tree_view_set_level_indentation")
+    tree_view_set_level_indentation :: proc(tree_view: ^TreeView, indentation: i32) ---
+
+    @(link_name = "gtk_tree_view_get_level_indentation")
+    tree_view_get_level_indentation :: proc(tree_view: ^TreeView) -> i32 ---
+
+    @(link_name = "gtk_tree_view_set_tooltip_row")
+    tree_view_set_tooltip_row :: proc(tree_view: ^TreeView, tooltip: ^Tooltip, path_p: ^TreePath) ---
+
+    @(link_name = "gtk_tree_view_set_tooltip_cell")
+    tree_view_set_tooltip_cell :: proc(tree_view: ^TreeView, tooltip: ^Tooltip, path_p: ^TreePath, column: ^TreeViewColumn, cell: ^CellRenderer) ---
+
+    @(link_name = "gtk_tree_view_get_tooltip_context")
+    tree_view_get_tooltip_context :: proc(tree_view: ^TreeView, x: i32, y: i32, keyboard_tip: glib.boolean, model: ^^TreeModel, path_p: ^^TreePath, iter: ^TreeIter) -> glib.boolean ---
+
+    @(link_name = "gtk_tree_view_set_tooltip_column")
+    tree_view_set_tooltip_column :: proc(tree_view: ^TreeView, column: i32) ---
+
+    @(link_name = "gtk_tree_view_get_tooltip_column")
+    tree_view_get_tooltip_column :: proc(tree_view: ^TreeView) -> i32 ---
+
+    @(link_name = "gtk_combo_box_get_type")
+    combo_box_get_type :: proc() -> gobj.Type ---
+
+    @(link_name = "gtk_combo_box_new")
+    combo_box_new :: proc() -> ^Widget ---
+
+    @(link_name = "gtk_combo_box_new_with_entry")
+    combo_box_new_with_entry :: proc() -> ^Widget ---
+
+    @(link_name = "gtk_combo_box_new_with_model")
+    combo_box_new_with_model :: proc(model: ^TreeModel) -> ^Widget ---
+
+    @(link_name = "gtk_combo_box_new_with_model_and_entry")
+    combo_box_new_with_model_and_entry :: proc(model: ^TreeModel) -> ^Widget ---
+
+    @(link_name = "gtk_combo_box_get_active")
+    combo_box_get_active :: proc(combo_box: ^ComboBox) -> i32 ---
+
+    @(link_name = "gtk_combo_box_set_active")
+    combo_box_set_active :: proc(combo_box: ^ComboBox, index_: i32) ---
+
+    @(link_name = "gtk_combo_box_get_active_iter")
+    combo_box_get_active_iter :: proc(combo_box: ^ComboBox, iter: ^TreeIter) -> glib.boolean ---
+
+    @(link_name = "gtk_combo_box_set_active_iter")
+    combo_box_set_active_iter :: proc(combo_box: ^ComboBox, iter: ^TreeIter) ---
+
+    @(link_name = "gtk_combo_box_set_model")
+    combo_box_set_model :: proc(combo_box: ^ComboBox, model: ^TreeModel) ---
+
+    @(link_name = "gtk_combo_box_get_model")
+    combo_box_get_model :: proc(combo_box: ^ComboBox) -> ^TreeModel ---
+
+    @(link_name = "gtk_combo_box_get_row_separator_func")
+    combo_box_get_row_separator_func :: proc(combo_box: ^ComboBox) -> TreeViewRowSeparatorFunc ---
+
+    @(link_name = "gtk_combo_box_set_row_separator_func")
+    combo_box_set_row_separator_func :: proc(combo_box: ^ComboBox, func: TreeViewRowSeparatorFunc, data: glib.pointer, destroy: glib.DestroyNotify) ---
+
+    @(link_name = "gtk_combo_box_set_button_sensitivity")
+    combo_box_set_button_sensitivity :: proc(combo_box: ^ComboBox, sensitivity: SensitivityType) ---
+
+    @(link_name = "gtk_combo_box_get_button_sensitivity")
+    combo_box_get_button_sensitivity :: proc(combo_box: ^ComboBox) -> SensitivityType ---
+
+    @(link_name = "gtk_combo_box_get_has_entry")
+    combo_box_get_has_entry :: proc(combo_box: ^ComboBox) -> glib.boolean ---
+
+    @(link_name = "gtk_combo_box_set_entry_text_column")
+    combo_box_set_entry_text_column :: proc(combo_box: ^ComboBox, text_column: i32) ---
+
+    @(link_name = "gtk_combo_box_get_entry_text_column")
+    combo_box_get_entry_text_column :: proc(combo_box: ^ComboBox) -> i32 ---
+
+    @(link_name = "gtk_combo_box_set_popup_fixed_width")
+    combo_box_set_popup_fixed_width :: proc(combo_box: ^ComboBox, fixed: glib.boolean) ---
+
+    @(link_name = "gtk_combo_box_get_popup_fixed_width")
+    combo_box_get_popup_fixed_width :: proc(combo_box: ^ComboBox) -> glib.boolean ---
+
+    @(link_name = "gtk_combo_box_popup")
+    combo_box_popup :: proc(combo_box: ^ComboBox) ---
+
+    @(link_name = "gtk_combo_box_popup_for_device")
+    combo_box_popup_for_device :: proc(combo_box: ^ComboBox, device: ^Device) ---
+
+    @(link_name = "gtk_combo_box_popdown")
+    combo_box_popdown :: proc(combo_box: ^ComboBox) ---
+
+    @(link_name = "gtk_combo_box_get_id_column")
+    combo_box_get_id_column :: proc(combo_box: ^ComboBox) -> i32 ---
+
+    @(link_name = "gtk_combo_box_set_id_column")
+    combo_box_set_id_column :: proc(combo_box: ^ComboBox, id_column: i32) ---
+
+    @(link_name = "gtk_combo_box_get_active_id")
+    combo_box_get_active_id :: proc(combo_box: ^ComboBox) -> cstring ---
+
+    @(link_name = "gtk_combo_box_set_active_id")
+    combo_box_set_active_id :: proc(combo_box: ^ComboBox, active_id: cstring) -> glib.boolean ---
+
+    @(link_name = "gtk_combo_box_set_child")
+    combo_box_set_child :: proc(combo_box: ^ComboBox, child: ^Widget) ---
+
+    @(link_name = "gtk_combo_box_get_child")
+    combo_box_get_child :: proc(combo_box: ^ComboBox) -> ^Widget ---
+
+    @(link_name = "gtk_combo_box_text_get_type")
+    combo_box_text_get_type :: proc() -> gobj.Type ---
+
+    @(link_name = "gtk_combo_box_text_new")
+    combo_box_text_new :: proc() -> ^Widget ---
+
+    @(link_name = "gtk_combo_box_text_new_with_entry")
+    combo_box_text_new_with_entry :: proc() -> ^Widget ---
+
+    @(link_name = "gtk_combo_box_text_append_text")
+    combo_box_text_append_text :: proc(combo_box: ^ComboBoxText, text: cstring) ---
+
+    @(link_name = "gtk_combo_box_text_insert_text")
+    combo_box_text_insert_text :: proc(combo_box: ^ComboBoxText, position: i32, text: cstring) ---
+
+    @(link_name = "gtk_combo_box_text_prepend_text")
+    combo_box_text_prepend_text :: proc(combo_box: ^ComboBoxText, text: cstring) ---
+
+    @(link_name = "gtk_combo_box_text_remove")
+    combo_box_text_remove :: proc(combo_box: ^ComboBoxText, position: i32) ---
+
+    @(link_name = "gtk_combo_box_text_remove_all")
+    combo_box_text_remove_all :: proc(combo_box: ^ComboBoxText) ---
+
+    @(link_name = "gtk_combo_box_text_get_active_text")
+    combo_box_text_get_active_text :: proc(combo_box: ^ComboBoxText) -> cstring ---
+
+    @(link_name = "gtk_combo_box_text_insert")
+    combo_box_text_insert :: proc(combo_box: ^ComboBoxText, position: i32, id: cstring, text: cstring) ---
+
+    @(link_name = "gtk_combo_box_text_append")
+    combo_box_text_append :: proc(combo_box: ^ComboBoxText, id: cstring, text: cstring) ---
+
+    @(link_name = "gtk_combo_box_text_prepend")
+    combo_box_text_prepend :: proc(combo_box: ^ComboBoxText, id: cstring, text: cstring) ---
+
+    @(link_name = "gtk_constraint_target_get_type")
+    constraint_target_get_type :: proc() -> gobj.Type ---
+
+    @(link_name = "gtk_constraint_get_type")
+    constraint_get_type :: proc() -> gobj.Type ---
+
+    @(link_name = "gtk_constraint_new")
+    constraint_new :: proc(target: glib.pointer, target_attribute: ConstraintAttribute, relation: ConstraintRelation, source: glib.pointer, source_attribute: ConstraintAttribute, multiplier: f64, constant: f64, strength: i32) -> ^Constraint ---
+
+    @(link_name = "gtk_constraint_new_constant")
+    constraint_new_constant :: proc(target: glib.pointer, target_attribute: ConstraintAttribute, relation: ConstraintRelation, constant: f64, strength: i32) -> ^Constraint ---
+
+    @(link_name = "gtk_constraint_get_target")
+    constraint_get_target :: proc(constraint: ^Constraint) -> ^ConstraintTarget ---
+
+    @(link_name = "gtk_constraint_get_target_attribute")
+    constraint_get_target_attribute :: proc(constraint: ^Constraint) -> ConstraintAttribute ---
+
+    @(link_name = "gtk_constraint_get_source")
+    constraint_get_source :: proc(constraint: ^Constraint) -> ^ConstraintTarget ---
+
+    @(link_name = "gtk_constraint_get_source_attribute")
+    constraint_get_source_attribute :: proc(constraint: ^Constraint) -> ConstraintAttribute ---
+
+    @(link_name = "gtk_constraint_get_relation")
+    constraint_get_relation :: proc(constraint: ^Constraint) -> ConstraintRelation ---
+
+    @(link_name = "gtk_constraint_get_multiplier")
+    constraint_get_multiplier :: proc(constraint: ^Constraint) -> f64 ---
+
+    @(link_name = "gtk_constraint_get_constant")
+    constraint_get_constant :: proc(constraint: ^Constraint) -> f64 ---
+
+    @(link_name = "gtk_constraint_get_strength")
+    constraint_get_strength :: proc(constraint: ^Constraint) -> i32 ---
+
+    @(link_name = "gtk_constraint_is_required")
+    constraint_is_required :: proc(constraint: ^Constraint) -> glib.boolean ---
+
+    @(link_name = "gtk_constraint_is_attached")
+    constraint_is_attached :: proc(constraint: ^Constraint) -> glib.boolean ---
+
+    @(link_name = "gtk_constraint_is_constant")
+    constraint_is_constant :: proc(constraint: ^Constraint) -> glib.boolean ---
+
+    @(link_name = "gtk_assistant_page_type_get_type")
+    assistant_page_type_get_type :: proc() -> gobj.Type ---
+
+    @(link_name = "gtk_cell_renderer_state_get_type")
+    cell_renderer_state_get_type :: proc() -> gobj.Type ---
+
+    @(link_name = "gtk_cell_renderer_mode_get_type")
+    cell_renderer_mode_get_type :: proc() -> gobj.Type ---
+
+    @(link_name = "gtk_cell_renderer_accel_mode_get_type")
+    cell_renderer_accel_mode_get_type :: proc() -> gobj.Type ---
+
+    @(link_name = "gtk_dialog_flags_get_type")
+    dialog_flags_get_type :: proc() -> gobj.Type ---
+
+    @(link_name = "gtk_response_type_get_type")
+    response_type_get_type :: proc() -> gobj.Type ---
+
+    @(link_name = "gtk_file_chooser_action_get_type")
+    file_chooser_action_get_type :: proc() -> gobj.Type ---
+
+    @(link_name = "gtk_file_chooser_error_get_type")
+    file_chooser_error_get_type :: proc() -> gobj.Type ---
+
+    @(link_name = "gtk_font_chooser_level_get_type")
+    font_chooser_level_get_type :: proc() -> gobj.Type ---
+
+    @(link_name = "gtk_icon_view_drop_position_get_type")
+    icon_view_drop_position_get_type :: proc() -> gobj.Type ---
+
+    @(link_name = "gtk_buttons_type_get_type")
+    buttons_type_get_type :: proc() -> gobj.Type ---
+
+    @(link_name = "gtk_style_context_print_flags_get_type")
+    style_context_print_flags_get_type :: proc() -> gobj.Type ---
+
+    @(link_name = "gtk_tree_model_flags_get_type")
+    tree_model_flags_get_type :: proc() -> gobj.Type ---
+
+    @(link_name = "gtk_tree_view_drop_position_get_type")
+    tree_view_drop_position_get_type :: proc() -> gobj.Type ---
+
+    @(link_name = "gtk_tree_view_column_sizing_get_type")
+    tree_view_column_sizing_get_type :: proc() -> gobj.Type ---
+
+    @(link_name = "gtk_license_get_type")
+    license_get_type :: proc() -> gobj.Type ---
+
+    @(link_name = "gtk_accessible_platform_state_get_type")
+    accessible_platform_state_get_type :: proc() -> gobj.Type ---
+
+    @(link_name = "gtk_accessible_text_granularity_get_type")
+    accessible_text_granularity_get_type :: proc() -> gobj.Type ---
+
+    @(link_name = "gtk_accessible_text_content_change_get_type")
+    accessible_text_content_change_get_type :: proc() -> gobj.Type ---
+
+    @(link_name = "gtk_application_inhibit_flags_get_type")
+    application_inhibit_flags_get_type :: proc() -> gobj.Type ---
+
+    @(link_name = "gtk_builder_error_get_type")
+    builder_error_get_type :: proc() -> gobj.Type ---
+
+    @(link_name = "gtk_builder_closure_flags_get_type")
+    builder_closure_flags_get_type :: proc() -> gobj.Type ---
+
+    @(link_name = "gtk_debug_flags_get_type")
+    debug_flags_get_type :: proc() -> gobj.Type ---
+
+    @(link_name = "gtk_dialog_error_get_type")
+    dialog_error_get_type :: proc() -> gobj.Type ---
+
+    @(link_name = "gtk_editable_properties_get_type")
+    editable_properties_get_type :: proc() -> gobj.Type ---
+
+    @(link_name = "gtk_entry_icon_position_get_type")
+    entry_icon_position_get_type :: proc() -> gobj.Type ---
+
+    @(link_name = "gtk_align_get_type")
+    align_get_type :: proc() -> gobj.Type ---
+
+    @(link_name = "gtk_arrow_type_get_type")
+    arrow_type_get_type :: proc() -> gobj.Type ---
+
+    @(link_name = "gtk_baseline_position_get_type")
+    baseline_position_get_type :: proc() -> gobj.Type ---
+
+    @(link_name = "gtk_content_fit_get_type")
+    content_fit_get_type :: proc() -> gobj.Type ---
+
+    @(link_name = "gtk_delete_type_get_type")
+    delete_type_get_type :: proc() -> gobj.Type ---
+
+    @(link_name = "gtk_direction_type_get_type")
+    direction_type_get_type :: proc() -> gobj.Type ---
+
+    @(link_name = "gtk_icon_size_get_type")
+    icon_size_get_type :: proc() -> gobj.Type ---
+
+    @(link_name = "gtk_sensitivity_type_get_type")
+    sensitivity_type_get_type :: proc() -> gobj.Type ---
+
+    @(link_name = "gtk_text_direction_get_type")
+    text_direction_get_type :: proc() -> gobj.Type ---
+
+    @(link_name = "gtk_justification_get_type")
+    justification_get_type :: proc() -> gobj.Type ---
+
+    @(link_name = "gtk_list_tab_behavior_get_type")
+    list_tab_behavior_get_type :: proc() -> gobj.Type ---
+
+    @(link_name = "gtk_list_scroll_flags_get_type")
+    list_scroll_flags_get_type :: proc() -> gobj.Type ---
+
+    @(link_name = "gtk_message_type_get_type")
+    message_type_get_type :: proc() -> gobj.Type ---
+
+    @(link_name = "gtk_movement_step_get_type")
+    movement_step_get_type :: proc() -> gobj.Type ---
+
+    @(link_name = "gtk_natural_wrap_mode_get_type")
+    natural_wrap_mode_get_type :: proc() -> gobj.Type ---
+
+    @(link_name = "gtk_scroll_step_get_type")
+    scroll_step_get_type :: proc() -> gobj.Type ---
+
+    @(link_name = "gtk_orientation_get_type")
+    orientation_get_type :: proc() -> gobj.Type ---
+
+    @(link_name = "gtk_overflow_get_type")
+    overflow_get_type :: proc() -> gobj.Type ---
+
+    @(link_name = "gtk_pack_type_get_type")
+    pack_type_get_type :: proc() -> gobj.Type ---
+
+    @(link_name = "gtk_position_type_get_type")
+    position_type_get_type :: proc() -> gobj.Type ---
+
+    @(link_name = "gtk_scroll_type_get_type")
+    scroll_type_get_type :: proc() -> gobj.Type ---
+
+    @(link_name = "gtk_selection_mode_get_type")
+    selection_mode_get_type :: proc() -> gobj.Type ---
+
+    @(link_name = "gtk_wrap_mode_get_type")
+    wrap_mode_get_type :: proc() -> gobj.Type ---
+
+    @(link_name = "gtk_sort_type_get_type")
+    sort_type_get_type :: proc() -> gobj.Type ---
+
+    @(link_name = "gtk_print_pages_get_type")
+    print_pages_get_type :: proc() -> gobj.Type ---
+
+    @(link_name = "gtk_page_set_get_type")
+    page_set_get_type :: proc() -> gobj.Type ---
+
+    @(link_name = "gtk_number_up_layout_get_type")
+    number_up_layout_get_type :: proc() -> gobj.Type ---
+
+    @(link_name = "gtk_ordering_get_type")
+    ordering_get_type :: proc() -> gobj.Type ---
+
+    @(link_name = "gtk_page_orientation_get_type")
+    page_orientation_get_type :: proc() -> gobj.Type ---
+
+    @(link_name = "gtk_print_quality_get_type")
+    print_quality_get_type :: proc() -> gobj.Type ---
+
+    @(link_name = "gtk_print_duplex_get_type")
+    print_duplex_get_type :: proc() -> gobj.Type ---
+
+    @(link_name = "gtk_unit_get_type")
+    unit_get_type :: proc() -> gobj.Type ---
+
+    @(link_name = "gtk_tree_view_grid_lines_get_type")
+    tree_view_grid_lines_get_type :: proc() -> gobj.Type ---
+
+    @(link_name = "gtk_size_group_mode_get_type")
+    size_group_mode_get_type :: proc() -> gobj.Type ---
+
+    @(link_name = "gtk_size_request_mode_get_type")
+    size_request_mode_get_type :: proc() -> gobj.Type ---
+
+    @(link_name = "gtk_scrollable_policy_get_type")
+    scrollable_policy_get_type :: proc() -> gobj.Type ---
+
+    @(link_name = "gtk_state_flags_get_type")
+    state_flags_get_type :: proc() -> gobj.Type ---
+
+    @(link_name = "gtk_border_style_get_type")
+    border_style_get_type :: proc() -> gobj.Type ---
+
+    @(link_name = "gtk_level_bar_mode_get_type")
+    level_bar_mode_get_type :: proc() -> gobj.Type ---
+
+    @(link_name = "gtk_input_purpose_get_type")
+    input_purpose_get_type :: proc() -> gobj.Type ---
+
+    @(link_name = "gtk_input_hints_get_type")
+    input_hints_get_type :: proc() -> gobj.Type ---
+
+    @(link_name = "gtk_propagation_phase_get_type")
+    propagation_phase_get_type :: proc() -> gobj.Type ---
+
+    @(link_name = "gtk_propagation_limit_get_type")
+    propagation_limit_get_type :: proc() -> gobj.Type ---
+
+    @(link_name = "gtk_event_sequence_state_get_type")
+    event_sequence_state_get_type :: proc() -> gobj.Type ---
+
+    @(link_name = "gtk_pan_direction_get_type")
+    pan_direction_get_type :: proc() -> gobj.Type ---
+
+    @(link_name = "gtk_shortcut_scope_get_type")
+    shortcut_scope_get_type :: proc() -> gobj.Type ---
+
+    @(link_name = "gtk_pick_flags_get_type")
+    pick_flags_get_type :: proc() -> gobj.Type ---
+
+    @(link_name = "gtk_constraint_relation_get_type")
+    constraint_relation_get_type :: proc() -> gobj.Type ---
+
+    @(link_name = "gtk_constraint_strength_get_type")
+    constraint_strength_get_type :: proc() -> gobj.Type ---
+
+    @(link_name = "gtk_constraint_attribute_get_type")
+    constraint_attribute_get_type :: proc() -> gobj.Type ---
+
+    @(link_name = "gtk_constraint_vfl_parser_error_get_type")
+    constraint_vfl_parser_error_get_type :: proc() -> gobj.Type ---
+
+    @(link_name = "gtk_system_setting_get_type")
+    system_setting_get_type :: proc() -> gobj.Type ---
+
+    @(link_name = "gtk_symbolic_color_get_type")
+    symbolic_color_get_type :: proc() -> gobj.Type ---
+
+    @(link_name = "gtk_accessible_role_get_type")
+    accessible_role_get_type :: proc() -> gobj.Type ---
+
+    @(link_name = "gtk_accessible_state_get_type")
+    accessible_state_get_type :: proc() -> gobj.Type ---
+
+    @(link_name = "gtk_accessible_property_get_type")
+    accessible_property_get_type :: proc() -> gobj.Type ---
+
+    @(link_name = "gtk_accessible_relation_get_type")
+    accessible_relation_get_type :: proc() -> gobj.Type ---
+
+    @(link_name = "gtk_accessible_tristate_get_type")
+    accessible_tristate_get_type :: proc() -> gobj.Type ---
+
+    @(link_name = "gtk_accessible_invalid_state_get_type")
+    accessible_invalid_state_get_type :: proc() -> gobj.Type ---
+
+    @(link_name = "gtk_accessible_autocomplete_get_type")
+    accessible_autocomplete_get_type :: proc() -> gobj.Type ---
+
+    @(link_name = "gtk_accessible_sort_get_type")
+    accessible_sort_get_type :: proc() -> gobj.Type ---
+
+    @(link_name = "gtk_accessible_announcement_priority_get_type")
+    accessible_announcement_priority_get_type :: proc() -> gobj.Type ---
+
+    @(link_name = "gtk_popover_menu_flags_get_type")
+    popover_menu_flags_get_type :: proc() -> gobj.Type ---
+
+    @(link_name = "gtk_font_rendering_get_type")
+    font_rendering_get_type :: proc() -> gobj.Type ---
+
+    @(link_name = "gtk_text_buffer_notify_flags_get_type")
+    text_buffer_notify_flags_get_type :: proc() -> gobj.Type ---
+
+    @(link_name = "gtk_event_controller_scroll_flags_get_type")
+    event_controller_scroll_flags_get_type :: proc() -> gobj.Type ---
+
+    @(link_name = "gtk_filter_match_get_type")
+    filter_match_get_type :: proc() -> gobj.Type ---
+
+    @(link_name = "gtk_filter_change_get_type")
+    filter_change_get_type :: proc() -> gobj.Type ---
+
+    @(link_name = "gtk_font_level_get_type")
+    font_level_get_type :: proc() -> gobj.Type ---
+
+    @(link_name = "gtk_graphics_offload_enabled_get_type")
+    graphics_offload_enabled_get_type :: proc() -> gobj.Type ---
+
+    @(link_name = "gtk_icon_lookup_flags_get_type")
+    icon_lookup_flags_get_type :: proc() -> gobj.Type ---
+
+    @(link_name = "gtk_icon_theme_error_get_type")
+    icon_theme_error_get_type :: proc() -> gobj.Type ---
+
+    @(link_name = "gtk_image_type_get_type")
+    image_type_get_type :: proc() -> gobj.Type ---
+
+    @(link_name = "gtk_inscription_overflow_get_type")
+    inscription_overflow_get_type :: proc() -> gobj.Type ---
+
+    @(link_name = "gtk_notebook_tab_get_type")
+    notebook_tab_get_type :: proc() -> gobj.Type ---
+
+    @(link_name = "gtk_pad_action_type_get_type")
+    pad_action_type_get_type :: proc() -> gobj.Type ---
+
+    @(link_name = "gtk_recent_manager_error_get_type")
+    recent_manager_error_get_type :: proc() -> gobj.Type ---
+
+    @(link_name = "gtk_revealer_transition_type_get_type")
+    revealer_transition_type_get_type :: proc() -> gobj.Type ---
+
+    @(link_name = "gtk_corner_type_get_type")
+    corner_type_get_type :: proc() -> gobj.Type ---
+
+    @(link_name = "gtk_policy_type_get_type")
+    policy_type_get_type :: proc() -> gobj.Type ---
+
+    @(link_name = "gtk_shortcut_action_flags_get_type")
+    shortcut_action_flags_get_type :: proc() -> gobj.Type ---
+
+    @(link_name = "gtk_shortcut_type_get_type")
+    shortcut_type_get_type :: proc() -> gobj.Type ---
+
+    @(link_name = "gtk_sorter_order_get_type")
+    sorter_order_get_type :: proc() -> gobj.Type ---
+
+    @(link_name = "gtk_sorter_change_get_type")
+    sorter_change_get_type :: proc() -> gobj.Type ---
+
+    @(link_name = "gtk_spin_button_update_policy_get_type")
+    spin_button_update_policy_get_type :: proc() -> gobj.Type ---
+
+    @(link_name = "gtk_spin_type_get_type")
+    spin_type_get_type :: proc() -> gobj.Type ---
+
+    @(link_name = "gtk_stack_transition_type_get_type")
+    stack_transition_type_get_type :: proc() -> gobj.Type ---
+
+    @(link_name = "gtk_string_filter_match_mode_get_type")
+    string_filter_match_mode_get_type :: proc() -> gobj.Type ---
+
+    @(link_name = "gtk_collation_get_type")
+    collation_get_type :: proc() -> gobj.Type ---
+
+    @(link_name = "gtk_text_search_flags_get_type")
+    text_search_flags_get_type :: proc() -> gobj.Type ---
+
+    @(link_name = "gtk_text_window_type_get_type")
+    text_window_type_get_type :: proc() -> gobj.Type ---
+
+    @(link_name = "gtk_text_view_layer_get_type")
+    text_view_layer_get_type :: proc() -> gobj.Type ---
+
+    @(link_name = "gtk_text_extend_selection_get_type")
+    text_extend_selection_get_type :: proc() -> gobj.Type ---
+
+    @(link_name = "gtk_print_status_get_type")
+    print_status_get_type :: proc() -> gobj.Type ---
+
+    @(link_name = "gtk_print_operation_result_get_type")
+    print_operation_result_get_type :: proc() -> gobj.Type ---
+
+    @(link_name = "gtk_print_operation_action_get_type")
+    print_operation_action_get_type :: proc() -> gobj.Type ---
+
+    @(link_name = "gtk_print_error_get_type")
+    print_error_get_type :: proc() -> gobj.Type ---
+
+    @(link_name = "gtk_constraint_guide_get_type")
+    constraint_guide_get_type :: proc() -> gobj.Type ---
+
+    @(link_name = "gtk_constraint_guide_new")
+    constraint_guide_new :: proc() -> ^ConstraintGuide ---
+
+    @(link_name = "gtk_constraint_guide_set_min_size")
+    constraint_guide_set_min_size :: proc(guide: ^ConstraintGuide, width: i32, height: i32) ---
+
+    @(link_name = "gtk_constraint_guide_get_min_size")
+    constraint_guide_get_min_size :: proc(guide: ^ConstraintGuide, width: ^i32, height: ^i32) ---
+
+    @(link_name = "gtk_constraint_guide_set_nat_size")
+    constraint_guide_set_nat_size :: proc(guide: ^ConstraintGuide, width: i32, height: i32) ---
+
+    @(link_name = "gtk_constraint_guide_get_nat_size")
+    constraint_guide_get_nat_size :: proc(guide: ^ConstraintGuide, width: ^i32, height: ^i32) ---
+
+    @(link_name = "gtk_constraint_guide_set_max_size")
+    constraint_guide_set_max_size :: proc(guide: ^ConstraintGuide, width: i32, height: i32) ---
+
+    @(link_name = "gtk_constraint_guide_get_max_size")
+    constraint_guide_get_max_size :: proc(guide: ^ConstraintGuide, width: ^i32, height: ^i32) ---
+
+    @(link_name = "gtk_constraint_guide_get_strength")
+    constraint_guide_get_strength :: proc(guide: ^ConstraintGuide) -> ConstraintStrength ---
+
+    @(link_name = "gtk_constraint_guide_set_strength")
+    constraint_guide_set_strength :: proc(guide: ^ConstraintGuide, strength: ConstraintStrength) ---
+
+    @(link_name = "gtk_constraint_guide_set_name")
+    constraint_guide_set_name :: proc(guide: ^ConstraintGuide, name: cstring) ---
+
+    @(link_name = "gtk_constraint_guide_get_name")
+    constraint_guide_get_name :: proc(guide: ^ConstraintGuide) -> cstring ---
+
+    @(link_name = "gtk_constraint_layout_child_get_type")
+    constraint_layout_child_get_type :: proc() -> gobj.Type ---
+
+    @(link_name = "gtk_constraint_layout_get_type")
+    constraint_layout_get_type :: proc() -> gobj.Type ---
+
+    @(link_name = "gtk_constraint_vfl_parser_error_quark")
+    constraint_vfl_parser_error_quark :: proc() -> glib.Quark ---
+
+    @(link_name = "gtk_constraint_layout_new")
+    constraint_layout_new :: proc() -> ^LayoutManager ---
+
+    @(link_name = "gtk_constraint_layout_add_constraint")
+    constraint_layout_add_constraint :: proc(layout: ^ConstraintLayout, constraint: ^Constraint) ---
+
+    @(link_name = "gtk_constraint_layout_remove_constraint")
+    constraint_layout_remove_constraint :: proc(layout: ^ConstraintLayout, constraint: ^Constraint) ---
+
+    @(link_name = "gtk_constraint_layout_add_guide")
+    constraint_layout_add_guide :: proc(layout: ^ConstraintLayout, guide: ^ConstraintGuide) ---
+
+    @(link_name = "gtk_constraint_layout_remove_guide")
+    constraint_layout_remove_guide :: proc(layout: ^ConstraintLayout, guide: ^ConstraintGuide) ---
+
+    @(link_name = "gtk_constraint_layout_remove_all_constraints")
+    constraint_layout_remove_all_constraints :: proc(layout: ^ConstraintLayout) ---
+
+    @(link_name = "gtk_constraint_layout_add_constraints_from_description")
+    constraint_layout_add_constraints_from_description :: proc(layout: ^ConstraintLayout, lines: [^]cstring, n_lines: glib.size, hspacing: i32, vspacing: i32, error: ^^glib.Error, first_view: cstring, #c_vararg var_args: ..any) -> ^glib.List ---
+
+    @(link_name = "gtk_constraint_layout_add_constraints_from_descriptionv")
+    constraint_layout_add_constraints_from_descriptionv :: proc(layout: ^ConstraintLayout, lines: [^]cstring, n_lines: glib.size, hspacing: i32, vspacing: i32, views: ^glib.HashTable, error: ^^glib.Error) -> ^glib.List ---
+
+    @(link_name = "gtk_constraint_layout_observe_constraints")
+    constraint_layout_observe_constraints :: proc(layout: ^ConstraintLayout) -> ^gio.ListModel ---
+
+    @(link_name = "gtk_constraint_layout_observe_guides")
+    constraint_layout_observe_guides :: proc(layout: ^ConstraintLayout) -> ^gio.ListModel ---
+
+    @(link_name = "gtk_css_provider_get_type")
+    css_provider_get_type :: proc() -> gobj.Type ---
+
+    @(link_name = "gtk_css_provider_new")
+    css_provider_new :: proc() -> ^CssProvider ---
+
+    @(link_name = "gtk_css_provider_to_string")
+    css_provider_to_string :: proc(provider: ^CssProvider) -> cstring ---
+
+    @(link_name = "gtk_css_provider_load_from_data")
+    css_provider_load_from_data :: proc(css_provider: ^CssProvider, data: cstring, length: glib.ssize) ---
+
+    @(link_name = "gtk_css_provider_load_from_string")
+    css_provider_load_from_string :: proc(css_provider: ^CssProvider, string_p: cstring) ---
+
+    @(link_name = "gtk_css_provider_load_from_bytes")
+    css_provider_load_from_bytes :: proc(css_provider: ^CssProvider, data: ^glib.Bytes) ---
+
+    @(link_name = "gtk_css_provider_load_from_file")
+    css_provider_load_from_file :: proc(css_provider: ^CssProvider, file: ^gio.File) ---
+
+    @(link_name = "gtk_css_provider_load_from_path")
+    css_provider_load_from_path :: proc(css_provider: ^CssProvider, path_p: cstring) ---
+
+    @(link_name = "gtk_css_provider_load_from_resource")
+    css_provider_load_from_resource :: proc(css_provider: ^CssProvider, resource_path: cstring) ---
+
+    @(link_name = "gtk_css_provider_load_named")
+    css_provider_load_named :: proc(provider: ^CssProvider, name: cstring, variant: cstring) ---
+
+    @(link_name = "gtk_custom_layout_get_type")
+    custom_layout_get_type :: proc() -> gobj.Type ---
+
+    @(link_name = "gtk_custom_layout_new")
+    custom_layout_new :: proc(request_mode: CustomRequestModeFunc, measure: CustomMeasureFunc, allocate: CustomAllocateFunc) -> ^LayoutManager ---
+
+    @(link_name = "gtk_custom_sorter_get_type")
+    custom_sorter_get_type :: proc() -> gobj.Type ---
+
+    @(link_name = "gtk_custom_sorter_new")
+    custom_sorter_new :: proc(sort_func: glib.CompareDataFunc, user_data: glib.pointer, user_destroy: glib.DestroyNotify) -> ^CustomSorter ---
+
+    @(link_name = "gtk_custom_sorter_set_sort_func")
+    custom_sorter_set_sort_func :: proc(self: ^CustomSorter, sort_func: glib.CompareDataFunc, user_data: glib.pointer, user_destroy: glib.DestroyNotify) ---
+
+    @(link_name = "gtk_get_debug_flags")
+    get_debug_flags :: proc() -> DebugFlags ---
+
+    @(link_name = "gtk_set_debug_flags")
+    set_debug_flags :: proc(flags: DebugFlags) ---
+
+    @(link_name = "gtk_dialog_error_quark")
+    dialog_error_quark :: proc() -> glib.Quark ---
+
+    @(link_name = "gtk_directory_list_get_type")
+    directory_list_get_type :: proc() -> gobj.Type ---
+
+    @(link_name = "gtk_directory_list_new")
+    directory_list_new :: proc(attributes: cstring, file: ^gio.File) -> ^DirectoryList ---
+
+    @(link_name = "gtk_directory_list_set_file")
+    directory_list_set_file :: proc(self: ^DirectoryList, file: ^gio.File) ---
+
+    @(link_name = "gtk_directory_list_get_file")
+    directory_list_get_file :: proc(self: ^DirectoryList) -> ^gio.File ---
+
+    @(link_name = "gtk_directory_list_set_attributes")
+    directory_list_set_attributes :: proc(self: ^DirectoryList, attributes: cstring) ---
+
+    @(link_name = "gtk_directory_list_get_attributes")
+    directory_list_get_attributes :: proc(self: ^DirectoryList) -> cstring ---
+
+    @(link_name = "gtk_directory_list_set_io_priority")
+    directory_list_set_io_priority :: proc(self: ^DirectoryList, io_priority: i32) ---
+
+    @(link_name = "gtk_directory_list_get_io_priority")
+    directory_list_get_io_priority :: proc(self: ^DirectoryList) -> i32 ---
+
+    @(link_name = "gtk_directory_list_is_loading")
+    directory_list_is_loading :: proc(self: ^DirectoryList) -> glib.boolean ---
+
+    @(link_name = "gtk_directory_list_get_error")
+    directory_list_get_error :: proc(self: ^DirectoryList) -> ^glib.Error ---
+
+    @(link_name = "gtk_directory_list_set_monitored")
+    directory_list_set_monitored :: proc(self: ^DirectoryList, monitored: glib.boolean) ---
+
+    @(link_name = "gtk_directory_list_get_monitored")
+    directory_list_get_monitored :: proc(self: ^DirectoryList) -> glib.boolean ---
+
+    @(link_name = "gtk_drag_icon_get_type")
+    drag_icon_get_type :: proc() -> gobj.Type ---
+
+    @(link_name = "gtk_drag_icon_get_for_drag")
+    drag_icon_get_for_drag :: proc(drag: ^Drag) -> ^Widget ---
+
+    @(link_name = "gtk_drag_icon_set_child")
+    drag_icon_set_child :: proc(self: ^DragIcon, child: ^Widget) ---
+
+    @(link_name = "gtk_drag_icon_get_child")
+    drag_icon_get_child :: proc(self: ^DragIcon) -> ^Widget ---
+
+    @(link_name = "gtk_drag_icon_set_from_paintable")
+    drag_icon_set_from_paintable :: proc(drag: ^Drag, paintable: ^Paintable, hot_x: i32, hot_y: i32) ---
+
+    @(link_name = "gtk_drag_icon_create_widget_for_value")
+    drag_icon_create_widget_for_value :: proc(value: ^gobj.Value) -> ^Widget ---
+
+    @(link_name = "gtk_drag_source_get_type")
+    drag_source_get_type :: proc() -> gobj.Type ---
+
+    @(link_name = "gtk_drag_source_new")
+    drag_source_new :: proc() -> ^DragSource ---
+
+    @(link_name = "gtk_drag_source_set_content")
+    drag_source_set_content :: proc(source: ^DragSource, content: ^ContentProvider) ---
+
+    @(link_name = "gtk_drag_source_get_content")
+    drag_source_get_content :: proc(source: ^DragSource) -> ^ContentProvider ---
+
+    @(link_name = "gtk_drag_source_set_actions")
+    drag_source_set_actions :: proc(source: ^DragSource, actions: DragAction) ---
+
+    @(link_name = "gtk_drag_source_get_actions")
+    drag_source_get_actions :: proc(source: ^DragSource) -> DragAction ---
+
+    @(link_name = "gtk_drag_source_set_icon")
+    drag_source_set_icon :: proc(source: ^DragSource, paintable: ^Paintable, hot_x: i32, hot_y: i32) ---
+
+    @(link_name = "gtk_drag_source_drag_cancel")
+    drag_source_drag_cancel :: proc(source: ^DragSource) ---
+
+    @(link_name = "gtk_drag_source_get_drag")
+    drag_source_get_drag :: proc(source: ^DragSource) -> ^Drag ---
+
+    @(link_name = "gtk_drag_check_threshold")
+    drag_check_threshold :: proc(widget: ^Widget, start_x: i32, start_y: i32, current_x: i32, current_y: i32) -> glib.boolean ---
+
+    @(link_name = "gtk_drawing_area_get_type")
+    drawing_area_get_type :: proc() -> gobj.Type ---
+
+    @(link_name = "gtk_drawing_area_new")
+    drawing_area_new :: proc() -> ^Widget ---
+
+    @(link_name = "gtk_drawing_area_set_content_width")
+    drawing_area_set_content_width :: proc(self: ^DrawingArea, width: i32) ---
+
+    @(link_name = "gtk_drawing_area_get_content_width")
+    drawing_area_get_content_width :: proc(self: ^DrawingArea) -> i32 ---
+
+    @(link_name = "gtk_drawing_area_set_content_height")
+    drawing_area_set_content_height :: proc(self: ^DrawingArea, height: i32) ---
+
+    @(link_name = "gtk_drawing_area_get_content_height")
+    drawing_area_get_content_height :: proc(self: ^DrawingArea) -> i32 ---
+
+    @(link_name = "gtk_drawing_area_set_draw_func")
+    drawing_area_set_draw_func :: proc(self: ^DrawingArea, draw_func: DrawingAreaDrawFunc, user_data: glib.pointer, destroy: glib.DestroyNotify) ---
+
+    @(link_name = "gtk_event_controller_get_type")
+    event_controller_get_type :: proc() -> gobj.Type ---
+
+    @(link_name = "gtk_event_controller_get_widget")
+    event_controller_get_widget :: proc(controller: ^EventController) -> ^Widget ---
+
+    @(link_name = "gtk_event_controller_reset")
+    event_controller_reset :: proc(controller: ^EventController) ---
+
+    @(link_name = "gtk_event_controller_get_propagation_phase")
+    event_controller_get_propagation_phase :: proc(controller: ^EventController) -> PropagationPhase ---
+
+    @(link_name = "gtk_event_controller_set_propagation_phase")
+    event_controller_set_propagation_phase :: proc(controller: ^EventController, phase: PropagationPhase) ---
+
+    @(link_name = "gtk_event_controller_get_propagation_limit")
+    event_controller_get_propagation_limit :: proc(controller: ^EventController) -> PropagationLimit ---
+
+    @(link_name = "gtk_event_controller_set_propagation_limit")
+    event_controller_set_propagation_limit :: proc(controller: ^EventController, limit: PropagationLimit) ---
+
+    @(link_name = "gtk_event_controller_get_name")
+    event_controller_get_name :: proc(controller: ^EventController) -> cstring ---
+
+    @(link_name = "gtk_event_controller_set_name")
+    event_controller_set_name :: proc(controller: ^EventController, name: cstring) ---
+
+    @(link_name = "gtk_event_controller_set_static_name")
+    event_controller_set_static_name :: proc(controller: ^EventController, name: cstring) ---
+
+    @(link_name = "gtk_event_controller_get_current_event")
+    event_controller_get_current_event :: proc(controller: ^EventController) -> ^Event ---
+
+    @(link_name = "gtk_event_controller_get_current_event_time")
+    event_controller_get_current_event_time :: proc(controller: ^EventController) -> glib.uint32 ---
+
+    @(link_name = "gtk_event_controller_get_current_event_device")
+    event_controller_get_current_event_device :: proc(controller: ^EventController) -> ^Device ---
+
+    @(link_name = "gtk_event_controller_get_current_event_state")
+    event_controller_get_current_event_state :: proc(controller: ^EventController) -> ModifierType ---
+
+    @(link_name = "gtk_drop_controller_motion_get_type")
+    drop_controller_motion_get_type :: proc() -> gobj.Type ---
+
+    @(link_name = "gtk_drop_controller_motion_new")
+    drop_controller_motion_new :: proc() -> ^EventController ---
+
+    @(link_name = "gtk_drop_controller_motion_contains_pointer")
+    drop_controller_motion_contains_pointer :: proc(self: ^DropControllerMotion) -> glib.boolean ---
+
+    @(link_name = "gtk_drop_controller_motion_get_drop")
+    drop_controller_motion_get_drop :: proc(self: ^DropControllerMotion) -> ^Drop ---
+
+    @(link_name = "gtk_drop_controller_motion_is_pointer")
+    drop_controller_motion_is_pointer :: proc(self: ^DropControllerMotion) -> glib.boolean ---
+
+    @(link_name = "gtk_drop_target_get_type")
+    drop_target_get_type :: proc() -> gobj.Type ---
+
+    @(link_name = "gtk_drop_target_new")
+    drop_target_new :: proc(type: gobj.Type, actions: DragAction) -> ^DropTarget ---
+
+    @(link_name = "gtk_drop_target_set_gtypes")
+    drop_target_set_gtypes :: proc(self: ^DropTarget, types: [^]gobj.Type, n_types: glib.size) ---
+
+    @(link_name = "gtk_drop_target_get_gtypes")
+    drop_target_get_gtypes :: proc(self: ^DropTarget, n_types: ^glib.size) -> ^gobj.Type ---
+
+    @(link_name = "gtk_drop_target_get_formats")
+    drop_target_get_formats :: proc(self: ^DropTarget) -> ^ContentFormats ---
+
+    @(link_name = "gtk_drop_target_set_actions")
+    drop_target_set_actions :: proc(self: ^DropTarget, actions: DragAction) ---
+
+    @(link_name = "gtk_drop_target_get_actions")
+    drop_target_get_actions :: proc(self: ^DropTarget) -> DragAction ---
+
+    @(link_name = "gtk_drop_target_set_preload")
+    drop_target_set_preload :: proc(self: ^DropTarget, preload: glib.boolean) ---
+
+    @(link_name = "gtk_drop_target_get_preload")
+    drop_target_get_preload :: proc(self: ^DropTarget) -> glib.boolean ---
+
+    @(link_name = "gtk_drop_target_get_drop")
+    drop_target_get_drop :: proc(self: ^DropTarget) -> ^Drop ---
+
+    @(link_name = "gtk_drop_target_get_current_drop")
+    drop_target_get_current_drop :: proc(self: ^DropTarget) -> ^Drop ---
+
+    @(link_name = "gtk_drop_target_get_value")
+    drop_target_get_value :: proc(self: ^DropTarget) -> ^gobj.Value ---
+
+    @(link_name = "gtk_drop_target_reject")
+    drop_target_reject :: proc(self: ^DropTarget) ---
+
+    @(link_name = "gtk_drop_target_async_get_type")
+    drop_target_async_get_type :: proc() -> gobj.Type ---
+
+    @(link_name = "gtk_drop_target_async_new")
+    drop_target_async_new :: proc(formats: ^ContentFormats, actions: DragAction) -> ^DropTargetAsync ---
+
+    @(link_name = "gtk_drop_target_async_set_formats")
+    drop_target_async_set_formats :: proc(self: ^DropTargetAsync, formats: ^ContentFormats) ---
+
+    @(link_name = "gtk_drop_target_async_get_formats")
+    drop_target_async_get_formats :: proc(self: ^DropTargetAsync) -> ^ContentFormats ---
+
+    @(link_name = "gtk_drop_target_async_set_actions")
+    drop_target_async_set_actions :: proc(self: ^DropTargetAsync, actions: DragAction) ---
+
+    @(link_name = "gtk_drop_target_async_get_actions")
+    drop_target_async_get_actions :: proc(self: ^DropTargetAsync) -> DragAction ---
+
+    @(link_name = "gtk_drop_target_async_reject_drop")
+    drop_target_async_reject_drop :: proc(self: ^DropTargetAsync, drop: ^Drop) ---
+
+    @(link_name = "gtk_string_filter_get_type")
+    string_filter_get_type :: proc() -> gobj.Type ---
+
+    @(link_name = "gtk_string_filter_new")
+    string_filter_new :: proc(expression: ^Expression) -> ^StringFilter ---
+
+    @(link_name = "gtk_string_filter_get_search")
+    string_filter_get_search :: proc(self: ^StringFilter) -> cstring ---
+
+    @(link_name = "gtk_string_filter_set_search")
+    string_filter_set_search :: proc(self: ^StringFilter, search: cstring) ---
+
+    @(link_name = "gtk_string_filter_get_expression")
+    string_filter_get_expression :: proc(self: ^StringFilter) -> ^Expression ---
+
+    @(link_name = "gtk_string_filter_set_expression")
+    string_filter_set_expression :: proc(self: ^StringFilter, expression: ^Expression) ---
+
+    @(link_name = "gtk_string_filter_get_ignore_case")
+    string_filter_get_ignore_case :: proc(self: ^StringFilter) -> glib.boolean ---
+
+    @(link_name = "gtk_string_filter_set_ignore_case")
+    string_filter_set_ignore_case :: proc(self: ^StringFilter, ignore_case: glib.boolean) ---
+
+    @(link_name = "gtk_string_filter_get_match_mode")
+    string_filter_get_match_mode :: proc(self: ^StringFilter) -> StringFilterMatchMode ---
+
+    @(link_name = "gtk_string_filter_set_match_mode")
+    string_filter_set_match_mode :: proc(self: ^StringFilter, mode: StringFilterMatchMode) ---
+
+    @(link_name = "gtk_drop_down_get_type")
+    drop_down_get_type :: proc() -> gobj.Type ---
+
+    @(link_name = "gtk_drop_down_new")
+    drop_down_new :: proc(model: ^gio.ListModel, expression: ^Expression) -> ^Widget ---
+
+    @(link_name = "gtk_drop_down_new_from_strings")
+    drop_down_new_from_strings :: proc(strings: [^]cstring) -> ^Widget ---
+
+    @(link_name = "gtk_drop_down_set_model")
+    drop_down_set_model :: proc(self: ^DropDown, model: ^gio.ListModel) ---
+
+    @(link_name = "gtk_drop_down_get_model")
+    drop_down_get_model :: proc(self: ^DropDown) -> ^gio.ListModel ---
+
+    @(link_name = "gtk_drop_down_set_selected")
+    drop_down_set_selected :: proc(self: ^DropDown, position: glib.uint_) ---
+
+    @(link_name = "gtk_drop_down_get_selected")
+    drop_down_get_selected :: proc(self: ^DropDown) -> glib.uint_ ---
+
+    @(link_name = "gtk_drop_down_get_selected_item")
+    drop_down_get_selected_item :: proc(self: ^DropDown) -> glib.pointer ---
+
+    @(link_name = "gtk_drop_down_set_factory")
+    drop_down_set_factory :: proc(self: ^DropDown, factory: ^ListItemFactory) ---
+
+    @(link_name = "gtk_drop_down_get_factory")
+    drop_down_get_factory :: proc(self: ^DropDown) -> ^ListItemFactory ---
+
+    @(link_name = "gtk_drop_down_set_list_factory")
+    drop_down_set_list_factory :: proc(self: ^DropDown, factory: ^ListItemFactory) ---
+
+    @(link_name = "gtk_drop_down_get_list_factory")
+    drop_down_get_list_factory :: proc(self: ^DropDown) -> ^ListItemFactory ---
+
+    @(link_name = "gtk_drop_down_set_header_factory")
+    drop_down_set_header_factory :: proc(self: ^DropDown, factory: ^ListItemFactory) ---
+
+    @(link_name = "gtk_drop_down_get_header_factory")
+    drop_down_get_header_factory :: proc(self: ^DropDown) -> ^ListItemFactory ---
+
+    @(link_name = "gtk_drop_down_set_expression")
+    drop_down_set_expression :: proc(self: ^DropDown, expression: ^Expression) ---
+
+    @(link_name = "gtk_drop_down_get_expression")
+    drop_down_get_expression :: proc(self: ^DropDown) -> ^Expression ---
+
+    @(link_name = "gtk_drop_down_set_enable_search")
+    drop_down_set_enable_search :: proc(self: ^DropDown, enable_search: glib.boolean) ---
+
+    @(link_name = "gtk_drop_down_get_enable_search")
+    drop_down_get_enable_search :: proc(self: ^DropDown) -> glib.boolean ---
+
+    @(link_name = "gtk_drop_down_set_show_arrow")
+    drop_down_set_show_arrow :: proc(self: ^DropDown, show_arrow: glib.boolean) ---
+
+    @(link_name = "gtk_drop_down_get_show_arrow")
+    drop_down_get_show_arrow :: proc(self: ^DropDown) -> glib.boolean ---
+
+    @(link_name = "gtk_drop_down_set_search_match_mode")
+    drop_down_set_search_match_mode :: proc(self: ^DropDown, search_match_mode: StringFilterMatchMode) ---
+
+    @(link_name = "gtk_drop_down_get_search_match_mode")
+    drop_down_get_search_match_mode :: proc(self: ^DropDown) -> StringFilterMatchMode ---
+
+    @(link_name = "gtk_editable_label_get_type")
+    editable_label_get_type :: proc() -> gobj.Type ---
+
+    @(link_name = "gtk_editable_label_new")
+    editable_label_new :: proc(str: cstring) -> ^Widget ---
+
+    @(link_name = "gtk_editable_label_get_editing")
+    editable_label_get_editing :: proc(self: ^EditableLabel) -> glib.boolean ---
+
+    @(link_name = "gtk_editable_label_start_editing")
+    editable_label_start_editing :: proc(self: ^EditableLabel) ---
+
+    @(link_name = "gtk_editable_label_stop_editing")
+    editable_label_stop_editing :: proc(self: ^EditableLabel, commit: glib.boolean) ---
+
+    @(link_name = "gtk_emoji_chooser_get_type")
+    emoji_chooser_get_type :: proc() -> gobj.Type ---
+
+    @(link_name = "gtk_emoji_chooser_new")
+    emoji_chooser_new :: proc() -> ^Widget ---
+
+    @(link_name = "gtk_event_controller_focus_get_type")
+    event_controller_focus_get_type :: proc() -> gobj.Type ---
+
+    @(link_name = "gtk_event_controller_focus_new")
+    event_controller_focus_new :: proc() -> ^EventController ---
+
+    @(link_name = "gtk_event_controller_focus_contains_focus")
+    event_controller_focus_contains_focus :: proc(self: ^EventControllerFocus) -> glib.boolean ---
+
+    @(link_name = "gtk_event_controller_focus_is_focus")
+    event_controller_focus_is_focus :: proc(self: ^EventControllerFocus) -> glib.boolean ---
+
+    @(link_name = "gtk_event_controller_key_get_type")
+    event_controller_key_get_type :: proc() -> gobj.Type ---
+
+    @(link_name = "gtk_event_controller_key_new")
+    event_controller_key_new :: proc() -> ^EventController ---
+
+    @(link_name = "gtk_event_controller_key_set_im_context")
+    event_controller_key_set_im_context :: proc(controller: ^EventControllerKey, im_context: ^IMContext) ---
+
+    @(link_name = "gtk_event_controller_key_get_im_context")
+    event_controller_key_get_im_context :: proc(controller: ^EventControllerKey) -> ^IMContext ---
+
+    @(link_name = "gtk_event_controller_key_forward")
+    event_controller_key_forward :: proc(controller: ^EventControllerKey, widget: ^Widget) -> glib.boolean ---
+
+    @(link_name = "gtk_event_controller_key_get_group")
+    event_controller_key_get_group :: proc(controller: ^EventControllerKey) -> glib.uint_ ---
+
+    @(link_name = "gtk_event_controller_legacy_get_type")
+    event_controller_legacy_get_type :: proc() -> gobj.Type ---
+
+    @(link_name = "gtk_event_controller_legacy_new")
+    event_controller_legacy_new :: proc() -> ^EventController ---
+
+    @(link_name = "gtk_event_controller_motion_get_type")
+    event_controller_motion_get_type :: proc() -> gobj.Type ---
+
+    @(link_name = "gtk_event_controller_motion_new")
+    event_controller_motion_new :: proc() -> ^EventController ---
+
+    @(link_name = "gtk_event_controller_motion_contains_pointer")
+    event_controller_motion_contains_pointer :: proc(self: ^EventControllerMotion) -> glib.boolean ---
+
+    @(link_name = "gtk_event_controller_motion_is_pointer")
+    event_controller_motion_is_pointer :: proc(self: ^EventControllerMotion) -> glib.boolean ---
+
+    @(link_name = "gtk_event_controller_scroll_get_type")
+    event_controller_scroll_get_type :: proc() -> gobj.Type ---
+
+    @(link_name = "gtk_event_controller_scroll_new")
+    event_controller_scroll_new :: proc(flags: EventControllerScrollFlags) -> ^EventController ---
+
+    @(link_name = "gtk_event_controller_scroll_set_flags")
+    event_controller_scroll_set_flags :: proc(scroll: ^EventControllerScroll, flags: EventControllerScrollFlags) ---
+
+    @(link_name = "gtk_event_controller_scroll_get_flags")
+    event_controller_scroll_get_flags :: proc(scroll: ^EventControllerScroll) -> EventControllerScrollFlags ---
+
+    @(link_name = "gtk_event_controller_scroll_get_unit")
+    event_controller_scroll_get_unit :: proc(scroll: ^EventControllerScroll) -> ScrollUnit ---
+
+    @(link_name = "gtk_expander_get_type")
+    expander_get_type :: proc() -> gobj.Type ---
+
+    @(link_name = "gtk_expander_new")
+    expander_new :: proc(label: cstring) -> ^Widget ---
+
+    @(link_name = "gtk_expander_new_with_mnemonic")
+    expander_new_with_mnemonic :: proc(label: cstring) -> ^Widget ---
+
+    @(link_name = "gtk_expander_set_expanded")
+    expander_set_expanded :: proc(expander: ^Expander, expanded: glib.boolean) ---
+
+    @(link_name = "gtk_expander_get_expanded")
+    expander_get_expanded :: proc(expander: ^Expander) -> glib.boolean ---
+
+    @(link_name = "gtk_expander_set_label")
+    expander_set_label :: proc(expander: ^Expander, label: cstring) ---
+
+    @(link_name = "gtk_expander_get_label")
+    expander_get_label :: proc(expander: ^Expander) -> cstring ---
+
+    @(link_name = "gtk_expander_set_use_underline")
+    expander_set_use_underline :: proc(expander: ^Expander, use_underline: glib.boolean) ---
+
+    @(link_name = "gtk_expander_get_use_underline")
+    expander_get_use_underline :: proc(expander: ^Expander) -> glib.boolean ---
+
+    @(link_name = "gtk_expander_set_use_markup")
+    expander_set_use_markup :: proc(expander: ^Expander, use_markup: glib.boolean) ---
+
+    @(link_name = "gtk_expander_get_use_markup")
+    expander_get_use_markup :: proc(expander: ^Expander) -> glib.boolean ---
+
+    @(link_name = "gtk_expander_set_label_widget")
+    expander_set_label_widget :: proc(expander: ^Expander, label_widget: ^Widget) ---
+
+    @(link_name = "gtk_expander_get_label_widget")
+    expander_get_label_widget :: proc(expander: ^Expander) -> ^Widget ---
+
+    @(link_name = "gtk_expander_set_resize_toplevel")
+    expander_set_resize_toplevel :: proc(expander: ^Expander, resize_toplevel: glib.boolean) ---
+
+    @(link_name = "gtk_expander_get_resize_toplevel")
+    expander_get_resize_toplevel :: proc(expander: ^Expander) -> glib.boolean ---
+
+    @(link_name = "gtk_expander_set_child")
+    expander_set_child :: proc(expander: ^Expander, child: ^Widget) ---
+
+    @(link_name = "gtk_expander_get_child")
+    expander_get_child :: proc(expander: ^Expander) -> ^Widget ---
+
+    @(link_name = "gtk_fixed_get_type")
+    fixed_get_type :: proc() -> gobj.Type ---
+
+    @(link_name = "gtk_fixed_new")
+    fixed_new :: proc() -> ^Widget ---
+
+    @(link_name = "gtk_fixed_put")
+    fixed_put :: proc(fixed: ^Fixed, widget: ^Widget, x: f64, y: f64) ---
+
+    @(link_name = "gtk_fixed_remove")
+    fixed_remove :: proc(fixed: ^Fixed, widget: ^Widget) ---
+
+    @(link_name = "gtk_fixed_move")
+    fixed_move :: proc(fixed: ^Fixed, widget: ^Widget, x: f64, y: f64) ---
+
+    @(link_name = "gtk_fixed_get_child_position")
+    fixed_get_child_position :: proc(fixed: ^Fixed, widget: ^Widget, x: ^f64, y: ^f64) ---
+
+    @(link_name = "gtk_fixed_set_child_transform")
+    fixed_set_child_transform :: proc(fixed: ^Fixed, widget: ^Widget, transform: ^Transform) ---
+
+    @(link_name = "gtk_fixed_get_child_transform")
+    fixed_get_child_transform :: proc(fixed: ^Fixed, widget: ^Widget) -> ^Transform ---
+
+    @(link_name = "gtk_fixed_layout_get_type")
+    fixed_layout_get_type :: proc() -> gobj.Type ---
+
+    @(link_name = "gtk_fixed_layout_new")
+    fixed_layout_new :: proc() -> ^LayoutManager ---
+
+    @(link_name = "gtk_fixed_layout_child_get_type")
+    fixed_layout_child_get_type :: proc() -> gobj.Type ---
+
+    @(link_name = "gtk_fixed_layout_child_set_transform")
+    fixed_layout_child_set_transform :: proc(child: ^FixedLayoutChild, transform: ^Transform) ---
+
+    @(link_name = "gtk_fixed_layout_child_get_transform")
+    fixed_layout_child_get_transform :: proc(child: ^FixedLayoutChild) -> ^Transform ---
+
+    @(link_name = "gtk_file_filter_get_type")
+    file_filter_get_type :: proc() -> gobj.Type ---
+
+    @(link_name = "gtk_file_filter_new")
+    file_filter_new :: proc() -> ^FileFilter ---
+
+    @(link_name = "gtk_file_filter_set_name")
+    file_filter_set_name :: proc(filter: ^FileFilter, name: cstring) ---
+
+    @(link_name = "gtk_file_filter_get_name")
+    file_filter_get_name :: proc(filter: ^FileFilter) -> cstring ---
+
+    @(link_name = "gtk_file_filter_add_mime_type")
+    file_filter_add_mime_type :: proc(filter: ^FileFilter, mime_type: cstring) ---
+
+    @(link_name = "gtk_file_filter_add_pattern")
+    file_filter_add_pattern :: proc(filter: ^FileFilter, pattern: cstring) ---
+
+    @(link_name = "gtk_file_filter_add_suffix")
+    file_filter_add_suffix :: proc(filter: ^FileFilter, suffix: cstring) ---
+
+    @(link_name = "gtk_file_filter_add_pixbuf_formats")
+    file_filter_add_pixbuf_formats :: proc(filter: ^FileFilter) ---
+
+    @(link_name = "gtk_file_filter_get_attributes")
+    file_filter_get_attributes :: proc(filter: ^FileFilter) -> ^cstring ---
+
+    @(link_name = "gtk_file_filter_to_gvariant")
+    file_filter_to_gvariant :: proc(filter: ^FileFilter) -> ^glib.Variant ---
+
+    @(link_name = "gtk_file_filter_new_from_gvariant")
+    file_filter_new_from_gvariant :: proc(variant: ^glib.Variant) -> ^FileFilter ---
+
+    @(link_name = "gtk_file_chooser_get_type")
+    file_chooser_get_type :: proc() -> gobj.Type ---
+
+    @(link_name = "gtk_file_chooser_error_quark")
+    file_chooser_error_quark :: proc() -> glib.Quark ---
+
+    @(link_name = "gtk_file_chooser_set_action")
+    file_chooser_set_action :: proc(chooser: ^FileChooser, action: FileChooserAction) ---
+
+    @(link_name = "gtk_file_chooser_get_action")
+    file_chooser_get_action :: proc(chooser: ^FileChooser) -> FileChooserAction ---
+
+    @(link_name = "gtk_file_chooser_set_select_multiple")
+    file_chooser_set_select_multiple :: proc(chooser: ^FileChooser, select_multiple: glib.boolean) ---
+
+    @(link_name = "gtk_file_chooser_get_select_multiple")
+    file_chooser_get_select_multiple :: proc(chooser: ^FileChooser) -> glib.boolean ---
+
+    @(link_name = "gtk_file_chooser_set_create_folders")
+    file_chooser_set_create_folders :: proc(chooser: ^FileChooser, create_folders: glib.boolean) ---
+
+    @(link_name = "gtk_file_chooser_get_create_folders")
+    file_chooser_get_create_folders :: proc(chooser: ^FileChooser) -> glib.boolean ---
+
+    @(link_name = "gtk_file_chooser_set_current_name")
+    file_chooser_set_current_name :: proc(chooser: ^FileChooser, name: cstring) ---
+
+    @(link_name = "gtk_file_chooser_get_current_name")
+    file_chooser_get_current_name :: proc(chooser: ^FileChooser) -> cstring ---
+
+    @(link_name = "gtk_file_chooser_get_file")
+    file_chooser_get_file :: proc(chooser: ^FileChooser) -> ^gio.File ---
+
+    @(link_name = "gtk_file_chooser_set_file")
+    file_chooser_set_file :: proc(chooser: ^FileChooser, file: ^gio.File, error: ^^glib.Error) -> glib.boolean ---
+
+    @(link_name = "gtk_file_chooser_get_files")
+    file_chooser_get_files :: proc(chooser: ^FileChooser) -> ^gio.ListModel ---
+
+    @(link_name = "gtk_file_chooser_set_current_folder")
+    file_chooser_set_current_folder :: proc(chooser: ^FileChooser, file: ^gio.File, error: ^^glib.Error) -> glib.boolean ---
+
+    @(link_name = "gtk_file_chooser_get_current_folder")
+    file_chooser_get_current_folder :: proc(chooser: ^FileChooser) -> ^gio.File ---
+
+    @(link_name = "gtk_file_chooser_add_filter")
+    file_chooser_add_filter :: proc(chooser: ^FileChooser, filter: ^FileFilter) ---
+
+    @(link_name = "gtk_file_chooser_remove_filter")
+    file_chooser_remove_filter :: proc(chooser: ^FileChooser, filter: ^FileFilter) ---
+
+    @(link_name = "gtk_file_chooser_get_filters")
+    file_chooser_get_filters :: proc(chooser: ^FileChooser) -> ^gio.ListModel ---
+
+    @(link_name = "gtk_file_chooser_set_filter")
+    file_chooser_set_filter :: proc(chooser: ^FileChooser, filter: ^FileFilter) ---
+
+    @(link_name = "gtk_file_chooser_get_filter")
+    file_chooser_get_filter :: proc(chooser: ^FileChooser) -> ^FileFilter ---
+
+    @(link_name = "gtk_file_chooser_add_shortcut_folder")
+    file_chooser_add_shortcut_folder :: proc(chooser: ^FileChooser, folder: ^gio.File, error: ^^glib.Error) -> glib.boolean ---
+
+    @(link_name = "gtk_file_chooser_remove_shortcut_folder")
+    file_chooser_remove_shortcut_folder :: proc(chooser: ^FileChooser, folder: ^gio.File, error: ^^glib.Error) -> glib.boolean ---
+
+    @(link_name = "gtk_file_chooser_get_shortcut_folders")
+    file_chooser_get_shortcut_folders :: proc(chooser: ^FileChooser) -> ^gio.ListModel ---
+
+    @(link_name = "gtk_file_chooser_add_choice")
+    file_chooser_add_choice :: proc(chooser: ^FileChooser, id: cstring, label: cstring, options: [^]cstring, option_labels: [^]cstring) ---
+
+    @(link_name = "gtk_file_chooser_remove_choice")
+    file_chooser_remove_choice :: proc(chooser: ^FileChooser, id: cstring) ---
+
+    @(link_name = "gtk_file_chooser_set_choice")
+    file_chooser_set_choice :: proc(chooser: ^FileChooser, id: cstring, option: cstring) ---
+
+    @(link_name = "gtk_file_chooser_get_choice")
+    file_chooser_get_choice :: proc(chooser: ^FileChooser, id: cstring) -> cstring ---
+
+    @(link_name = "gtk_file_chooser_dialog_get_type")
+    file_chooser_dialog_get_type :: proc() -> gobj.Type ---
+
+    @(link_name = "gtk_file_chooser_dialog_new")
+    file_chooser_dialog_new :: proc(title: cstring, parent: ^Window, action: FileChooserAction, first_button_text: cstring, #c_vararg var_args: ..any) -> ^Widget ---
+
+    @(link_name = "gtk_native_dialog_get_type")
+    native_dialog_get_type :: proc() -> gobj.Type ---
+
+    @(link_name = "gtk_native_dialog_show")
+    native_dialog_show :: proc(self: ^NativeDialog) ---
+
+    @(link_name = "gtk_native_dialog_hide")
+    native_dialog_hide :: proc(self: ^NativeDialog) ---
+
+    @(link_name = "gtk_native_dialog_destroy")
+    native_dialog_destroy :: proc(self: ^NativeDialog) ---
+
+    @(link_name = "gtk_native_dialog_get_visible")
+    native_dialog_get_visible :: proc(self: ^NativeDialog) -> glib.boolean ---
+
+    @(link_name = "gtk_native_dialog_set_modal")
+    native_dialog_set_modal :: proc(self: ^NativeDialog, modal: glib.boolean) ---
+
+    @(link_name = "gtk_native_dialog_get_modal")
+    native_dialog_get_modal :: proc(self: ^NativeDialog) -> glib.boolean ---
+
+    @(link_name = "gtk_native_dialog_set_title")
+    native_dialog_set_title :: proc(self: ^NativeDialog, title: cstring) ---
+
+    @(link_name = "gtk_native_dialog_get_title")
+    native_dialog_get_title :: proc(self: ^NativeDialog) -> cstring ---
+
+    @(link_name = "gtk_native_dialog_set_transient_for")
+    native_dialog_set_transient_for :: proc(self: ^NativeDialog, parent: ^Window) ---
+
+    @(link_name = "gtk_native_dialog_get_transient_for")
+    native_dialog_get_transient_for :: proc(self: ^NativeDialog) -> ^Window ---
+
+    @(link_name = "gtk_file_chooser_native_get_type")
+    file_chooser_native_get_type :: proc() -> gobj.Type ---
+
+    @(link_name = "gtk_file_chooser_native_new")
+    file_chooser_native_new :: proc(title: cstring, parent: ^Window, action: FileChooserAction, accept_label: cstring, cancel_label: cstring) -> ^FileChooserNative ---
+
+    @(link_name = "gtk_file_chooser_native_get_accept_label")
+    file_chooser_native_get_accept_label :: proc(self: ^FileChooserNative) -> cstring ---
+
+    @(link_name = "gtk_file_chooser_native_set_accept_label")
+    file_chooser_native_set_accept_label :: proc(self: ^FileChooserNative, accept_label: cstring) ---
+
+    @(link_name = "gtk_file_chooser_native_get_cancel_label")
+    file_chooser_native_get_cancel_label :: proc(self: ^FileChooserNative) -> cstring ---
+
+    @(link_name = "gtk_file_chooser_native_set_cancel_label")
+    file_chooser_native_set_cancel_label :: proc(self: ^FileChooserNative, cancel_label: cstring) ---
+
+    @(link_name = "gtk_file_chooser_widget_get_type")
+    file_chooser_widget_get_type :: proc() -> gobj.Type ---
+
+    @(link_name = "gtk_file_chooser_widget_new")
+    file_chooser_widget_new :: proc(action: FileChooserAction) -> ^Widget ---
+
+    @(link_name = "gtk_file_dialog_get_type")
+    file_dialog_get_type :: proc() -> gobj.Type ---
+
+    @(link_name = "gtk_file_dialog_new")
+    file_dialog_new :: proc() -> ^FileDialog ---
+
+    @(link_name = "gtk_file_dialog_get_title")
+    file_dialog_get_title :: proc(self: ^FileDialog) -> cstring ---
+
+    @(link_name = "gtk_file_dialog_set_title")
+    file_dialog_set_title :: proc(self: ^FileDialog, title: cstring) ---
+
+    @(link_name = "gtk_file_dialog_get_modal")
+    file_dialog_get_modal :: proc(self: ^FileDialog) -> glib.boolean ---
+
+    @(link_name = "gtk_file_dialog_set_modal")
+    file_dialog_set_modal :: proc(self: ^FileDialog, modal: glib.boolean) ---
+
+    @(link_name = "gtk_file_dialog_get_filters")
+    file_dialog_get_filters :: proc(self: ^FileDialog) -> ^gio.ListModel ---
+
+    @(link_name = "gtk_file_dialog_set_filters")
+    file_dialog_set_filters :: proc(self: ^FileDialog, filters: ^gio.ListModel) ---
+
+    @(link_name = "gtk_file_dialog_get_default_filter")
+    file_dialog_get_default_filter :: proc(self: ^FileDialog) -> ^FileFilter ---
+
+    @(link_name = "gtk_file_dialog_set_default_filter")
+    file_dialog_set_default_filter :: proc(self: ^FileDialog, filter: ^FileFilter) ---
+
+    @(link_name = "gtk_file_dialog_get_initial_folder")
+    file_dialog_get_initial_folder :: proc(self: ^FileDialog) -> ^gio.File ---
+
+    @(link_name = "gtk_file_dialog_set_initial_folder")
+    file_dialog_set_initial_folder :: proc(self: ^FileDialog, folder: ^gio.File) ---
+
+    @(link_name = "gtk_file_dialog_get_initial_name")
+    file_dialog_get_initial_name :: proc(self: ^FileDialog) -> cstring ---
+
+    @(link_name = "gtk_file_dialog_set_initial_name")
+    file_dialog_set_initial_name :: proc(self: ^FileDialog, name: cstring) ---
+
+    @(link_name = "gtk_file_dialog_get_initial_file")
+    file_dialog_get_initial_file :: proc(self: ^FileDialog) -> ^gio.File ---
+
+    @(link_name = "gtk_file_dialog_set_initial_file")
+    file_dialog_set_initial_file :: proc(self: ^FileDialog, file: ^gio.File) ---
+
+    @(link_name = "gtk_file_dialog_get_accept_label")
+    file_dialog_get_accept_label :: proc(self: ^FileDialog) -> cstring ---
+
+    @(link_name = "gtk_file_dialog_set_accept_label")
+    file_dialog_set_accept_label :: proc(self: ^FileDialog, accept_label: cstring) ---
+
+    @(link_name = "gtk_file_dialog_open")
+    file_dialog_open :: proc(self: ^FileDialog, parent: ^Window, cancellable: ^gio.Cancellable, callback: gio.AsyncReadyCallback, user_data: glib.pointer) ---
+
+    @(link_name = "gtk_file_dialog_open_finish")
+    file_dialog_open_finish :: proc(self: ^FileDialog, result: ^gio.AsyncResult, error: ^^glib.Error) -> ^gio.File ---
+
+    @(link_name = "gtk_file_dialog_select_folder")
+    file_dialog_select_folder :: proc(self: ^FileDialog, parent: ^Window, cancellable: ^gio.Cancellable, callback: gio.AsyncReadyCallback, user_data: glib.pointer) ---
+
+    @(link_name = "gtk_file_dialog_select_folder_finish")
+    file_dialog_select_folder_finish :: proc(self: ^FileDialog, result: ^gio.AsyncResult, error: ^^glib.Error) -> ^gio.File ---
+
+    @(link_name = "gtk_file_dialog_save")
+    file_dialog_save :: proc(self: ^FileDialog, parent: ^Window, cancellable: ^gio.Cancellable, callback: gio.AsyncReadyCallback, user_data: glib.pointer) ---
+
+    @(link_name = "gtk_file_dialog_save_finish")
+    file_dialog_save_finish :: proc(self: ^FileDialog, result: ^gio.AsyncResult, error: ^^glib.Error) -> ^gio.File ---
+
+    @(link_name = "gtk_file_dialog_open_multiple")
+    file_dialog_open_multiple :: proc(self: ^FileDialog, parent: ^Window, cancellable: ^gio.Cancellable, callback: gio.AsyncReadyCallback, user_data: glib.pointer) ---
+
+    @(link_name = "gtk_file_dialog_open_multiple_finish")
+    file_dialog_open_multiple_finish :: proc(self: ^FileDialog, result: ^gio.AsyncResult, error: ^^glib.Error) -> ^gio.ListModel ---
+
+    @(link_name = "gtk_file_dialog_select_multiple_folders")
+    file_dialog_select_multiple_folders :: proc(self: ^FileDialog, parent: ^Window, cancellable: ^gio.Cancellable, callback: gio.AsyncReadyCallback, user_data: glib.pointer) ---
+
+    @(link_name = "gtk_file_dialog_select_multiple_folders_finish")
+    file_dialog_select_multiple_folders_finish :: proc(self: ^FileDialog, result: ^gio.AsyncResult, error: ^^glib.Error) -> ^gio.ListModel ---
+
+    @(link_name = "gtk_file_launcher_get_type")
+    file_launcher_get_type :: proc() -> gobj.Type ---
+
+    @(link_name = "gtk_file_launcher_new")
+    file_launcher_new :: proc(file: ^gio.File) -> ^FileLauncher ---
+
+    @(link_name = "gtk_file_launcher_get_file")
+    file_launcher_get_file :: proc(self: ^FileLauncher) -> ^gio.File ---
+
+    @(link_name = "gtk_file_launcher_set_file")
+    file_launcher_set_file :: proc(self: ^FileLauncher, file: ^gio.File) ---
+
+    @(link_name = "gtk_file_launcher_get_always_ask")
+    file_launcher_get_always_ask :: proc(self: ^FileLauncher) -> glib.boolean ---
+
+    @(link_name = "gtk_file_launcher_set_always_ask")
+    file_launcher_set_always_ask :: proc(self: ^FileLauncher, always_ask: glib.boolean) ---
+
+    @(link_name = "gtk_file_launcher_get_writable")
+    file_launcher_get_writable :: proc(self: ^FileLauncher) -> glib.boolean ---
+
+    @(link_name = "gtk_file_launcher_set_writable")
+    file_launcher_set_writable :: proc(self: ^FileLauncher, writable: glib.boolean) ---
+
+    @(link_name = "gtk_file_launcher_launch")
+    file_launcher_launch :: proc(self: ^FileLauncher, parent: ^Window, cancellable: ^gio.Cancellable, callback: gio.AsyncReadyCallback, user_data: glib.pointer) ---
+
+    @(link_name = "gtk_file_launcher_launch_finish")
+    file_launcher_launch_finish :: proc(self: ^FileLauncher, result: ^gio.AsyncResult, error: ^^glib.Error) -> glib.boolean ---
+
+    @(link_name = "gtk_file_launcher_open_containing_folder")
+    file_launcher_open_containing_folder :: proc(self: ^FileLauncher, parent: ^Window, cancellable: ^gio.Cancellable, callback: gio.AsyncReadyCallback, user_data: glib.pointer) ---
+
+    @(link_name = "gtk_file_launcher_open_containing_folder_finish")
+    file_launcher_open_containing_folder_finish :: proc(self: ^FileLauncher, result: ^gio.AsyncResult, error: ^^glib.Error) -> glib.boolean ---
+
+    @(link_name = "gtk_filter_list_model_get_type")
+    filter_list_model_get_type :: proc() -> gobj.Type ---
+
+    @(link_name = "gtk_filter_list_model_new")
+    filter_list_model_new :: proc(model: ^gio.ListModel, filter: ^Filter) -> ^FilterListModel ---
+
+    @(link_name = "gtk_filter_list_model_set_filter")
+    filter_list_model_set_filter :: proc(self: ^FilterListModel, filter: ^Filter) ---
+
+    @(link_name = "gtk_filter_list_model_get_filter")
+    filter_list_model_get_filter :: proc(self: ^FilterListModel) -> ^Filter ---
+
+    @(link_name = "gtk_filter_list_model_set_model")
+    filter_list_model_set_model :: proc(self: ^FilterListModel, model: ^gio.ListModel) ---
+
+    @(link_name = "gtk_filter_list_model_get_model")
+    filter_list_model_get_model :: proc(self: ^FilterListModel) -> ^gio.ListModel ---
+
+    @(link_name = "gtk_filter_list_model_set_incremental")
+    filter_list_model_set_incremental :: proc(self: ^FilterListModel, incremental: glib.boolean) ---
+
+    @(link_name = "gtk_filter_list_model_get_incremental")
+    filter_list_model_get_incremental :: proc(self: ^FilterListModel) -> glib.boolean ---
+
+    @(link_name = "gtk_filter_list_model_get_pending")
+    filter_list_model_get_pending :: proc(self: ^FilterListModel) -> glib.uint_ ---
+
+    @(link_name = "gtk_custom_filter_get_type")
+    custom_filter_get_type :: proc() -> gobj.Type ---
+
+    @(link_name = "gtk_custom_filter_new")
+    custom_filter_new :: proc(match_func: CustomFilterFunc, user_data: glib.pointer, user_destroy: glib.DestroyNotify) -> ^CustomFilter ---
+
+    @(link_name = "gtk_custom_filter_set_filter_func")
+    custom_filter_set_filter_func :: proc(self: ^CustomFilter, match_func: CustomFilterFunc, user_data: glib.pointer, user_destroy: glib.DestroyNotify) ---
+
+    @(link_name = "gtk_flatten_list_model_get_type")
+    flatten_list_model_get_type :: proc() -> gobj.Type ---
+
+    @(link_name = "gtk_flatten_list_model_new")
+    flatten_list_model_new :: proc(model: ^gio.ListModel) -> ^FlattenListModel ---
+
+    @(link_name = "gtk_flatten_list_model_set_model")
+    flatten_list_model_set_model :: proc(self: ^FlattenListModel, model: ^gio.ListModel) ---
+
+    @(link_name = "gtk_flatten_list_model_get_model")
+    flatten_list_model_get_model :: proc(self: ^FlattenListModel) -> ^gio.ListModel ---
+
+    @(link_name = "gtk_flatten_list_model_get_model_for_item")
+    flatten_list_model_get_model_for_item :: proc(self: ^FlattenListModel, position: glib.uint_) -> ^gio.ListModel ---
+
+    @(link_name = "gtk_flow_box_child_get_type")
+    flow_box_child_get_type :: proc() -> gobj.Type ---
+
+    @(link_name = "gtk_flow_box_child_new")
+    flow_box_child_new :: proc() -> ^Widget ---
+
+    @(link_name = "gtk_flow_box_child_set_child")
+    flow_box_child_set_child :: proc(self: ^FlowBoxChild, child: ^Widget) ---
+
+    @(link_name = "gtk_flow_box_child_get_child")
+    flow_box_child_get_child :: proc(self: ^FlowBoxChild) -> ^Widget ---
+
+    @(link_name = "gtk_flow_box_child_get_index")
+    flow_box_child_get_index :: proc(child: ^FlowBoxChild) -> i32 ---
+
+    @(link_name = "gtk_flow_box_child_is_selected")
+    flow_box_child_is_selected :: proc(child: ^FlowBoxChild) -> glib.boolean ---
+
+    @(link_name = "gtk_flow_box_child_changed")
+    flow_box_child_changed :: proc(child: ^FlowBoxChild) ---
+
+    @(link_name = "gtk_flow_box_get_type")
+    flow_box_get_type :: proc() -> gobj.Type ---
+
+    @(link_name = "gtk_flow_box_new")
+    flow_box_new :: proc() -> ^Widget ---
+
+    @(link_name = "gtk_flow_box_bind_model")
+    flow_box_bind_model :: proc(box: ^FlowBox, model: ^gio.ListModel, create_widget_func: FlowBoxCreateWidgetFunc, user_data: glib.pointer, user_data_free_func: glib.DestroyNotify) ---
+
+    @(link_name = "gtk_flow_box_set_homogeneous")
+    flow_box_set_homogeneous :: proc(box: ^FlowBox, homogeneous: glib.boolean) ---
+
+    @(link_name = "gtk_flow_box_get_homogeneous")
+    flow_box_get_homogeneous :: proc(box: ^FlowBox) -> glib.boolean ---
+
+    @(link_name = "gtk_flow_box_set_row_spacing")
+    flow_box_set_row_spacing :: proc(box: ^FlowBox, spacing: glib.uint_) ---
+
+    @(link_name = "gtk_flow_box_get_row_spacing")
+    flow_box_get_row_spacing :: proc(box: ^FlowBox) -> glib.uint_ ---
+
+    @(link_name = "gtk_flow_box_set_column_spacing")
+    flow_box_set_column_spacing :: proc(box: ^FlowBox, spacing: glib.uint_) ---
+
+    @(link_name = "gtk_flow_box_get_column_spacing")
+    flow_box_get_column_spacing :: proc(box: ^FlowBox) -> glib.uint_ ---
+
+    @(link_name = "gtk_flow_box_set_min_children_per_line")
+    flow_box_set_min_children_per_line :: proc(box: ^FlowBox, n_children: glib.uint_) ---
+
+    @(link_name = "gtk_flow_box_get_min_children_per_line")
+    flow_box_get_min_children_per_line :: proc(box: ^FlowBox) -> glib.uint_ ---
+
+    @(link_name = "gtk_flow_box_set_max_children_per_line")
+    flow_box_set_max_children_per_line :: proc(box: ^FlowBox, n_children: glib.uint_) ---
+
+    @(link_name = "gtk_flow_box_get_max_children_per_line")
+    flow_box_get_max_children_per_line :: proc(box: ^FlowBox) -> glib.uint_ ---
+
+    @(link_name = "gtk_flow_box_set_activate_on_single_click")
+    flow_box_set_activate_on_single_click :: proc(box: ^FlowBox, single: glib.boolean) ---
+
+    @(link_name = "gtk_flow_box_get_activate_on_single_click")
+    flow_box_get_activate_on_single_click :: proc(box: ^FlowBox) -> glib.boolean ---
+
+    @(link_name = "gtk_flow_box_prepend")
+    flow_box_prepend :: proc(self: ^FlowBox, child: ^Widget) ---
+
+    @(link_name = "gtk_flow_box_append")
+    flow_box_append :: proc(self: ^FlowBox, child: ^Widget) ---
+
+    @(link_name = "gtk_flow_box_insert")
+    flow_box_insert :: proc(box: ^FlowBox, widget: ^Widget, position: i32) ---
+
+    @(link_name = "gtk_flow_box_remove")
+    flow_box_remove :: proc(box: ^FlowBox, widget: ^Widget) ---
+
+    @(link_name = "gtk_flow_box_remove_all")
+    flow_box_remove_all :: proc(box: ^FlowBox) ---
+
+    @(link_name = "gtk_flow_box_get_child_at_index")
+    flow_box_get_child_at_index :: proc(box: ^FlowBox, idx: i32) -> ^FlowBoxChild ---
+
+    @(link_name = "gtk_flow_box_get_child_at_pos")
+    flow_box_get_child_at_pos :: proc(box: ^FlowBox, x: i32, y: i32) -> ^FlowBoxChild ---
+
+    @(link_name = "gtk_flow_box_selected_foreach")
+    flow_box_selected_foreach :: proc(box: ^FlowBox, func: FlowBoxForeachFunc, data: glib.pointer) ---
+
+    @(link_name = "gtk_flow_box_get_selected_children")
+    flow_box_get_selected_children :: proc(box: ^FlowBox) -> ^glib.List ---
+
+    @(link_name = "gtk_flow_box_select_child")
+    flow_box_select_child :: proc(box: ^FlowBox, child: ^FlowBoxChild) ---
+
+    @(link_name = "gtk_flow_box_unselect_child")
+    flow_box_unselect_child :: proc(box: ^FlowBox, child: ^FlowBoxChild) ---
+
+    @(link_name = "gtk_flow_box_select_all")
+    flow_box_select_all :: proc(box: ^FlowBox) ---
+
+    @(link_name = "gtk_flow_box_unselect_all")
+    flow_box_unselect_all :: proc(box: ^FlowBox) ---
+
+    @(link_name = "gtk_flow_box_set_selection_mode")
+    flow_box_set_selection_mode :: proc(box: ^FlowBox, mode: SelectionMode) ---
+
+    @(link_name = "gtk_flow_box_get_selection_mode")
+    flow_box_get_selection_mode :: proc(box: ^FlowBox) -> SelectionMode ---
+
+    @(link_name = "gtk_flow_box_set_hadjustment")
+    flow_box_set_hadjustment :: proc(box: ^FlowBox, adjustment: ^Adjustment) ---
+
+    @(link_name = "gtk_flow_box_set_vadjustment")
+    flow_box_set_vadjustment :: proc(box: ^FlowBox, adjustment: ^Adjustment) ---
+
+    @(link_name = "gtk_flow_box_set_filter_func")
+    flow_box_set_filter_func :: proc(box: ^FlowBox, filter_func: FlowBoxFilterFunc, user_data: glib.pointer, destroy: glib.DestroyNotify) ---
+
+    @(link_name = "gtk_flow_box_invalidate_filter")
+    flow_box_invalidate_filter :: proc(box: ^FlowBox) ---
+
+    @(link_name = "gtk_flow_box_set_sort_func")
+    flow_box_set_sort_func :: proc(box: ^FlowBox, sort_func: FlowBoxSortFunc, user_data: glib.pointer, destroy: glib.DestroyNotify) ---
+
+    @(link_name = "gtk_flow_box_invalidate_sort")
+    flow_box_invalidate_sort :: proc(box: ^FlowBox) ---
+
+    @(link_name = "gtk_font_button_get_type")
+    font_button_get_type :: proc() -> gobj.Type ---
+
+    @(link_name = "gtk_font_button_new")
+    font_button_new :: proc() -> ^Widget ---
+
+    @(link_name = "gtk_font_button_new_with_font")
+    font_button_new_with_font :: proc(fontname: cstring) -> ^Widget ---
+
+    @(link_name = "gtk_font_button_get_title")
+    font_button_get_title :: proc(font_button: ^FontButton) -> cstring ---
+
+    @(link_name = "gtk_font_button_set_title")
+    font_button_set_title :: proc(font_button: ^FontButton, title: cstring) ---
+
+    @(link_name = "gtk_font_button_get_modal")
+    font_button_get_modal :: proc(font_button: ^FontButton) -> glib.boolean ---
+
+    @(link_name = "gtk_font_button_set_modal")
+    font_button_set_modal :: proc(font_button: ^FontButton, modal: glib.boolean) ---
+
+    @(link_name = "gtk_font_button_get_use_font")
+    font_button_get_use_font :: proc(font_button: ^FontButton) -> glib.boolean ---
+
+    @(link_name = "gtk_font_button_set_use_font")
+    font_button_set_use_font :: proc(font_button: ^FontButton, use_font: glib.boolean) ---
+
+    @(link_name = "gtk_font_button_get_use_size")
+    font_button_get_use_size :: proc(font_button: ^FontButton) -> glib.boolean ---
+
+    @(link_name = "gtk_font_button_set_use_size")
+    font_button_set_use_size :: proc(font_button: ^FontButton, use_size: glib.boolean) ---
+
+    @(link_name = "gtk_font_chooser_get_type")
+    font_chooser_get_type :: proc() -> gobj.Type ---
+
+    @(link_name = "gtk_font_chooser_get_font_family")
+    font_chooser_get_font_family :: proc(fontchooser: ^FontChooser) -> ^pango.FontFamily ---
+
+    @(link_name = "gtk_font_chooser_get_font_face")
+    font_chooser_get_font_face :: proc(fontchooser: ^FontChooser) -> ^pango.FontFace ---
+
+    @(link_name = "gtk_font_chooser_get_font_size")
+    font_chooser_get_font_size :: proc(fontchooser: ^FontChooser) -> i32 ---
+
+    @(link_name = "gtk_font_chooser_get_font_desc")
+    font_chooser_get_font_desc :: proc(fontchooser: ^FontChooser) -> ^pango.FontDescription ---
+
+    @(link_name = "gtk_font_chooser_set_font_desc")
+    font_chooser_set_font_desc :: proc(fontchooser: ^FontChooser, font_desc: ^pango.FontDescription) ---
+
+    @(link_name = "gtk_font_chooser_get_font")
+    font_chooser_get_font :: proc(fontchooser: ^FontChooser) -> cstring ---
+
+    @(link_name = "gtk_font_chooser_set_font")
+    font_chooser_set_font :: proc(fontchooser: ^FontChooser, fontname: cstring) ---
+
+    @(link_name = "gtk_font_chooser_get_preview_text")
+    font_chooser_get_preview_text :: proc(fontchooser: ^FontChooser) -> cstring ---
+
+    @(link_name = "gtk_font_chooser_set_preview_text")
+    font_chooser_set_preview_text :: proc(fontchooser: ^FontChooser, text: cstring) ---
+
+    @(link_name = "gtk_font_chooser_get_show_preview_entry")
+    font_chooser_get_show_preview_entry :: proc(fontchooser: ^FontChooser) -> glib.boolean ---
+
+    @(link_name = "gtk_font_chooser_set_show_preview_entry")
+    font_chooser_set_show_preview_entry :: proc(fontchooser: ^FontChooser, show_preview_entry: glib.boolean) ---
+
+    @(link_name = "gtk_font_chooser_set_filter_func")
+    font_chooser_set_filter_func :: proc(fontchooser: ^FontChooser, filter: FontFilterFunc, user_data: glib.pointer, destroy: glib.DestroyNotify) ---
+
+    @(link_name = "gtk_font_chooser_set_font_map")
+    font_chooser_set_font_map :: proc(fontchooser: ^FontChooser, fontmap: ^pango.FontMap) ---
+
+    @(link_name = "gtk_font_chooser_get_font_map")
+    font_chooser_get_font_map :: proc(fontchooser: ^FontChooser) -> ^pango.FontMap ---
+
+    @(link_name = "gtk_font_chooser_set_level")
+    font_chooser_set_level :: proc(fontchooser: ^FontChooser, level: FontChooserLevel) ---
+
+    @(link_name = "gtk_font_chooser_get_level")
+    font_chooser_get_level :: proc(fontchooser: ^FontChooser) -> FontChooserLevel ---
+
+    @(link_name = "gtk_font_chooser_get_font_features")
+    font_chooser_get_font_features :: proc(fontchooser: ^FontChooser) -> cstring ---
+
+    @(link_name = "gtk_font_chooser_get_language")
+    font_chooser_get_language :: proc(fontchooser: ^FontChooser) -> cstring ---
+
+    @(link_name = "gtk_font_chooser_set_language")
+    font_chooser_set_language :: proc(fontchooser: ^FontChooser, language: cstring) ---
+
+    @(link_name = "gtk_font_chooser_dialog_get_type")
+    font_chooser_dialog_get_type :: proc() -> gobj.Type ---
+
+    @(link_name = "gtk_font_chooser_dialog_new")
+    font_chooser_dialog_new :: proc(title: cstring, parent: ^Window) -> ^Widget ---
+
+    @(link_name = "gtk_font_chooser_widget_get_type")
+    font_chooser_widget_get_type :: proc() -> gobj.Type ---
+
+    @(link_name = "gtk_font_chooser_widget_new")
+    font_chooser_widget_new :: proc() -> ^Widget ---
+
+    @(link_name = "gtk_font_dialog_get_type")
+    font_dialog_get_type :: proc() -> gobj.Type ---
+
+    @(link_name = "gtk_font_dialog_new")
+    font_dialog_new :: proc() -> ^FontDialog ---
+
+    @(link_name = "gtk_font_dialog_get_title")
+    font_dialog_get_title :: proc(self: ^FontDialog) -> cstring ---
+
+    @(link_name = "gtk_font_dialog_set_title")
+    font_dialog_set_title :: proc(self: ^FontDialog, title: cstring) ---
+
+    @(link_name = "gtk_font_dialog_get_modal")
+    font_dialog_get_modal :: proc(self: ^FontDialog) -> glib.boolean ---
+
+    @(link_name = "gtk_font_dialog_set_modal")
+    font_dialog_set_modal :: proc(self: ^FontDialog, modal: glib.boolean) ---
+
+    @(link_name = "gtk_font_dialog_get_language")
+    font_dialog_get_language :: proc(self: ^FontDialog) -> ^pango.Language ---
+
+    @(link_name = "gtk_font_dialog_set_language")
+    font_dialog_set_language :: proc(self: ^FontDialog, language: ^pango.Language) ---
+
+    @(link_name = "gtk_font_dialog_get_font_map")
+    font_dialog_get_font_map :: proc(self: ^FontDialog) -> ^pango.FontMap ---
+
+    @(link_name = "gtk_font_dialog_set_font_map")
+    font_dialog_set_font_map :: proc(self: ^FontDialog, fontmap: ^pango.FontMap) ---
+
+    @(link_name = "gtk_font_dialog_get_filter")
+    font_dialog_get_filter :: proc(self: ^FontDialog) -> ^Filter ---
+
+    @(link_name = "gtk_font_dialog_set_filter")
+    font_dialog_set_filter :: proc(self: ^FontDialog, filter: ^Filter) ---
+
+    @(link_name = "gtk_font_dialog_choose_family")
+    font_dialog_choose_family :: proc(self: ^FontDialog, parent: ^Window, initial_value: ^pango.FontFamily, cancellable: ^gio.Cancellable, callback: gio.AsyncReadyCallback, user_data: glib.pointer) ---
+
+    @(link_name = "gtk_font_dialog_choose_family_finish")
+    font_dialog_choose_family_finish :: proc(self: ^FontDialog, result: ^gio.AsyncResult, error: ^^glib.Error) -> ^pango.FontFamily ---
+
+    @(link_name = "gtk_font_dialog_choose_face")
+    font_dialog_choose_face :: proc(self: ^FontDialog, parent: ^Window, initial_value: ^pango.FontFace, cancellable: ^gio.Cancellable, callback: gio.AsyncReadyCallback, user_data: glib.pointer) ---
+
+    @(link_name = "gtk_font_dialog_choose_face_finish")
+    font_dialog_choose_face_finish :: proc(self: ^FontDialog, result: ^gio.AsyncResult, error: ^^glib.Error) -> ^pango.FontFace ---
+
+    @(link_name = "gtk_font_dialog_choose_font")
+    font_dialog_choose_font :: proc(self: ^FontDialog, parent: ^Window, initial_value: ^pango.FontDescription, cancellable: ^gio.Cancellable, callback: gio.AsyncReadyCallback, user_data: glib.pointer) ---
+
+    @(link_name = "gtk_font_dialog_choose_font_finish")
+    font_dialog_choose_font_finish :: proc(self: ^FontDialog, result: ^gio.AsyncResult, error: ^^glib.Error) -> ^pango.FontDescription ---
+
+    @(link_name = "gtk_font_dialog_choose_font_and_features")
+    font_dialog_choose_font_and_features :: proc(self: ^FontDialog, parent: ^Window, initial_value: ^pango.FontDescription, cancellable: ^gio.Cancellable, callback: gio.AsyncReadyCallback, user_data: glib.pointer) ---
+
+    @(link_name = "gtk_font_dialog_choose_font_and_features_finish")
+    font_dialog_choose_font_and_features_finish :: proc(self: ^FontDialog, result: ^gio.AsyncResult, font_desc: ^^pango.FontDescription, font_features: ^cstring, language: ^^pango.Language, error: ^^glib.Error) -> glib.boolean ---
+
+    @(link_name = "gtk_font_dialog_button_get_type")
+    font_dialog_button_get_type :: proc() -> gobj.Type ---
+
+    @(link_name = "gtk_font_dialog_button_new")
+    font_dialog_button_new :: proc(dialog: ^FontDialog) -> ^Widget ---
+
+    @(link_name = "gtk_font_dialog_button_get_dialog")
+    font_dialog_button_get_dialog :: proc(self: ^FontDialogButton) -> ^FontDialog ---
+
+    @(link_name = "gtk_font_dialog_button_set_dialog")
+    font_dialog_button_set_dialog :: proc(self: ^FontDialogButton, dialog: ^FontDialog) ---
+
+    @(link_name = "gtk_font_dialog_button_get_level")
+    font_dialog_button_get_level :: proc(self: ^FontDialogButton) -> FontLevel ---
+
+    @(link_name = "gtk_font_dialog_button_set_level")
+    font_dialog_button_set_level :: proc(self: ^FontDialogButton, level: FontLevel) ---
+
+    @(link_name = "gtk_font_dialog_button_get_font_desc")
+    font_dialog_button_get_font_desc :: proc(self: ^FontDialogButton) -> ^pango.FontDescription ---
+
+    @(link_name = "gtk_font_dialog_button_set_font_desc")
+    font_dialog_button_set_font_desc :: proc(self: ^FontDialogButton, font_desc: ^pango.FontDescription) ---
+
+    @(link_name = "gtk_font_dialog_button_get_font_features")
+    font_dialog_button_get_font_features :: proc(self: ^FontDialogButton) -> cstring ---
+
+    @(link_name = "gtk_font_dialog_button_set_font_features")
+    font_dialog_button_set_font_features :: proc(self: ^FontDialogButton, font_features: cstring) ---
+
+    @(link_name = "gtk_font_dialog_button_get_language")
+    font_dialog_button_get_language :: proc(self: ^FontDialogButton) -> ^pango.Language ---
+
+    @(link_name = "gtk_font_dialog_button_set_language")
+    font_dialog_button_set_language :: proc(self: ^FontDialogButton, language: ^pango.Language) ---
+
+    @(link_name = "gtk_font_dialog_button_get_use_font")
+    font_dialog_button_get_use_font :: proc(self: ^FontDialogButton) -> glib.boolean ---
+
+    @(link_name = "gtk_font_dialog_button_set_use_font")
+    font_dialog_button_set_use_font :: proc(self: ^FontDialogButton, use_font: glib.boolean) ---
+
+    @(link_name = "gtk_font_dialog_button_get_use_size")
+    font_dialog_button_get_use_size :: proc(self: ^FontDialogButton) -> glib.boolean ---
+
+    @(link_name = "gtk_font_dialog_button_set_use_size")
+    font_dialog_button_set_use_size :: proc(self: ^FontDialogButton, use_size: glib.boolean) ---
+
+    @(link_name = "gtk_frame_get_type")
+    frame_get_type :: proc() -> gobj.Type ---
+
+    @(link_name = "gtk_frame_new")
+    frame_new :: proc(label: cstring) -> ^Widget ---
+
+    @(link_name = "gtk_frame_set_label")
+    frame_set_label :: proc(frame: ^Frame, label: cstring) ---
+
+    @(link_name = "gtk_frame_get_label")
+    frame_get_label :: proc(frame: ^Frame) -> cstring ---
+
+    @(link_name = "gtk_frame_set_label_widget")
+    frame_set_label_widget :: proc(frame: ^Frame, label_widget: ^Widget) ---
+
+    @(link_name = "gtk_frame_get_label_widget")
+    frame_get_label_widget :: proc(frame: ^Frame) -> ^Widget ---
+
+    @(link_name = "gtk_frame_set_label_align")
+    frame_set_label_align :: proc(frame: ^Frame, xalign: f32) ---
+
+    @(link_name = "gtk_frame_get_label_align")
+    frame_get_label_align :: proc(frame: ^Frame) -> f32 ---
+
+    @(link_name = "gtk_frame_set_child")
+    frame_set_child :: proc(frame: ^Frame, child: ^Widget) ---
+
+    @(link_name = "gtk_frame_get_child")
+    frame_get_child :: proc(frame: ^Frame) -> ^Widget ---
+
+    @(link_name = "gtk_gesture_get_type")
+    gesture_get_type :: proc() -> gobj.Type ---
+
+    @(link_name = "gtk_gesture_get_device")
+    gesture_get_device :: proc(gesture: ^Gesture) -> ^Device ---
+
+    @(link_name = "gtk_gesture_set_state")
+    gesture_set_state :: proc(gesture: ^Gesture, state: EventSequenceState) -> glib.boolean ---
+
+    @(link_name = "gtk_gesture_get_sequence_state")
+    gesture_get_sequence_state :: proc(gesture: ^Gesture, sequence: ^EventSequence) -> EventSequenceState ---
+
+    @(link_name = "gtk_gesture_set_sequence_state")
+    gesture_set_sequence_state :: proc(gesture: ^Gesture, sequence: ^EventSequence, state: EventSequenceState) -> glib.boolean ---
+
+    @(link_name = "gtk_gesture_get_sequences")
+    gesture_get_sequences :: proc(gesture: ^Gesture) -> ^glib.List ---
+
+    @(link_name = "gtk_gesture_get_last_updated_sequence")
+    gesture_get_last_updated_sequence :: proc(gesture: ^Gesture) -> ^EventSequence ---
+
+    @(link_name = "gtk_gesture_handles_sequence")
+    gesture_handles_sequence :: proc(gesture: ^Gesture, sequence: ^EventSequence) -> glib.boolean ---
+
+    @(link_name = "gtk_gesture_get_last_event")
+    gesture_get_last_event :: proc(gesture: ^Gesture, sequence: ^EventSequence) -> ^Event ---
+
+    @(link_name = "gtk_gesture_get_point")
+    gesture_get_point :: proc(gesture: ^Gesture, sequence: ^EventSequence, x: ^f64, y: ^f64) -> glib.boolean ---
+
+    @(link_name = "gtk_gesture_get_bounding_box")
+    gesture_get_bounding_box :: proc(gesture: ^Gesture, rect: ^Rectangle) -> glib.boolean ---
+
+    @(link_name = "gtk_gesture_get_bounding_box_center")
+    gesture_get_bounding_box_center :: proc(gesture: ^Gesture, x: ^f64, y: ^f64) -> glib.boolean ---
+
+    @(link_name = "gtk_gesture_is_active")
+    gesture_is_active :: proc(gesture: ^Gesture) -> glib.boolean ---
+
+    @(link_name = "gtk_gesture_is_recognized")
+    gesture_is_recognized :: proc(gesture: ^Gesture) -> glib.boolean ---
+
+    @(link_name = "gtk_gesture_group")
+    gesture_group :: proc(group_gesture: ^Gesture, gesture: ^Gesture) ---
+
+    @(link_name = "gtk_gesture_ungroup")
+    gesture_ungroup :: proc(gesture: ^Gesture) ---
+
+    @(link_name = "gtk_gesture_get_group")
+    gesture_get_group :: proc(gesture: ^Gesture) -> ^glib.List ---
+
+    @(link_name = "gtk_gesture_is_grouped_with")
+    gesture_is_grouped_with :: proc(gesture: ^Gesture, other: ^Gesture) -> glib.boolean ---
+
+    @(link_name = "gtk_gesture_single_get_type")
+    gesture_single_get_type :: proc() -> gobj.Type ---
+
+    @(link_name = "gtk_gesture_single_get_touch_only")
+    gesture_single_get_touch_only :: proc(gesture: ^GestureSingle) -> glib.boolean ---
+
+    @(link_name = "gtk_gesture_single_set_touch_only")
+    gesture_single_set_touch_only :: proc(gesture: ^GestureSingle, touch_only: glib.boolean) ---
+
+    @(link_name = "gtk_gesture_single_get_exclusive")
+    gesture_single_get_exclusive :: proc(gesture: ^GestureSingle) -> glib.boolean ---
+
+    @(link_name = "gtk_gesture_single_set_exclusive")
+    gesture_single_set_exclusive :: proc(gesture: ^GestureSingle, exclusive: glib.boolean) ---
+
+    @(link_name = "gtk_gesture_single_get_button")
+    gesture_single_get_button :: proc(gesture: ^GestureSingle) -> glib.uint_ ---
+
+    @(link_name = "gtk_gesture_single_set_button")
+    gesture_single_set_button :: proc(gesture: ^GestureSingle, button: glib.uint_) ---
+
+    @(link_name = "gtk_gesture_single_get_current_button")
+    gesture_single_get_current_button :: proc(gesture: ^GestureSingle) -> glib.uint_ ---
+
+    @(link_name = "gtk_gesture_single_get_current_sequence")
+    gesture_single_get_current_sequence :: proc(gesture: ^GestureSingle) -> ^EventSequence ---
+
+    @(link_name = "gtk_gesture_click_get_type")
+    gesture_click_get_type :: proc() -> gobj.Type ---
+
+    @(link_name = "gtk_gesture_click_new")
+    gesture_click_new :: proc() -> ^Gesture ---
+
+    @(link_name = "gtk_gesture_drag_get_type")
+    gesture_drag_get_type :: proc() -> gobj.Type ---
+
+    @(link_name = "gtk_gesture_drag_new")
+    gesture_drag_new :: proc() -> ^Gesture ---
+
+    @(link_name = "gtk_gesture_drag_get_start_point")
+    gesture_drag_get_start_point :: proc(gesture: ^GestureDrag, x: ^f64, y: ^f64) -> glib.boolean ---
+
+    @(link_name = "gtk_gesture_drag_get_offset")
+    gesture_drag_get_offset :: proc(gesture: ^GestureDrag, x: ^f64, y: ^f64) -> glib.boolean ---
+
+    @(link_name = "gtk_gesture_long_press_get_type")
+    gesture_long_press_get_type :: proc() -> gobj.Type ---
+
+    @(link_name = "gtk_gesture_long_press_new")
+    gesture_long_press_new :: proc() -> ^Gesture ---
+
+    @(link_name = "gtk_gesture_long_press_set_delay_factor")
+    gesture_long_press_set_delay_factor :: proc(gesture: ^GestureLongPress, delay_factor: f64) ---
+
+    @(link_name = "gtk_gesture_long_press_get_delay_factor")
+    gesture_long_press_get_delay_factor :: proc(gesture: ^GestureLongPress) -> f64 ---
+
+    @(link_name = "gtk_gesture_pan_get_type")
+    gesture_pan_get_type :: proc() -> gobj.Type ---
+
+    @(link_name = "gtk_gesture_pan_new")
+    gesture_pan_new :: proc(orientation: Orientation) -> ^Gesture ---
+
+    @(link_name = "gtk_gesture_pan_get_orientation")
+    gesture_pan_get_orientation :: proc(gesture: ^GesturePan) -> Orientation ---
+
+    @(link_name = "gtk_gesture_pan_set_orientation")
+    gesture_pan_set_orientation :: proc(gesture: ^GesturePan, orientation: Orientation) ---
+
+    @(link_name = "gtk_gesture_rotate_get_type")
+    gesture_rotate_get_type :: proc() -> gobj.Type ---
+
+    @(link_name = "gtk_gesture_rotate_new")
+    gesture_rotate_new :: proc() -> ^Gesture ---
+
+    @(link_name = "gtk_gesture_rotate_get_angle_delta")
+    gesture_rotate_get_angle_delta :: proc(gesture: ^GestureRotate) -> f64 ---
+
+    @(link_name = "gtk_gesture_stylus_get_type")
+    gesture_stylus_get_type :: proc() -> gobj.Type ---
+
+    @(link_name = "gtk_gesture_stylus_new")
+    gesture_stylus_new :: proc() -> ^Gesture ---
+
+    @(link_name = "gtk_gesture_stylus_get_stylus_only")
+    gesture_stylus_get_stylus_only :: proc(gesture: ^GestureStylus) -> glib.boolean ---
+
+    @(link_name = "gtk_gesture_stylus_set_stylus_only")
+    gesture_stylus_set_stylus_only :: proc(gesture: ^GestureStylus, stylus_only: glib.boolean) ---
+
+    @(link_name = "gtk_gesture_stylus_get_axis")
+    gesture_stylus_get_axis :: proc(gesture: ^GestureStylus, axis: AxisUse, value: ^f64) -> glib.boolean ---
+
+    @(link_name = "gtk_gesture_stylus_get_axes")
+    gesture_stylus_get_axes :: proc(gesture: ^GestureStylus, axes: [^]AxisUse, values: [^]^f64) -> glib.boolean ---
+
+    @(link_name = "gtk_gesture_stylus_get_backlog")
+    gesture_stylus_get_backlog :: proc(gesture: ^GestureStylus, backlog: ^^TimeCoord, n_elems: ^glib.uint_) -> glib.boolean ---
+
+    @(link_name = "gtk_gesture_stylus_get_device_tool")
+    gesture_stylus_get_device_tool :: proc(gesture: ^GestureStylus) -> ^DeviceTool ---
+
+    @(link_name = "gtk_gesture_swipe_get_type")
+    gesture_swipe_get_type :: proc() -> gobj.Type ---
+
+    @(link_name = "gtk_gesture_swipe_new")
+    gesture_swipe_new :: proc() -> ^Gesture ---
+
+    @(link_name = "gtk_gesture_swipe_get_velocity")
+    gesture_swipe_get_velocity :: proc(gesture: ^GestureSwipe, velocity_x: ^f64, velocity_y: ^f64) -> glib.boolean ---
+
+    @(link_name = "gtk_gesture_zoom_get_type")
+    gesture_zoom_get_type :: proc() -> gobj.Type ---
+
+    @(link_name = "gtk_gesture_zoom_new")
+    gesture_zoom_new :: proc() -> ^Gesture ---
+
+    @(link_name = "gtk_gesture_zoom_get_scale_delta")
+    gesture_zoom_get_scale_delta :: proc(gesture: ^GestureZoom) -> f64 ---
+
+    @(link_name = "gtk_gl_area_get_type")
+    gl_area_get_type :: proc() -> gobj.Type ---
+
+    @(link_name = "gtk_gl_area_new")
+    gl_area_new :: proc() -> ^Widget ---
+
+    @(link_name = "gtk_gl_area_set_allowed_apis")
+    gl_area_set_allowed_apis :: proc(area: ^GLArea, apis: GLAPI) ---
+
+    @(link_name = "gtk_gl_area_get_allowed_apis")
+    gl_area_get_allowed_apis :: proc(area: ^GLArea) -> GLAPI ---
+
+    @(link_name = "gtk_gl_area_get_api")
+    gl_area_get_api :: proc(area: ^GLArea) -> GLAPI ---
+
+    @(link_name = "gtk_gl_area_set_use_es")
+    gl_area_set_use_es :: proc(area: ^GLArea, use_es: glib.boolean) ---
+
+    @(link_name = "gtk_gl_area_get_use_es")
+    gl_area_get_use_es :: proc(area: ^GLArea) -> glib.boolean ---
+
+    @(link_name = "gtk_gl_area_set_required_version")
+    gl_area_set_required_version :: proc(area: ^GLArea, major: i32, minor: i32) ---
+
+    @(link_name = "gtk_gl_area_get_required_version")
+    gl_area_get_required_version :: proc(area: ^GLArea, major: ^i32, minor: ^i32) ---
+
+    @(link_name = "gtk_gl_area_get_has_depth_buffer")
+    gl_area_get_has_depth_buffer :: proc(area: ^GLArea) -> glib.boolean ---
+
+    @(link_name = "gtk_gl_area_set_has_depth_buffer")
+    gl_area_set_has_depth_buffer :: proc(area: ^GLArea, has_depth_buffer: glib.boolean) ---
+
+    @(link_name = "gtk_gl_area_get_has_stencil_buffer")
+    gl_area_get_has_stencil_buffer :: proc(area: ^GLArea) -> glib.boolean ---
+
+    @(link_name = "gtk_gl_area_set_has_stencil_buffer")
+    gl_area_set_has_stencil_buffer :: proc(area: ^GLArea, has_stencil_buffer: glib.boolean) ---
+
+    @(link_name = "gtk_gl_area_get_auto_render")
+    gl_area_get_auto_render :: proc(area: ^GLArea) -> glib.boolean ---
+
+    @(link_name = "gtk_gl_area_set_auto_render")
+    gl_area_set_auto_render :: proc(area: ^GLArea, auto_render: glib.boolean) ---
+
+    @(link_name = "gtk_gl_area_queue_render")
+    gl_area_queue_render :: proc(area: ^GLArea) ---
+
+    @(link_name = "gtk_gl_area_get_context")
+    gl_area_get_context :: proc(area: ^GLArea) -> ^GLContext ---
+
+    @(link_name = "gtk_gl_area_make_current")
+    gl_area_make_current :: proc(area: ^GLArea) ---
+
+    @(link_name = "gtk_gl_area_attach_buffers")
+    gl_area_attach_buffers :: proc(area: ^GLArea) ---
+
+    @(link_name = "gtk_gl_area_set_error")
+    gl_area_set_error :: proc(area: ^GLArea, error: ^glib.Error) ---
+
+    @(link_name = "gtk_gl_area_get_error")
+    gl_area_get_error :: proc(area: ^GLArea) -> ^glib.Error ---
+
+    @(link_name = "gtk_graphics_offload_get_type")
+    graphics_offload_get_type :: proc() -> gobj.Type ---
+
+    @(link_name = "gtk_graphics_offload_new")
+    graphics_offload_new :: proc(child: ^Widget) -> ^Widget ---
+
+    @(link_name = "gtk_graphics_offload_set_child")
+    graphics_offload_set_child :: proc(self: ^GraphicsOffload, child: ^Widget) ---
+
+    @(link_name = "gtk_graphics_offload_get_child")
+    graphics_offload_get_child :: proc(self: ^GraphicsOffload) -> ^Widget ---
+
+    @(link_name = "gtk_graphics_offload_set_enabled")
+    graphics_offload_set_enabled :: proc(self: ^GraphicsOffload, enabled: GraphicsOffloadEnabled) ---
+
+    @(link_name = "gtk_graphics_offload_get_enabled")
+    graphics_offload_get_enabled :: proc(self: ^GraphicsOffload) -> GraphicsOffloadEnabled ---
+
+    @(link_name = "gtk_graphics_offload_set_black_background")
+    graphics_offload_set_black_background :: proc(self: ^GraphicsOffload, value: glib.boolean) ---
+
+    @(link_name = "gtk_graphics_offload_get_black_background")
+    graphics_offload_get_black_background :: proc(self: ^GraphicsOffload) -> glib.boolean ---
+
+    @(link_name = "gtk_grid_get_type")
+    grid_get_type :: proc() -> gobj.Type ---
+
+    @(link_name = "gtk_grid_new")
+    grid_new :: proc() -> ^Widget ---
+
+    @(link_name = "gtk_grid_attach")
+    grid_attach :: proc(grid: ^Grid, child: ^Widget, column: i32, row: i32, width: i32, height: i32) ---
+
+    @(link_name = "gtk_grid_attach_next_to")
+    grid_attach_next_to :: proc(grid: ^Grid, child: ^Widget, sibling: ^Widget, side: PositionType, width: i32, height: i32) ---
+
+    @(link_name = "gtk_grid_get_child_at")
+    grid_get_child_at :: proc(grid: ^Grid, column: i32, row: i32) -> ^Widget ---
+
+    @(link_name = "gtk_grid_remove")
+    grid_remove :: proc(grid: ^Grid, child: ^Widget) ---
+
+    @(link_name = "gtk_grid_insert_row")
+    grid_insert_row :: proc(grid: ^Grid, position: i32) ---
+
+    @(link_name = "gtk_grid_insert_column")
+    grid_insert_column :: proc(grid: ^Grid, position: i32) ---
+
+    @(link_name = "gtk_grid_remove_row")
+    grid_remove_row :: proc(grid: ^Grid, position: i32) ---
+
+    @(link_name = "gtk_grid_remove_column")
+    grid_remove_column :: proc(grid: ^Grid, position: i32) ---
+
+    @(link_name = "gtk_grid_insert_next_to")
+    grid_insert_next_to :: proc(grid: ^Grid, sibling: ^Widget, side: PositionType) ---
+
+    @(link_name = "gtk_grid_set_row_homogeneous")
+    grid_set_row_homogeneous :: proc(grid: ^Grid, homogeneous: glib.boolean) ---
+
+    @(link_name = "gtk_grid_get_row_homogeneous")
+    grid_get_row_homogeneous :: proc(grid: ^Grid) -> glib.boolean ---
+
+    @(link_name = "gtk_grid_set_row_spacing")
+    grid_set_row_spacing :: proc(grid: ^Grid, spacing: glib.uint_) ---
+
+    @(link_name = "gtk_grid_get_row_spacing")
+    grid_get_row_spacing :: proc(grid: ^Grid) -> glib.uint_ ---
+
+    @(link_name = "gtk_grid_set_column_homogeneous")
+    grid_set_column_homogeneous :: proc(grid: ^Grid, homogeneous: glib.boolean) ---
+
+    @(link_name = "gtk_grid_get_column_homogeneous")
+    grid_get_column_homogeneous :: proc(grid: ^Grid) -> glib.boolean ---
+
+    @(link_name = "gtk_grid_set_column_spacing")
+    grid_set_column_spacing :: proc(grid: ^Grid, spacing: glib.uint_) ---
+
+    @(link_name = "gtk_grid_get_column_spacing")
+    grid_get_column_spacing :: proc(grid: ^Grid) -> glib.uint_ ---
+
+    @(link_name = "gtk_grid_set_row_baseline_position")
+    grid_set_row_baseline_position :: proc(grid: ^Grid, row: i32, pos: BaselinePosition) ---
+
+    @(link_name = "gtk_grid_get_row_baseline_position")
+    grid_get_row_baseline_position :: proc(grid: ^Grid, row: i32) -> BaselinePosition ---
+
+    @(link_name = "gtk_grid_set_baseline_row")
+    grid_set_baseline_row :: proc(grid: ^Grid, row: i32) ---
+
+    @(link_name = "gtk_grid_get_baseline_row")
+    grid_get_baseline_row :: proc(grid: ^Grid) -> i32 ---
+
+    @(link_name = "gtk_grid_query_child")
+    grid_query_child :: proc(grid: ^Grid, child: ^Widget, column: ^i32, row: ^i32, width: ^i32, height: ^i32) ---
+
+    @(link_name = "gtk_grid_layout_get_type")
+    grid_layout_get_type :: proc() -> gobj.Type ---
+
+    @(link_name = "gtk_grid_layout_new")
+    grid_layout_new :: proc() -> ^LayoutManager ---
+
+    @(link_name = "gtk_grid_layout_set_row_homogeneous")
+    grid_layout_set_row_homogeneous :: proc(grid: ^GridLayout, homogeneous: glib.boolean) ---
+
+    @(link_name = "gtk_grid_layout_get_row_homogeneous")
+    grid_layout_get_row_homogeneous :: proc(grid: ^GridLayout) -> glib.boolean ---
+
+    @(link_name = "gtk_grid_layout_set_row_spacing")
+    grid_layout_set_row_spacing :: proc(grid: ^GridLayout, spacing: glib.uint_) ---
+
+    @(link_name = "gtk_grid_layout_get_row_spacing")
+    grid_layout_get_row_spacing :: proc(grid: ^GridLayout) -> glib.uint_ ---
+
+    @(link_name = "gtk_grid_layout_set_column_homogeneous")
+    grid_layout_set_column_homogeneous :: proc(grid: ^GridLayout, homogeneous: glib.boolean) ---
+
+    @(link_name = "gtk_grid_layout_get_column_homogeneous")
+    grid_layout_get_column_homogeneous :: proc(grid: ^GridLayout) -> glib.boolean ---
+
+    @(link_name = "gtk_grid_layout_set_column_spacing")
+    grid_layout_set_column_spacing :: proc(grid: ^GridLayout, spacing: glib.uint_) ---
+
+    @(link_name = "gtk_grid_layout_get_column_spacing")
+    grid_layout_get_column_spacing :: proc(grid: ^GridLayout) -> glib.uint_ ---
+
+    @(link_name = "gtk_grid_layout_set_row_baseline_position")
+    grid_layout_set_row_baseline_position :: proc(grid: ^GridLayout, row: i32, pos: BaselinePosition) ---
+
+    @(link_name = "gtk_grid_layout_get_row_baseline_position")
+    grid_layout_get_row_baseline_position :: proc(grid: ^GridLayout, row: i32) -> BaselinePosition ---
+
+    @(link_name = "gtk_grid_layout_set_baseline_row")
+    grid_layout_set_baseline_row :: proc(grid: ^GridLayout, row: i32) ---
+
+    @(link_name = "gtk_grid_layout_get_baseline_row")
+    grid_layout_get_baseline_row :: proc(grid: ^GridLayout) -> i32 ---
+
+    @(link_name = "gtk_grid_layout_child_get_type")
+    grid_layout_child_get_type :: proc() -> gobj.Type ---
+
+    @(link_name = "gtk_grid_layout_child_set_row")
+    grid_layout_child_set_row :: proc(child: ^GridLayoutChild, row: i32) ---
+
+    @(link_name = "gtk_grid_layout_child_get_row")
+    grid_layout_child_get_row :: proc(child: ^GridLayoutChild) -> i32 ---
+
+    @(link_name = "gtk_grid_layout_child_set_column")
+    grid_layout_child_set_column :: proc(child: ^GridLayoutChild, column: i32) ---
+
+    @(link_name = "gtk_grid_layout_child_get_column")
+    grid_layout_child_get_column :: proc(child: ^GridLayoutChild) -> i32 ---
+
+    @(link_name = "gtk_grid_layout_child_set_column_span")
+    grid_layout_child_set_column_span :: proc(child: ^GridLayoutChild, span: i32) ---
+
+    @(link_name = "gtk_grid_layout_child_get_column_span")
+    grid_layout_child_get_column_span :: proc(child: ^GridLayoutChild) -> i32 ---
+
+    @(link_name = "gtk_grid_layout_child_set_row_span")
+    grid_layout_child_set_row_span :: proc(child: ^GridLayoutChild, span: i32) ---
+
+    @(link_name = "gtk_grid_layout_child_get_row_span")
+    grid_layout_child_get_row_span :: proc(child: ^GridLayoutChild) -> i32 ---
+
+    @(link_name = "gtk_list_base_get_type")
+    list_base_get_type :: proc() -> gobj.Type ---
+
+    @(link_name = "gtk_grid_view_get_type")
+    grid_view_get_type :: proc() -> gobj.Type ---
+
+    @(link_name = "gtk_grid_view_new")
+    grid_view_new :: proc(model: ^SelectionModel, factory: ^ListItemFactory) -> ^Widget ---
+
+    @(link_name = "gtk_grid_view_get_model")
+    grid_view_get_model :: proc(self: ^GridView) -> ^SelectionModel ---
+
+    @(link_name = "gtk_grid_view_set_model")
+    grid_view_set_model :: proc(self: ^GridView, model: ^SelectionModel) ---
+
+    @(link_name = "gtk_grid_view_set_factory")
+    grid_view_set_factory :: proc(self: ^GridView, factory: ^ListItemFactory) ---
+
+    @(link_name = "gtk_grid_view_get_factory")
+    grid_view_get_factory :: proc(self: ^GridView) -> ^ListItemFactory ---
+
+    @(link_name = "gtk_grid_view_get_min_columns")
+    grid_view_get_min_columns :: proc(self: ^GridView) -> glib.uint_ ---
+
+    @(link_name = "gtk_grid_view_set_min_columns")
+    grid_view_set_min_columns :: proc(self: ^GridView, min_columns: glib.uint_) ---
+
+    @(link_name = "gtk_grid_view_get_max_columns")
+    grid_view_get_max_columns :: proc(self: ^GridView) -> glib.uint_ ---
+
+    @(link_name = "gtk_grid_view_set_max_columns")
+    grid_view_set_max_columns :: proc(self: ^GridView, max_columns: glib.uint_) ---
+
+    @(link_name = "gtk_grid_view_set_enable_rubberband")
+    grid_view_set_enable_rubberband :: proc(self: ^GridView, enable_rubberband: glib.boolean) ---
+
+    @(link_name = "gtk_grid_view_get_enable_rubberband")
+    grid_view_get_enable_rubberband :: proc(self: ^GridView) -> glib.boolean ---
+
+    @(link_name = "gtk_grid_view_set_tab_behavior")
+    grid_view_set_tab_behavior :: proc(self: ^GridView, tab_behavior: ListTabBehavior) ---
+
+    @(link_name = "gtk_grid_view_get_tab_behavior")
+    grid_view_get_tab_behavior :: proc(self: ^GridView) -> ListTabBehavior ---
+
+    @(link_name = "gtk_grid_view_set_single_click_activate")
+    grid_view_set_single_click_activate :: proc(self: ^GridView, single_click_activate: glib.boolean) ---
+
+    @(link_name = "gtk_grid_view_get_single_click_activate")
+    grid_view_get_single_click_activate :: proc(self: ^GridView) -> glib.boolean ---
+
+    @(link_name = "gtk_grid_view_scroll_to")
+    grid_view_scroll_to :: proc(self: ^GridView, pos: glib.uint_, flags: ListScrollFlags, scroll: ^ScrollInfo) ---
+
+    @(link_name = "gtk_header_bar_get_type")
+    header_bar_get_type :: proc() -> gobj.Type ---
+
+    @(link_name = "gtk_header_bar_new")
+    header_bar_new :: proc() -> ^Widget ---
+
+    @(link_name = "gtk_header_bar_set_title_widget")
+    header_bar_set_title_widget :: proc(bar: ^HeaderBar, title_widget: ^Widget) ---
+
+    @(link_name = "gtk_header_bar_get_title_widget")
+    header_bar_get_title_widget :: proc(bar: ^HeaderBar) -> ^Widget ---
+
+    @(link_name = "gtk_header_bar_pack_start")
+    header_bar_pack_start :: proc(bar: ^HeaderBar, child: ^Widget) ---
+
+    @(link_name = "gtk_header_bar_pack_end")
+    header_bar_pack_end :: proc(bar: ^HeaderBar, child: ^Widget) ---
+
+    @(link_name = "gtk_header_bar_remove")
+    header_bar_remove :: proc(bar: ^HeaderBar, child: ^Widget) ---
+
+    @(link_name = "gtk_header_bar_get_show_title_buttons")
+    header_bar_get_show_title_buttons :: proc(bar: ^HeaderBar) -> glib.boolean ---
+
+    @(link_name = "gtk_header_bar_set_show_title_buttons")
+    header_bar_set_show_title_buttons :: proc(bar: ^HeaderBar, setting: glib.boolean) ---
+
+    @(link_name = "gtk_header_bar_set_decoration_layout")
+    header_bar_set_decoration_layout :: proc(bar: ^HeaderBar, layout: cstring) ---
+
+    @(link_name = "gtk_header_bar_get_decoration_layout")
+    header_bar_get_decoration_layout :: proc(bar: ^HeaderBar) -> cstring ---
+
+    @(link_name = "gtk_icon_theme_error_quark")
+    icon_theme_error_quark :: proc() -> glib.Quark ---
+
+    @(link_name = "gtk_icon_theme_get_type")
+    icon_theme_get_type :: proc() -> gobj.Type ---
+
+    @(link_name = "gtk_icon_theme_new")
+    icon_theme_new :: proc() -> ^IconTheme ---
+
+    @(link_name = "gtk_icon_theme_get_for_display")
+    icon_theme_get_for_display :: proc(display: ^Display) -> ^IconTheme ---
+
+    @(link_name = "gtk_icon_theme_get_display")
+    icon_theme_get_display :: proc(self: ^IconTheme) -> ^Display ---
+
+    @(link_name = "gtk_icon_theme_set_search_path")
+    icon_theme_set_search_path :: proc(self: ^IconTheme, path_p: ^cstring) ---
+
+    @(link_name = "gtk_icon_theme_get_search_path")
+    icon_theme_get_search_path :: proc(self: ^IconTheme) -> ^cstring ---
+
+    @(link_name = "gtk_icon_theme_add_search_path")
+    icon_theme_add_search_path :: proc(self: ^IconTheme, path_p: cstring) ---
+
+    @(link_name = "gtk_icon_theme_set_resource_path")
+    icon_theme_set_resource_path :: proc(self: ^IconTheme, path_p: ^cstring) ---
+
+    @(link_name = "gtk_icon_theme_get_resource_path")
+    icon_theme_get_resource_path :: proc(self: ^IconTheme) -> ^cstring ---
+
+    @(link_name = "gtk_icon_theme_add_resource_path")
+    icon_theme_add_resource_path :: proc(self: ^IconTheme, path_p: cstring) ---
+
+    @(link_name = "gtk_icon_theme_set_theme_name")
+    icon_theme_set_theme_name :: proc(self: ^IconTheme, theme_name: cstring) ---
+
+    @(link_name = "gtk_icon_theme_get_theme_name")
+    icon_theme_get_theme_name :: proc(self: ^IconTheme) -> cstring ---
+
+    @(link_name = "gtk_icon_theme_has_icon")
+    icon_theme_has_icon :: proc(self: ^IconTheme, icon_name: cstring) -> glib.boolean ---
+
+    @(link_name = "gtk_icon_theme_has_gicon")
+    icon_theme_has_gicon :: proc(self: ^IconTheme, gicon: ^gio.Icon) -> glib.boolean ---
+
+    @(link_name = "gtk_icon_theme_get_icon_sizes")
+    icon_theme_get_icon_sizes :: proc(self: ^IconTheme, icon_name: cstring) -> ^i32 ---
+
+    @(link_name = "gtk_icon_theme_lookup_icon")
+    icon_theme_lookup_icon :: proc(self: ^IconTheme, icon_name: cstring, fallbacks: [^]cstring, size_p: i32, scale: i32, direction: TextDirection, flags: IconLookupFlags) -> ^IconPaintable ---
+
+    @(link_name = "gtk_icon_theme_lookup_by_gicon")
+    icon_theme_lookup_by_gicon :: proc(self: ^IconTheme, icon: ^gio.Icon, size_p: i32, scale: i32, direction: TextDirection, flags: IconLookupFlags) -> ^IconPaintable ---
+
+    @(link_name = "gtk_icon_paintable_new_for_file")
+    icon_paintable_new_for_file :: proc(file: ^gio.File, size_p: i32, scale: i32) -> ^IconPaintable ---
+
+    @(link_name = "gtk_icon_theme_get_icon_names")
+    icon_theme_get_icon_names :: proc(self: ^IconTheme) -> ^cstring ---
+
+    @(link_name = "gtk_icon_paintable_get_type")
+    icon_paintable_get_type :: proc() -> gobj.Type ---
+
+    @(link_name = "gtk_icon_paintable_get_file")
+    icon_paintable_get_file :: proc(self: ^IconPaintable) -> ^gio.File ---
+
+    @(link_name = "gtk_icon_paintable_get_icon_name")
+    icon_paintable_get_icon_name :: proc(self: ^IconPaintable) -> cstring ---
+
+    @(link_name = "gtk_icon_paintable_is_symbolic")
+    icon_paintable_is_symbolic :: proc(self: ^IconPaintable) -> glib.boolean ---
+
+    @(link_name = "gtk_tooltip_get_type")
+    tooltip_get_type :: proc() -> gobj.Type ---
+
+    @(link_name = "gtk_tooltip_set_markup")
+    tooltip_set_markup :: proc(tooltip: ^Tooltip, markup: cstring) ---
+
+    @(link_name = "gtk_tooltip_set_text")
+    tooltip_set_text :: proc(tooltip: ^Tooltip, text: cstring) ---
+
+    @(link_name = "gtk_tooltip_set_icon")
+    tooltip_set_icon :: proc(tooltip: ^Tooltip, paintable: ^Paintable) ---
+
+    @(link_name = "gtk_tooltip_set_icon_from_icon_name")
+    tooltip_set_icon_from_icon_name :: proc(tooltip: ^Tooltip, icon_name: cstring) ---
+
+    @(link_name = "gtk_tooltip_set_icon_from_gicon")
+    tooltip_set_icon_from_gicon :: proc(tooltip: ^Tooltip, gicon: ^gio.Icon) ---
+
+    @(link_name = "gtk_tooltip_set_custom")
+    tooltip_set_custom :: proc(tooltip: ^Tooltip, custom_widget: ^Widget) ---
+
+    @(link_name = "gtk_tooltip_set_tip_area")
+    tooltip_set_tip_area :: proc(tooltip: ^Tooltip, rect: ^Rectangle) ---
+
+    @(link_name = "gtk_icon_view_get_type")
+    icon_view_get_type :: proc() -> gobj.Type ---
+
+    @(link_name = "gtk_icon_view_new")
+    icon_view_new :: proc() -> ^Widget ---
+
+    @(link_name = "gtk_icon_view_new_with_area")
+    icon_view_new_with_area :: proc(area: ^CellArea) -> ^Widget ---
+
+    @(link_name = "gtk_icon_view_new_with_model")
+    icon_view_new_with_model :: proc(model: ^TreeModel) -> ^Widget ---
+
+    @(link_name = "gtk_icon_view_set_model")
+    icon_view_set_model :: proc(icon_view: ^IconView, model: ^TreeModel) ---
+
+    @(link_name = "gtk_icon_view_get_model")
+    icon_view_get_model :: proc(icon_view: ^IconView) -> ^TreeModel ---
+
+    @(link_name = "gtk_icon_view_set_text_column")
+    icon_view_set_text_column :: proc(icon_view: ^IconView, column: i32) ---
+
+    @(link_name = "gtk_icon_view_get_text_column")
+    icon_view_get_text_column :: proc(icon_view: ^IconView) -> i32 ---
+
+    @(link_name = "gtk_icon_view_set_markup_column")
+    icon_view_set_markup_column :: proc(icon_view: ^IconView, column: i32) ---
+
+    @(link_name = "gtk_icon_view_get_markup_column")
+    icon_view_get_markup_column :: proc(icon_view: ^IconView) -> i32 ---
+
+    @(link_name = "gtk_icon_view_set_pixbuf_column")
+    icon_view_set_pixbuf_column :: proc(icon_view: ^IconView, column: i32) ---
+
+    @(link_name = "gtk_icon_view_get_pixbuf_column")
+    icon_view_get_pixbuf_column :: proc(icon_view: ^IconView) -> i32 ---
+
+    @(link_name = "gtk_icon_view_set_item_orientation")
+    icon_view_set_item_orientation :: proc(icon_view: ^IconView, orientation: Orientation) ---
+
+    @(link_name = "gtk_icon_view_get_item_orientation")
+    icon_view_get_item_orientation :: proc(icon_view: ^IconView) -> Orientation ---
+
+    @(link_name = "gtk_icon_view_set_columns")
+    icon_view_set_columns :: proc(icon_view: ^IconView, columns: i32) ---
+
+    @(link_name = "gtk_icon_view_get_columns")
+    icon_view_get_columns :: proc(icon_view: ^IconView) -> i32 ---
+
+    @(link_name = "gtk_icon_view_set_item_width")
+    icon_view_set_item_width :: proc(icon_view: ^IconView, item_width: i32) ---
+
+    @(link_name = "gtk_icon_view_get_item_width")
+    icon_view_get_item_width :: proc(icon_view: ^IconView) -> i32 ---
+
+    @(link_name = "gtk_icon_view_set_spacing")
+    icon_view_set_spacing :: proc(icon_view: ^IconView, spacing: i32) ---
+
+    @(link_name = "gtk_icon_view_get_spacing")
+    icon_view_get_spacing :: proc(icon_view: ^IconView) -> i32 ---
+
+    @(link_name = "gtk_icon_view_set_row_spacing")
+    icon_view_set_row_spacing :: proc(icon_view: ^IconView, row_spacing: i32) ---
+
+    @(link_name = "gtk_icon_view_get_row_spacing")
+    icon_view_get_row_spacing :: proc(icon_view: ^IconView) -> i32 ---
+
+    @(link_name = "gtk_icon_view_set_column_spacing")
+    icon_view_set_column_spacing :: proc(icon_view: ^IconView, column_spacing: i32) ---
+
+    @(link_name = "gtk_icon_view_get_column_spacing")
+    icon_view_get_column_spacing :: proc(icon_view: ^IconView) -> i32 ---
+
+    @(link_name = "gtk_icon_view_set_margin")
+    icon_view_set_margin :: proc(icon_view: ^IconView, margin: i32) ---
+
+    @(link_name = "gtk_icon_view_get_margin")
+    icon_view_get_margin :: proc(icon_view: ^IconView) -> i32 ---
+
+    @(link_name = "gtk_icon_view_set_item_padding")
+    icon_view_set_item_padding :: proc(icon_view: ^IconView, item_padding: i32) ---
+
+    @(link_name = "gtk_icon_view_get_item_padding")
+    icon_view_get_item_padding :: proc(icon_view: ^IconView) -> i32 ---
+
+    @(link_name = "gtk_icon_view_get_path_at_pos")
+    icon_view_get_path_at_pos :: proc(icon_view: ^IconView, x: i32, y: i32) -> ^TreePath ---
+
+    @(link_name = "gtk_icon_view_get_item_at_pos")
+    icon_view_get_item_at_pos :: proc(icon_view: ^IconView, x: i32, y: i32, path_p: ^^TreePath, cell: ^^CellRenderer) -> glib.boolean ---
+
+    @(link_name = "gtk_icon_view_get_visible_range")
+    icon_view_get_visible_range :: proc(icon_view: ^IconView, start_path: ^^TreePath, end_path: ^^TreePath) -> glib.boolean ---
+
+    @(link_name = "gtk_icon_view_set_activate_on_single_click")
+    icon_view_set_activate_on_single_click :: proc(icon_view: ^IconView, single: glib.boolean) ---
+
+    @(link_name = "gtk_icon_view_get_activate_on_single_click")
+    icon_view_get_activate_on_single_click :: proc(icon_view: ^IconView) -> glib.boolean ---
+
+    @(link_name = "gtk_icon_view_selected_foreach")
+    icon_view_selected_foreach :: proc(icon_view: ^IconView, func: IconViewForeachFunc, data: glib.pointer) ---
+
+    @(link_name = "gtk_icon_view_set_selection_mode")
+    icon_view_set_selection_mode :: proc(icon_view: ^IconView, mode: SelectionMode) ---
+
+    @(link_name = "gtk_icon_view_get_selection_mode")
+    icon_view_get_selection_mode :: proc(icon_view: ^IconView) -> SelectionMode ---
+
+    @(link_name = "gtk_icon_view_select_path")
+    icon_view_select_path :: proc(icon_view: ^IconView, path_p: ^TreePath) ---
+
+    @(link_name = "gtk_icon_view_unselect_path")
+    icon_view_unselect_path :: proc(icon_view: ^IconView, path_p: ^TreePath) ---
+
+    @(link_name = "gtk_icon_view_path_is_selected")
+    icon_view_path_is_selected :: proc(icon_view: ^IconView, path_p: ^TreePath) -> glib.boolean ---
+
+    @(link_name = "gtk_icon_view_get_item_row")
+    icon_view_get_item_row :: proc(icon_view: ^IconView, path_p: ^TreePath) -> i32 ---
+
+    @(link_name = "gtk_icon_view_get_item_column")
+    icon_view_get_item_column :: proc(icon_view: ^IconView, path_p: ^TreePath) -> i32 ---
+
+    @(link_name = "gtk_icon_view_get_selected_items")
+    icon_view_get_selected_items :: proc(icon_view: ^IconView) -> ^glib.List ---
+
+    @(link_name = "gtk_icon_view_select_all")
+    icon_view_select_all :: proc(icon_view: ^IconView) ---
+
+    @(link_name = "gtk_icon_view_unselect_all")
+    icon_view_unselect_all :: proc(icon_view: ^IconView) ---
+
+    @(link_name = "gtk_icon_view_item_activated")
+    icon_view_item_activated :: proc(icon_view: ^IconView, path_p: ^TreePath) ---
+
+    @(link_name = "gtk_icon_view_set_cursor")
+    icon_view_set_cursor :: proc(icon_view: ^IconView, path_p: ^TreePath, cell: ^CellRenderer, start_editing: glib.boolean) ---
+
+    @(link_name = "gtk_icon_view_get_cursor")
+    icon_view_get_cursor :: proc(icon_view: ^IconView, path_p: ^^TreePath, cell: ^^CellRenderer) -> glib.boolean ---
+
+    @(link_name = "gtk_icon_view_scroll_to_path")
+    icon_view_scroll_to_path :: proc(icon_view: ^IconView, path_p: ^TreePath, use_align: glib.boolean, row_align: f32, col_align: f32) ---
+
+    @(link_name = "gtk_icon_view_enable_model_drag_source")
+    icon_view_enable_model_drag_source :: proc(icon_view: ^IconView, start_button_mask: ModifierType, formats: ^ContentFormats, actions: DragAction) ---
+
+    @(link_name = "gtk_icon_view_enable_model_drag_dest")
+    icon_view_enable_model_drag_dest :: proc(icon_view: ^IconView, formats: ^ContentFormats, actions: DragAction) ---
+
+    @(link_name = "gtk_icon_view_unset_model_drag_source")
+    icon_view_unset_model_drag_source :: proc(icon_view: ^IconView) ---
+
+    @(link_name = "gtk_icon_view_unset_model_drag_dest")
+    icon_view_unset_model_drag_dest :: proc(icon_view: ^IconView) ---
+
+    @(link_name = "gtk_icon_view_set_reorderable")
+    icon_view_set_reorderable :: proc(icon_view: ^IconView, reorderable: glib.boolean) ---
+
+    @(link_name = "gtk_icon_view_get_reorderable")
+    icon_view_get_reorderable :: proc(icon_view: ^IconView) -> glib.boolean ---
+
+    @(link_name = "gtk_icon_view_set_drag_dest_item")
+    icon_view_set_drag_dest_item :: proc(icon_view: ^IconView, path_p: ^TreePath, pos: IconViewDropPosition) ---
+
+    @(link_name = "gtk_icon_view_get_drag_dest_item")
+    icon_view_get_drag_dest_item :: proc(icon_view: ^IconView, path_p: ^^TreePath, pos: ^IconViewDropPosition) ---
+
+    @(link_name = "gtk_icon_view_get_dest_item_at_pos")
+    icon_view_get_dest_item_at_pos :: proc(icon_view: ^IconView, drag_x: i32, drag_y: i32, path_p: ^^TreePath, pos: ^IconViewDropPosition) -> glib.boolean ---
+
+    @(link_name = "gtk_icon_view_create_drag_icon")
+    icon_view_create_drag_icon :: proc(icon_view: ^IconView, path_p: ^TreePath) -> ^Paintable ---
+
+    @(link_name = "gtk_icon_view_get_cell_rect")
+    icon_view_get_cell_rect :: proc(icon_view: ^IconView, path_p: ^TreePath, cell: ^CellRenderer, rect: ^Rectangle) -> glib.boolean ---
+
+    @(link_name = "gtk_icon_view_set_tooltip_item")
+    icon_view_set_tooltip_item :: proc(icon_view: ^IconView, tooltip: ^Tooltip, path_p: ^TreePath) ---
+
+    @(link_name = "gtk_icon_view_set_tooltip_cell")
+    icon_view_set_tooltip_cell :: proc(icon_view: ^IconView, tooltip: ^Tooltip, path_p: ^TreePath, cell: ^CellRenderer) ---
+
+    @(link_name = "gtk_icon_view_get_tooltip_context")
+    icon_view_get_tooltip_context :: proc(icon_view: ^IconView, x: i32, y: i32, keyboard_tip: glib.boolean, model: ^^TreeModel, path_p: ^^TreePath, iter: ^TreeIter) -> glib.boolean ---
+
+    @(link_name = "gtk_icon_view_set_tooltip_column")
+    icon_view_set_tooltip_column :: proc(icon_view: ^IconView, column: i32) ---
+
+    @(link_name = "gtk_icon_view_get_tooltip_column")
+    icon_view_get_tooltip_column :: proc(icon_view: ^IconView) -> i32 ---
+
+    @(link_name = "gtk_im_context_simple_get_type")
+    im_context_simple_get_type :: proc() -> gobj.Type ---
+
+    @(link_name = "gtk_im_context_simple_new")
+    im_context_simple_new :: proc() -> ^IMContext ---
+
+    @(link_name = "gtk_im_context_simple_add_table")
+    im_context_simple_add_table :: proc(context_simple: ^IMContextSimple, data: ^glib.uint16, max_seq_len: i32, n_seqs: i32) ---
+
+    @(link_name = "gtk_im_context_simple_add_compose_file")
+    im_context_simple_add_compose_file :: proc(context_simple: ^IMContextSimple, compose_file: cstring) ---
+
+    @(link_name = "gtk_im_multicontext_get_type")
+    im_multicontext_get_type :: proc() -> gobj.Type ---
+
+    @(link_name = "gtk_im_multicontext_new")
+    im_multicontext_new :: proc() -> ^IMContext ---
+
+    @(link_name = "gtk_im_multicontext_get_context_id")
+    im_multicontext_get_context_id :: proc(context_p: ^IMMulticontext) -> cstring ---
+
+    @(link_name = "gtk_im_multicontext_set_context_id")
+    im_multicontext_set_context_id :: proc(context_p: ^IMMulticontext, context_id: cstring) ---
+
+    @(link_name = "gtk_info_bar_get_type")
+    info_bar_get_type :: proc() -> gobj.Type ---
+
+    @(link_name = "gtk_info_bar_new")
+    info_bar_new :: proc() -> ^Widget ---
+
+    @(link_name = "gtk_info_bar_new_with_buttons")
+    info_bar_new_with_buttons :: proc(first_button_text: cstring, #c_vararg var_args: ..any) -> ^Widget ---
+
+    @(link_name = "gtk_info_bar_add_action_widget")
+    info_bar_add_action_widget :: proc(info_bar: ^InfoBar, child: ^Widget, response_id: i32) ---
+
+    @(link_name = "gtk_info_bar_remove_action_widget")
+    info_bar_remove_action_widget :: proc(info_bar: ^InfoBar, widget: ^Widget) ---
+
+    @(link_name = "gtk_info_bar_add_button")
+    info_bar_add_button :: proc(info_bar: ^InfoBar, button_text: cstring, response_id: i32) -> ^Widget ---
+
+    @(link_name = "gtk_info_bar_add_buttons")
+    info_bar_add_buttons :: proc(info_bar: ^InfoBar, first_button_text: cstring, #c_vararg var_args: ..any) ---
+
+    @(link_name = "gtk_info_bar_add_child")
+    info_bar_add_child :: proc(info_bar: ^InfoBar, widget: ^Widget) ---
+
+    @(link_name = "gtk_info_bar_remove_child")
+    info_bar_remove_child :: proc(info_bar: ^InfoBar, widget: ^Widget) ---
+
+    @(link_name = "gtk_info_bar_set_response_sensitive")
+    info_bar_set_response_sensitive :: proc(info_bar: ^InfoBar, response_id: i32, setting: glib.boolean) ---
+
+    @(link_name = "gtk_info_bar_set_default_response")
+    info_bar_set_default_response :: proc(info_bar: ^InfoBar, response_id: i32) ---
+
+    @(link_name = "gtk_info_bar_response")
+    info_bar_response :: proc(info_bar: ^InfoBar, response_id: i32) ---
+
+    @(link_name = "gtk_info_bar_set_message_type")
+    info_bar_set_message_type :: proc(info_bar: ^InfoBar, message_type: MessageType) ---
+
+    @(link_name = "gtk_info_bar_get_message_type")
+    info_bar_get_message_type :: proc(info_bar: ^InfoBar) -> MessageType ---
+
+    @(link_name = "gtk_info_bar_set_show_close_button")
+    info_bar_set_show_close_button :: proc(info_bar: ^InfoBar, setting: glib.boolean) ---
+
+    @(link_name = "gtk_info_bar_get_show_close_button")
+    info_bar_get_show_close_button :: proc(info_bar: ^InfoBar) -> glib.boolean ---
+
+    @(link_name = "gtk_info_bar_set_revealed")
+    info_bar_set_revealed :: proc(info_bar: ^InfoBar, revealed: glib.boolean) ---
+
+    @(link_name = "gtk_info_bar_get_revealed")
+    info_bar_get_revealed :: proc(info_bar: ^InfoBar) -> glib.boolean ---
+
+    @(link_name = "gtk_inscription_get_type")
+    inscription_get_type :: proc() -> gobj.Type ---
+
+    @(link_name = "gtk_inscription_new")
+    inscription_new :: proc(text: cstring) -> ^Widget ---
+
+    @(link_name = "gtk_inscription_get_text")
+    inscription_get_text :: proc(self: ^Inscription) -> cstring ---
+
+    @(link_name = "gtk_inscription_set_text")
+    inscription_set_text :: proc(self: ^Inscription, text: cstring) ---
+
+    @(link_name = "gtk_inscription_get_attributes")
+    inscription_get_attributes :: proc(self: ^Inscription) -> ^pango.AttrList ---
+
+    @(link_name = "gtk_inscription_set_attributes")
+    inscription_set_attributes :: proc(self: ^Inscription, attrs: ^pango.AttrList) ---
+
+    @(link_name = "gtk_inscription_set_markup")
+    inscription_set_markup :: proc(self: ^Inscription, markup: cstring) ---
+
+    @(link_name = "gtk_inscription_get_text_overflow")
+    inscription_get_text_overflow :: proc(self: ^Inscription) -> InscriptionOverflow ---
+
+    @(link_name = "gtk_inscription_set_text_overflow")
+    inscription_set_text_overflow :: proc(self: ^Inscription, overflow: InscriptionOverflow) ---
+
+    @(link_name = "gtk_inscription_get_wrap_mode")
+    inscription_get_wrap_mode :: proc(self: ^Inscription) -> pango.WrapMode ---
+
+    @(link_name = "gtk_inscription_set_wrap_mode")
+    inscription_set_wrap_mode :: proc(self: ^Inscription, wrap_mode: pango.WrapMode) ---
+
+    @(link_name = "gtk_inscription_get_min_chars")
+    inscription_get_min_chars :: proc(self: ^Inscription) -> glib.uint_ ---
+
+    @(link_name = "gtk_inscription_set_min_chars")
+    inscription_set_min_chars :: proc(self: ^Inscription, min_chars: glib.uint_) ---
+
+    @(link_name = "gtk_inscription_get_nat_chars")
+    inscription_get_nat_chars :: proc(self: ^Inscription) -> glib.uint_ ---
+
+    @(link_name = "gtk_inscription_set_nat_chars")
+    inscription_set_nat_chars :: proc(self: ^Inscription, nat_chars: glib.uint_) ---
+
+    @(link_name = "gtk_inscription_get_min_lines")
+    inscription_get_min_lines :: proc(self: ^Inscription) -> glib.uint_ ---
+
+    @(link_name = "gtk_inscription_set_min_lines")
+    inscription_set_min_lines :: proc(self: ^Inscription, min_lines: glib.uint_) ---
+
+    @(link_name = "gtk_inscription_get_nat_lines")
+    inscription_get_nat_lines :: proc(self: ^Inscription) -> glib.uint_ ---
+
+    @(link_name = "gtk_inscription_set_nat_lines")
+    inscription_set_nat_lines :: proc(self: ^Inscription, nat_lines: glib.uint_) ---
+
+    @(link_name = "gtk_inscription_get_xalign")
+    inscription_get_xalign :: proc(self: ^Inscription) -> f32 ---
+
+    @(link_name = "gtk_inscription_set_xalign")
+    inscription_set_xalign :: proc(self: ^Inscription, xalign: f32) ---
+
+    @(link_name = "gtk_inscription_get_yalign")
+    inscription_get_yalign :: proc(self: ^Inscription) -> f32 ---
+
+    @(link_name = "gtk_inscription_set_yalign")
+    inscription_set_yalign :: proc(self: ^Inscription, yalign: f32) ---
+
+    @(link_name = "gtk_label_get_type")
+    label_get_type :: proc() -> gobj.Type ---
+
+    @(link_name = "gtk_label_new")
+    label_new :: proc(str: cstring) -> ^Widget ---
+
+    @(link_name = "gtk_label_new_with_mnemonic")
+    label_new_with_mnemonic :: proc(str: cstring) -> ^Widget ---
+
+    @(link_name = "gtk_label_set_text")
+    label_set_text :: proc(self: ^Label, str: cstring) ---
+
+    @(link_name = "gtk_label_get_text")
+    label_get_text :: proc(self: ^Label) -> cstring ---
+
+    @(link_name = "gtk_label_set_attributes")
+    label_set_attributes :: proc(self: ^Label, attrs: ^pango.AttrList) ---
+
+    @(link_name = "gtk_label_get_attributes")
+    label_get_attributes :: proc(self: ^Label) -> ^pango.AttrList ---
+
+    @(link_name = "gtk_label_set_label")
+    label_set_label :: proc(self: ^Label, str: cstring) ---
+
+    @(link_name = "gtk_label_get_label")
+    label_get_label :: proc(self: ^Label) -> cstring ---
+
+    @(link_name = "gtk_label_set_markup")
+    label_set_markup :: proc(self: ^Label, str: cstring) ---
+
+    @(link_name = "gtk_label_set_use_markup")
+    label_set_use_markup :: proc(self: ^Label, setting: glib.boolean) ---
+
+    @(link_name = "gtk_label_get_use_markup")
+    label_get_use_markup :: proc(self: ^Label) -> glib.boolean ---
+
+    @(link_name = "gtk_label_set_use_underline")
+    label_set_use_underline :: proc(self: ^Label, setting: glib.boolean) ---
+
+    @(link_name = "gtk_label_get_use_underline")
+    label_get_use_underline :: proc(self: ^Label) -> glib.boolean ---
+
+    @(link_name = "gtk_label_set_markup_with_mnemonic")
+    label_set_markup_with_mnemonic :: proc(self: ^Label, str: cstring) ---
+
+    @(link_name = "gtk_label_get_mnemonic_keyval")
+    label_get_mnemonic_keyval :: proc(self: ^Label) -> glib.uint_ ---
+
+    @(link_name = "gtk_label_set_mnemonic_widget")
+    label_set_mnemonic_widget :: proc(self: ^Label, widget: ^Widget) ---
+
+    @(link_name = "gtk_label_get_mnemonic_widget")
+    label_get_mnemonic_widget :: proc(self: ^Label) -> ^Widget ---
+
+    @(link_name = "gtk_label_set_text_with_mnemonic")
+    label_set_text_with_mnemonic :: proc(self: ^Label, str: cstring) ---
+
+    @(link_name = "gtk_label_set_justify")
+    label_set_justify :: proc(self: ^Label, jtype: Justification) ---
+
+    @(link_name = "gtk_label_get_justify")
+    label_get_justify :: proc(self: ^Label) -> Justification ---
+
+    @(link_name = "gtk_label_set_ellipsize")
+    label_set_ellipsize :: proc(self: ^Label, mode: pango.EllipsizeMode) ---
+
+    @(link_name = "gtk_label_get_ellipsize")
+    label_get_ellipsize :: proc(self: ^Label) -> pango.EllipsizeMode ---
+
+    @(link_name = "gtk_label_set_width_chars")
+    label_set_width_chars :: proc(self: ^Label, n_chars: i32) ---
+
+    @(link_name = "gtk_label_get_width_chars")
+    label_get_width_chars :: proc(self: ^Label) -> i32 ---
+
+    @(link_name = "gtk_label_set_max_width_chars")
+    label_set_max_width_chars :: proc(self: ^Label, n_chars: i32) ---
+
+    @(link_name = "gtk_label_get_max_width_chars")
+    label_get_max_width_chars :: proc(self: ^Label) -> i32 ---
+
+    @(link_name = "gtk_label_set_lines")
+    label_set_lines :: proc(self: ^Label, lines: i32) ---
+
+    @(link_name = "gtk_label_get_lines")
+    label_get_lines :: proc(self: ^Label) -> i32 ---
+
+    @(link_name = "gtk_label_set_wrap")
+    label_set_wrap :: proc(self: ^Label, wrap: glib.boolean) ---
+
+    @(link_name = "gtk_label_get_wrap")
+    label_get_wrap :: proc(self: ^Label) -> glib.boolean ---
+
+    @(link_name = "gtk_label_set_wrap_mode")
+    label_set_wrap_mode :: proc(self: ^Label, wrap_mode: pango.WrapMode) ---
+
+    @(link_name = "gtk_label_get_wrap_mode")
+    label_get_wrap_mode :: proc(self: ^Label) -> pango.WrapMode ---
+
+    @(link_name = "gtk_label_set_natural_wrap_mode")
+    label_set_natural_wrap_mode :: proc(self: ^Label, wrap_mode: NaturalWrapMode) ---
+
+    @(link_name = "gtk_label_get_natural_wrap_mode")
+    label_get_natural_wrap_mode :: proc(self: ^Label) -> NaturalWrapMode ---
+
+    @(link_name = "gtk_label_set_selectable")
+    label_set_selectable :: proc(self: ^Label, setting: glib.boolean) ---
+
+    @(link_name = "gtk_label_get_selectable")
+    label_get_selectable :: proc(self: ^Label) -> glib.boolean ---
+
+    @(link_name = "gtk_label_select_region")
+    label_select_region :: proc(self: ^Label, start_offset: i32, end_offset: i32) ---
+
+    @(link_name = "gtk_label_get_selection_bounds")
+    label_get_selection_bounds :: proc(self: ^Label, start: ^i32, end: ^i32) -> glib.boolean ---
+
+    @(link_name = "gtk_label_get_layout")
+    label_get_layout :: proc(self: ^Label) -> ^pango.Layout ---
+
+    @(link_name = "gtk_label_get_layout_offsets")
+    label_get_layout_offsets :: proc(self: ^Label, x: ^i32, y: ^i32) ---
+
+    @(link_name = "gtk_label_set_single_line_mode")
+    label_set_single_line_mode :: proc(self: ^Label, single_line_mode: glib.boolean) ---
+
+    @(link_name = "gtk_label_get_single_line_mode")
+    label_get_single_line_mode :: proc(self: ^Label) -> glib.boolean ---
+
+    @(link_name = "gtk_label_get_current_uri")
+    label_get_current_uri :: proc(self: ^Label) -> cstring ---
+
+    @(link_name = "gtk_label_set_xalign")
+    label_set_xalign :: proc(self: ^Label, xalign: f32) ---
+
+    @(link_name = "gtk_label_get_xalign")
+    label_get_xalign :: proc(self: ^Label) -> f32 ---
+
+    @(link_name = "gtk_label_set_yalign")
+    label_set_yalign :: proc(self: ^Label, yalign: f32) ---
+
+    @(link_name = "gtk_label_get_yalign")
+    label_get_yalign :: proc(self: ^Label) -> f32 ---
+
+    @(link_name = "gtk_label_set_extra_menu")
+    label_set_extra_menu :: proc(self: ^Label, model: ^gio.MenuModel) ---
+
+    @(link_name = "gtk_label_get_extra_menu")
+    label_get_extra_menu :: proc(self: ^Label) -> ^gio.MenuModel ---
+
+    @(link_name = "gtk_label_set_tabs")
+    label_set_tabs :: proc(self: ^Label, tabs: ^pango.TabArray) ---
+
+    @(link_name = "gtk_label_get_tabs")
+    label_get_tabs :: proc(self: ^Label) -> ^pango.TabArray ---
+
+    @(link_name = "gtk_level_bar_get_type")
+    level_bar_get_type :: proc() -> gobj.Type ---
+
+    @(link_name = "gtk_level_bar_new")
+    level_bar_new :: proc() -> ^Widget ---
+
+    @(link_name = "gtk_level_bar_new_for_interval")
+    level_bar_new_for_interval :: proc(min_value: f64, max_value: f64) -> ^Widget ---
+
+    @(link_name = "gtk_level_bar_set_mode")
+    level_bar_set_mode :: proc(self: ^LevelBar, mode: LevelBarMode) ---
+
+    @(link_name = "gtk_level_bar_get_mode")
+    level_bar_get_mode :: proc(self: ^LevelBar) -> LevelBarMode ---
+
+    @(link_name = "gtk_level_bar_set_value")
+    level_bar_set_value :: proc(self: ^LevelBar, value: f64) ---
+
+    @(link_name = "gtk_level_bar_get_value")
+    level_bar_get_value :: proc(self: ^LevelBar) -> f64 ---
+
+    @(link_name = "gtk_level_bar_set_min_value")
+    level_bar_set_min_value :: proc(self: ^LevelBar, value: f64) ---
+
+    @(link_name = "gtk_level_bar_get_min_value")
+    level_bar_get_min_value :: proc(self: ^LevelBar) -> f64 ---
+
+    @(link_name = "gtk_level_bar_set_max_value")
+    level_bar_set_max_value :: proc(self: ^LevelBar, value: f64) ---
+
+    @(link_name = "gtk_level_bar_get_max_value")
+    level_bar_get_max_value :: proc(self: ^LevelBar) -> f64 ---
+
+    @(link_name = "gtk_level_bar_set_inverted")
+    level_bar_set_inverted :: proc(self: ^LevelBar, inverted: glib.boolean) ---
+
+    @(link_name = "gtk_level_bar_get_inverted")
+    level_bar_get_inverted :: proc(self: ^LevelBar) -> glib.boolean ---
+
+    @(link_name = "gtk_level_bar_add_offset_value")
+    level_bar_add_offset_value :: proc(self: ^LevelBar, name: cstring, value: f64) ---
+
+    @(link_name = "gtk_level_bar_remove_offset_value")
+    level_bar_remove_offset_value :: proc(self: ^LevelBar, name: cstring) ---
+
+    @(link_name = "gtk_level_bar_get_offset_value")
+    level_bar_get_offset_value :: proc(self: ^LevelBar, name: cstring, value: ^f64) -> glib.boolean ---
+
+    @(link_name = "gtk_link_button_get_type")
+    link_button_get_type :: proc() -> gobj.Type ---
+
+    @(link_name = "gtk_link_button_new")
+    link_button_new :: proc(uri: cstring) -> ^Widget ---
+
+    @(link_name = "gtk_link_button_new_with_label")
+    link_button_new_with_label :: proc(uri: cstring, label: cstring) -> ^Widget ---
+
+    @(link_name = "gtk_link_button_get_uri")
+    link_button_get_uri :: proc(link_button: ^LinkButton) -> cstring ---
+
+    @(link_name = "gtk_link_button_set_uri")
+    link_button_set_uri :: proc(link_button: ^LinkButton, uri: cstring) ---
+
+    @(link_name = "gtk_link_button_get_visited")
+    link_button_get_visited :: proc(link_button: ^LinkButton) -> glib.boolean ---
+
+    @(link_name = "gtk_link_button_set_visited")
+    link_button_set_visited :: proc(link_button: ^LinkButton, visited: glib.boolean) ---
+
+    @(link_name = "gtk_list_box_row_get_type")
+    list_box_row_get_type :: proc() -> gobj.Type ---
+
+    @(link_name = "gtk_list_box_row_new")
+    list_box_row_new :: proc() -> ^Widget ---
+
+    @(link_name = "gtk_list_box_row_set_child")
+    list_box_row_set_child :: proc(row: ^ListBoxRow, child: ^Widget) ---
+
+    @(link_name = "gtk_list_box_row_get_child")
+    list_box_row_get_child :: proc(row: ^ListBoxRow) -> ^Widget ---
+
+    @(link_name = "gtk_list_box_row_get_header")
+    list_box_row_get_header :: proc(row: ^ListBoxRow) -> ^Widget ---
+
+    @(link_name = "gtk_list_box_row_set_header")
+    list_box_row_set_header :: proc(row: ^ListBoxRow, header: ^Widget) ---
+
+    @(link_name = "gtk_list_box_row_get_index")
+    list_box_row_get_index :: proc(row: ^ListBoxRow) -> i32 ---
+
+    @(link_name = "gtk_list_box_row_changed")
+    list_box_row_changed :: proc(row: ^ListBoxRow) ---
+
+    @(link_name = "gtk_list_box_row_is_selected")
+    list_box_row_is_selected :: proc(row: ^ListBoxRow) -> glib.boolean ---
+
+    @(link_name = "gtk_list_box_row_set_selectable")
+    list_box_row_set_selectable :: proc(row: ^ListBoxRow, selectable: glib.boolean) ---
+
+    @(link_name = "gtk_list_box_row_get_selectable")
+    list_box_row_get_selectable :: proc(row: ^ListBoxRow) -> glib.boolean ---
+
+    @(link_name = "gtk_list_box_row_set_activatable")
+    list_box_row_set_activatable :: proc(row: ^ListBoxRow, activatable: glib.boolean) ---
+
+    @(link_name = "gtk_list_box_row_get_activatable")
+    list_box_row_get_activatable :: proc(row: ^ListBoxRow) -> glib.boolean ---
+
+    @(link_name = "gtk_list_box_get_type")
+    list_box_get_type :: proc() -> gobj.Type ---
+
+    @(link_name = "gtk_list_box_prepend")
+    list_box_prepend :: proc(box: ^ListBox, child: ^Widget) ---
+
+    @(link_name = "gtk_list_box_append")
+    list_box_append :: proc(box: ^ListBox, child: ^Widget) ---
+
+    @(link_name = "gtk_list_box_insert")
+    list_box_insert :: proc(box: ^ListBox, child: ^Widget, position: i32) ---
+
+    @(link_name = "gtk_list_box_remove")
+    list_box_remove :: proc(box: ^ListBox, child: ^Widget) ---
+
+    @(link_name = "gtk_list_box_remove_all")
+    list_box_remove_all :: proc(box: ^ListBox) ---
+
+    @(link_name = "gtk_list_box_get_selected_row")
+    list_box_get_selected_row :: proc(box: ^ListBox) -> ^ListBoxRow ---
+
+    @(link_name = "gtk_list_box_get_row_at_index")
+    list_box_get_row_at_index :: proc(box: ^ListBox, index_: i32) -> ^ListBoxRow ---
+
+    @(link_name = "gtk_list_box_get_row_at_y")
+    list_box_get_row_at_y :: proc(box: ^ListBox, y: i32) -> ^ListBoxRow ---
+
+    @(link_name = "gtk_list_box_select_row")
+    list_box_select_row :: proc(box: ^ListBox, row: ^ListBoxRow) ---
+
+    @(link_name = "gtk_list_box_set_placeholder")
+    list_box_set_placeholder :: proc(box: ^ListBox, placeholder: ^Widget) ---
+
+    @(link_name = "gtk_list_box_set_adjustment")
+    list_box_set_adjustment :: proc(box: ^ListBox, adjustment: ^Adjustment) ---
+
+    @(link_name = "gtk_list_box_get_adjustment")
+    list_box_get_adjustment :: proc(box: ^ListBox) -> ^Adjustment ---
+
+    @(link_name = "gtk_list_box_selected_foreach")
+    list_box_selected_foreach :: proc(box: ^ListBox, func: ListBoxForeachFunc, data: glib.pointer) ---
+
+    @(link_name = "gtk_list_box_get_selected_rows")
+    list_box_get_selected_rows :: proc(box: ^ListBox) -> ^glib.List ---
+
+    @(link_name = "gtk_list_box_unselect_row")
+    list_box_unselect_row :: proc(box: ^ListBox, row: ^ListBoxRow) ---
+
+    @(link_name = "gtk_list_box_select_all")
+    list_box_select_all :: proc(box: ^ListBox) ---
+
+    @(link_name = "gtk_list_box_unselect_all")
+    list_box_unselect_all :: proc(box: ^ListBox) ---
+
+    @(link_name = "gtk_list_box_set_selection_mode")
+    list_box_set_selection_mode :: proc(box: ^ListBox, mode: SelectionMode) ---
+
+    @(link_name = "gtk_list_box_get_selection_mode")
+    list_box_get_selection_mode :: proc(box: ^ListBox) -> SelectionMode ---
+
+    @(link_name = "gtk_list_box_set_filter_func")
+    list_box_set_filter_func :: proc(box: ^ListBox, filter_func: ListBoxFilterFunc, user_data: glib.pointer, destroy: glib.DestroyNotify) ---
+
+    @(link_name = "gtk_list_box_set_header_func")
+    list_box_set_header_func :: proc(box: ^ListBox, update_header: ListBoxUpdateHeaderFunc, user_data: glib.pointer, destroy: glib.DestroyNotify) ---
+
+    @(link_name = "gtk_list_box_invalidate_filter")
+    list_box_invalidate_filter :: proc(box: ^ListBox) ---
+
+    @(link_name = "gtk_list_box_invalidate_sort")
+    list_box_invalidate_sort :: proc(box: ^ListBox) ---
+
+    @(link_name = "gtk_list_box_invalidate_headers")
+    list_box_invalidate_headers :: proc(box: ^ListBox) ---
+
+    @(link_name = "gtk_list_box_set_sort_func")
+    list_box_set_sort_func :: proc(box: ^ListBox, sort_func: ListBoxSortFunc, user_data: glib.pointer, destroy: glib.DestroyNotify) ---
+
+    @(link_name = "gtk_list_box_set_activate_on_single_click")
+    list_box_set_activate_on_single_click :: proc(box: ^ListBox, single: glib.boolean) ---
+
+    @(link_name = "gtk_list_box_get_activate_on_single_click")
+    list_box_get_activate_on_single_click :: proc(box: ^ListBox) -> glib.boolean ---
+
+    @(link_name = "gtk_list_box_drag_unhighlight_row")
+    list_box_drag_unhighlight_row :: proc(box: ^ListBox) ---
+
+    @(link_name = "gtk_list_box_drag_highlight_row")
+    list_box_drag_highlight_row :: proc(box: ^ListBox, row: ^ListBoxRow) ---
+
+    @(link_name = "gtk_list_box_new")
+    list_box_new :: proc() -> ^Widget ---
+
+    @(link_name = "gtk_list_box_bind_model")
+    list_box_bind_model :: proc(box: ^ListBox, model: ^gio.ListModel, create_widget_func: ListBoxCreateWidgetFunc, user_data: glib.pointer, user_data_free_func: glib.DestroyNotify) ---
+
+    @(link_name = "gtk_list_box_set_show_separators")
+    list_box_set_show_separators :: proc(box: ^ListBox, show_separators: glib.boolean) ---
+
+    @(link_name = "gtk_list_box_get_show_separators")
+    list_box_get_show_separators :: proc(box: ^ListBox) -> glib.boolean ---
+
+    @(link_name = "gtk_list_header_get_type")
+    list_header_get_type :: proc() -> gobj.Type ---
+
+    @(link_name = "gtk_list_header_get_item")
+    list_header_get_item :: proc(self: ^ListHeader) -> glib.pointer ---
+
+    @(link_name = "gtk_list_header_get_start")
+    list_header_get_start :: proc(self: ^ListHeader) -> glib.uint_ ---
+
+    @(link_name = "gtk_list_header_get_end")
+    list_header_get_end :: proc(self: ^ListHeader) -> glib.uint_ ---
+
+    @(link_name = "gtk_list_header_get_n_items")
+    list_header_get_n_items :: proc(self: ^ListHeader) -> glib.uint_ ---
+
+    @(link_name = "gtk_list_header_set_child")
+    list_header_set_child :: proc(self: ^ListHeader, child: ^Widget) ---
+
+    @(link_name = "gtk_list_header_get_child")
+    list_header_get_child :: proc(self: ^ListHeader) -> ^Widget ---
+
+    @(link_name = "gtk_list_view_get_type")
+    list_view_get_type :: proc() -> gobj.Type ---
+
+    @(link_name = "gtk_list_view_new")
+    list_view_new :: proc(model: ^SelectionModel, factory: ^ListItemFactory) -> ^Widget ---
+
+    @(link_name = "gtk_list_view_get_model")
+    list_view_get_model :: proc(self: ^ListView) -> ^SelectionModel ---
+
+    @(link_name = "gtk_list_view_set_model")
+    list_view_set_model :: proc(self: ^ListView, model: ^SelectionModel) ---
+
+    @(link_name = "gtk_list_view_set_factory")
+    list_view_set_factory :: proc(self: ^ListView, factory: ^ListItemFactory) ---
+
+    @(link_name = "gtk_list_view_get_factory")
+    list_view_get_factory :: proc(self: ^ListView) -> ^ListItemFactory ---
+
+    @(link_name = "gtk_list_view_set_header_factory")
+    list_view_set_header_factory :: proc(self: ^ListView, factory: ^ListItemFactory) ---
+
+    @(link_name = "gtk_list_view_get_header_factory")
+    list_view_get_header_factory :: proc(self: ^ListView) -> ^ListItemFactory ---
+
+    @(link_name = "gtk_list_view_set_show_separators")
+    list_view_set_show_separators :: proc(self: ^ListView, show_separators: glib.boolean) ---
+
+    @(link_name = "gtk_list_view_get_show_separators")
+    list_view_get_show_separators :: proc(self: ^ListView) -> glib.boolean ---
+
+    @(link_name = "gtk_list_view_set_single_click_activate")
+    list_view_set_single_click_activate :: proc(self: ^ListView, single_click_activate: glib.boolean) ---
+
+    @(link_name = "gtk_list_view_get_single_click_activate")
+    list_view_get_single_click_activate :: proc(self: ^ListView) -> glib.boolean ---
+
+    @(link_name = "gtk_list_view_set_enable_rubberband")
+    list_view_set_enable_rubberband :: proc(self: ^ListView, enable_rubberband: glib.boolean) ---
+
+    @(link_name = "gtk_list_view_get_enable_rubberband")
+    list_view_get_enable_rubberband :: proc(self: ^ListView) -> glib.boolean ---
+
+    @(link_name = "gtk_list_view_set_tab_behavior")
+    list_view_set_tab_behavior :: proc(self: ^ListView, tab_behavior: ListTabBehavior) ---
+
+    @(link_name = "gtk_list_view_get_tab_behavior")
+    list_view_get_tab_behavior :: proc(self: ^ListView) -> ListTabBehavior ---
+
+    @(link_name = "gtk_list_view_scroll_to")
+    list_view_scroll_to :: proc(self: ^ListView, pos: glib.uint_, flags: ListScrollFlags, scroll: ^ScrollInfo) ---
+
+    @(link_name = "gtk_lock_button_get_type")
+    lock_button_get_type :: proc() -> gobj.Type ---
+
+    @(link_name = "gtk_lock_button_new")
+    lock_button_new :: proc(permission: ^gio.Permission) -> ^Widget ---
+
+    @(link_name = "gtk_lock_button_get_permission")
+    lock_button_get_permission :: proc(button: ^LockButton) -> ^gio.Permission ---
+
+    @(link_name = "gtk_lock_button_set_permission")
+    lock_button_set_permission :: proc(button: ^LockButton, permission: ^gio.Permission) ---
+
+    @(link_name = "gtk_init")
+    init :: proc() ---
+
+    @(link_name = "gtk_init_check")
+    init_check :: proc() -> glib.boolean ---
+
+    @(link_name = "gtk_is_initialized")
+    is_initialized :: proc() -> glib.boolean ---
+
+    @(link_name = "gtk_disable_setlocale")
+    disable_setlocale :: proc() ---
+
+    @(link_name = "gtk_get_default_language")
+    get_default_language :: proc() -> ^pango.Language ---
+
+    @(link_name = "gtk_get_locale_direction")
+    get_locale_direction :: proc() -> TextDirection ---
+
+    @(link_name = "gtk_map_list_model_get_type")
+    map_list_model_get_type :: proc() -> gobj.Type ---
+
+    @(link_name = "gtk_map_list_model_new")
+    map_list_model_new :: proc(model: ^gio.ListModel, map_func: MapListModelMapFunc, user_data: glib.pointer, user_destroy: glib.DestroyNotify) -> ^MapListModel ---
+
+    @(link_name = "gtk_map_list_model_set_map_func")
+    map_list_model_set_map_func :: proc(self: ^MapListModel, map_func: MapListModelMapFunc, user_data: glib.pointer, user_destroy: glib.DestroyNotify) ---
+
+    @(link_name = "gtk_map_list_model_set_model")
+    map_list_model_set_model :: proc(self: ^MapListModel, model: ^gio.ListModel) ---
+
+    @(link_name = "gtk_map_list_model_get_model")
+    map_list_model_get_model :: proc(self: ^MapListModel) -> ^gio.ListModel ---
+
+    @(link_name = "gtk_map_list_model_has_map")
+    map_list_model_has_map :: proc(self: ^MapListModel) -> glib.boolean ---
+
+    @(link_name = "gtk_media_stream_get_type")
+    media_stream_get_type :: proc() -> gobj.Type ---
+
+    @(link_name = "gtk_media_stream_is_prepared")
+    media_stream_is_prepared :: proc(self: ^MediaStream) -> glib.boolean ---
+
+    @(link_name = "gtk_media_stream_get_error")
+    media_stream_get_error :: proc(self: ^MediaStream) -> ^glib.Error ---
+
+    @(link_name = "gtk_media_stream_has_audio")
+    media_stream_has_audio :: proc(self: ^MediaStream) -> glib.boolean ---
+
+    @(link_name = "gtk_media_stream_has_video")
+    media_stream_has_video :: proc(self: ^MediaStream) -> glib.boolean ---
+
+    @(link_name = "gtk_media_stream_play")
+    media_stream_play :: proc(self: ^MediaStream) ---
+
+    @(link_name = "gtk_media_stream_pause")
+    media_stream_pause :: proc(self: ^MediaStream) ---
+
+    @(link_name = "gtk_media_stream_get_playing")
+    media_stream_get_playing :: proc(self: ^MediaStream) -> glib.boolean ---
+
+    @(link_name = "gtk_media_stream_set_playing")
+    media_stream_set_playing :: proc(self: ^MediaStream, playing: glib.boolean) ---
+
+    @(link_name = "gtk_media_stream_get_ended")
+    media_stream_get_ended :: proc(self: ^MediaStream) -> glib.boolean ---
+
+    @(link_name = "gtk_media_stream_get_timestamp")
+    media_stream_get_timestamp :: proc(self: ^MediaStream) -> glib.int64 ---
+
+    @(link_name = "gtk_media_stream_get_duration")
+    media_stream_get_duration :: proc(self: ^MediaStream) -> glib.int64 ---
+
+    @(link_name = "gtk_media_stream_is_seekable")
+    media_stream_is_seekable :: proc(self: ^MediaStream) -> glib.boolean ---
+
+    @(link_name = "gtk_media_stream_is_seeking")
+    media_stream_is_seeking :: proc(self: ^MediaStream) -> glib.boolean ---
+
+    @(link_name = "gtk_media_stream_seek")
+    media_stream_seek :: proc(self: ^MediaStream, timestamp: glib.int64) ---
+
+    @(link_name = "gtk_media_stream_get_loop")
+    media_stream_get_loop :: proc(self: ^MediaStream) -> glib.boolean ---
+
+    @(link_name = "gtk_media_stream_set_loop")
+    media_stream_set_loop :: proc(self: ^MediaStream, loop: glib.boolean) ---
+
+    @(link_name = "gtk_media_stream_get_muted")
+    media_stream_get_muted :: proc(self: ^MediaStream) -> glib.boolean ---
+
+    @(link_name = "gtk_media_stream_set_muted")
+    media_stream_set_muted :: proc(self: ^MediaStream, muted: glib.boolean) ---
+
+    @(link_name = "gtk_media_stream_get_volume")
+    media_stream_get_volume :: proc(self: ^MediaStream) -> f64 ---
+
+    @(link_name = "gtk_media_stream_set_volume")
+    media_stream_set_volume :: proc(self: ^MediaStream, volume: f64) ---
+
+    @(link_name = "gtk_media_stream_realize")
+    media_stream_realize :: proc(self: ^MediaStream, surface: ^Surface) ---
+
+    @(link_name = "gtk_media_stream_unrealize")
+    media_stream_unrealize :: proc(self: ^MediaStream, surface: ^Surface) ---
+
+    @(link_name = "gtk_media_stream_prepared")
+    media_stream_prepared :: proc(self: ^MediaStream, has_audio: glib.boolean, has_video: glib.boolean, seekable: glib.boolean, duration: glib.int64) ---
+
+    @(link_name = "gtk_media_stream_unprepared")
+    media_stream_unprepared :: proc(self: ^MediaStream) ---
+
+    @(link_name = "gtk_media_stream_stream_prepared")
+    media_stream_stream_prepared :: proc(self: ^MediaStream, has_audio: glib.boolean, has_video: glib.boolean, seekable: glib.boolean, duration: glib.int64) ---
+
+    @(link_name = "gtk_media_stream_stream_unprepared")
+    media_stream_stream_unprepared :: proc(self: ^MediaStream) ---
+
+    @(link_name = "gtk_media_stream_update")
+    media_stream_update :: proc(self: ^MediaStream, timestamp: glib.int64) ---
+
+    @(link_name = "gtk_media_stream_ended")
+    media_stream_ended :: proc(self: ^MediaStream) ---
+
+    @(link_name = "gtk_media_stream_stream_ended")
+    media_stream_stream_ended :: proc(self: ^MediaStream) ---
+
+    @(link_name = "gtk_media_stream_seek_success")
+    media_stream_seek_success :: proc(self: ^MediaStream) ---
+
+    @(link_name = "gtk_media_stream_seek_failed")
+    media_stream_seek_failed :: proc(self: ^MediaStream) ---
+
+    @(link_name = "gtk_media_stream_gerror")
+    media_stream_gerror :: proc(self: ^MediaStream, error: ^glib.Error) ---
+
+    @(link_name = "gtk_media_stream_error")
+    media_stream_error :: proc(self: ^MediaStream, domain: glib.Quark, code: i32, format: cstring, #c_vararg var_args: ..any) ---
+
+    // media_stream_error_valist skipped: its trailing va_list is dropped by runic, so it would be a wrong #c_vararg ..any call
+
+    @(link_name = "gtk_media_controls_get_type")
+    media_controls_get_type :: proc() -> gobj.Type ---
+
+    @(link_name = "gtk_media_controls_new")
+    media_controls_new :: proc(stream: ^MediaStream) -> ^Widget ---
+
+    @(link_name = "gtk_media_controls_get_media_stream")
+    media_controls_get_media_stream :: proc(controls: ^MediaControls) -> ^MediaStream ---
+
+    @(link_name = "gtk_media_controls_set_media_stream")
+    media_controls_set_media_stream :: proc(controls: ^MediaControls, stream: ^MediaStream) ---
+
+    @(link_name = "gtk_media_file_get_type")
+    media_file_get_type :: proc() -> gobj.Type ---
+
+    @(link_name = "gtk_media_file_new")
+    media_file_new :: proc() -> ^MediaStream ---
+
+    @(link_name = "gtk_media_file_new_for_filename")
+    media_file_new_for_filename :: proc(filename: cstring) -> ^MediaStream ---
+
+    @(link_name = "gtk_media_file_new_for_resource")
+    media_file_new_for_resource :: proc(resource_path: cstring) -> ^MediaStream ---
+
+    @(link_name = "gtk_media_file_new_for_file")
+    media_file_new_for_file :: proc(file: ^gio.File) -> ^MediaStream ---
+
+    @(link_name = "gtk_media_file_new_for_input_stream")
+    media_file_new_for_input_stream :: proc(stream: ^gio.InputStream) -> ^MediaStream ---
+
+    @(link_name = "gtk_media_file_clear")
+    media_file_clear :: proc(self: ^MediaFile) ---
+
+    @(link_name = "gtk_media_file_set_filename")
+    media_file_set_filename :: proc(self: ^MediaFile, filename: cstring) ---
+
+    @(link_name = "gtk_media_file_set_resource")
+    media_file_set_resource :: proc(self: ^MediaFile, resource_path: cstring) ---
+
+    @(link_name = "gtk_media_file_set_file")
+    media_file_set_file :: proc(self: ^MediaFile, file: ^gio.File) ---
+
+    @(link_name = "gtk_media_file_get_file")
+    media_file_get_file :: proc(self: ^MediaFile) -> ^gio.File ---
+
+    @(link_name = "gtk_media_file_set_input_stream")
+    media_file_set_input_stream :: proc(self: ^MediaFile, stream: ^gio.InputStream) ---
+
+    @(link_name = "gtk_media_file_get_input_stream")
+    media_file_get_input_stream :: proc(self: ^MediaFile) -> ^gio.InputStream ---
+
+    @(link_name = "gtk_popover_get_type")
+    popover_get_type :: proc() -> gobj.Type ---
+
+    @(link_name = "gtk_popover_new")
+    popover_new :: proc() -> ^Widget ---
+
+    @(link_name = "gtk_popover_set_child")
+    popover_set_child :: proc(popover: ^Popover, child: ^Widget) ---
+
+    @(link_name = "gtk_popover_get_child")
+    popover_get_child :: proc(popover: ^Popover) -> ^Widget ---
+
+    @(link_name = "gtk_popover_set_pointing_to")
+    popover_set_pointing_to :: proc(popover: ^Popover, rect: ^Rectangle) ---
+
+    @(link_name = "gtk_popover_get_pointing_to")
+    popover_get_pointing_to :: proc(popover: ^Popover, rect: ^Rectangle) -> glib.boolean ---
+
+    @(link_name = "gtk_popover_set_position")
+    popover_set_position :: proc(popover: ^Popover, position: PositionType) ---
+
+    @(link_name = "gtk_popover_get_position")
+    popover_get_position :: proc(popover: ^Popover) -> PositionType ---
+
+    @(link_name = "gtk_popover_set_autohide")
+    popover_set_autohide :: proc(popover: ^Popover, autohide: glib.boolean) ---
+
+    @(link_name = "gtk_popover_get_autohide")
+    popover_get_autohide :: proc(popover: ^Popover) -> glib.boolean ---
+
+    @(link_name = "gtk_popover_set_has_arrow")
+    popover_set_has_arrow :: proc(popover: ^Popover, has_arrow: glib.boolean) ---
+
+    @(link_name = "gtk_popover_get_has_arrow")
+    popover_get_has_arrow :: proc(popover: ^Popover) -> glib.boolean ---
+
+    @(link_name = "gtk_popover_set_mnemonics_visible")
+    popover_set_mnemonics_visible :: proc(popover: ^Popover, mnemonics_visible: glib.boolean) ---
+
+    @(link_name = "gtk_popover_get_mnemonics_visible")
+    popover_get_mnemonics_visible :: proc(popover: ^Popover) -> glib.boolean ---
+
+    @(link_name = "gtk_popover_popup")
+    popover_popup :: proc(popover: ^Popover) ---
+
+    @(link_name = "gtk_popover_popdown")
+    popover_popdown :: proc(popover: ^Popover) ---
+
+    @(link_name = "gtk_popover_set_offset")
+    popover_set_offset :: proc(popover: ^Popover, x_offset: i32, y_offset: i32) ---
+
+    @(link_name = "gtk_popover_get_offset")
+    popover_get_offset :: proc(popover: ^Popover, x_offset: ^i32, y_offset: ^i32) ---
+
+    @(link_name = "gtk_popover_set_cascade_popdown")
+    popover_set_cascade_popdown :: proc(popover: ^Popover, cascade_popdown: glib.boolean) ---
+
+    @(link_name = "gtk_popover_get_cascade_popdown")
+    popover_get_cascade_popdown :: proc(popover: ^Popover) -> glib.boolean ---
+
+    @(link_name = "gtk_popover_set_default_widget")
+    popover_set_default_widget :: proc(popover: ^Popover, widget: ^Widget) ---
+
+    @(link_name = "gtk_popover_present")
+    popover_present :: proc(popover: ^Popover) ---
+
+    @(link_name = "gtk_menu_button_get_type")
+    menu_button_get_type :: proc() -> gobj.Type ---
+
+    @(link_name = "gtk_menu_button_new")
+    menu_button_new :: proc() -> ^Widget ---
+
+    @(link_name = "gtk_menu_button_set_popover")
+    menu_button_set_popover :: proc(menu_button: ^MenuButton, popover: ^Widget) ---
+
+    @(link_name = "gtk_menu_button_get_popover")
+    menu_button_get_popover :: proc(menu_button: ^MenuButton) -> ^Popover ---
+
+    @(link_name = "gtk_menu_button_set_direction")
+    menu_button_set_direction :: proc(menu_button: ^MenuButton, direction: ArrowType) ---
+
+    @(link_name = "gtk_menu_button_get_direction")
+    menu_button_get_direction :: proc(menu_button: ^MenuButton) -> ArrowType ---
+
+    @(link_name = "gtk_menu_button_set_menu_model")
+    menu_button_set_menu_model :: proc(menu_button: ^MenuButton, menu_model: ^gio.MenuModel) ---
+
+    @(link_name = "gtk_menu_button_get_menu_model")
+    menu_button_get_menu_model :: proc(menu_button: ^MenuButton) -> ^gio.MenuModel ---
+
+    @(link_name = "gtk_menu_button_set_icon_name")
+    menu_button_set_icon_name :: proc(menu_button: ^MenuButton, icon_name: cstring) ---
+
+    @(link_name = "gtk_menu_button_get_icon_name")
+    menu_button_get_icon_name :: proc(menu_button: ^MenuButton) -> cstring ---
+
+    @(link_name = "gtk_menu_button_set_always_show_arrow")
+    menu_button_set_always_show_arrow :: proc(menu_button: ^MenuButton, always_show_arrow: glib.boolean) ---
+
+    @(link_name = "gtk_menu_button_get_always_show_arrow")
+    menu_button_get_always_show_arrow :: proc(menu_button: ^MenuButton) -> glib.boolean ---
+
+    @(link_name = "gtk_menu_button_set_label")
+    menu_button_set_label :: proc(menu_button: ^MenuButton, label: cstring) ---
+
+    @(link_name = "gtk_menu_button_get_label")
+    menu_button_get_label :: proc(menu_button: ^MenuButton) -> cstring ---
+
+    @(link_name = "gtk_menu_button_set_use_underline")
+    menu_button_set_use_underline :: proc(menu_button: ^MenuButton, use_underline: glib.boolean) ---
+
+    @(link_name = "gtk_menu_button_get_use_underline")
+    menu_button_get_use_underline :: proc(menu_button: ^MenuButton) -> glib.boolean ---
+
+    @(link_name = "gtk_menu_button_set_has_frame")
+    menu_button_set_has_frame :: proc(menu_button: ^MenuButton, has_frame: glib.boolean) ---
+
+    @(link_name = "gtk_menu_button_get_has_frame")
+    menu_button_get_has_frame :: proc(menu_button: ^MenuButton) -> glib.boolean ---
+
+    @(link_name = "gtk_menu_button_popup")
+    menu_button_popup :: proc(menu_button: ^MenuButton) ---
+
+    @(link_name = "gtk_menu_button_popdown")
+    menu_button_popdown :: proc(menu_button: ^MenuButton) ---
+
+    @(link_name = "gtk_menu_button_set_create_popup_func")
+    menu_button_set_create_popup_func :: proc(menu_button: ^MenuButton, func: MenuButtonCreatePopupFunc, user_data: glib.pointer, destroy_notify: glib.DestroyNotify) ---
+
+    @(link_name = "gtk_menu_button_set_primary")
+    menu_button_set_primary :: proc(menu_button: ^MenuButton, primary: glib.boolean) ---
+
+    @(link_name = "gtk_menu_button_get_primary")
+    menu_button_get_primary :: proc(menu_button: ^MenuButton) -> glib.boolean ---
+
+    @(link_name = "gtk_menu_button_set_child")
+    menu_button_set_child :: proc(menu_button: ^MenuButton, child: ^Widget) ---
+
+    @(link_name = "gtk_menu_button_get_child")
+    menu_button_get_child :: proc(menu_button: ^MenuButton) -> ^Widget ---
+
+    @(link_name = "gtk_menu_button_set_active")
+    menu_button_set_active :: proc(menu_button: ^MenuButton, active: glib.boolean) ---
+
+    @(link_name = "gtk_menu_button_get_active")
+    menu_button_get_active :: proc(menu_button: ^MenuButton) -> glib.boolean ---
+
+    @(link_name = "gtk_menu_button_set_can_shrink")
+    menu_button_set_can_shrink :: proc(menu_button: ^MenuButton, can_shrink: glib.boolean) ---
+
+    @(link_name = "gtk_menu_button_get_can_shrink")
+    menu_button_get_can_shrink :: proc(menu_button: ^MenuButton) -> glib.boolean ---
+
+    @(link_name = "gtk_message_dialog_get_type")
+    message_dialog_get_type :: proc() -> gobj.Type ---
+
+    @(link_name = "gtk_message_dialog_new")
+    message_dialog_new :: proc(parent: ^Window, flags: DialogFlags, type: MessageType, buttons: ButtonsType, message_format: cstring, #c_vararg var_args: ..any) -> ^Widget ---
+
+    @(link_name = "gtk_message_dialog_new_with_markup")
+    message_dialog_new_with_markup :: proc(parent: ^Window, flags: DialogFlags, type: MessageType, buttons: ButtonsType, message_format: cstring, #c_vararg var_args: ..any) -> ^Widget ---
+
+    @(link_name = "gtk_message_dialog_set_markup")
+    message_dialog_set_markup :: proc(message_dialog: ^MessageDialog, str: cstring) ---
+
+    @(link_name = "gtk_message_dialog_format_secondary_text")
+    message_dialog_format_secondary_text :: proc(message_dialog: ^MessageDialog, message_format: cstring, #c_vararg var_args: ..any) ---
+
+    @(link_name = "gtk_message_dialog_format_secondary_markup")
+    message_dialog_format_secondary_markup :: proc(message_dialog: ^MessageDialog, message_format: cstring, #c_vararg var_args: ..any) ---
+
+    @(link_name = "gtk_message_dialog_get_message_area")
+    message_dialog_get_message_area :: proc(message_dialog: ^MessageDialog) -> ^Widget ---
+
+    @(link_name = "gtk_mount_operation_get_type")
+    mount_operation_get_type :: proc() -> gobj.Type ---
+
+    @(link_name = "gtk_mount_operation_new")
+    mount_operation_new :: proc(parent: ^Window) -> ^gio.MountOperation ---
+
+    @(link_name = "gtk_mount_operation_is_showing")
+    mount_operation_is_showing :: proc(op: ^MountOperation) -> glib.boolean ---
+
+    @(link_name = "gtk_mount_operation_set_parent")
+    mount_operation_set_parent :: proc(op: ^MountOperation, parent: ^Window) ---
+
+    @(link_name = "gtk_mount_operation_get_parent")
+    mount_operation_get_parent :: proc(op: ^MountOperation) -> ^Window ---
+
+    @(link_name = "gtk_mount_operation_set_display")
+    mount_operation_set_display :: proc(op: ^MountOperation, display: ^Display) ---
+
+    @(link_name = "gtk_mount_operation_get_display")
+    mount_operation_get_display :: proc(op: ^MountOperation) -> ^Display ---
+
+    @(link_name = "gtk_multi_filter_get_type")
+    multi_filter_get_type :: proc() -> gobj.Type ---
+
+    @(link_name = "gtk_multi_filter_append")
+    multi_filter_append :: proc(self: ^MultiFilter, filter: ^Filter) ---
+
+    @(link_name = "gtk_multi_filter_remove")
+    multi_filter_remove :: proc(self: ^MultiFilter, position: glib.uint_) ---
+
+    @(link_name = "gtk_any_filter_get_type")
+    any_filter_get_type :: proc() -> gobj.Type ---
+
+    @(link_name = "gtk_any_filter_new")
+    any_filter_new :: proc() -> ^AnyFilter ---
+
+    @(link_name = "gtk_every_filter_get_type")
+    every_filter_get_type :: proc() -> gobj.Type ---
+
+    @(link_name = "gtk_every_filter_new")
+    every_filter_new :: proc() -> ^EveryFilter ---
+
+    @(link_name = "gtk_multi_selection_get_type")
+    multi_selection_get_type :: proc() -> gobj.Type ---
+
+    @(link_name = "gtk_multi_selection_new")
+    multi_selection_new :: proc(model: ^gio.ListModel) -> ^MultiSelection ---
+
+    @(link_name = "gtk_multi_selection_get_model")
+    multi_selection_get_model :: proc(self: ^MultiSelection) -> ^gio.ListModel ---
+
+    @(link_name = "gtk_multi_selection_set_model")
+    multi_selection_set_model :: proc(self: ^MultiSelection, model: ^gio.ListModel) ---
+
+    @(link_name = "gtk_multi_sorter_get_type")
+    multi_sorter_get_type :: proc() -> gobj.Type ---
+
+    @(link_name = "gtk_multi_sorter_new")
+    multi_sorter_new :: proc() -> ^MultiSorter ---
+
+    @(link_name = "gtk_multi_sorter_append")
+    multi_sorter_append :: proc(self: ^MultiSorter, sorter: ^Sorter) ---
+
+    @(link_name = "gtk_multi_sorter_remove")
+    multi_sorter_remove :: proc(self: ^MultiSorter, position: glib.uint_) ---
+
+    @(link_name = "gtk_native_get_type")
+    native_get_type :: proc() -> gobj.Type ---
+
+    @(link_name = "gtk_native_realize")
+    native_realize :: proc(self: ^Native) ---
+
+    @(link_name = "gtk_native_unrealize")
+    native_unrealize :: proc(self: ^Native) ---
+
+    @(link_name = "gtk_native_get_for_surface")
+    native_get_for_surface :: proc(surface: ^Surface) -> ^Native ---
+
+    @(link_name = "gtk_native_get_surface")
+    native_get_surface :: proc(self: ^Native) -> ^Surface ---
+
+    @(link_name = "gtk_native_get_renderer")
+    native_get_renderer :: proc(self: ^Native) -> ^Renderer ---
+
+    @(link_name = "gtk_native_get_surface_transform")
+    native_get_surface_transform :: proc(self: ^Native, x: ^f64, y: ^f64) ---
+
+    @(link_name = "gtk_no_selection_get_type")
+    no_selection_get_type :: proc() -> gobj.Type ---
+
+    @(link_name = "gtk_no_selection_new")
+    no_selection_new :: proc(model: ^gio.ListModel) -> ^NoSelection ---
+
+    @(link_name = "gtk_no_selection_get_model")
+    no_selection_get_model :: proc(self: ^NoSelection) -> ^gio.ListModel ---
+
+    @(link_name = "gtk_no_selection_set_model")
+    no_selection_set_model :: proc(self: ^NoSelection, model: ^gio.ListModel) ---
+
+    @(link_name = "gtk_notebook_get_type")
+    notebook_get_type :: proc() -> gobj.Type ---
+
+    @(link_name = "gtk_notebook_new")
+    notebook_new :: proc() -> ^Widget ---
+
+    @(link_name = "gtk_notebook_append_page")
+    notebook_append_page :: proc(notebook: ^Notebook, child: ^Widget, tab_label: ^Widget) -> i32 ---
+
+    @(link_name = "gtk_notebook_append_page_menu")
+    notebook_append_page_menu :: proc(notebook: ^Notebook, child: ^Widget, tab_label: ^Widget, menu_label: ^Widget) -> i32 ---
+
+    @(link_name = "gtk_notebook_prepend_page")
+    notebook_prepend_page :: proc(notebook: ^Notebook, child: ^Widget, tab_label: ^Widget) -> i32 ---
+
+    @(link_name = "gtk_notebook_prepend_page_menu")
+    notebook_prepend_page_menu :: proc(notebook: ^Notebook, child: ^Widget, tab_label: ^Widget, menu_label: ^Widget) -> i32 ---
+
+    @(link_name = "gtk_notebook_insert_page")
+    notebook_insert_page :: proc(notebook: ^Notebook, child: ^Widget, tab_label: ^Widget, position: i32) -> i32 ---
+
+    @(link_name = "gtk_notebook_insert_page_menu")
+    notebook_insert_page_menu :: proc(notebook: ^Notebook, child: ^Widget, tab_label: ^Widget, menu_label: ^Widget, position: i32) -> i32 ---
+
+    @(link_name = "gtk_notebook_remove_page")
+    notebook_remove_page :: proc(notebook: ^Notebook, page_num: i32) ---
+
+    @(link_name = "gtk_notebook_set_group_name")
+    notebook_set_group_name :: proc(notebook: ^Notebook, group_name: cstring) ---
+
+    @(link_name = "gtk_notebook_get_group_name")
+    notebook_get_group_name :: proc(notebook: ^Notebook) -> cstring ---
+
+    @(link_name = "gtk_notebook_get_current_page")
+    notebook_get_current_page :: proc(notebook: ^Notebook) -> i32 ---
+
+    @(link_name = "gtk_notebook_get_nth_page")
+    notebook_get_nth_page :: proc(notebook: ^Notebook, page_num: i32) -> ^Widget ---
+
+    @(link_name = "gtk_notebook_get_n_pages")
+    notebook_get_n_pages :: proc(notebook: ^Notebook) -> i32 ---
+
+    @(link_name = "gtk_notebook_page_num")
+    notebook_page_num :: proc(notebook: ^Notebook, child: ^Widget) -> i32 ---
+
+    @(link_name = "gtk_notebook_set_current_page")
+    notebook_set_current_page :: proc(notebook: ^Notebook, page_num: i32) ---
+
+    @(link_name = "gtk_notebook_next_page")
+    notebook_next_page :: proc(notebook: ^Notebook) ---
+
+    @(link_name = "gtk_notebook_prev_page")
+    notebook_prev_page :: proc(notebook: ^Notebook) ---
+
+    @(link_name = "gtk_notebook_set_show_border")
+    notebook_set_show_border :: proc(notebook: ^Notebook, show_border: glib.boolean) ---
+
+    @(link_name = "gtk_notebook_get_show_border")
+    notebook_get_show_border :: proc(notebook: ^Notebook) -> glib.boolean ---
+
+    @(link_name = "gtk_notebook_set_show_tabs")
+    notebook_set_show_tabs :: proc(notebook: ^Notebook, show_tabs: glib.boolean) ---
+
+    @(link_name = "gtk_notebook_get_show_tabs")
+    notebook_get_show_tabs :: proc(notebook: ^Notebook) -> glib.boolean ---
+
+    @(link_name = "gtk_notebook_set_tab_pos")
+    notebook_set_tab_pos :: proc(notebook: ^Notebook, pos: PositionType) ---
+
+    @(link_name = "gtk_notebook_get_tab_pos")
+    notebook_get_tab_pos :: proc(notebook: ^Notebook) -> PositionType ---
+
+    @(link_name = "gtk_notebook_set_scrollable")
+    notebook_set_scrollable :: proc(notebook: ^Notebook, scrollable: glib.boolean) ---
+
+    @(link_name = "gtk_notebook_get_scrollable")
+    notebook_get_scrollable :: proc(notebook: ^Notebook) -> glib.boolean ---
+
+    @(link_name = "gtk_notebook_popup_enable")
+    notebook_popup_enable :: proc(notebook: ^Notebook) ---
+
+    @(link_name = "gtk_notebook_popup_disable")
+    notebook_popup_disable :: proc(notebook: ^Notebook) ---
+
+    @(link_name = "gtk_notebook_get_tab_label")
+    notebook_get_tab_label :: proc(notebook: ^Notebook, child: ^Widget) -> ^Widget ---
+
+    @(link_name = "gtk_notebook_set_tab_label")
+    notebook_set_tab_label :: proc(notebook: ^Notebook, child: ^Widget, tab_label: ^Widget) ---
+
+    @(link_name = "gtk_notebook_set_tab_label_text")
+    notebook_set_tab_label_text :: proc(notebook: ^Notebook, child: ^Widget, tab_text: cstring) ---
+
+    @(link_name = "gtk_notebook_get_tab_label_text")
+    notebook_get_tab_label_text :: proc(notebook: ^Notebook, child: ^Widget) -> cstring ---
+
+    @(link_name = "gtk_notebook_get_menu_label")
+    notebook_get_menu_label :: proc(notebook: ^Notebook, child: ^Widget) -> ^Widget ---
+
+    @(link_name = "gtk_notebook_set_menu_label")
+    notebook_set_menu_label :: proc(notebook: ^Notebook, child: ^Widget, menu_label: ^Widget) ---
+
+    @(link_name = "gtk_notebook_set_menu_label_text")
+    notebook_set_menu_label_text :: proc(notebook: ^Notebook, child: ^Widget, menu_text: cstring) ---
+
+    @(link_name = "gtk_notebook_get_menu_label_text")
+    notebook_get_menu_label_text :: proc(notebook: ^Notebook, child: ^Widget) -> cstring ---
+
+    @(link_name = "gtk_notebook_reorder_child")
+    notebook_reorder_child :: proc(notebook: ^Notebook, child: ^Widget, position: i32) ---
+
+    @(link_name = "gtk_notebook_get_tab_reorderable")
+    notebook_get_tab_reorderable :: proc(notebook: ^Notebook, child: ^Widget) -> glib.boolean ---
+
+    @(link_name = "gtk_notebook_set_tab_reorderable")
+    notebook_set_tab_reorderable :: proc(notebook: ^Notebook, child: ^Widget, reorderable: glib.boolean) ---
+
+    @(link_name = "gtk_notebook_get_tab_detachable")
+    notebook_get_tab_detachable :: proc(notebook: ^Notebook, child: ^Widget) -> glib.boolean ---
+
+    @(link_name = "gtk_notebook_set_tab_detachable")
+    notebook_set_tab_detachable :: proc(notebook: ^Notebook, child: ^Widget, detachable: glib.boolean) ---
+
+    @(link_name = "gtk_notebook_detach_tab")
+    notebook_detach_tab :: proc(notebook: ^Notebook, child: ^Widget) ---
+
+    @(link_name = "gtk_notebook_get_action_widget")
+    notebook_get_action_widget :: proc(notebook: ^Notebook, pack_type: PackType) -> ^Widget ---
+
+    @(link_name = "gtk_notebook_set_action_widget")
+    notebook_set_action_widget :: proc(notebook: ^Notebook, widget: ^Widget, pack_type: PackType) ---
+
+    @(link_name = "gtk_notebook_page_get_type")
+    notebook_page_get_type :: proc() -> gobj.Type ---
+
+    @(link_name = "gtk_notebook_get_page")
+    notebook_get_page :: proc(notebook: ^Notebook, child: ^Widget) -> ^NotebookPage ---
+
+    @(link_name = "gtk_notebook_page_get_child")
+    notebook_page_get_child :: proc(page: ^NotebookPage) -> ^Widget ---
+
+    @(link_name = "gtk_notebook_get_pages")
+    notebook_get_pages :: proc(notebook: ^Notebook) -> ^gio.ListModel ---
+
+    @(link_name = "gtk_numeric_sorter_get_type")
+    numeric_sorter_get_type :: proc() -> gobj.Type ---
+
+    @(link_name = "gtk_numeric_sorter_new")
+    numeric_sorter_new :: proc(expression: ^Expression) -> ^NumericSorter ---
+
+    @(link_name = "gtk_numeric_sorter_get_expression")
+    numeric_sorter_get_expression :: proc(self: ^NumericSorter) -> ^Expression ---
+
+    @(link_name = "gtk_numeric_sorter_set_expression")
+    numeric_sorter_set_expression :: proc(self: ^NumericSorter, expression: ^Expression) ---
+
+    @(link_name = "gtk_numeric_sorter_get_sort_order")
+    numeric_sorter_get_sort_order :: proc(self: ^NumericSorter) -> SortType ---
+
+    @(link_name = "gtk_numeric_sorter_set_sort_order")
+    numeric_sorter_set_sort_order :: proc(self: ^NumericSorter, sort_order: SortType) ---
+
+    @(link_name = "gtk_orientable_get_type")
+    orientable_get_type :: proc() -> gobj.Type ---
+
+    @(link_name = "gtk_orientable_set_orientation")
+    orientable_set_orientation :: proc(orientable: ^Orientable, orientation: Orientation) ---
+
+    @(link_name = "gtk_orientable_get_orientation")
+    orientable_get_orientation :: proc(orientable: ^Orientable) -> Orientation ---
+
+    @(link_name = "gtk_overlay_get_type")
+    overlay_get_type :: proc() -> gobj.Type ---
+
+    @(link_name = "gtk_overlay_new")
+    overlay_new :: proc() -> ^Widget ---
+
+    @(link_name = "gtk_overlay_add_overlay")
+    overlay_add_overlay :: proc(overlay: ^Overlay, widget: ^Widget) ---
+
+    @(link_name = "gtk_overlay_remove_overlay")
+    overlay_remove_overlay :: proc(overlay: ^Overlay, widget: ^Widget) ---
+
+    @(link_name = "gtk_overlay_set_child")
+    overlay_set_child :: proc(overlay: ^Overlay, child: ^Widget) ---
+
+    @(link_name = "gtk_overlay_get_child")
+    overlay_get_child :: proc(overlay: ^Overlay) -> ^Widget ---
+
+    @(link_name = "gtk_overlay_get_measure_overlay")
+    overlay_get_measure_overlay :: proc(overlay: ^Overlay, widget: ^Widget) -> glib.boolean ---
+
+    @(link_name = "gtk_overlay_set_measure_overlay")
+    overlay_set_measure_overlay :: proc(overlay: ^Overlay, widget: ^Widget, measure: glib.boolean) ---
+
+    @(link_name = "gtk_overlay_get_clip_overlay")
+    overlay_get_clip_overlay :: proc(overlay: ^Overlay, widget: ^Widget) -> glib.boolean ---
+
+    @(link_name = "gtk_overlay_set_clip_overlay")
+    overlay_set_clip_overlay :: proc(overlay: ^Overlay, widget: ^Widget, clip_overlay: glib.boolean) ---
+
+    @(link_name = "gtk_overlay_layout_get_type")
+    overlay_layout_get_type :: proc() -> gobj.Type ---
+
+    @(link_name = "gtk_overlay_layout_new")
+    overlay_layout_new :: proc() -> ^LayoutManager ---
+
+    @(link_name = "gtk_overlay_layout_child_get_type")
+    overlay_layout_child_get_type :: proc() -> gobj.Type ---
+
+    @(link_name = "gtk_overlay_layout_child_set_measure")
+    overlay_layout_child_set_measure :: proc(child: ^OverlayLayoutChild, measure: glib.boolean) ---
+
+    @(link_name = "gtk_overlay_layout_child_get_measure")
+    overlay_layout_child_get_measure :: proc(child: ^OverlayLayoutChild) -> glib.boolean ---
+
+    @(link_name = "gtk_overlay_layout_child_set_clip_overlay")
+    overlay_layout_child_set_clip_overlay :: proc(child: ^OverlayLayoutChild, clip_overlay: glib.boolean) ---
+
+    @(link_name = "gtk_overlay_layout_child_get_clip_overlay")
+    overlay_layout_child_get_clip_overlay :: proc(child: ^OverlayLayoutChild) -> glib.boolean ---
+
+    @(link_name = "gtk_pad_controller_get_type")
+    pad_controller_get_type :: proc() -> gobj.Type ---
+
+    @(link_name = "gtk_pad_controller_new")
+    pad_controller_new :: proc(group: ^gio.ActionGroup, pad: ^Device) -> ^PadController ---
+
+    @(link_name = "gtk_pad_controller_set_action_entries")
+    pad_controller_set_action_entries :: proc(controller: ^PadController, entries: [^]PadActionEntry, n_entries: i32) ---
+
+    @(link_name = "gtk_pad_controller_set_action")
+    pad_controller_set_action :: proc(controller: ^PadController, type: PadActionType, index: i32, mode: i32, label: cstring, action_name: cstring) ---
+
+    @(link_name = "gtk_paper_size_get_type")
+    paper_size_get_type :: proc() -> gobj.Type ---
+
+    @(link_name = "gtk_paper_size_new")
+    paper_size_new :: proc(name: cstring) -> ^PaperSize ---
+
+    @(link_name = "gtk_paper_size_new_from_ppd")
+    paper_size_new_from_ppd :: proc(ppd_name: cstring, ppd_display_name: cstring, width: f64, height: f64) -> ^PaperSize ---
+
+    @(link_name = "gtk_paper_size_new_from_ipp")
+    paper_size_new_from_ipp :: proc(ipp_name: cstring, width: f64, height: f64) -> ^PaperSize ---
+
+    @(link_name = "gtk_paper_size_new_custom")
+    paper_size_new_custom :: proc(name: cstring, display_name: cstring, width: f64, height: f64, unit: Unit) -> ^PaperSize ---
+
+    @(link_name = "gtk_paper_size_copy")
+    paper_size_copy :: proc(other: ^PaperSize) -> ^PaperSize ---
+
+    @(link_name = "gtk_paper_size_free")
+    paper_size_free :: proc(size_p: ^PaperSize) ---
+
+    @(link_name = "gtk_paper_size_is_equal")
+    paper_size_is_equal :: proc(size1: ^PaperSize, size2: ^PaperSize) -> glib.boolean ---
+
+    @(link_name = "gtk_paper_size_get_paper_sizes")
+    paper_size_get_paper_sizes :: proc(include_custom: glib.boolean) -> ^glib.List ---
+
+    @(link_name = "gtk_paper_size_get_name")
+    paper_size_get_name :: proc(size_p: ^PaperSize) -> cstring ---
+
+    @(link_name = "gtk_paper_size_get_display_name")
+    paper_size_get_display_name :: proc(size_p: ^PaperSize) -> cstring ---
+
+    @(link_name = "gtk_paper_size_get_ppd_name")
+    paper_size_get_ppd_name :: proc(size_p: ^PaperSize) -> cstring ---
+
+    @(link_name = "gtk_paper_size_get_width")
+    paper_size_get_width :: proc(size_p: ^PaperSize, unit: Unit) -> f64 ---
+
+    @(link_name = "gtk_paper_size_get_height")
+    paper_size_get_height :: proc(size_p: ^PaperSize, unit: Unit) -> f64 ---
+
+    @(link_name = "gtk_paper_size_is_custom")
+    paper_size_is_custom :: proc(size_p: ^PaperSize) -> glib.boolean ---
+
+    @(link_name = "gtk_paper_size_is_ipp")
+    paper_size_is_ipp :: proc(size_p: ^PaperSize) -> glib.boolean ---
+
+    @(link_name = "gtk_paper_size_set_size")
+    paper_size_set_size :: proc(size_p: ^PaperSize, width: f64, height: f64, unit: Unit) ---
+
+    @(link_name = "gtk_paper_size_get_default_top_margin")
+    paper_size_get_default_top_margin :: proc(size_p: ^PaperSize, unit: Unit) -> f64 ---
+
+    @(link_name = "gtk_paper_size_get_default_bottom_margin")
+    paper_size_get_default_bottom_margin :: proc(size_p: ^PaperSize, unit: Unit) -> f64 ---
+
+    @(link_name = "gtk_paper_size_get_default_left_margin")
+    paper_size_get_default_left_margin :: proc(size_p: ^PaperSize, unit: Unit) -> f64 ---
+
+    @(link_name = "gtk_paper_size_get_default_right_margin")
+    paper_size_get_default_right_margin :: proc(size_p: ^PaperSize, unit: Unit) -> f64 ---
+
+    @(link_name = "gtk_paper_size_get_default")
+    paper_size_get_default :: proc() -> cstring ---
+
+    @(link_name = "gtk_paper_size_new_from_key_file")
+    paper_size_new_from_key_file :: proc(key_file: ^glib.KeyFile, group_name: cstring, error: ^^glib.Error) -> ^PaperSize ---
+
+    @(link_name = "gtk_paper_size_to_key_file")
+    paper_size_to_key_file :: proc(size_p: ^PaperSize, key_file: ^glib.KeyFile, group_name: cstring) ---
+
+    @(link_name = "gtk_paper_size_new_from_gvariant")
+    paper_size_new_from_gvariant :: proc(variant: ^glib.Variant) -> ^PaperSize ---
+
+    @(link_name = "gtk_paper_size_to_gvariant")
+    paper_size_to_gvariant :: proc(paper_size: ^PaperSize) -> ^glib.Variant ---
+
+    @(link_name = "gtk_page_setup_get_type")
+    page_setup_get_type :: proc() -> gobj.Type ---
+
+    @(link_name = "gtk_page_setup_new")
+    page_setup_new :: proc() -> ^PageSetup ---
+
+    @(link_name = "gtk_page_setup_copy")
+    page_setup_copy :: proc(other: ^PageSetup) -> ^PageSetup ---
+
+    @(link_name = "gtk_page_setup_get_orientation")
+    page_setup_get_orientation :: proc(setup: ^PageSetup) -> PageOrientation ---
+
+    @(link_name = "gtk_page_setup_set_orientation")
+    page_setup_set_orientation :: proc(setup: ^PageSetup, orientation: PageOrientation) ---
+
+    @(link_name = "gtk_page_setup_get_paper_size")
+    page_setup_get_paper_size :: proc(setup: ^PageSetup) -> ^PaperSize ---
+
+    @(link_name = "gtk_page_setup_set_paper_size")
+    page_setup_set_paper_size :: proc(setup: ^PageSetup, size_p: ^PaperSize) ---
+
+    @(link_name = "gtk_page_setup_get_top_margin")
+    page_setup_get_top_margin :: proc(setup: ^PageSetup, unit: Unit) -> f64 ---
+
+    @(link_name = "gtk_page_setup_set_top_margin")
+    page_setup_set_top_margin :: proc(setup: ^PageSetup, margin: f64, unit: Unit) ---
+
+    @(link_name = "gtk_page_setup_get_bottom_margin")
+    page_setup_get_bottom_margin :: proc(setup: ^PageSetup, unit: Unit) -> f64 ---
+
+    @(link_name = "gtk_page_setup_set_bottom_margin")
+    page_setup_set_bottom_margin :: proc(setup: ^PageSetup, margin: f64, unit: Unit) ---
+
+    @(link_name = "gtk_page_setup_get_left_margin")
+    page_setup_get_left_margin :: proc(setup: ^PageSetup, unit: Unit) -> f64 ---
+
+    @(link_name = "gtk_page_setup_set_left_margin")
+    page_setup_set_left_margin :: proc(setup: ^PageSetup, margin: f64, unit: Unit) ---
+
+    @(link_name = "gtk_page_setup_get_right_margin")
+    page_setup_get_right_margin :: proc(setup: ^PageSetup, unit: Unit) -> f64 ---
+
+    @(link_name = "gtk_page_setup_set_right_margin")
+    page_setup_set_right_margin :: proc(setup: ^PageSetup, margin: f64, unit: Unit) ---
+
+    @(link_name = "gtk_page_setup_set_paper_size_and_default_margins")
+    page_setup_set_paper_size_and_default_margins :: proc(setup: ^PageSetup, size_p: ^PaperSize) ---
+
+    @(link_name = "gtk_page_setup_get_paper_width")
+    page_setup_get_paper_width :: proc(setup: ^PageSetup, unit: Unit) -> f64 ---
+
+    @(link_name = "gtk_page_setup_get_paper_height")
+    page_setup_get_paper_height :: proc(setup: ^PageSetup, unit: Unit) -> f64 ---
+
+    @(link_name = "gtk_page_setup_get_page_width")
+    page_setup_get_page_width :: proc(setup: ^PageSetup, unit: Unit) -> f64 ---
+
+    @(link_name = "gtk_page_setup_get_page_height")
+    page_setup_get_page_height :: proc(setup: ^PageSetup, unit: Unit) -> f64 ---
+
+    @(link_name = "gtk_page_setup_new_from_file")
+    page_setup_new_from_file :: proc(file_name: cstring, error: ^^glib.Error) -> ^PageSetup ---
+
+    @(link_name = "gtk_page_setup_load_file")
+    page_setup_load_file :: proc(setup: ^PageSetup, file_name: cstring, error: ^^glib.Error) -> glib.boolean ---
+
+    @(link_name = "gtk_page_setup_to_file")
+    page_setup_to_file :: proc(setup: ^PageSetup, file_name: cstring, error: ^^glib.Error) -> glib.boolean ---
+
+    @(link_name = "gtk_page_setup_new_from_key_file")
+    page_setup_new_from_key_file :: proc(key_file: ^glib.KeyFile, group_name: cstring, error: ^^glib.Error) -> ^PageSetup ---
+
+    @(link_name = "gtk_page_setup_load_key_file")
+    page_setup_load_key_file :: proc(setup: ^PageSetup, key_file: ^glib.KeyFile, group_name: cstring, error: ^^glib.Error) -> glib.boolean ---
+
+    @(link_name = "gtk_page_setup_to_key_file")
+    page_setup_to_key_file :: proc(setup: ^PageSetup, key_file: ^glib.KeyFile, group_name: cstring) ---
+
+    @(link_name = "gtk_page_setup_to_gvariant")
+    page_setup_to_gvariant :: proc(setup: ^PageSetup) -> ^glib.Variant ---
+
+    @(link_name = "gtk_page_setup_new_from_gvariant")
+    page_setup_new_from_gvariant :: proc(variant: ^glib.Variant) -> ^PageSetup ---
+
+    @(link_name = "gtk_paned_get_type")
+    paned_get_type :: proc() -> gobj.Type ---
+
+    @(link_name = "gtk_paned_new")
+    paned_new :: proc(orientation: Orientation) -> ^Widget ---
+
+    @(link_name = "gtk_paned_set_start_child")
+    paned_set_start_child :: proc(paned: ^Paned, child: ^Widget) ---
+
+    @(link_name = "gtk_paned_get_start_child")
+    paned_get_start_child :: proc(paned: ^Paned) -> ^Widget ---
+
+    @(link_name = "gtk_paned_set_resize_start_child")
+    paned_set_resize_start_child :: proc(paned: ^Paned, resize: glib.boolean) ---
+
+    @(link_name = "gtk_paned_get_resize_start_child")
+    paned_get_resize_start_child :: proc(paned: ^Paned) -> glib.boolean ---
+
+    @(link_name = "gtk_paned_set_end_child")
+    paned_set_end_child :: proc(paned: ^Paned, child: ^Widget) ---
+
+    @(link_name = "gtk_paned_get_end_child")
+    paned_get_end_child :: proc(paned: ^Paned) -> ^Widget ---
+
+    @(link_name = "gtk_paned_set_shrink_start_child")
+    paned_set_shrink_start_child :: proc(paned: ^Paned, resize: glib.boolean) ---
+
+    @(link_name = "gtk_paned_get_shrink_start_child")
+    paned_get_shrink_start_child :: proc(paned: ^Paned) -> glib.boolean ---
+
+    @(link_name = "gtk_paned_set_resize_end_child")
+    paned_set_resize_end_child :: proc(paned: ^Paned, resize: glib.boolean) ---
+
+    @(link_name = "gtk_paned_get_resize_end_child")
+    paned_get_resize_end_child :: proc(paned: ^Paned) -> glib.boolean ---
+
+    @(link_name = "gtk_paned_set_shrink_end_child")
+    paned_set_shrink_end_child :: proc(paned: ^Paned, resize: glib.boolean) ---
+
+    @(link_name = "gtk_paned_get_shrink_end_child")
+    paned_get_shrink_end_child :: proc(paned: ^Paned) -> glib.boolean ---
+
+    @(link_name = "gtk_paned_get_position")
+    paned_get_position :: proc(paned: ^Paned) -> i32 ---
+
+    @(link_name = "gtk_paned_set_position")
+    paned_set_position :: proc(paned: ^Paned, position: i32) ---
+
+    @(link_name = "gtk_paned_set_wide_handle")
+    paned_set_wide_handle :: proc(paned: ^Paned, wide: glib.boolean) ---
+
+    @(link_name = "gtk_paned_get_wide_handle")
+    paned_get_wide_handle :: proc(paned: ^Paned) -> glib.boolean ---
+
+    @(link_name = "gtk_password_entry_get_type")
+    password_entry_get_type :: proc() -> gobj.Type ---
+
+    @(link_name = "gtk_password_entry_new")
+    password_entry_new :: proc() -> ^Widget ---
+
+    @(link_name = "gtk_password_entry_set_show_peek_icon")
+    password_entry_set_show_peek_icon :: proc(entry: ^PasswordEntry, show_peek_icon: glib.boolean) ---
+
+    @(link_name = "gtk_password_entry_get_show_peek_icon")
+    password_entry_get_show_peek_icon :: proc(entry: ^PasswordEntry) -> glib.boolean ---
+
+    @(link_name = "gtk_password_entry_set_extra_menu")
+    password_entry_set_extra_menu :: proc(entry: ^PasswordEntry, model: ^gio.MenuModel) ---
+
+    @(link_name = "gtk_password_entry_get_extra_menu")
+    password_entry_get_extra_menu :: proc(entry: ^PasswordEntry) -> ^gio.MenuModel ---
+
+    @(link_name = "gtk_password_entry_buffer_get_type")
+    password_entry_buffer_get_type :: proc() -> gobj.Type ---
+
+    @(link_name = "gtk_password_entry_buffer_new")
+    password_entry_buffer_new :: proc() -> ^EntryBuffer ---
+
+    @(link_name = "gtk_picture_get_type")
+    picture_get_type :: proc() -> gobj.Type ---
+
+    @(link_name = "gtk_picture_new")
+    picture_new :: proc() -> ^Widget ---
+
+    @(link_name = "gtk_picture_new_for_paintable")
+    picture_new_for_paintable :: proc(paintable: ^Paintable) -> ^Widget ---
+
+    @(link_name = "gtk_picture_new_for_pixbuf")
+    picture_new_for_pixbuf :: proc(pixbuf: ^pixbuf.Pixbuf) -> ^Widget ---
+
+    @(link_name = "gtk_picture_new_for_file")
+    picture_new_for_file :: proc(file: ^gio.File) -> ^Widget ---
+
+    @(link_name = "gtk_picture_new_for_filename")
+    picture_new_for_filename :: proc(filename: cstring) -> ^Widget ---
+
+    @(link_name = "gtk_picture_new_for_resource")
+    picture_new_for_resource :: proc(resource_path: cstring) -> ^Widget ---
+
+    @(link_name = "gtk_picture_set_paintable")
+    picture_set_paintable :: proc(self: ^Picture, paintable: ^Paintable) ---
+
+    @(link_name = "gtk_picture_get_paintable")
+    picture_get_paintable :: proc(self: ^Picture) -> ^Paintable ---
+
+    @(link_name = "gtk_picture_set_file")
+    picture_set_file :: proc(self: ^Picture, file: ^gio.File) ---
+
+    @(link_name = "gtk_picture_get_file")
+    picture_get_file :: proc(self: ^Picture) -> ^gio.File ---
+
+    @(link_name = "gtk_picture_set_filename")
+    picture_set_filename :: proc(self: ^Picture, filename: cstring) ---
+
+    @(link_name = "gtk_picture_set_resource")
+    picture_set_resource :: proc(self: ^Picture, resource_path: cstring) ---
+
+    @(link_name = "gtk_picture_set_pixbuf")
+    picture_set_pixbuf :: proc(self: ^Picture, pixbuf: ^pixbuf.Pixbuf) ---
+
+    @(link_name = "gtk_picture_set_keep_aspect_ratio")
+    picture_set_keep_aspect_ratio :: proc(self: ^Picture, keep_aspect_ratio: glib.boolean) ---
+
+    @(link_name = "gtk_picture_get_keep_aspect_ratio")
+    picture_get_keep_aspect_ratio :: proc(self: ^Picture) -> glib.boolean ---
+
+    @(link_name = "gtk_picture_set_can_shrink")
+    picture_set_can_shrink :: proc(self: ^Picture, can_shrink: glib.boolean) ---
+
+    @(link_name = "gtk_picture_get_can_shrink")
+    picture_get_can_shrink :: proc(self: ^Picture) -> glib.boolean ---
+
+    @(link_name = "gtk_picture_set_content_fit")
+    picture_set_content_fit :: proc(self: ^Picture, content_fit: ContentFit) ---
+
+    @(link_name = "gtk_picture_get_content_fit")
+    picture_get_content_fit :: proc(self: ^Picture) -> ContentFit ---
+
+    @(link_name = "gtk_picture_set_alternative_text")
+    picture_set_alternative_text :: proc(self: ^Picture, alternative_text: cstring) ---
+
+    @(link_name = "gtk_picture_get_alternative_text")
+    picture_get_alternative_text :: proc(self: ^Picture) -> cstring ---
+
+    @(link_name = "gtk_popover_menu_get_type")
+    popover_menu_get_type :: proc() -> gobj.Type ---
+
+    @(link_name = "gtk_popover_menu_new_from_model")
+    popover_menu_new_from_model :: proc(model: ^gio.MenuModel) -> ^Widget ---
+
+    @(link_name = "gtk_popover_menu_new_from_model_full")
+    popover_menu_new_from_model_full :: proc(model: ^gio.MenuModel, flags: PopoverMenuFlags) -> ^Widget ---
+
+    @(link_name = "gtk_popover_menu_set_menu_model")
+    popover_menu_set_menu_model :: proc(popover: ^PopoverMenu, model: ^gio.MenuModel) ---
+
+    @(link_name = "gtk_popover_menu_get_menu_model")
+    popover_menu_get_menu_model :: proc(popover: ^PopoverMenu) -> ^gio.MenuModel ---
+
+    @(link_name = "gtk_popover_menu_set_flags")
+    popover_menu_set_flags :: proc(popover: ^PopoverMenu, flags: PopoverMenuFlags) ---
+
+    @(link_name = "gtk_popover_menu_get_flags")
+    popover_menu_get_flags :: proc(popover: ^PopoverMenu) -> PopoverMenuFlags ---
+
+    @(link_name = "gtk_popover_menu_add_child")
+    popover_menu_add_child :: proc(popover: ^PopoverMenu, child: ^Widget, id: cstring) -> glib.boolean ---
+
+    @(link_name = "gtk_popover_menu_remove_child")
+    popover_menu_remove_child :: proc(popover: ^PopoverMenu, child: ^Widget) -> glib.boolean ---
+
+    @(link_name = "gtk_popover_menu_bar_get_type")
+    popover_menu_bar_get_type :: proc() -> gobj.Type ---
+
+    @(link_name = "gtk_popover_menu_bar_new_from_model")
+    popover_menu_bar_new_from_model :: proc(model: ^gio.MenuModel) -> ^Widget ---
+
+    @(link_name = "gtk_popover_menu_bar_set_menu_model")
+    popover_menu_bar_set_menu_model :: proc(bar: ^PopoverMenuBar, model: ^gio.MenuModel) ---
+
+    @(link_name = "gtk_popover_menu_bar_get_menu_model")
+    popover_menu_bar_get_menu_model :: proc(bar: ^PopoverMenuBar) -> ^gio.MenuModel ---
+
+    @(link_name = "gtk_popover_menu_bar_add_child")
+    popover_menu_bar_add_child :: proc(bar: ^PopoverMenuBar, child: ^Widget, id: cstring) -> glib.boolean ---
+
+    @(link_name = "gtk_popover_menu_bar_remove_child")
+    popover_menu_bar_remove_child :: proc(bar: ^PopoverMenuBar, child: ^Widget) -> glib.boolean ---
+
+    @(link_name = "gtk_print_settings_get_type")
+    print_settings_get_type :: proc() -> gobj.Type ---
+
+    @(link_name = "gtk_print_settings_new")
+    print_settings_new :: proc() -> ^PrintSettings ---
+
+    @(link_name = "gtk_print_settings_copy")
+    print_settings_copy :: proc(other: ^PrintSettings) -> ^PrintSettings ---
+
+    @(link_name = "gtk_print_settings_new_from_file")
+    print_settings_new_from_file :: proc(file_name: cstring, error: ^^glib.Error) -> ^PrintSettings ---
+
+    @(link_name = "gtk_print_settings_load_file")
+    print_settings_load_file :: proc(settings: ^PrintSettings, file_name: cstring, error: ^^glib.Error) -> glib.boolean ---
+
+    @(link_name = "gtk_print_settings_to_file")
+    print_settings_to_file :: proc(settings: ^PrintSettings, file_name: cstring, error: ^^glib.Error) -> glib.boolean ---
+
+    @(link_name = "gtk_print_settings_new_from_key_file")
+    print_settings_new_from_key_file :: proc(key_file: ^glib.KeyFile, group_name: cstring, error: ^^glib.Error) -> ^PrintSettings ---
+
+    @(link_name = "gtk_print_settings_load_key_file")
+    print_settings_load_key_file :: proc(settings: ^PrintSettings, key_file: ^glib.KeyFile, group_name: cstring, error: ^^glib.Error) -> glib.boolean ---
+
+    @(link_name = "gtk_print_settings_to_key_file")
+    print_settings_to_key_file :: proc(settings: ^PrintSettings, key_file: ^glib.KeyFile, group_name: cstring) ---
+
+    @(link_name = "gtk_print_settings_has_key")
+    print_settings_has_key :: proc(settings: ^PrintSettings, key: cstring) -> glib.boolean ---
+
+    @(link_name = "gtk_print_settings_get")
+    print_settings_get :: proc(settings: ^PrintSettings, key: cstring) -> cstring ---
+
+    @(link_name = "gtk_print_settings_set")
+    print_settings_set :: proc(settings: ^PrintSettings, key: cstring, value: cstring) ---
+
+    @(link_name = "gtk_print_settings_unset")
+    print_settings_unset :: proc(settings: ^PrintSettings, key: cstring) ---
+
+    @(link_name = "gtk_print_settings_foreach")
+    print_settings_foreach :: proc(settings: ^PrintSettings, func: PrintSettingsFunc, user_data: glib.pointer) ---
+
+    @(link_name = "gtk_print_settings_get_bool")
+    print_settings_get_bool :: proc(settings: ^PrintSettings, key: cstring) -> glib.boolean ---
+
+    @(link_name = "gtk_print_settings_set_bool")
+    print_settings_set_bool :: proc(settings: ^PrintSettings, key: cstring, value: glib.boolean) ---
+
+    @(link_name = "gtk_print_settings_get_double")
+    print_settings_get_double :: proc(settings: ^PrintSettings, key: cstring) -> f64 ---
+
+    @(link_name = "gtk_print_settings_get_double_with_default")
+    print_settings_get_double_with_default :: proc(settings: ^PrintSettings, key: cstring, def: f64) -> f64 ---
+
+    @(link_name = "gtk_print_settings_set_double")
+    print_settings_set_double :: proc(settings: ^PrintSettings, key: cstring, value: f64) ---
+
+    @(link_name = "gtk_print_settings_get_length")
+    print_settings_get_length :: proc(settings: ^PrintSettings, key: cstring, unit: Unit) -> f64 ---
+
+    @(link_name = "gtk_print_settings_set_length")
+    print_settings_set_length :: proc(settings: ^PrintSettings, key: cstring, value: f64, unit: Unit) ---
+
+    @(link_name = "gtk_print_settings_get_int")
+    print_settings_get_int :: proc(settings: ^PrintSettings, key: cstring) -> i32 ---
+
+    @(link_name = "gtk_print_settings_get_int_with_default")
+    print_settings_get_int_with_default :: proc(settings: ^PrintSettings, key: cstring, def: i32) -> i32 ---
+
+    @(link_name = "gtk_print_settings_set_int")
+    print_settings_set_int :: proc(settings: ^PrintSettings, key: cstring, value: i32) ---
+
+    @(link_name = "gtk_print_settings_get_printer")
+    print_settings_get_printer :: proc(settings: ^PrintSettings) -> cstring ---
+
+    @(link_name = "gtk_print_settings_set_printer")
+    print_settings_set_printer :: proc(settings: ^PrintSettings, printer: cstring) ---
+
+    @(link_name = "gtk_print_settings_get_orientation")
+    print_settings_get_orientation :: proc(settings: ^PrintSettings) -> PageOrientation ---
+
+    @(link_name = "gtk_print_settings_set_orientation")
+    print_settings_set_orientation :: proc(settings: ^PrintSettings, orientation: PageOrientation) ---
+
+    @(link_name = "gtk_print_settings_get_paper_size")
+    print_settings_get_paper_size :: proc(settings: ^PrintSettings) -> ^PaperSize ---
+
+    @(link_name = "gtk_print_settings_set_paper_size")
+    print_settings_set_paper_size :: proc(settings: ^PrintSettings, paper_size: ^PaperSize) ---
+
+    @(link_name = "gtk_print_settings_get_paper_width")
+    print_settings_get_paper_width :: proc(settings: ^PrintSettings, unit: Unit) -> f64 ---
+
+    @(link_name = "gtk_print_settings_set_paper_width")
+    print_settings_set_paper_width :: proc(settings: ^PrintSettings, width: f64, unit: Unit) ---
+
+    @(link_name = "gtk_print_settings_get_paper_height")
+    print_settings_get_paper_height :: proc(settings: ^PrintSettings, unit: Unit) -> f64 ---
+
+    @(link_name = "gtk_print_settings_set_paper_height")
+    print_settings_set_paper_height :: proc(settings: ^PrintSettings, height: f64, unit: Unit) ---
+
+    @(link_name = "gtk_print_settings_get_use_color")
+    print_settings_get_use_color :: proc(settings: ^PrintSettings) -> glib.boolean ---
+
+    @(link_name = "gtk_print_settings_set_use_color")
+    print_settings_set_use_color :: proc(settings: ^PrintSettings, use_color: glib.boolean) ---
+
+    @(link_name = "gtk_print_settings_get_collate")
+    print_settings_get_collate :: proc(settings: ^PrintSettings) -> glib.boolean ---
+
+    @(link_name = "gtk_print_settings_set_collate")
+    print_settings_set_collate :: proc(settings: ^PrintSettings, collate: glib.boolean) ---
+
+    @(link_name = "gtk_print_settings_get_reverse")
+    print_settings_get_reverse :: proc(settings: ^PrintSettings) -> glib.boolean ---
+
+    @(link_name = "gtk_print_settings_set_reverse")
+    print_settings_set_reverse :: proc(settings: ^PrintSettings, reverse: glib.boolean) ---
+
+    @(link_name = "gtk_print_settings_get_duplex")
+    print_settings_get_duplex :: proc(settings: ^PrintSettings) -> PrintDuplex ---
+
+    @(link_name = "gtk_print_settings_set_duplex")
+    print_settings_set_duplex :: proc(settings: ^PrintSettings, duplex: PrintDuplex) ---
+
+    @(link_name = "gtk_print_settings_get_quality")
+    print_settings_get_quality :: proc(settings: ^PrintSettings) -> PrintQuality ---
+
+    @(link_name = "gtk_print_settings_set_quality")
+    print_settings_set_quality :: proc(settings: ^PrintSettings, quality: PrintQuality) ---
+
+    @(link_name = "gtk_print_settings_get_n_copies")
+    print_settings_get_n_copies :: proc(settings: ^PrintSettings) -> i32 ---
+
+    @(link_name = "gtk_print_settings_set_n_copies")
+    print_settings_set_n_copies :: proc(settings: ^PrintSettings, num_copies: i32) ---
+
+    @(link_name = "gtk_print_settings_get_number_up")
+    print_settings_get_number_up :: proc(settings: ^PrintSettings) -> i32 ---
+
+    @(link_name = "gtk_print_settings_set_number_up")
+    print_settings_set_number_up :: proc(settings: ^PrintSettings, number_up: i32) ---
+
+    @(link_name = "gtk_print_settings_get_number_up_layout")
+    print_settings_get_number_up_layout :: proc(settings: ^PrintSettings) -> NumberUpLayout ---
+
+    @(link_name = "gtk_print_settings_set_number_up_layout")
+    print_settings_set_number_up_layout :: proc(settings: ^PrintSettings, number_up_layout: NumberUpLayout) ---
+
+    @(link_name = "gtk_print_settings_get_resolution")
+    print_settings_get_resolution :: proc(settings: ^PrintSettings) -> i32 ---
+
+    @(link_name = "gtk_print_settings_set_resolution")
+    print_settings_set_resolution :: proc(settings: ^PrintSettings, resolution: i32) ---
+
+    @(link_name = "gtk_print_settings_get_resolution_x")
+    print_settings_get_resolution_x :: proc(settings: ^PrintSettings) -> i32 ---
+
+    @(link_name = "gtk_print_settings_get_resolution_y")
+    print_settings_get_resolution_y :: proc(settings: ^PrintSettings) -> i32 ---
+
+    @(link_name = "gtk_print_settings_set_resolution_xy")
+    print_settings_set_resolution_xy :: proc(settings: ^PrintSettings, resolution_x: i32, resolution_y: i32) ---
+
+    @(link_name = "gtk_print_settings_get_printer_lpi")
+    print_settings_get_printer_lpi :: proc(settings: ^PrintSettings) -> f64 ---
+
+    @(link_name = "gtk_print_settings_set_printer_lpi")
+    print_settings_set_printer_lpi :: proc(settings: ^PrintSettings, lpi: f64) ---
+
+    @(link_name = "gtk_print_settings_get_scale")
+    print_settings_get_scale :: proc(settings: ^PrintSettings) -> f64 ---
+
+    @(link_name = "gtk_print_settings_set_scale")
+    print_settings_set_scale :: proc(settings: ^PrintSettings, scale: f64) ---
+
+    @(link_name = "gtk_print_settings_get_print_pages")
+    print_settings_get_print_pages :: proc(settings: ^PrintSettings) -> PrintPages ---
+
+    @(link_name = "gtk_print_settings_set_print_pages")
+    print_settings_set_print_pages :: proc(settings: ^PrintSettings, pages: PrintPages) ---
+
+    @(link_name = "gtk_print_settings_get_page_ranges")
+    print_settings_get_page_ranges :: proc(settings: ^PrintSettings, num_ranges: ^i32) -> ^PageRange ---
+
+    @(link_name = "gtk_print_settings_set_page_ranges")
+    print_settings_set_page_ranges :: proc(settings: ^PrintSettings, page_ranges: [^]PageRange, num_ranges: i32) ---
+
+    @(link_name = "gtk_print_settings_get_page_set")
+    print_settings_get_page_set :: proc(settings: ^PrintSettings) -> PageSet ---
+
+    @(link_name = "gtk_print_settings_set_page_set")
+    print_settings_set_page_set :: proc(settings: ^PrintSettings, page_set: PageSet) ---
+
+    @(link_name = "gtk_print_settings_get_default_source")
+    print_settings_get_default_source :: proc(settings: ^PrintSettings) -> cstring ---
+
+    @(link_name = "gtk_print_settings_set_default_source")
+    print_settings_set_default_source :: proc(settings: ^PrintSettings, default_source: cstring) ---
+
+    @(link_name = "gtk_print_settings_get_media_type")
+    print_settings_get_media_type :: proc(settings: ^PrintSettings) -> cstring ---
+
+    @(link_name = "gtk_print_settings_set_media_type")
+    print_settings_set_media_type :: proc(settings: ^PrintSettings, media_type: cstring) ---
+
+    @(link_name = "gtk_print_settings_get_dither")
+    print_settings_get_dither :: proc(settings: ^PrintSettings) -> cstring ---
+
+    @(link_name = "gtk_print_settings_set_dither")
+    print_settings_set_dither :: proc(settings: ^PrintSettings, dither: cstring) ---
+
+    @(link_name = "gtk_print_settings_get_finishings")
+    print_settings_get_finishings :: proc(settings: ^PrintSettings) -> cstring ---
+
+    @(link_name = "gtk_print_settings_set_finishings")
+    print_settings_set_finishings :: proc(settings: ^PrintSettings, finishings: cstring) ---
+
+    @(link_name = "gtk_print_settings_get_output_bin")
+    print_settings_get_output_bin :: proc(settings: ^PrintSettings) -> cstring ---
+
+    @(link_name = "gtk_print_settings_set_output_bin")
+    print_settings_set_output_bin :: proc(settings: ^PrintSettings, output_bin: cstring) ---
+
+    @(link_name = "gtk_print_settings_to_gvariant")
+    print_settings_to_gvariant :: proc(settings: ^PrintSettings) -> ^glib.Variant ---
+
+    @(link_name = "gtk_print_settings_new_from_gvariant")
+    print_settings_new_from_gvariant :: proc(variant: ^glib.Variant) -> ^PrintSettings ---
+
+    @(link_name = "gtk_print_setup_get_type")
+    print_setup_get_type :: proc() -> gobj.Type ---
+
+    @(link_name = "gtk_print_setup_ref")
+    print_setup_ref :: proc(setup: ^PrintSetup) -> ^PrintSetup ---
+
+    @(link_name = "gtk_print_setup_unref")
+    print_setup_unref :: proc(setup: ^PrintSetup) ---
+
+    @(link_name = "gtk_print_setup_get_print_settings")
+    print_setup_get_print_settings :: proc(setup: ^PrintSetup) -> ^PrintSettings ---
+
+    @(link_name = "gtk_print_setup_get_page_setup")
+    print_setup_get_page_setup :: proc(setup: ^PrintSetup) -> ^PageSetup ---
+
+    @(link_name = "gtk_print_dialog_get_type")
+    print_dialog_get_type :: proc() -> gobj.Type ---
+
+    @(link_name = "gtk_print_dialog_new")
+    print_dialog_new :: proc() -> ^PrintDialog ---
+
+    @(link_name = "gtk_print_dialog_get_title")
+    print_dialog_get_title :: proc(self: ^PrintDialog) -> cstring ---
+
+    @(link_name = "gtk_print_dialog_set_title")
+    print_dialog_set_title :: proc(self: ^PrintDialog, title: cstring) ---
+
+    @(link_name = "gtk_print_dialog_get_accept_label")
+    print_dialog_get_accept_label :: proc(self: ^PrintDialog) -> cstring ---
+
+    @(link_name = "gtk_print_dialog_set_accept_label")
+    print_dialog_set_accept_label :: proc(self: ^PrintDialog, accept_label: cstring) ---
+
+    @(link_name = "gtk_print_dialog_get_modal")
+    print_dialog_get_modal :: proc(self: ^PrintDialog) -> glib.boolean ---
+
+    @(link_name = "gtk_print_dialog_set_modal")
+    print_dialog_set_modal :: proc(self: ^PrintDialog, modal: glib.boolean) ---
+
+    @(link_name = "gtk_print_dialog_get_page_setup")
+    print_dialog_get_page_setup :: proc(self: ^PrintDialog) -> ^PageSetup ---
+
+    @(link_name = "gtk_print_dialog_set_page_setup")
+    print_dialog_set_page_setup :: proc(self: ^PrintDialog, page_setup: ^PageSetup) ---
+
+    @(link_name = "gtk_print_dialog_get_print_settings")
+    print_dialog_get_print_settings :: proc(self: ^PrintDialog) -> ^PrintSettings ---
+
+    @(link_name = "gtk_print_dialog_set_print_settings")
+    print_dialog_set_print_settings :: proc(self: ^PrintDialog, print_settings: ^PrintSettings) ---
+
+    @(link_name = "gtk_print_dialog_setup")
+    print_dialog_setup :: proc(self: ^PrintDialog, parent: ^Window, cancellable: ^gio.Cancellable, callback: gio.AsyncReadyCallback, user_data: glib.pointer) ---
+
+    @(link_name = "gtk_print_dialog_setup_finish")
+    print_dialog_setup_finish :: proc(self: ^PrintDialog, result: ^gio.AsyncResult, error: ^^glib.Error) -> ^PrintSetup ---
+
+    @(link_name = "gtk_print_dialog_print")
+    print_dialog_print :: proc(self: ^PrintDialog, parent: ^Window, setup: ^PrintSetup, cancellable: ^gio.Cancellable, callback: gio.AsyncReadyCallback, user_data: glib.pointer) ---
+
+    @(link_name = "gtk_print_dialog_print_finish")
+    print_dialog_print_finish :: proc(self: ^PrintDialog, result: ^gio.AsyncResult, error: ^^glib.Error) -> ^gio.OutputStream ---
+
+    @(link_name = "gtk_print_dialog_print_file")
+    print_dialog_print_file :: proc(self: ^PrintDialog, parent: ^Window, setup: ^PrintSetup, file: ^gio.File, cancellable: ^gio.Cancellable, callback: gio.AsyncReadyCallback, user_data: glib.pointer) ---
+
+    @(link_name = "gtk_print_dialog_print_file_finish")
+    print_dialog_print_file_finish :: proc(self: ^PrintDialog, result: ^gio.AsyncResult, error: ^^glib.Error) -> glib.boolean ---
+
+    @(link_name = "gtk_print_context_get_type")
+    print_context_get_type :: proc() -> gobj.Type ---
+
+    @(link_name = "gtk_print_context_get_cairo_context")
+    print_context_get_cairo_context :: proc(context_p: ^PrintContext) -> ^cairo.context_t ---
+
+    @(link_name = "gtk_print_context_get_page_setup")
+    print_context_get_page_setup :: proc(context_p: ^PrintContext) -> ^PageSetup ---
+
+    @(link_name = "gtk_print_context_get_width")
+    print_context_get_width :: proc(context_p: ^PrintContext) -> f64 ---
+
+    @(link_name = "gtk_print_context_get_height")
+    print_context_get_height :: proc(context_p: ^PrintContext) -> f64 ---
+
+    @(link_name = "gtk_print_context_get_dpi_x")
+    print_context_get_dpi_x :: proc(context_p: ^PrintContext) -> f64 ---
+
+    @(link_name = "gtk_print_context_get_dpi_y")
+    print_context_get_dpi_y :: proc(context_p: ^PrintContext) -> f64 ---
+
+    @(link_name = "gtk_print_context_get_hard_margins")
+    print_context_get_hard_margins :: proc(context_p: ^PrintContext, top: ^f64, bottom: ^f64, left: ^f64, right: ^f64) -> glib.boolean ---
+
+    @(link_name = "gtk_print_context_get_pango_fontmap")
+    print_context_get_pango_fontmap :: proc(context_p: ^PrintContext) -> ^pango.FontMap ---
+
+    @(link_name = "gtk_print_context_create_pango_context")
+    print_context_create_pango_context :: proc(context_p: ^PrintContext) -> ^pango.Context ---
+
+    @(link_name = "gtk_print_context_create_pango_layout")
+    print_context_create_pango_layout :: proc(context_p: ^PrintContext) -> ^pango.Layout ---
+
+    @(link_name = "gtk_print_context_set_cairo_context")
+    print_context_set_cairo_context :: proc(context_p: ^PrintContext, cr: ^cairo.context_t, dpi_x: f64, dpi_y: f64) ---
+
+    @(link_name = "gtk_print_operation_preview_get_type")
+    print_operation_preview_get_type :: proc() -> gobj.Type ---
+
+    @(link_name = "gtk_print_operation_preview_render_page")
+    print_operation_preview_render_page :: proc(preview: ^PrintOperationPreview, page_nr: i32) ---
+
+    @(link_name = "gtk_print_operation_preview_end_preview")
+    print_operation_preview_end_preview :: proc(preview: ^PrintOperationPreview) ---
+
+    @(link_name = "gtk_print_operation_preview_is_selected")
+    print_operation_preview_is_selected :: proc(preview: ^PrintOperationPreview, page_nr: i32) -> glib.boolean ---
+
+    @(link_name = "gtk_print_error_quark")
+    print_error_quark :: proc() -> glib.Quark ---
+
+    @(link_name = "gtk_print_operation_get_type")
+    print_operation_get_type :: proc() -> gobj.Type ---
+
+    @(link_name = "gtk_print_operation_new")
+    print_operation_new :: proc() -> ^PrintOperation ---
+
+    @(link_name = "gtk_print_operation_set_default_page_setup")
+    print_operation_set_default_page_setup :: proc(op: ^PrintOperation, default_page_setup: ^PageSetup) ---
+
+    @(link_name = "gtk_print_operation_get_default_page_setup")
+    print_operation_get_default_page_setup :: proc(op: ^PrintOperation) -> ^PageSetup ---
+
+    @(link_name = "gtk_print_operation_set_print_settings")
+    print_operation_set_print_settings :: proc(op: ^PrintOperation, print_settings: ^PrintSettings) ---
+
+    @(link_name = "gtk_print_operation_get_print_settings")
+    print_operation_get_print_settings :: proc(op: ^PrintOperation) -> ^PrintSettings ---
+
+    @(link_name = "gtk_print_operation_set_job_name")
+    print_operation_set_job_name :: proc(op: ^PrintOperation, job_name: cstring) ---
+
+    @(link_name = "gtk_print_operation_set_n_pages")
+    print_operation_set_n_pages :: proc(op: ^PrintOperation, n_pages: i32) ---
+
+    @(link_name = "gtk_print_operation_set_current_page")
+    print_operation_set_current_page :: proc(op: ^PrintOperation, current_page: i32) ---
+
+    @(link_name = "gtk_print_operation_set_use_full_page")
+    print_operation_set_use_full_page :: proc(op: ^PrintOperation, full_page: glib.boolean) ---
+
+    @(link_name = "gtk_print_operation_set_unit")
+    print_operation_set_unit :: proc(op: ^PrintOperation, unit: Unit) ---
+
+    @(link_name = "gtk_print_operation_set_export_filename")
+    print_operation_set_export_filename :: proc(op: ^PrintOperation, filename: cstring) ---
+
+    @(link_name = "gtk_print_operation_set_track_print_status")
+    print_operation_set_track_print_status :: proc(op: ^PrintOperation, track_status: glib.boolean) ---
+
+    @(link_name = "gtk_print_operation_set_show_progress")
+    print_operation_set_show_progress :: proc(op: ^PrintOperation, show_progress: glib.boolean) ---
+
+    @(link_name = "gtk_print_operation_set_allow_async")
+    print_operation_set_allow_async :: proc(op: ^PrintOperation, allow_async: glib.boolean) ---
+
+    @(link_name = "gtk_print_operation_set_custom_tab_label")
+    print_operation_set_custom_tab_label :: proc(op: ^PrintOperation, label: cstring) ---
+
+    @(link_name = "gtk_print_operation_run")
+    print_operation_run :: proc(op: ^PrintOperation, action: PrintOperationAction, parent: ^Window, error: ^^glib.Error) -> PrintOperationResult ---
+
+    @(link_name = "gtk_print_operation_get_error")
+    print_operation_get_error :: proc(op: ^PrintOperation, error: ^^glib.Error) ---
+
+    @(link_name = "gtk_print_operation_get_status")
+    print_operation_get_status :: proc(op: ^PrintOperation) -> PrintStatus ---
+
+    @(link_name = "gtk_print_operation_get_status_string")
+    print_operation_get_status_string :: proc(op: ^PrintOperation) -> cstring ---
+
+    @(link_name = "gtk_print_operation_is_finished")
+    print_operation_is_finished :: proc(op: ^PrintOperation) -> glib.boolean ---
+
+    @(link_name = "gtk_print_operation_cancel")
+    print_operation_cancel :: proc(op: ^PrintOperation) ---
+
+    @(link_name = "gtk_print_operation_draw_page_finish")
+    print_operation_draw_page_finish :: proc(op: ^PrintOperation) ---
+
+    @(link_name = "gtk_print_operation_set_defer_drawing")
+    print_operation_set_defer_drawing :: proc(op: ^PrintOperation) ---
+
+    @(link_name = "gtk_print_operation_set_support_selection")
+    print_operation_set_support_selection :: proc(op: ^PrintOperation, support_selection: glib.boolean) ---
+
+    @(link_name = "gtk_print_operation_get_support_selection")
+    print_operation_get_support_selection :: proc(op: ^PrintOperation) -> glib.boolean ---
+
+    @(link_name = "gtk_print_operation_set_has_selection")
+    print_operation_set_has_selection :: proc(op: ^PrintOperation, has_selection: glib.boolean) ---
+
+    @(link_name = "gtk_print_operation_get_has_selection")
+    print_operation_get_has_selection :: proc(op: ^PrintOperation) -> glib.boolean ---
+
+    @(link_name = "gtk_print_operation_set_embed_page_setup")
+    print_operation_set_embed_page_setup :: proc(op: ^PrintOperation, embed: glib.boolean) ---
+
+    @(link_name = "gtk_print_operation_get_embed_page_setup")
+    print_operation_get_embed_page_setup :: proc(op: ^PrintOperation) -> glib.boolean ---
+
+    @(link_name = "gtk_print_operation_get_n_pages_to_print")
+    print_operation_get_n_pages_to_print :: proc(op: ^PrintOperation) -> i32 ---
+
+    @(link_name = "gtk_print_run_page_setup_dialog")
+    print_run_page_setup_dialog :: proc(parent: ^Window, page_setup: ^PageSetup, settings: ^PrintSettings) -> ^PageSetup ---
+
+    @(link_name = "gtk_print_run_page_setup_dialog_async")
+    print_run_page_setup_dialog_async :: proc(parent: ^Window, page_setup: ^PageSetup, settings: ^PrintSettings, done_cb: PageSetupDoneFunc, data: glib.pointer) ---
+
+    @(link_name = "gtk_progress_bar_get_type")
+    progress_bar_get_type :: proc() -> gobj.Type ---
+
+    @(link_name = "gtk_progress_bar_new")
+    progress_bar_new :: proc() -> ^Widget ---
+
+    @(link_name = "gtk_progress_bar_pulse")
+    progress_bar_pulse :: proc(pbar: ^ProgressBar) ---
+
+    @(link_name = "gtk_progress_bar_set_text")
+    progress_bar_set_text :: proc(pbar: ^ProgressBar, text: cstring) ---
+
+    @(link_name = "gtk_progress_bar_set_fraction")
+    progress_bar_set_fraction :: proc(pbar: ^ProgressBar, fraction: f64) ---
+
+    @(link_name = "gtk_progress_bar_set_pulse_step")
+    progress_bar_set_pulse_step :: proc(pbar: ^ProgressBar, fraction: f64) ---
+
+    @(link_name = "gtk_progress_bar_set_inverted")
+    progress_bar_set_inverted :: proc(pbar: ^ProgressBar, inverted: glib.boolean) ---
+
+    @(link_name = "gtk_progress_bar_get_text")
+    progress_bar_get_text :: proc(pbar: ^ProgressBar) -> cstring ---
+
+    @(link_name = "gtk_progress_bar_get_fraction")
+    progress_bar_get_fraction :: proc(pbar: ^ProgressBar) -> f64 ---
+
+    @(link_name = "gtk_progress_bar_get_pulse_step")
+    progress_bar_get_pulse_step :: proc(pbar: ^ProgressBar) -> f64 ---
+
+    @(link_name = "gtk_progress_bar_get_inverted")
+    progress_bar_get_inverted :: proc(pbar: ^ProgressBar) -> glib.boolean ---
+
+    @(link_name = "gtk_progress_bar_set_ellipsize")
+    progress_bar_set_ellipsize :: proc(pbar: ^ProgressBar, mode: pango.EllipsizeMode) ---
+
+    @(link_name = "gtk_progress_bar_get_ellipsize")
+    progress_bar_get_ellipsize :: proc(pbar: ^ProgressBar) -> pango.EllipsizeMode ---
+
+    @(link_name = "gtk_progress_bar_set_show_text")
+    progress_bar_set_show_text :: proc(pbar: ^ProgressBar, show_text: glib.boolean) ---
+
+    @(link_name = "gtk_progress_bar_get_show_text")
+    progress_bar_get_show_text :: proc(pbar: ^ProgressBar) -> glib.boolean ---
+
+    @(link_name = "gtk_range_get_type")
+    range_get_type :: proc() -> gobj.Type ---
+
+    @(link_name = "gtk_range_set_adjustment")
+    range_set_adjustment :: proc(range: ^Range, adjustment: ^Adjustment) ---
+
+    @(link_name = "gtk_range_get_adjustment")
+    range_get_adjustment :: proc(range: ^Range) -> ^Adjustment ---
+
+    @(link_name = "gtk_range_set_inverted")
+    range_set_inverted :: proc(range: ^Range, setting: glib.boolean) ---
+
+    @(link_name = "gtk_range_get_inverted")
+    range_get_inverted :: proc(range: ^Range) -> glib.boolean ---
+
+    @(link_name = "gtk_range_set_flippable")
+    range_set_flippable :: proc(range: ^Range, flippable: glib.boolean) ---
+
+    @(link_name = "gtk_range_get_flippable")
+    range_get_flippable :: proc(range: ^Range) -> glib.boolean ---
+
+    @(link_name = "gtk_range_set_slider_size_fixed")
+    range_set_slider_size_fixed :: proc(range: ^Range, size_fixed: glib.boolean) ---
+
+    @(link_name = "gtk_range_get_slider_size_fixed")
+    range_get_slider_size_fixed :: proc(range: ^Range) -> glib.boolean ---
+
+    @(link_name = "gtk_range_get_range_rect")
+    range_get_range_rect :: proc(range: ^Range, range_rect: ^Rectangle) ---
+
+    @(link_name = "gtk_range_get_slider_range")
+    range_get_slider_range :: proc(range: ^Range, slider_start: ^i32, slider_end: ^i32) ---
+
+    @(link_name = "gtk_range_set_increments")
+    range_set_increments :: proc(range: ^Range, step: f64, page: f64) ---
+
+    @(link_name = "gtk_range_set_range")
+    range_set_range :: proc(range: ^Range, min: f64, max: f64) ---
+
+    @(link_name = "gtk_range_set_value")
+    range_set_value :: proc(range: ^Range, value: f64) ---
+
+    @(link_name = "gtk_range_get_value")
+    range_get_value :: proc(range: ^Range) -> f64 ---
+
+    @(link_name = "gtk_range_set_show_fill_level")
+    range_set_show_fill_level :: proc(range: ^Range, show_fill_level: glib.boolean) ---
+
+    @(link_name = "gtk_range_get_show_fill_level")
+    range_get_show_fill_level :: proc(range: ^Range) -> glib.boolean ---
+
+    @(link_name = "gtk_range_set_restrict_to_fill_level")
+    range_set_restrict_to_fill_level :: proc(range: ^Range, restrict_to_fill_level: glib.boolean) ---
+
+    @(link_name = "gtk_range_get_restrict_to_fill_level")
+    range_get_restrict_to_fill_level :: proc(range: ^Range) -> glib.boolean ---
+
+    @(link_name = "gtk_range_set_fill_level")
+    range_set_fill_level :: proc(range: ^Range, fill_level: f64) ---
+
+    @(link_name = "gtk_range_get_fill_level")
+    range_get_fill_level :: proc(range: ^Range) -> f64 ---
+
+    @(link_name = "gtk_range_set_round_digits")
+    range_set_round_digits :: proc(range: ^Range, round_digits: i32) ---
+
+    @(link_name = "gtk_range_get_round_digits")
+    range_get_round_digits :: proc(range: ^Range) -> i32 ---
+
+    @(link_name = "gtk_recent_manager_error_quark")
+    recent_manager_error_quark :: proc() -> glib.Quark ---
+
+    @(link_name = "gtk_recent_manager_get_type")
+    recent_manager_get_type :: proc() -> gobj.Type ---
+
+    @(link_name = "gtk_recent_manager_new")
+    recent_manager_new :: proc() -> ^RecentManager ---
+
+    @(link_name = "gtk_recent_manager_get_default")
+    recent_manager_get_default :: proc() -> ^RecentManager ---
+
+    @(link_name = "gtk_recent_manager_add_item")
+    recent_manager_add_item :: proc(manager: ^RecentManager, uri: cstring) -> glib.boolean ---
+
+    @(link_name = "gtk_recent_manager_add_full")
+    recent_manager_add_full :: proc(manager: ^RecentManager, uri: cstring, recent_data: ^RecentData) -> glib.boolean ---
+
+    @(link_name = "gtk_recent_manager_remove_item")
+    recent_manager_remove_item :: proc(manager: ^RecentManager, uri: cstring, error: ^^glib.Error) -> glib.boolean ---
+
+    @(link_name = "gtk_recent_manager_lookup_item")
+    recent_manager_lookup_item :: proc(manager: ^RecentManager, uri: cstring, error: ^^glib.Error) -> ^RecentInfo ---
+
+    @(link_name = "gtk_recent_manager_has_item")
+    recent_manager_has_item :: proc(manager: ^RecentManager, uri: cstring) -> glib.boolean ---
+
+    @(link_name = "gtk_recent_manager_move_item")
+    recent_manager_move_item :: proc(manager: ^RecentManager, uri: cstring, new_uri: cstring, error: ^^glib.Error) -> glib.boolean ---
+
+    @(link_name = "gtk_recent_manager_get_items")
+    recent_manager_get_items :: proc(manager: ^RecentManager) -> ^glib.List ---
+
+    @(link_name = "gtk_recent_manager_purge_items")
+    recent_manager_purge_items :: proc(manager: ^RecentManager, error: ^^glib.Error) -> i32 ---
+
+    @(link_name = "gtk_recent_info_get_type")
+    recent_info_get_type :: proc() -> gobj.Type ---
+
+    @(link_name = "gtk_recent_info_ref")
+    recent_info_ref :: proc(info: ^RecentInfo) -> ^RecentInfo ---
+
+    @(link_name = "gtk_recent_info_unref")
+    recent_info_unref :: proc(info: ^RecentInfo) ---
+
+    @(link_name = "gtk_recent_info_get_uri")
+    recent_info_get_uri :: proc(info: ^RecentInfo) -> cstring ---
+
+    @(link_name = "gtk_recent_info_get_display_name")
+    recent_info_get_display_name :: proc(info: ^RecentInfo) -> cstring ---
+
+    @(link_name = "gtk_recent_info_get_description")
+    recent_info_get_description :: proc(info: ^RecentInfo) -> cstring ---
+
+    @(link_name = "gtk_recent_info_get_mime_type")
+    recent_info_get_mime_type :: proc(info: ^RecentInfo) -> cstring ---
+
+    @(link_name = "gtk_recent_info_get_added")
+    recent_info_get_added :: proc(info: ^RecentInfo) -> ^glib.DateTime ---
+
+    @(link_name = "gtk_recent_info_get_modified")
+    recent_info_get_modified :: proc(info: ^RecentInfo) -> ^glib.DateTime ---
+
+    @(link_name = "gtk_recent_info_get_visited")
+    recent_info_get_visited :: proc(info: ^RecentInfo) -> ^glib.DateTime ---
+
+    @(link_name = "gtk_recent_info_get_private_hint")
+    recent_info_get_private_hint :: proc(info: ^RecentInfo) -> glib.boolean ---
+
+    @(link_name = "gtk_recent_info_get_application_info")
+    recent_info_get_application_info :: proc(info: ^RecentInfo, app_name: cstring, app_exec: ^cstring, count: ^glib.uint_, stamp: ^^glib.DateTime) -> glib.boolean ---
+
+    @(link_name = "gtk_recent_info_create_app_info")
+    recent_info_create_app_info :: proc(info: ^RecentInfo, app_name: cstring, error: ^^glib.Error) -> ^gio.AppInfo ---
+
+    @(link_name = "gtk_recent_info_get_applications")
+    recent_info_get_applications :: proc(info: ^RecentInfo, length: ^glib.size) -> ^cstring ---
+
+    @(link_name = "gtk_recent_info_last_application")
+    recent_info_last_application :: proc(info: ^RecentInfo) -> cstring ---
+
+    @(link_name = "gtk_recent_info_has_application")
+    recent_info_has_application :: proc(info: ^RecentInfo, app_name: cstring) -> glib.boolean ---
+
+    @(link_name = "gtk_recent_info_get_groups")
+    recent_info_get_groups :: proc(info: ^RecentInfo, length: ^glib.size) -> ^cstring ---
+
+    @(link_name = "gtk_recent_info_has_group")
+    recent_info_has_group :: proc(info: ^RecentInfo, group_name: cstring) -> glib.boolean ---
+
+    @(link_name = "gtk_recent_info_get_gicon")
+    recent_info_get_gicon :: proc(info: ^RecentInfo) -> ^gio.Icon ---
+
+    @(link_name = "gtk_recent_info_get_short_name")
+    recent_info_get_short_name :: proc(info: ^RecentInfo) -> cstring ---
+
+    @(link_name = "gtk_recent_info_get_uri_display")
+    recent_info_get_uri_display :: proc(info: ^RecentInfo) -> cstring ---
+
+    @(link_name = "gtk_recent_info_get_age")
+    recent_info_get_age :: proc(info: ^RecentInfo) -> i32 ---
+
+    @(link_name = "gtk_recent_info_is_local")
+    recent_info_is_local :: proc(info: ^RecentInfo) -> glib.boolean ---
+
+    @(link_name = "gtk_recent_info_exists")
+    recent_info_exists :: proc(info: ^RecentInfo) -> glib.boolean ---
+
+    @(link_name = "gtk_recent_info_match")
+    recent_info_match :: proc(info_a: ^RecentInfo, info_b: ^RecentInfo) -> glib.boolean ---
+
+    @(link_name = "_gtk_recent_manager_sync")
+    _gtk_recent_manager_sync :: proc() ---
+
+    @(link_name = "gtk_snapshot_get_type")
+    snapshot_get_type :: proc() -> gobj.Type ---
+
+    @(link_name = "gtk_snapshot_new")
+    snapshot_new :: proc() -> ^Snapshot ---
+
+    @(link_name = "gtk_snapshot_free_to_node")
+    snapshot_free_to_node :: proc(snapshot: ^Snapshot) -> ^RenderNode ---
+
+    @(link_name = "gtk_snapshot_free_to_paintable")
+    snapshot_free_to_paintable :: proc(snapshot: ^Snapshot, size_p: ^graphene.size_t) -> ^Paintable ---
+
+    @(link_name = "gtk_snapshot_to_node")
+    snapshot_to_node :: proc(snapshot: ^Snapshot) -> ^RenderNode ---
+
+    @(link_name = "gtk_snapshot_to_paintable")
+    snapshot_to_paintable :: proc(snapshot: ^Snapshot, size_p: ^graphene.size_t) -> ^Paintable ---
+
+    @(link_name = "gtk_snapshot_push_debug")
+    snapshot_push_debug :: proc(snapshot: ^Snapshot, message: cstring, #c_vararg var_args: ..any) ---
+
+    @(link_name = "gtk_snapshot_push_opacity")
+    snapshot_push_opacity :: proc(snapshot: ^Snapshot, opacity: f64) ---
+
+    @(link_name = "gtk_snapshot_push_blur")
+    snapshot_push_blur :: proc(snapshot: ^Snapshot, radius: f64) ---
+
+    @(link_name = "gtk_snapshot_push_color_matrix")
+    snapshot_push_color_matrix :: proc(snapshot: ^Snapshot, color_matrix: ^graphene.matrix_t, color_offset: ^graphene.vec4_t) ---
+
+    @(link_name = "gtk_snapshot_push_repeat")
+    snapshot_push_repeat :: proc(snapshot: ^Snapshot, bounds: ^graphene.rect_t, child_bounds: ^graphene.rect_t) ---
+
+    @(link_name = "gtk_snapshot_push_clip")
+    snapshot_push_clip :: proc(snapshot: ^Snapshot, bounds: ^graphene.rect_t) ---
+
+    @(link_name = "gtk_snapshot_push_rounded_clip")
+    snapshot_push_rounded_clip :: proc(snapshot: ^Snapshot, bounds: ^RoundedRect) ---
+
+    @(link_name = "gtk_snapshot_push_fill")
+    snapshot_push_fill :: proc(snapshot: ^Snapshot, path_p: ^Path, fill_rule: FillRule) ---
+
+    @(link_name = "gtk_snapshot_push_stroke")
+    snapshot_push_stroke :: proc(snapshot: ^Snapshot, path_p: ^Path, stroke: ^Stroke) ---
+
+    @(link_name = "gtk_snapshot_push_shadow")
+    snapshot_push_shadow :: proc(snapshot: ^Snapshot, shadow: ^Shadow, n_shadows: glib.size) ---
+
+    @(link_name = "gtk_snapshot_push_blend")
+    snapshot_push_blend :: proc(snapshot: ^Snapshot, blend_mode: BlendMode) ---
+
+    @(link_name = "gtk_snapshot_push_mask")
+    snapshot_push_mask :: proc(snapshot: ^Snapshot, mask_mode: MaskMode) ---
+
+    @(link_name = "gtk_snapshot_push_cross_fade")
+    snapshot_push_cross_fade :: proc(snapshot: ^Snapshot, progress: f64) ---
+
+    @(link_name = "gtk_snapshot_push_gl_shader")
+    snapshot_push_gl_shader :: proc(snapshot: ^Snapshot, shader: ^GLShader, bounds: ^graphene.rect_t, take_args: ^glib.Bytes) ---
+
+    @(link_name = "gtk_snapshot_gl_shader_pop_texture")
+    snapshot_gl_shader_pop_texture :: proc(snapshot: ^Snapshot) ---
+
+    @(link_name = "gtk_snapshot_pop")
+    snapshot_pop :: proc(snapshot: ^Snapshot) ---
+
+    @(link_name = "gtk_snapshot_save")
+    snapshot_save :: proc(snapshot: ^Snapshot) ---
+
+    @(link_name = "gtk_snapshot_restore")
+    snapshot_restore :: proc(snapshot: ^Snapshot) ---
+
+    @(link_name = "gtk_snapshot_transform")
+    snapshot_transform :: proc(snapshot: ^Snapshot, transform: ^Transform) ---
+
+    @(link_name = "gtk_snapshot_transform_matrix")
+    snapshot_transform_matrix :: proc(snapshot: ^Snapshot, matrix_p: ^graphene.matrix_t) ---
+
+    @(link_name = "gtk_snapshot_translate")
+    snapshot_translate :: proc(snapshot: ^Snapshot, point: ^graphene.point_t) ---
+
+    @(link_name = "gtk_snapshot_translate_3d")
+    snapshot_translate_3d :: proc(snapshot: ^Snapshot, point: ^graphene.point3d_t) ---
+
+    @(link_name = "gtk_snapshot_rotate")
+    snapshot_rotate :: proc(snapshot: ^Snapshot, angle: f32) ---
+
+    @(link_name = "gtk_snapshot_rotate_3d")
+    snapshot_rotate_3d :: proc(snapshot: ^Snapshot, angle: f32, axis: ^graphene.vec3_t) ---
+
+    @(link_name = "gtk_snapshot_scale")
+    snapshot_scale :: proc(snapshot: ^Snapshot, factor_x: f32, factor_y: f32) ---
+
+    @(link_name = "gtk_snapshot_scale_3d")
+    snapshot_scale_3d :: proc(snapshot: ^Snapshot, factor_x: f32, factor_y: f32, factor_z: f32) ---
+
+    @(link_name = "gtk_snapshot_perspective")
+    snapshot_perspective :: proc(snapshot: ^Snapshot, depth: f32) ---
+
+    @(link_name = "gtk_snapshot_append_node")
+    snapshot_append_node :: proc(snapshot: ^Snapshot, node: ^RenderNode) ---
+
+    @(link_name = "gtk_snapshot_append_cairo")
+    snapshot_append_cairo :: proc(snapshot: ^Snapshot, bounds: ^graphene.rect_t) -> ^cairo.context_t ---
+
+    @(link_name = "gtk_snapshot_append_texture")
+    snapshot_append_texture :: proc(snapshot: ^Snapshot, texture: ^Texture, bounds: ^graphene.rect_t) ---
+
+    @(link_name = "gtk_snapshot_append_scaled_texture")
+    snapshot_append_scaled_texture :: proc(snapshot: ^Snapshot, texture: ^Texture, filter: ScalingFilter, bounds: ^graphene.rect_t) ---
+
+    @(link_name = "gtk_snapshot_append_color")
+    snapshot_append_color :: proc(snapshot: ^Snapshot, color: ^RGBA, bounds: ^graphene.rect_t) ---
+
+    @(link_name = "gtk_snapshot_append_linear_gradient")
+    snapshot_append_linear_gradient :: proc(snapshot: ^Snapshot, bounds: ^graphene.rect_t, start_point: ^graphene.point_t, end_point: ^graphene.point_t, stops: [^]ColorStop, n_stops: glib.size) ---
+
+    @(link_name = "gtk_snapshot_append_repeating_linear_gradient")
+    snapshot_append_repeating_linear_gradient :: proc(snapshot: ^Snapshot, bounds: ^graphene.rect_t, start_point: ^graphene.point_t, end_point: ^graphene.point_t, stops: [^]ColorStop, n_stops: glib.size) ---
+
+    @(link_name = "gtk_snapshot_append_radial_gradient")
+    snapshot_append_radial_gradient :: proc(snapshot: ^Snapshot, bounds: ^graphene.rect_t, center: ^graphene.point_t, hradius: f32, vradius: f32, start: f32, end: f32, stops: [^]ColorStop, n_stops: glib.size) ---
+
+    @(link_name = "gtk_snapshot_append_repeating_radial_gradient")
+    snapshot_append_repeating_radial_gradient :: proc(snapshot: ^Snapshot, bounds: ^graphene.rect_t, center: ^graphene.point_t, hradius: f32, vradius: f32, start: f32, end: f32, stops: [^]ColorStop, n_stops: glib.size) ---
+
+    @(link_name = "gtk_snapshot_append_conic_gradient")
+    snapshot_append_conic_gradient :: proc(snapshot: ^Snapshot, bounds: ^graphene.rect_t, center: ^graphene.point_t, rotation: f32, stops: [^]ColorStop, n_stops: glib.size) ---
+
+    @(link_name = "gtk_snapshot_append_border")
+    snapshot_append_border :: proc(snapshot: ^Snapshot, outline: ^RoundedRect, border_width: ^[4]f32, border_color: ^[4]RGBA) ---
+
+    @(link_name = "gtk_snapshot_append_inset_shadow")
+    snapshot_append_inset_shadow :: proc(snapshot: ^Snapshot, outline: ^RoundedRect, color: ^RGBA, dx: f32, dy: f32, spread: f32, blur_radius: f32) ---
+
+    @(link_name = "gtk_snapshot_append_outset_shadow")
+    snapshot_append_outset_shadow :: proc(snapshot: ^Snapshot, outline: ^RoundedRect, color: ^RGBA, dx: f32, dy: f32, spread: f32, blur_radius: f32) ---
+
+    @(link_name = "gtk_snapshot_append_layout")
+    snapshot_append_layout :: proc(snapshot: ^Snapshot, layout: ^pango.Layout, color: ^RGBA) ---
+
+    @(link_name = "gtk_snapshot_append_fill")
+    snapshot_append_fill :: proc(snapshot: ^Snapshot, path_p: ^Path, fill_rule: FillRule, color: ^RGBA) ---
+
+    @(link_name = "gtk_snapshot_append_stroke")
+    snapshot_append_stroke :: proc(snapshot: ^Snapshot, path_p: ^Path, stroke: ^Stroke, color: ^RGBA) ---
+
+    @(link_name = "gtk_render_check")
+    render_check :: proc(context_p: ^StyleContext, cr: ^cairo.context_t, x: f64, y: f64, width: f64, height: f64) ---
+
+    @(link_name = "gtk_render_option")
+    render_option :: proc(context_p: ^StyleContext, cr: ^cairo.context_t, x: f64, y: f64, width: f64, height: f64) ---
+
+    @(link_name = "gtk_render_arrow")
+    render_arrow :: proc(context_p: ^StyleContext, cr: ^cairo.context_t, angle: f64, x: f64, y: f64, size_p: f64) ---
+
+    @(link_name = "gtk_render_background")
+    render_background :: proc(context_p: ^StyleContext, cr: ^cairo.context_t, x: f64, y: f64, width: f64, height: f64) ---
+
+    @(link_name = "gtk_render_frame")
+    render_frame :: proc(context_p: ^StyleContext, cr: ^cairo.context_t, x: f64, y: f64, width: f64, height: f64) ---
+
+    @(link_name = "gtk_render_expander")
+    render_expander :: proc(context_p: ^StyleContext, cr: ^cairo.context_t, x: f64, y: f64, width: f64, height: f64) ---
+
+    @(link_name = "gtk_render_focus")
+    render_focus :: proc(context_p: ^StyleContext, cr: ^cairo.context_t, x: f64, y: f64, width: f64, height: f64) ---
+
+    @(link_name = "gtk_render_layout")
+    render_layout :: proc(context_p: ^StyleContext, cr: ^cairo.context_t, x: f64, y: f64, layout: ^pango.Layout) ---
+
+    @(link_name = "gtk_render_line")
+    render_line :: proc(context_p: ^StyleContext, cr: ^cairo.context_t, x0: f64, y0: f64, x1: f64, y1: f64) ---
+
+    @(link_name = "gtk_render_handle")
+    render_handle :: proc(context_p: ^StyleContext, cr: ^cairo.context_t, x: f64, y: f64, width: f64, height: f64) ---
+
+    @(link_name = "gtk_render_activity")
+    render_activity :: proc(context_p: ^StyleContext, cr: ^cairo.context_t, x: f64, y: f64, width: f64, height: f64) ---
+
+    @(link_name = "gtk_render_icon")
+    render_icon :: proc(context_p: ^StyleContext, cr: ^cairo.context_t, texture: ^Texture, x: f64, y: f64) ---
+
+    @(link_name = "gtk_snapshot_render_background")
+    snapshot_render_background :: proc(snapshot: ^Snapshot, context_p: ^StyleContext, x: f64, y: f64, width: f64, height: f64) ---
+
+    @(link_name = "gtk_snapshot_render_frame")
+    snapshot_render_frame :: proc(snapshot: ^Snapshot, context_p: ^StyleContext, x: f64, y: f64, width: f64, height: f64) ---
+
+    @(link_name = "gtk_snapshot_render_focus")
+    snapshot_render_focus :: proc(snapshot: ^Snapshot, context_p: ^StyleContext, x: f64, y: f64, width: f64, height: f64) ---
+
+    @(link_name = "gtk_snapshot_render_layout")
+    snapshot_render_layout :: proc(snapshot: ^Snapshot, context_p: ^StyleContext, x: f64, y: f64, layout: ^pango.Layout) ---
+
+    @(link_name = "gtk_snapshot_render_insertion_cursor")
+    snapshot_render_insertion_cursor :: proc(snapshot: ^Snapshot, context_p: ^StyleContext, x: f64, y: f64, layout: ^pango.Layout, index: i32, direction: pango.Direction) ---
+
+    @(link_name = "gtk_revealer_get_type")
+    revealer_get_type :: proc() -> gobj.Type ---
+
+    @(link_name = "gtk_revealer_new")
+    revealer_new :: proc() -> ^Widget ---
+
+    @(link_name = "gtk_revealer_get_reveal_child")
+    revealer_get_reveal_child :: proc(revealer: ^Revealer) -> glib.boolean ---
+
+    @(link_name = "gtk_revealer_set_reveal_child")
+    revealer_set_reveal_child :: proc(revealer: ^Revealer, reveal_child: glib.boolean) ---
+
+    @(link_name = "gtk_revealer_get_child_revealed")
+    revealer_get_child_revealed :: proc(revealer: ^Revealer) -> glib.boolean ---
+
+    @(link_name = "gtk_revealer_get_transition_duration")
+    revealer_get_transition_duration :: proc(revealer: ^Revealer) -> glib.uint_ ---
+
+    @(link_name = "gtk_revealer_set_transition_duration")
+    revealer_set_transition_duration :: proc(revealer: ^Revealer, duration: glib.uint_) ---
+
+    @(link_name = "gtk_revealer_set_transition_type")
+    revealer_set_transition_type :: proc(revealer: ^Revealer, transition: RevealerTransitionType) ---
+
+    @(link_name = "gtk_revealer_get_transition_type")
+    revealer_get_transition_type :: proc(revealer: ^Revealer) -> RevealerTransitionType ---
+
+    @(link_name = "gtk_revealer_set_child")
+    revealer_set_child :: proc(revealer: ^Revealer, child: ^Widget) ---
+
+    @(link_name = "gtk_revealer_get_child")
+    revealer_get_child :: proc(revealer: ^Revealer) -> ^Widget ---
+
+    @(link_name = "gtk_root_get_type")
+    root_get_type :: proc() -> gobj.Type ---
+
+    @(link_name = "gtk_root_get_display")
+    root_get_display :: proc(self: ^Root) -> ^Display ---
+
+    @(link_name = "gtk_root_set_focus")
+    root_set_focus :: proc(self: ^Root, focus: ^Widget) ---
+
+    @(link_name = "gtk_root_get_focus")
+    root_get_focus :: proc(self: ^Root) -> ^Widget ---
+
+    @(link_name = "gtk_scale_get_type")
+    scale_get_type :: proc() -> gobj.Type ---
+
+    @(link_name = "gtk_scale_new")
+    scale_new :: proc(orientation: Orientation, adjustment: ^Adjustment) -> ^Widget ---
+
+    @(link_name = "gtk_scale_new_with_range")
+    scale_new_with_range :: proc(orientation: Orientation, min: f64, max: f64, step: f64) -> ^Widget ---
+
+    @(link_name = "gtk_scale_set_digits")
+    scale_set_digits :: proc(scale: ^Scale, digits: i32) ---
+
+    @(link_name = "gtk_scale_get_digits")
+    scale_get_digits :: proc(scale: ^Scale) -> i32 ---
+
+    @(link_name = "gtk_scale_set_draw_value")
+    scale_set_draw_value :: proc(scale: ^Scale, draw_value: glib.boolean) ---
+
+    @(link_name = "gtk_scale_get_draw_value")
+    scale_get_draw_value :: proc(scale: ^Scale) -> glib.boolean ---
+
+    @(link_name = "gtk_scale_set_has_origin")
+    scale_set_has_origin :: proc(scale: ^Scale, has_origin: glib.boolean) ---
+
+    @(link_name = "gtk_scale_get_has_origin")
+    scale_get_has_origin :: proc(scale: ^Scale) -> glib.boolean ---
+
+    @(link_name = "gtk_scale_set_value_pos")
+    scale_set_value_pos :: proc(scale: ^Scale, pos: PositionType) ---
+
+    @(link_name = "gtk_scale_get_value_pos")
+    scale_get_value_pos :: proc(scale: ^Scale) -> PositionType ---
+
+    @(link_name = "gtk_scale_get_layout")
+    scale_get_layout :: proc(scale: ^Scale) -> ^pango.Layout ---
+
+    @(link_name = "gtk_scale_get_layout_offsets")
+    scale_get_layout_offsets :: proc(scale: ^Scale, x: ^i32, y: ^i32) ---
+
+    @(link_name = "gtk_scale_add_mark")
+    scale_add_mark :: proc(scale: ^Scale, value: f64, position: PositionType, markup: cstring) ---
+
+    @(link_name = "gtk_scale_clear_marks")
+    scale_clear_marks :: proc(scale: ^Scale) ---
+
+    @(link_name = "gtk_scale_set_format_value_func")
+    scale_set_format_value_func :: proc(scale: ^Scale, func: ScaleFormatValueFunc, user_data: glib.pointer, destroy_notify: glib.DestroyNotify) ---
+
+    @(link_name = "gtk_scale_button_get_type")
+    scale_button_get_type :: proc() -> gobj.Type ---
+
+    @(link_name = "gtk_scale_button_new")
+    scale_button_new :: proc(min: f64, max: f64, step: f64, icons: [^]cstring) -> ^Widget ---
+
+    @(link_name = "gtk_scale_button_set_icons")
+    scale_button_set_icons :: proc(button: ^ScaleButton, icons: [^]cstring) ---
+
+    @(link_name = "gtk_scale_button_get_value")
+    scale_button_get_value :: proc(button: ^ScaleButton) -> f64 ---
+
+    @(link_name = "gtk_scale_button_set_value")
+    scale_button_set_value :: proc(button: ^ScaleButton, value: f64) ---
+
+    @(link_name = "gtk_scale_button_get_adjustment")
+    scale_button_get_adjustment :: proc(button: ^ScaleButton) -> ^Adjustment ---
+
+    @(link_name = "gtk_scale_button_set_adjustment")
+    scale_button_set_adjustment :: proc(button: ^ScaleButton, adjustment: ^Adjustment) ---
+
+    @(link_name = "gtk_scale_button_get_plus_button")
+    scale_button_get_plus_button :: proc(button: ^ScaleButton) -> ^Widget ---
+
+    @(link_name = "gtk_scale_button_get_minus_button")
+    scale_button_get_minus_button :: proc(button: ^ScaleButton) -> ^Widget ---
+
+    @(link_name = "gtk_scale_button_get_popup")
+    scale_button_get_popup :: proc(button: ^ScaleButton) -> ^Widget ---
+
+    @(link_name = "gtk_scale_button_get_active")
+    scale_button_get_active :: proc(button: ^ScaleButton) -> glib.boolean ---
+
+    @(link_name = "gtk_scale_button_get_has_frame")
+    scale_button_get_has_frame :: proc(button: ^ScaleButton) -> glib.boolean ---
+
+    @(link_name = "gtk_scale_button_set_has_frame")
+    scale_button_set_has_frame :: proc(button: ^ScaleButton, has_frame: glib.boolean) ---
+
+    @(link_name = "gtk_scrollable_get_type")
+    scrollable_get_type :: proc() -> gobj.Type ---
+
+    @(link_name = "gtk_scrollable_get_hadjustment")
+    scrollable_get_hadjustment :: proc(scrollable: ^Scrollable) -> ^Adjustment ---
+
+    @(link_name = "gtk_scrollable_set_hadjustment")
+    scrollable_set_hadjustment :: proc(scrollable: ^Scrollable, hadjustment: ^Adjustment) ---
+
+    @(link_name = "gtk_scrollable_get_vadjustment")
+    scrollable_get_vadjustment :: proc(scrollable: ^Scrollable) -> ^Adjustment ---
+
+    @(link_name = "gtk_scrollable_set_vadjustment")
+    scrollable_set_vadjustment :: proc(scrollable: ^Scrollable, vadjustment: ^Adjustment) ---
+
+    @(link_name = "gtk_scrollable_get_hscroll_policy")
+    scrollable_get_hscroll_policy :: proc(scrollable: ^Scrollable) -> ScrollablePolicy ---
+
+    @(link_name = "gtk_scrollable_set_hscroll_policy")
+    scrollable_set_hscroll_policy :: proc(scrollable: ^Scrollable, policy: ScrollablePolicy) ---
+
+    @(link_name = "gtk_scrollable_get_vscroll_policy")
+    scrollable_get_vscroll_policy :: proc(scrollable: ^Scrollable) -> ScrollablePolicy ---
+
+    @(link_name = "gtk_scrollable_set_vscroll_policy")
+    scrollable_set_vscroll_policy :: proc(scrollable: ^Scrollable, policy: ScrollablePolicy) ---
+
+    @(link_name = "gtk_scrollable_get_border")
+    scrollable_get_border :: proc(scrollable: ^Scrollable, border: ^Border) -> glib.boolean ---
+
+    @(link_name = "gtk_scrollbar_get_type")
+    scrollbar_get_type :: proc() -> gobj.Type ---
+
+    @(link_name = "gtk_scrollbar_new")
+    scrollbar_new :: proc(orientation: Orientation, adjustment: ^Adjustment) -> ^Widget ---
+
+    @(link_name = "gtk_scrollbar_set_adjustment")
+    scrollbar_set_adjustment :: proc(self: ^Scrollbar, adjustment: ^Adjustment) ---
+
+    @(link_name = "gtk_scrollbar_get_adjustment")
+    scrollbar_get_adjustment :: proc(self: ^Scrollbar) -> ^Adjustment ---
+
+    @(link_name = "gtk_scroll_info_get_type")
+    scroll_info_get_type :: proc() -> gobj.Type ---
+
+    @(link_name = "gtk_scroll_info_new")
+    scroll_info_new :: proc() -> ^ScrollInfo ---
+
+    @(link_name = "gtk_scroll_info_ref")
+    scroll_info_ref :: proc(self: ^ScrollInfo) -> ^ScrollInfo ---
+
+    @(link_name = "gtk_scroll_info_unref")
+    scroll_info_unref :: proc(self: ^ScrollInfo) ---
+
+    @(link_name = "gtk_scroll_info_set_enable_horizontal")
+    scroll_info_set_enable_horizontal :: proc(self: ^ScrollInfo, horizontal: glib.boolean) ---
+
+    @(link_name = "gtk_scroll_info_get_enable_horizontal")
+    scroll_info_get_enable_horizontal :: proc(self: ^ScrollInfo) -> glib.boolean ---
+
+    @(link_name = "gtk_scroll_info_set_enable_vertical")
+    scroll_info_set_enable_vertical :: proc(self: ^ScrollInfo, vertical: glib.boolean) ---
+
+    @(link_name = "gtk_scroll_info_get_enable_vertical")
+    scroll_info_get_enable_vertical :: proc(self: ^ScrollInfo) -> glib.boolean ---
+
+    @(link_name = "gtk_scrolled_window_get_type")
+    scrolled_window_get_type :: proc() -> gobj.Type ---
+
+    @(link_name = "gtk_scrolled_window_new")
+    scrolled_window_new :: proc() -> ^Widget ---
+
+    @(link_name = "gtk_scrolled_window_set_hadjustment")
+    scrolled_window_set_hadjustment :: proc(scrolled_window: ^ScrolledWindow, hadjustment: ^Adjustment) ---
+
+    @(link_name = "gtk_scrolled_window_set_vadjustment")
+    scrolled_window_set_vadjustment :: proc(scrolled_window: ^ScrolledWindow, vadjustment: ^Adjustment) ---
+
+    @(link_name = "gtk_scrolled_window_get_hadjustment")
+    scrolled_window_get_hadjustment :: proc(scrolled_window: ^ScrolledWindow) -> ^Adjustment ---
+
+    @(link_name = "gtk_scrolled_window_get_vadjustment")
+    scrolled_window_get_vadjustment :: proc(scrolled_window: ^ScrolledWindow) -> ^Adjustment ---
+
+    @(link_name = "gtk_scrolled_window_get_hscrollbar")
+    scrolled_window_get_hscrollbar :: proc(scrolled_window: ^ScrolledWindow) -> ^Widget ---
+
+    @(link_name = "gtk_scrolled_window_get_vscrollbar")
+    scrolled_window_get_vscrollbar :: proc(scrolled_window: ^ScrolledWindow) -> ^Widget ---
+
+    @(link_name = "gtk_scrolled_window_set_policy")
+    scrolled_window_set_policy :: proc(scrolled_window: ^ScrolledWindow, hscrollbar_policy: PolicyType, vscrollbar_policy: PolicyType) ---
+
+    @(link_name = "gtk_scrolled_window_get_policy")
+    scrolled_window_get_policy :: proc(scrolled_window: ^ScrolledWindow, hscrollbar_policy: ^PolicyType, vscrollbar_policy: ^PolicyType) ---
+
+    @(link_name = "gtk_scrolled_window_set_placement")
+    scrolled_window_set_placement :: proc(scrolled_window: ^ScrolledWindow, window_placement: CornerType) ---
+
+    @(link_name = "gtk_scrolled_window_unset_placement")
+    scrolled_window_unset_placement :: proc(scrolled_window: ^ScrolledWindow) ---
+
+    @(link_name = "gtk_scrolled_window_get_placement")
+    scrolled_window_get_placement :: proc(scrolled_window: ^ScrolledWindow) -> CornerType ---
+
+    @(link_name = "gtk_scrolled_window_set_has_frame")
+    scrolled_window_set_has_frame :: proc(scrolled_window: ^ScrolledWindow, has_frame: glib.boolean) ---
+
+    @(link_name = "gtk_scrolled_window_get_has_frame")
+    scrolled_window_get_has_frame :: proc(scrolled_window: ^ScrolledWindow) -> glib.boolean ---
+
+    @(link_name = "gtk_scrolled_window_get_min_content_width")
+    scrolled_window_get_min_content_width :: proc(scrolled_window: ^ScrolledWindow) -> i32 ---
+
+    @(link_name = "gtk_scrolled_window_set_min_content_width")
+    scrolled_window_set_min_content_width :: proc(scrolled_window: ^ScrolledWindow, width: i32) ---
+
+    @(link_name = "gtk_scrolled_window_get_min_content_height")
+    scrolled_window_get_min_content_height :: proc(scrolled_window: ^ScrolledWindow) -> i32 ---
+
+    @(link_name = "gtk_scrolled_window_set_min_content_height")
+    scrolled_window_set_min_content_height :: proc(scrolled_window: ^ScrolledWindow, height: i32) ---
+
+    @(link_name = "gtk_scrolled_window_set_kinetic_scrolling")
+    scrolled_window_set_kinetic_scrolling :: proc(scrolled_window: ^ScrolledWindow, kinetic_scrolling: glib.boolean) ---
+
+    @(link_name = "gtk_scrolled_window_get_kinetic_scrolling")
+    scrolled_window_get_kinetic_scrolling :: proc(scrolled_window: ^ScrolledWindow) -> glib.boolean ---
+
+    @(link_name = "gtk_scrolled_window_set_overlay_scrolling")
+    scrolled_window_set_overlay_scrolling :: proc(scrolled_window: ^ScrolledWindow, overlay_scrolling: glib.boolean) ---
+
+    @(link_name = "gtk_scrolled_window_get_overlay_scrolling")
+    scrolled_window_get_overlay_scrolling :: proc(scrolled_window: ^ScrolledWindow) -> glib.boolean ---
+
+    @(link_name = "gtk_scrolled_window_set_max_content_width")
+    scrolled_window_set_max_content_width :: proc(scrolled_window: ^ScrolledWindow, width: i32) ---
+
+    @(link_name = "gtk_scrolled_window_get_max_content_width")
+    scrolled_window_get_max_content_width :: proc(scrolled_window: ^ScrolledWindow) -> i32 ---
+
+    @(link_name = "gtk_scrolled_window_set_max_content_height")
+    scrolled_window_set_max_content_height :: proc(scrolled_window: ^ScrolledWindow, height: i32) ---
+
+    @(link_name = "gtk_scrolled_window_get_max_content_height")
+    scrolled_window_get_max_content_height :: proc(scrolled_window: ^ScrolledWindow) -> i32 ---
+
+    @(link_name = "gtk_scrolled_window_set_propagate_natural_width")
+    scrolled_window_set_propagate_natural_width :: proc(scrolled_window: ^ScrolledWindow, propagate: glib.boolean) ---
+
+    @(link_name = "gtk_scrolled_window_get_propagate_natural_width")
+    scrolled_window_get_propagate_natural_width :: proc(scrolled_window: ^ScrolledWindow) -> glib.boolean ---
+
+    @(link_name = "gtk_scrolled_window_set_propagate_natural_height")
+    scrolled_window_set_propagate_natural_height :: proc(scrolled_window: ^ScrolledWindow, propagate: glib.boolean) ---
+
+    @(link_name = "gtk_scrolled_window_get_propagate_natural_height")
+    scrolled_window_get_propagate_natural_height :: proc(scrolled_window: ^ScrolledWindow) -> glib.boolean ---
+
+    @(link_name = "gtk_scrolled_window_set_child")
+    scrolled_window_set_child :: proc(scrolled_window: ^ScrolledWindow, child: ^Widget) ---
+
+    @(link_name = "gtk_scrolled_window_get_child")
+    scrolled_window_get_child :: proc(scrolled_window: ^ScrolledWindow) -> ^Widget ---
+
+    @(link_name = "gtk_search_bar_get_type")
+    search_bar_get_type :: proc() -> gobj.Type ---
+
+    @(link_name = "gtk_search_bar_new")
+    search_bar_new :: proc() -> ^Widget ---
+
+    @(link_name = "gtk_search_bar_connect_entry")
+    search_bar_connect_entry :: proc(bar: ^SearchBar, entry: ^Editable) ---
+
+    @(link_name = "gtk_search_bar_get_search_mode")
+    search_bar_get_search_mode :: proc(bar: ^SearchBar) -> glib.boolean ---
+
+    @(link_name = "gtk_search_bar_set_search_mode")
+    search_bar_set_search_mode :: proc(bar: ^SearchBar, search_mode: glib.boolean) ---
+
+    @(link_name = "gtk_search_bar_get_show_close_button")
+    search_bar_get_show_close_button :: proc(bar: ^SearchBar) -> glib.boolean ---
+
+    @(link_name = "gtk_search_bar_set_show_close_button")
+    search_bar_set_show_close_button :: proc(bar: ^SearchBar, visible: glib.boolean) ---
+
+    @(link_name = "gtk_search_bar_set_key_capture_widget")
+    search_bar_set_key_capture_widget :: proc(bar: ^SearchBar, widget: ^Widget) ---
+
+    @(link_name = "gtk_search_bar_get_key_capture_widget")
+    search_bar_get_key_capture_widget :: proc(bar: ^SearchBar) -> ^Widget ---
+
+    @(link_name = "gtk_search_bar_set_child")
+    search_bar_set_child :: proc(bar: ^SearchBar, child: ^Widget) ---
+
+    @(link_name = "gtk_search_bar_get_child")
+    search_bar_get_child :: proc(bar: ^SearchBar) -> ^Widget ---
+
+    @(link_name = "gtk_search_entry_get_type")
+    search_entry_get_type :: proc() -> gobj.Type ---
+
+    @(link_name = "gtk_search_entry_new")
+    search_entry_new :: proc() -> ^Widget ---
+
+    @(link_name = "gtk_search_entry_set_key_capture_widget")
+    search_entry_set_key_capture_widget :: proc(entry: ^SearchEntry, widget: ^Widget) ---
+
+    @(link_name = "gtk_search_entry_get_key_capture_widget")
+    search_entry_get_key_capture_widget :: proc(entry: ^SearchEntry) -> ^Widget ---
+
+    @(link_name = "gtk_search_entry_set_search_delay")
+    search_entry_set_search_delay :: proc(entry: ^SearchEntry, delay: glib.uint_) ---
+
+    @(link_name = "gtk_search_entry_get_search_delay")
+    search_entry_get_search_delay :: proc(entry: ^SearchEntry) -> glib.uint_ ---
+
+    @(link_name = "gtk_search_entry_set_placeholder_text")
+    search_entry_set_placeholder_text :: proc(entry: ^SearchEntry, text: cstring) ---
+
+    @(link_name = "gtk_search_entry_get_placeholder_text")
+    search_entry_get_placeholder_text :: proc(entry: ^SearchEntry) -> cstring ---
+
+    @(link_name = "gtk_search_entry_set_input_purpose")
+    search_entry_set_input_purpose :: proc(entry: ^SearchEntry, purpose: InputPurpose) ---
+
+    @(link_name = "gtk_search_entry_get_input_purpose")
+    search_entry_get_input_purpose :: proc(entry: ^SearchEntry) -> InputPurpose ---
+
+    @(link_name = "gtk_search_entry_set_input_hints")
+    search_entry_set_input_hints :: proc(entry: ^SearchEntry, hints: InputHints) ---
+
+    @(link_name = "gtk_search_entry_get_input_hints")
+    search_entry_get_input_hints :: proc(entry: ^SearchEntry) -> InputHints ---
+
+    @(link_name = "gtk_section_model_get_type")
+    section_model_get_type :: proc() -> gobj.Type ---
+
+    @(link_name = "gtk_section_model_get_section")
+    section_model_get_section :: proc(self: ^SectionModel, position: glib.uint_, out_start: ^glib.uint_, out_end: ^glib.uint_) ---
+
+    @(link_name = "gtk_section_model_sections_changed")
+    section_model_sections_changed :: proc(self: ^SectionModel, position: glib.uint_, n_items: glib.uint_) ---
+
+    @(link_name = "gtk_selection_filter_model_get_type")
+    selection_filter_model_get_type :: proc() -> gobj.Type ---
+
+    @(link_name = "gtk_selection_filter_model_new")
+    selection_filter_model_new :: proc(model: ^SelectionModel) -> ^SelectionFilterModel ---
+
+    @(link_name = "gtk_selection_filter_model_set_model")
+    selection_filter_model_set_model :: proc(self: ^SelectionFilterModel, model: ^SelectionModel) ---
+
+    @(link_name = "gtk_selection_filter_model_get_model")
+    selection_filter_model_get_model :: proc(self: ^SelectionFilterModel) -> ^SelectionModel ---
+
+    @(link_name = "gtk_separator_get_type")
+    separator_get_type :: proc() -> gobj.Type ---
+
+    @(link_name = "gtk_separator_new")
+    separator_new :: proc(orientation: Orientation) -> ^Widget ---
+
+    @(link_name = "gtk_settings_get_type")
+    settings_get_type :: proc() -> gobj.Type ---
+
+    @(link_name = "gtk_settings_get_default")
+    settings_get_default :: proc() -> ^Settings ---
+
+    @(link_name = "gtk_settings_get_for_display")
+    settings_get_for_display :: proc(display: ^Display) -> ^Settings ---
+
+    @(link_name = "gtk_settings_reset_property")
+    settings_reset_property :: proc(settings: ^Settings, name: cstring) ---
+
+    @(link_name = "gtk_shortcut_controller_get_type")
+    shortcut_controller_get_type :: proc() -> gobj.Type ---
+
+    @(link_name = "gtk_shortcut_controller_new")
+    shortcut_controller_new :: proc() -> ^EventController ---
+
+    @(link_name = "gtk_shortcut_controller_new_for_model")
+    shortcut_controller_new_for_model :: proc(model: ^gio.ListModel) -> ^EventController ---
+
+    @(link_name = "gtk_shortcut_controller_set_mnemonics_modifiers")
+    shortcut_controller_set_mnemonics_modifiers :: proc(self: ^ShortcutController, modifiers: ModifierType) ---
+
+    @(link_name = "gtk_shortcut_controller_get_mnemonics_modifiers")
+    shortcut_controller_get_mnemonics_modifiers :: proc(self: ^ShortcutController) -> ModifierType ---
+
+    @(link_name = "gtk_shortcut_controller_set_scope")
+    shortcut_controller_set_scope :: proc(self: ^ShortcutController, scope: ShortcutScope) ---
+
+    @(link_name = "gtk_shortcut_controller_get_scope")
+    shortcut_controller_get_scope :: proc(self: ^ShortcutController) -> ShortcutScope ---
+
+    @(link_name = "gtk_shortcut_controller_add_shortcut")
+    shortcut_controller_add_shortcut :: proc(self: ^ShortcutController, shortcut: ^Shortcut) ---
+
+    @(link_name = "gtk_shortcut_controller_remove_shortcut")
+    shortcut_controller_remove_shortcut :: proc(self: ^ShortcutController, shortcut: ^Shortcut) ---
+
+    @(link_name = "gtk_shortcut_label_get_type")
+    shortcut_label_get_type :: proc() -> gobj.Type ---
+
+    @(link_name = "gtk_shortcut_label_new")
+    shortcut_label_new :: proc(accelerator: cstring) -> ^Widget ---
+
+    @(link_name = "gtk_shortcut_label_get_accelerator")
+    shortcut_label_get_accelerator :: proc(self: ^ShortcutLabel) -> cstring ---
+
+    @(link_name = "gtk_shortcut_label_set_accelerator")
+    shortcut_label_set_accelerator :: proc(self: ^ShortcutLabel, accelerator: cstring) ---
+
+    @(link_name = "gtk_shortcut_label_get_disabled_text")
+    shortcut_label_get_disabled_text :: proc(self: ^ShortcutLabel) -> cstring ---
+
+    @(link_name = "gtk_shortcut_label_set_disabled_text")
+    shortcut_label_set_disabled_text :: proc(self: ^ShortcutLabel, disabled_text: cstring) ---
+
+    @(link_name = "gtk_shortcut_manager_get_type")
+    shortcut_manager_get_type :: proc() -> gobj.Type ---
+
+    @(link_name = "gtk_shortcut_trigger_get_type")
+    shortcut_trigger_get_type :: proc() -> gobj.Type ---
+
+    @(link_name = "gtk_shortcut_trigger_parse_string")
+    shortcut_trigger_parse_string :: proc(string_p: cstring) -> ^ShortcutTrigger ---
+
+    @(link_name = "gtk_shortcut_trigger_to_string")
+    shortcut_trigger_to_string :: proc(self: ^ShortcutTrigger) -> cstring ---
+
+    @(link_name = "gtk_shortcut_trigger_print")
+    shortcut_trigger_print :: proc(self: ^ShortcutTrigger, string_p: ^glib.String) ---
+
+    @(link_name = "gtk_shortcut_trigger_to_label")
+    shortcut_trigger_to_label :: proc(self: ^ShortcutTrigger, display: ^Display) -> cstring ---
+
+    @(link_name = "gtk_shortcut_trigger_print_label")
+    shortcut_trigger_print_label :: proc(self: ^ShortcutTrigger, display: ^Display, string_p: ^glib.String) -> glib.boolean ---
+
+    @(link_name = "gtk_shortcut_trigger_hash")
+    shortcut_trigger_hash :: proc(trigger: glib.constpointer) -> glib.uint_ ---
+
+    @(link_name = "gtk_shortcut_trigger_equal")
+    shortcut_trigger_equal :: proc(trigger1: glib.constpointer, trigger2: glib.constpointer) -> glib.boolean ---
+
+    @(link_name = "gtk_shortcut_trigger_compare")
+    shortcut_trigger_compare :: proc(trigger1: glib.constpointer, trigger2: glib.constpointer) -> i32 ---
+
+    @(link_name = "gtk_shortcut_trigger_trigger")
+    shortcut_trigger_trigger :: proc(self: ^ShortcutTrigger, event: ^Event, enable_mnemonics: glib.boolean) -> KeyMatch ---
+
+    @(link_name = "gtk_never_trigger_get_type")
+    never_trigger_get_type :: proc() -> gobj.Type ---
+
+    @(link_name = "gtk_never_trigger_get")
+    never_trigger_get :: proc() -> ^ShortcutTrigger ---
+
+    @(link_name = "gtk_keyval_trigger_get_type")
+    keyval_trigger_get_type :: proc() -> gobj.Type ---
+
+    @(link_name = "gtk_keyval_trigger_new")
+    keyval_trigger_new :: proc(keyval: glib.uint_, modifiers: ModifierType) -> ^ShortcutTrigger ---
+
+    @(link_name = "gtk_keyval_trigger_get_modifiers")
+    keyval_trigger_get_modifiers :: proc(self: ^KeyvalTrigger) -> ModifierType ---
+
+    @(link_name = "gtk_keyval_trigger_get_keyval")
+    keyval_trigger_get_keyval :: proc(self: ^KeyvalTrigger) -> glib.uint_ ---
+
+    @(link_name = "gtk_mnemonic_trigger_get_type")
+    mnemonic_trigger_get_type :: proc() -> gobj.Type ---
+
+    @(link_name = "gtk_mnemonic_trigger_new")
+    mnemonic_trigger_new :: proc(keyval: glib.uint_) -> ^ShortcutTrigger ---
+
+    @(link_name = "gtk_mnemonic_trigger_get_keyval")
+    mnemonic_trigger_get_keyval :: proc(self: ^MnemonicTrigger) -> glib.uint_ ---
+
+    @(link_name = "gtk_alternative_trigger_get_type")
+    alternative_trigger_get_type :: proc() -> gobj.Type ---
+
+    @(link_name = "gtk_alternative_trigger_new")
+    alternative_trigger_new :: proc(first: ^ShortcutTrigger, second: ^ShortcutTrigger) -> ^ShortcutTrigger ---
+
+    @(link_name = "gtk_alternative_trigger_get_first")
+    alternative_trigger_get_first :: proc(self: ^AlternativeTrigger) -> ^ShortcutTrigger ---
+
+    @(link_name = "gtk_alternative_trigger_get_second")
+    alternative_trigger_get_second :: proc(self: ^AlternativeTrigger) -> ^ShortcutTrigger ---
+
+    @(link_name = "gtk_show_uri_full")
+    show_uri_full :: proc(parent: ^Window, uri: cstring, timestamp: glib.uint32, cancellable: ^gio.Cancellable, callback: gio.AsyncReadyCallback, user_data: glib.pointer) ---
+
+    @(link_name = "gtk_show_uri_full_finish")
+    show_uri_full_finish :: proc(parent: ^Window, result: ^gio.AsyncResult, error: ^^glib.Error) -> glib.boolean ---
+
+    @(link_name = "gtk_show_uri")
+    show_uri :: proc(parent: ^Window, uri: cstring, timestamp: glib.uint32) ---
+
+    @(link_name = "gtk_signal_list_item_factory_get_type")
+    signal_list_item_factory_get_type :: proc() -> gobj.Type ---
+
+    @(link_name = "gtk_signal_list_item_factory_new")
+    signal_list_item_factory_new :: proc() -> ^ListItemFactory ---
+
+    @(link_name = "gtk_single_selection_get_type")
+    single_selection_get_type :: proc() -> gobj.Type ---
+
+    @(link_name = "gtk_single_selection_new")
+    single_selection_new :: proc(model: ^gio.ListModel) -> ^SingleSelection ---
+
+    @(link_name = "gtk_single_selection_get_model")
+    single_selection_get_model :: proc(self: ^SingleSelection) -> ^gio.ListModel ---
+
+    @(link_name = "gtk_single_selection_set_model")
+    single_selection_set_model :: proc(self: ^SingleSelection, model: ^gio.ListModel) ---
+
+    @(link_name = "gtk_single_selection_get_selected")
+    single_selection_get_selected :: proc(self: ^SingleSelection) -> glib.uint_ ---
+
+    @(link_name = "gtk_single_selection_set_selected")
+    single_selection_set_selected :: proc(self: ^SingleSelection, position: glib.uint_) ---
+
+    @(link_name = "gtk_single_selection_get_selected_item")
+    single_selection_get_selected_item :: proc(self: ^SingleSelection) -> glib.pointer ---
+
+    @(link_name = "gtk_single_selection_get_autoselect")
+    single_selection_get_autoselect :: proc(self: ^SingleSelection) -> glib.boolean ---
+
+    @(link_name = "gtk_single_selection_set_autoselect")
+    single_selection_set_autoselect :: proc(self: ^SingleSelection, autoselect: glib.boolean) ---
+
+    @(link_name = "gtk_single_selection_get_can_unselect")
+    single_selection_get_can_unselect :: proc(self: ^SingleSelection) -> glib.boolean ---
+
+    @(link_name = "gtk_single_selection_set_can_unselect")
+    single_selection_set_can_unselect :: proc(self: ^SingleSelection, can_unselect: glib.boolean) ---
+
+    @(link_name = "gtk_slice_list_model_get_type")
+    slice_list_model_get_type :: proc() -> gobj.Type ---
+
+    @(link_name = "gtk_slice_list_model_new")
+    slice_list_model_new :: proc(model: ^gio.ListModel, offset: glib.uint_, size_p: glib.uint_) -> ^SliceListModel ---
+
+    @(link_name = "gtk_slice_list_model_set_model")
+    slice_list_model_set_model :: proc(self: ^SliceListModel, model: ^gio.ListModel) ---
+
+    @(link_name = "gtk_slice_list_model_get_model")
+    slice_list_model_get_model :: proc(self: ^SliceListModel) -> ^gio.ListModel ---
+
+    @(link_name = "gtk_slice_list_model_set_offset")
+    slice_list_model_set_offset :: proc(self: ^SliceListModel, offset: glib.uint_) ---
+
+    @(link_name = "gtk_slice_list_model_get_offset")
+    slice_list_model_get_offset :: proc(self: ^SliceListModel) -> glib.uint_ ---
+
+    @(link_name = "gtk_slice_list_model_set_size")
+    slice_list_model_set_size :: proc(self: ^SliceListModel, size_p: glib.uint_) ---
+
+    @(link_name = "gtk_slice_list_model_get_size")
+    slice_list_model_get_size :: proc(self: ^SliceListModel) -> glib.uint_ ---
+
+    @(link_name = "gtk_stack_page_get_type")
+    stack_page_get_type :: proc() -> gobj.Type ---
+
+    @(link_name = "gtk_stack_page_get_child")
+    stack_page_get_child :: proc(self: ^StackPage) -> ^Widget ---
+
+    @(link_name = "gtk_stack_page_get_visible")
+    stack_page_get_visible :: proc(self: ^StackPage) -> glib.boolean ---
+
+    @(link_name = "gtk_stack_page_set_visible")
+    stack_page_set_visible :: proc(self: ^StackPage, visible: glib.boolean) ---
+
+    @(link_name = "gtk_stack_page_get_needs_attention")
+    stack_page_get_needs_attention :: proc(self: ^StackPage) -> glib.boolean ---
+
+    @(link_name = "gtk_stack_page_set_needs_attention")
+    stack_page_set_needs_attention :: proc(self: ^StackPage, setting: glib.boolean) ---
+
+    @(link_name = "gtk_stack_page_get_use_underline")
+    stack_page_get_use_underline :: proc(self: ^StackPage) -> glib.boolean ---
+
+    @(link_name = "gtk_stack_page_set_use_underline")
+    stack_page_set_use_underline :: proc(self: ^StackPage, setting: glib.boolean) ---
+
+    @(link_name = "gtk_stack_page_get_name")
+    stack_page_get_name :: proc(self: ^StackPage) -> cstring ---
+
+    @(link_name = "gtk_stack_page_set_name")
+    stack_page_set_name :: proc(self: ^StackPage, setting: cstring) ---
+
+    @(link_name = "gtk_stack_page_get_title")
+    stack_page_get_title :: proc(self: ^StackPage) -> cstring ---
+
+    @(link_name = "gtk_stack_page_set_title")
+    stack_page_set_title :: proc(self: ^StackPage, setting: cstring) ---
+
+    @(link_name = "gtk_stack_page_get_icon_name")
+    stack_page_get_icon_name :: proc(self: ^StackPage) -> cstring ---
+
+    @(link_name = "gtk_stack_page_set_icon_name")
+    stack_page_set_icon_name :: proc(self: ^StackPage, setting: cstring) ---
+
+    @(link_name = "gtk_stack_get_type")
+    stack_get_type :: proc() -> gobj.Type ---
+
+    @(link_name = "gtk_stack_new")
+    stack_new :: proc() -> ^Widget ---
+
+    @(link_name = "gtk_stack_add_child")
+    stack_add_child :: proc(stack: ^Stack, child: ^Widget) -> ^StackPage ---
+
+    @(link_name = "gtk_stack_add_named")
+    stack_add_named :: proc(stack: ^Stack, child: ^Widget, name: cstring) -> ^StackPage ---
+
+    @(link_name = "gtk_stack_add_titled")
+    stack_add_titled :: proc(stack: ^Stack, child: ^Widget, name: cstring, title: cstring) -> ^StackPage ---
+
+    @(link_name = "gtk_stack_remove")
+    stack_remove :: proc(stack: ^Stack, child: ^Widget) ---
+
+    @(link_name = "gtk_stack_get_page")
+    stack_get_page :: proc(stack: ^Stack, child: ^Widget) -> ^StackPage ---
+
+    @(link_name = "gtk_stack_get_child_by_name")
+    stack_get_child_by_name :: proc(stack: ^Stack, name: cstring) -> ^Widget ---
+
+    @(link_name = "gtk_stack_set_visible_child")
+    stack_set_visible_child :: proc(stack: ^Stack, child: ^Widget) ---
+
+    @(link_name = "gtk_stack_get_visible_child")
+    stack_get_visible_child :: proc(stack: ^Stack) -> ^Widget ---
+
+    @(link_name = "gtk_stack_set_visible_child_name")
+    stack_set_visible_child_name :: proc(stack: ^Stack, name: cstring) ---
+
+    @(link_name = "gtk_stack_get_visible_child_name")
+    stack_get_visible_child_name :: proc(stack: ^Stack) -> cstring ---
+
+    @(link_name = "gtk_stack_set_visible_child_full")
+    stack_set_visible_child_full :: proc(stack: ^Stack, name: cstring, transition: StackTransitionType) ---
+
+    @(link_name = "gtk_stack_set_hhomogeneous")
+    stack_set_hhomogeneous :: proc(stack: ^Stack, hhomogeneous: glib.boolean) ---
+
+    @(link_name = "gtk_stack_get_hhomogeneous")
+    stack_get_hhomogeneous :: proc(stack: ^Stack) -> glib.boolean ---
+
+    @(link_name = "gtk_stack_set_vhomogeneous")
+    stack_set_vhomogeneous :: proc(stack: ^Stack, vhomogeneous: glib.boolean) ---
+
+    @(link_name = "gtk_stack_get_vhomogeneous")
+    stack_get_vhomogeneous :: proc(stack: ^Stack) -> glib.boolean ---
+
+    @(link_name = "gtk_stack_set_transition_duration")
+    stack_set_transition_duration :: proc(stack: ^Stack, duration: glib.uint_) ---
+
+    @(link_name = "gtk_stack_get_transition_duration")
+    stack_get_transition_duration :: proc(stack: ^Stack) -> glib.uint_ ---
+
+    @(link_name = "gtk_stack_set_transition_type")
+    stack_set_transition_type :: proc(stack: ^Stack, transition: StackTransitionType) ---
+
+    @(link_name = "gtk_stack_get_transition_type")
+    stack_get_transition_type :: proc(stack: ^Stack) -> StackTransitionType ---
+
+    @(link_name = "gtk_stack_get_transition_running")
+    stack_get_transition_running :: proc(stack: ^Stack) -> glib.boolean ---
+
+    @(link_name = "gtk_stack_set_interpolate_size")
+    stack_set_interpolate_size :: proc(stack: ^Stack, interpolate_size: glib.boolean) ---
+
+    @(link_name = "gtk_stack_get_interpolate_size")
+    stack_get_interpolate_size :: proc(stack: ^Stack) -> glib.boolean ---
+
+    @(link_name = "gtk_stack_get_pages")
+    stack_get_pages :: proc(stack: ^Stack) -> ^SelectionModel ---
+
+    @(link_name = "gtk_stack_sidebar_get_type")
+    stack_sidebar_get_type :: proc() -> gobj.Type ---
+
+    @(link_name = "gtk_stack_sidebar_new")
+    stack_sidebar_new :: proc() -> ^Widget ---
+
+    @(link_name = "gtk_stack_sidebar_set_stack")
+    stack_sidebar_set_stack :: proc(self: ^StackSidebar, stack: ^Stack) ---
+
+    @(link_name = "gtk_stack_sidebar_get_stack")
+    stack_sidebar_get_stack :: proc(self: ^StackSidebar) -> ^Stack ---
+
+    @(link_name = "gtk_size_group_get_type")
+    size_group_get_type :: proc() -> gobj.Type ---
+
+    @(link_name = "gtk_size_group_new")
+    size_group_new :: proc(mode: SizeGroupMode) -> ^SizeGroup ---
+
+    @(link_name = "gtk_size_group_set_mode")
+    size_group_set_mode :: proc(size_group: ^SizeGroup, mode: SizeGroupMode) ---
+
+    @(link_name = "gtk_size_group_get_mode")
+    size_group_get_mode :: proc(size_group: ^SizeGroup) -> SizeGroupMode ---
+
+    @(link_name = "gtk_size_group_add_widget")
+    size_group_add_widget :: proc(size_group: ^SizeGroup, widget: ^Widget) ---
+
+    @(link_name = "gtk_size_group_remove_widget")
+    size_group_remove_widget :: proc(size_group: ^SizeGroup, widget: ^Widget) ---
+
+    @(link_name = "gtk_size_group_get_widgets")
+    size_group_get_widgets :: proc(size_group: ^SizeGroup) -> ^glib.SList ---
+
+    @(link_name = "gtk_distribute_natural_allocation")
+    distribute_natural_allocation :: proc(extra_space: i32, n_requested_sizes: glib.uint_, sizes: [^]RequestedSize) -> i32 ---
+
+    @(link_name = "gtk_spin_button_get_type")
+    spin_button_get_type :: proc() -> gobj.Type ---
+
+    @(link_name = "gtk_spin_button_configure")
+    spin_button_configure :: proc(spin_button: ^SpinButton, adjustment: ^Adjustment, climb_rate: f64, digits: glib.uint_) ---
+
+    @(link_name = "gtk_spin_button_new")
+    spin_button_new :: proc(adjustment: ^Adjustment, climb_rate: f64, digits: glib.uint_) -> ^Widget ---
+
+    @(link_name = "gtk_spin_button_new_with_range")
+    spin_button_new_with_range :: proc(min: f64, max: f64, step: f64) -> ^Widget ---
+
+    @(link_name = "gtk_spin_button_set_activates_default")
+    spin_button_set_activates_default :: proc(spin_button: ^SpinButton, activates_default: glib.boolean) ---
+
+    @(link_name = "gtk_spin_button_get_activates_default")
+    spin_button_get_activates_default :: proc(spin_button: ^SpinButton) -> glib.boolean ---
+
+    @(link_name = "gtk_spin_button_set_adjustment")
+    spin_button_set_adjustment :: proc(spin_button: ^SpinButton, adjustment: ^Adjustment) ---
+
+    @(link_name = "gtk_spin_button_get_adjustment")
+    spin_button_get_adjustment :: proc(spin_button: ^SpinButton) -> ^Adjustment ---
+
+    @(link_name = "gtk_spin_button_set_digits")
+    spin_button_set_digits :: proc(spin_button: ^SpinButton, digits: glib.uint_) ---
+
+    @(link_name = "gtk_spin_button_get_digits")
+    spin_button_get_digits :: proc(spin_button: ^SpinButton) -> glib.uint_ ---
+
+    @(link_name = "gtk_spin_button_set_increments")
+    spin_button_set_increments :: proc(spin_button: ^SpinButton, step: f64, page: f64) ---
+
+    @(link_name = "gtk_spin_button_get_increments")
+    spin_button_get_increments :: proc(spin_button: ^SpinButton, step: ^f64, page: ^f64) ---
+
+    @(link_name = "gtk_spin_button_set_range")
+    spin_button_set_range :: proc(spin_button: ^SpinButton, min: f64, max: f64) ---
+
+    @(link_name = "gtk_spin_button_get_range")
+    spin_button_get_range :: proc(spin_button: ^SpinButton, min: ^f64, max: ^f64) ---
+
+    @(link_name = "gtk_spin_button_get_value")
+    spin_button_get_value :: proc(spin_button: ^SpinButton) -> f64 ---
+
+    @(link_name = "gtk_spin_button_get_value_as_int")
+    spin_button_get_value_as_int :: proc(spin_button: ^SpinButton) -> i32 ---
+
+    @(link_name = "gtk_spin_button_set_value")
+    spin_button_set_value :: proc(spin_button: ^SpinButton, value: f64) ---
+
+    @(link_name = "gtk_spin_button_set_update_policy")
+    spin_button_set_update_policy :: proc(spin_button: ^SpinButton, policy: SpinButtonUpdatePolicy) ---
+
+    @(link_name = "gtk_spin_button_get_update_policy")
+    spin_button_get_update_policy :: proc(spin_button: ^SpinButton) -> SpinButtonUpdatePolicy ---
+
+    @(link_name = "gtk_spin_button_set_numeric")
+    spin_button_set_numeric :: proc(spin_button: ^SpinButton, numeric: glib.boolean) ---
+
+    @(link_name = "gtk_spin_button_get_numeric")
+    spin_button_get_numeric :: proc(spin_button: ^SpinButton) -> glib.boolean ---
+
+    @(link_name = "gtk_spin_button_spin")
+    spin_button_spin :: proc(spin_button: ^SpinButton, direction: SpinType, increment: f64) ---
+
+    @(link_name = "gtk_spin_button_set_wrap")
+    spin_button_set_wrap :: proc(spin_button: ^SpinButton, wrap: glib.boolean) ---
+
+    @(link_name = "gtk_spin_button_get_wrap")
+    spin_button_get_wrap :: proc(spin_button: ^SpinButton) -> glib.boolean ---
+
+    @(link_name = "gtk_spin_button_set_snap_to_ticks")
+    spin_button_set_snap_to_ticks :: proc(spin_button: ^SpinButton, snap_to_ticks: glib.boolean) ---
+
+    @(link_name = "gtk_spin_button_get_snap_to_ticks")
+    spin_button_get_snap_to_ticks :: proc(spin_button: ^SpinButton) -> glib.boolean ---
+
+    @(link_name = "gtk_spin_button_set_climb_rate")
+    spin_button_set_climb_rate :: proc(spin_button: ^SpinButton, climb_rate: f64) ---
+
+    @(link_name = "gtk_spin_button_get_climb_rate")
+    spin_button_get_climb_rate :: proc(spin_button: ^SpinButton) -> f64 ---
+
+    @(link_name = "gtk_spin_button_update")
+    spin_button_update :: proc(spin_button: ^SpinButton) ---
+
+    @(link_name = "gtk_spinner_get_type")
+    spinner_get_type :: proc() -> gobj.Type ---
+
+    @(link_name = "gtk_spinner_new")
+    spinner_new :: proc() -> ^Widget ---
+
+    @(link_name = "gtk_spinner_start")
+    spinner_start :: proc(spinner: ^Spinner) ---
+
+    @(link_name = "gtk_spinner_stop")
+    spinner_stop :: proc(spinner: ^Spinner) ---
+
+    @(link_name = "gtk_spinner_set_spinning")
+    spinner_set_spinning :: proc(spinner: ^Spinner, spinning: glib.boolean) ---
+
+    @(link_name = "gtk_spinner_get_spinning")
+    spinner_get_spinning :: proc(spinner: ^Spinner) -> glib.boolean ---
+
+    @(link_name = "gtk_stack_switcher_get_type")
+    stack_switcher_get_type :: proc() -> gobj.Type ---
+
+    @(link_name = "gtk_stack_switcher_new")
+    stack_switcher_new :: proc() -> ^Widget ---
+
+    @(link_name = "gtk_stack_switcher_set_stack")
+    stack_switcher_set_stack :: proc(switcher: ^StackSwitcher, stack: ^Stack) ---
+
+    @(link_name = "gtk_stack_switcher_get_stack")
+    stack_switcher_get_stack :: proc(switcher: ^StackSwitcher) -> ^Stack ---
+
+    @(link_name = "gtk_statusbar_get_type")
+    statusbar_get_type :: proc() -> gobj.Type ---
+
+    @(link_name = "gtk_statusbar_new")
+    statusbar_new :: proc() -> ^Widget ---
+
+    @(link_name = "gtk_statusbar_get_context_id")
+    statusbar_get_context_id :: proc(statusbar: ^Statusbar, context_description: cstring) -> glib.uint_ ---
+
+    @(link_name = "gtk_statusbar_push")
+    statusbar_push :: proc(statusbar: ^Statusbar, context_id: glib.uint_, text: cstring) -> glib.uint_ ---
+
+    @(link_name = "gtk_statusbar_pop")
+    statusbar_pop :: proc(statusbar: ^Statusbar, context_id: glib.uint_) ---
+
+    @(link_name = "gtk_statusbar_remove")
+    statusbar_remove :: proc(statusbar: ^Statusbar, context_id: glib.uint_, message_id: glib.uint_) ---
+
+    @(link_name = "gtk_statusbar_remove_all")
+    statusbar_remove_all :: proc(statusbar: ^Statusbar, context_id: glib.uint_) ---
+
+    @(link_name = "gtk_string_object_get_type")
+    string_object_get_type :: proc() -> gobj.Type ---
+
+    @(link_name = "gtk_string_object_new")
+    string_object_new :: proc(string_p: cstring) -> ^StringObject ---
+
+    @(link_name = "gtk_string_object_get_string")
+    string_object_get_string :: proc(self: ^StringObject) -> cstring ---
+
+    @(link_name = "gtk_string_list_get_type")
+    string_list_get_type :: proc() -> gobj.Type ---
+
+    @(link_name = "gtk_string_list_new")
+    string_list_new :: proc(strings: [^]cstring) -> ^StringList ---
+
+    @(link_name = "gtk_string_list_append")
+    string_list_append :: proc(self: ^StringList, string_p: cstring) ---
+
+    @(link_name = "gtk_string_list_take")
+    string_list_take :: proc(self: ^StringList, string_p: cstring) ---
+
+    @(link_name = "gtk_string_list_remove")
+    string_list_remove :: proc(self: ^StringList, position: glib.uint_) ---
+
+    @(link_name = "gtk_string_list_splice")
+    string_list_splice :: proc(self: ^StringList, position: glib.uint_, n_removals: glib.uint_, additions: [^]cstring) ---
+
+    @(link_name = "gtk_string_list_get_string")
+    string_list_get_string :: proc(self: ^StringList, position: glib.uint_) -> cstring ---
+
+    @(link_name = "gtk_string_sorter_get_type")
+    string_sorter_get_type :: proc() -> gobj.Type ---
+
+    @(link_name = "gtk_string_sorter_new")
+    string_sorter_new :: proc(expression: ^Expression) -> ^StringSorter ---
+
+    @(link_name = "gtk_string_sorter_get_expression")
+    string_sorter_get_expression :: proc(self: ^StringSorter) -> ^Expression ---
+
+    @(link_name = "gtk_string_sorter_set_expression")
+    string_sorter_set_expression :: proc(self: ^StringSorter, expression: ^Expression) ---
+
+    @(link_name = "gtk_string_sorter_get_ignore_case")
+    string_sorter_get_ignore_case :: proc(self: ^StringSorter) -> glib.boolean ---
+
+    @(link_name = "gtk_string_sorter_set_ignore_case")
+    string_sorter_set_ignore_case :: proc(self: ^StringSorter, ignore_case: glib.boolean) ---
+
+    @(link_name = "gtk_string_sorter_set_collation")
+    string_sorter_set_collation :: proc(self: ^StringSorter, collation: Collation) ---
+
+    @(link_name = "gtk_string_sorter_get_collation")
+    string_sorter_get_collation :: proc(self: ^StringSorter) -> Collation ---
+
+    @(link_name = "gtk_style_provider_get_type")
+    style_provider_get_type :: proc() -> gobj.Type ---
+
+    @(link_name = "gtk_style_context_add_provider_for_display")
+    style_context_add_provider_for_display :: proc(display: ^Display, provider: ^StyleProvider, priority: glib.uint_) ---
+
+    @(link_name = "gtk_style_context_remove_provider_for_display")
+    style_context_remove_provider_for_display :: proc(display: ^Display, provider: ^StyleProvider) ---
+
+    @(link_name = "gtk_style_context_get_type")
+    style_context_get_type :: proc() -> gobj.Type ---
+
+    @(link_name = "gtk_style_context_add_provider")
+    style_context_add_provider :: proc(context_p: ^StyleContext, provider: ^StyleProvider, priority: glib.uint_) ---
+
+    @(link_name = "gtk_style_context_remove_provider")
+    style_context_remove_provider :: proc(context_p: ^StyleContext, provider: ^StyleProvider) ---
+
+    @(link_name = "gtk_style_context_save")
+    style_context_save :: proc(context_p: ^StyleContext) ---
+
+    @(link_name = "gtk_style_context_restore")
+    style_context_restore :: proc(context_p: ^StyleContext) ---
+
+    @(link_name = "gtk_style_context_set_state")
+    style_context_set_state :: proc(context_p: ^StyleContext, flags: StateFlags) ---
+
+    @(link_name = "gtk_style_context_get_state")
+    style_context_get_state :: proc(context_p: ^StyleContext) -> StateFlags ---
+
+    @(link_name = "gtk_style_context_set_scale")
+    style_context_set_scale :: proc(context_p: ^StyleContext, scale: i32) ---
+
+    @(link_name = "gtk_style_context_get_scale")
+    style_context_get_scale :: proc(context_p: ^StyleContext) -> i32 ---
+
+    @(link_name = "gtk_style_context_add_class")
+    style_context_add_class :: proc(context_p: ^StyleContext, class_name: cstring) ---
+
+    @(link_name = "gtk_style_context_remove_class")
+    style_context_remove_class :: proc(context_p: ^StyleContext, class_name: cstring) ---
+
+    @(link_name = "gtk_style_context_has_class")
+    style_context_has_class :: proc(context_p: ^StyleContext, class_name: cstring) -> glib.boolean ---
+
+    @(link_name = "gtk_style_context_set_display")
+    style_context_set_display :: proc(context_p: ^StyleContext, display: ^Display) ---
+
+    @(link_name = "gtk_style_context_get_display")
+    style_context_get_display :: proc(context_p: ^StyleContext) -> ^Display ---
+
+    @(link_name = "gtk_style_context_lookup_color")
+    style_context_lookup_color :: proc(context_p: ^StyleContext, color_name: cstring, color: ^RGBA) -> glib.boolean ---
+
+    @(link_name = "gtk_style_context_get_color")
+    style_context_get_color :: proc(context_p: ^StyleContext, color: ^RGBA) ---
+
+    @(link_name = "gtk_style_context_get_border")
+    style_context_get_border :: proc(context_p: ^StyleContext, border: ^Border) ---
+
+    @(link_name = "gtk_style_context_get_padding")
+    style_context_get_padding :: proc(context_p: ^StyleContext, padding: ^Border) ---
+
+    @(link_name = "gtk_style_context_get_margin")
+    style_context_get_margin :: proc(context_p: ^StyleContext, margin: ^Border) ---
+
+    @(link_name = "gtk_style_context_to_string")
+    style_context_to_string :: proc(context_p: ^StyleContext, flags: StyleContextPrintFlags) -> cstring ---
+
+    @(link_name = "gtk_switch_get_type")
+    switch_get_type :: proc() -> gobj.Type ---
+
+    @(link_name = "gtk_switch_new")
+    switch_new :: proc() -> ^Widget ---
+
+    @(link_name = "gtk_switch_set_active")
+    switch_set_active :: proc(self: ^Switch, is_active: glib.boolean) ---
+
+    @(link_name = "gtk_switch_get_active")
+    switch_get_active :: proc(self: ^Switch) -> glib.boolean ---
+
+    @(link_name = "gtk_switch_set_state")
+    switch_set_state :: proc(self: ^Switch, state: glib.boolean) ---
+
+    @(link_name = "gtk_switch_get_state")
+    switch_get_state :: proc(self: ^Switch) -> glib.boolean ---
+
+    @(link_name = "gtk_symbolic_paintable_get_type")
+    symbolic_paintable_get_type :: proc() -> gobj.Type ---
+
+    @(link_name = "gtk_symbolic_paintable_snapshot_symbolic")
+    symbolic_paintable_snapshot_symbolic :: proc(paintable: ^SymbolicPaintable, snapshot: ^Snapshot, width: f64, height: f64, colors: [^]RGBA, n_colors: glib.size) ---
+
+    @(link_name = "gtk_text_get_type")
+    text_get_type :: proc() -> gobj.Type ---
+
+    @(link_name = "gtk_text_new")
+    text_new :: proc() -> ^Widget ---
+
+    @(link_name = "gtk_text_new_with_buffer")
+    text_new_with_buffer :: proc(buffer: ^EntryBuffer) -> ^Widget ---
+
+    @(link_name = "gtk_text_get_buffer")
+    text_get_buffer :: proc(self: ^Text) -> ^EntryBuffer ---
+
+    @(link_name = "gtk_text_set_buffer")
+    text_set_buffer :: proc(self: ^Text, buffer: ^EntryBuffer) ---
+
+    @(link_name = "gtk_text_set_visibility")
+    text_set_visibility :: proc(self: ^Text, visible: glib.boolean) ---
+
+    @(link_name = "gtk_text_get_visibility")
+    text_get_visibility :: proc(self: ^Text) -> glib.boolean ---
+
+    @(link_name = "gtk_text_set_invisible_char")
+    text_set_invisible_char :: proc(self: ^Text, ch: glib.unichar) ---
+
+    @(link_name = "gtk_text_get_invisible_char")
+    text_get_invisible_char :: proc(self: ^Text) -> glib.unichar ---
+
+    @(link_name = "gtk_text_unset_invisible_char")
+    text_unset_invisible_char :: proc(self: ^Text) ---
+
+    @(link_name = "gtk_text_set_overwrite_mode")
+    text_set_overwrite_mode :: proc(self: ^Text, overwrite: glib.boolean) ---
+
+    @(link_name = "gtk_text_get_overwrite_mode")
+    text_get_overwrite_mode :: proc(self: ^Text) -> glib.boolean ---
+
+    @(link_name = "gtk_text_set_max_length")
+    text_set_max_length :: proc(self: ^Text, length: i32) ---
+
+    @(link_name = "gtk_text_get_max_length")
+    text_get_max_length :: proc(self: ^Text) -> i32 ---
+
+    @(link_name = "gtk_text_get_text_length")
+    text_get_text_length :: proc(self: ^Text) -> glib.uint16 ---
+
+    @(link_name = "gtk_text_set_activates_default")
+    text_set_activates_default :: proc(self: ^Text, activates: glib.boolean) ---
+
+    @(link_name = "gtk_text_get_activates_default")
+    text_get_activates_default :: proc(self: ^Text) -> glib.boolean ---
+
+    @(link_name = "gtk_text_get_placeholder_text")
+    text_get_placeholder_text :: proc(self: ^Text) -> cstring ---
+
+    @(link_name = "gtk_text_set_placeholder_text")
+    text_set_placeholder_text :: proc(self: ^Text, text: cstring) ---
+
+    @(link_name = "gtk_text_set_input_purpose")
+    text_set_input_purpose :: proc(self: ^Text, purpose: InputPurpose) ---
+
+    @(link_name = "gtk_text_get_input_purpose")
+    text_get_input_purpose :: proc(self: ^Text) -> InputPurpose ---
+
+    @(link_name = "gtk_text_set_input_hints")
+    text_set_input_hints :: proc(self: ^Text, hints: InputHints) ---
+
+    @(link_name = "gtk_text_get_input_hints")
+    text_get_input_hints :: proc(self: ^Text) -> InputHints ---
+
+    @(link_name = "gtk_text_set_attributes")
+    text_set_attributes :: proc(self: ^Text, attrs: ^pango.AttrList) ---
+
+    @(link_name = "gtk_text_get_attributes")
+    text_get_attributes :: proc(self: ^Text) -> ^pango.AttrList ---
+
+    @(link_name = "gtk_text_set_tabs")
+    text_set_tabs :: proc(self: ^Text, tabs: ^pango.TabArray) ---
+
+    @(link_name = "gtk_text_get_tabs")
+    text_get_tabs :: proc(self: ^Text) -> ^pango.TabArray ---
+
+    @(link_name = "gtk_text_grab_focus_without_selecting")
+    text_grab_focus_without_selecting :: proc(self: ^Text) -> glib.boolean ---
+
+    @(link_name = "gtk_text_set_extra_menu")
+    text_set_extra_menu :: proc(self: ^Text, model: ^gio.MenuModel) ---
+
+    @(link_name = "gtk_text_get_extra_menu")
+    text_get_extra_menu :: proc(self: ^Text) -> ^gio.MenuModel ---
+
+    @(link_name = "gtk_text_set_enable_emoji_completion")
+    text_set_enable_emoji_completion :: proc(self: ^Text, enable_emoji_completion: glib.boolean) ---
+
+    @(link_name = "gtk_text_get_enable_emoji_completion")
+    text_get_enable_emoji_completion :: proc(self: ^Text) -> glib.boolean ---
+
+    @(link_name = "gtk_text_set_propagate_text_width")
+    text_set_propagate_text_width :: proc(self: ^Text, propagate_text_width: glib.boolean) ---
+
+    @(link_name = "gtk_text_get_propagate_text_width")
+    text_get_propagate_text_width :: proc(self: ^Text) -> glib.boolean ---
+
+    @(link_name = "gtk_text_set_truncate_multiline")
+    text_set_truncate_multiline :: proc(self: ^Text, truncate_multiline: glib.boolean) ---
+
+    @(link_name = "gtk_text_get_truncate_multiline")
+    text_get_truncate_multiline :: proc(self: ^Text) -> glib.boolean ---
+
+    @(link_name = "gtk_text_compute_cursor_extents")
+    text_compute_cursor_extents :: proc(self: ^Text, position: glib.size, strong: ^graphene.rect_t, weak: ^graphene.rect_t) ---
+
+    @(link_name = "gtk_text_tag_get_type")
+    text_tag_get_type :: proc() -> gobj.Type ---
+
+    @(link_name = "gtk_text_tag_new")
+    text_tag_new :: proc(name: cstring) -> ^TextTag ---
+
+    @(link_name = "gtk_text_tag_get_priority")
+    text_tag_get_priority :: proc(tag: ^TextTag) -> i32 ---
+
+    @(link_name = "gtk_text_tag_set_priority")
+    text_tag_set_priority :: proc(tag: ^TextTag, priority: i32) ---
+
+    @(link_name = "gtk_text_tag_changed")
+    text_tag_changed :: proc(tag: ^TextTag, size_changed: glib.boolean) ---
+
+    @(link_name = "gtk_text_tag_table_get_type")
+    text_tag_table_get_type :: proc() -> gobj.Type ---
+
+    @(link_name = "gtk_text_tag_table_new")
+    text_tag_table_new :: proc() -> ^TextTagTable ---
+
+    @(link_name = "gtk_text_tag_table_add")
+    text_tag_table_add :: proc(table: ^TextTagTable, tag: ^TextTag) -> glib.boolean ---
+
+    @(link_name = "gtk_text_tag_table_remove")
+    text_tag_table_remove :: proc(table: ^TextTagTable, tag: ^TextTag) ---
+
+    @(link_name = "gtk_text_tag_table_lookup")
+    text_tag_table_lookup :: proc(table: ^TextTagTable, name: cstring) -> ^TextTag ---
+
+    @(link_name = "gtk_text_tag_table_foreach")
+    text_tag_table_foreach :: proc(table: ^TextTagTable, func: TextTagTableForeach, data: glib.pointer) ---
+
+    @(link_name = "gtk_text_tag_table_get_size")
+    text_tag_table_get_size :: proc(table: ^TextTagTable) -> i32 ---
+
+    @(link_name = "gtk_text_child_anchor_get_type")
+    text_child_anchor_get_type :: proc() -> gobj.Type ---
+
+    @(link_name = "gtk_text_child_anchor_new")
+    text_child_anchor_new :: proc() -> ^TextChildAnchor ---
+
+    @(link_name = "gtk_text_child_anchor_new_with_replacement")
+    text_child_anchor_new_with_replacement :: proc(character: cstring) -> ^TextChildAnchor ---
+
+    @(link_name = "gtk_text_child_anchor_get_widgets")
+    text_child_anchor_get_widgets :: proc(anchor: ^TextChildAnchor, out_len: ^glib.uint_) -> ^^Widget ---
+
+    @(link_name = "gtk_text_child_anchor_get_deleted")
+    text_child_anchor_get_deleted :: proc(anchor: ^TextChildAnchor) -> glib.boolean ---
+
+    @(link_name = "gtk_text_iter_get_buffer")
+    text_iter_get_buffer :: proc(iter: ^TextIter) -> ^TextBuffer ---
+
+    @(link_name = "gtk_text_iter_copy")
+    text_iter_copy :: proc(iter: ^TextIter) -> ^TextIter ---
+
+    @(link_name = "gtk_text_iter_free")
+    text_iter_free :: proc(iter: ^TextIter) ---
+
+    @(link_name = "gtk_text_iter_assign")
+    text_iter_assign :: proc(iter: ^TextIter, other: ^TextIter) ---
+
+    @(link_name = "gtk_text_iter_get_type")
+    text_iter_get_type :: proc() -> gobj.Type ---
+
+    @(link_name = "gtk_text_iter_get_offset")
+    text_iter_get_offset :: proc(iter: ^TextIter) -> i32 ---
+
+    @(link_name = "gtk_text_iter_get_line")
+    text_iter_get_line :: proc(iter: ^TextIter) -> i32 ---
+
+    @(link_name = "gtk_text_iter_get_line_offset")
+    text_iter_get_line_offset :: proc(iter: ^TextIter) -> i32 ---
+
+    @(link_name = "gtk_text_iter_get_line_index")
+    text_iter_get_line_index :: proc(iter: ^TextIter) -> i32 ---
+
+    @(link_name = "gtk_text_iter_get_visible_line_offset")
+    text_iter_get_visible_line_offset :: proc(iter: ^TextIter) -> i32 ---
+
+    @(link_name = "gtk_text_iter_get_visible_line_index")
+    text_iter_get_visible_line_index :: proc(iter: ^TextIter) -> i32 ---
+
+    @(link_name = "gtk_text_iter_get_char")
+    text_iter_get_char :: proc(iter: ^TextIter) -> glib.unichar ---
+
+    @(link_name = "gtk_text_iter_get_slice")
+    text_iter_get_slice :: proc(start: ^TextIter, end: ^TextIter) -> cstring ---
+
+    @(link_name = "gtk_text_iter_get_text")
+    text_iter_get_text :: proc(start: ^TextIter, end: ^TextIter) -> cstring ---
+
+    @(link_name = "gtk_text_iter_get_visible_slice")
+    text_iter_get_visible_slice :: proc(start: ^TextIter, end: ^TextIter) -> cstring ---
+
+    @(link_name = "gtk_text_iter_get_visible_text")
+    text_iter_get_visible_text :: proc(start: ^TextIter, end: ^TextIter) -> cstring ---
+
+    @(link_name = "gtk_text_iter_get_paintable")
+    text_iter_get_paintable :: proc(iter: ^TextIter) -> ^Paintable ---
+
+    @(link_name = "gtk_text_iter_get_marks")
+    text_iter_get_marks :: proc(iter: ^TextIter) -> ^glib.SList ---
+
+    @(link_name = "gtk_text_iter_get_child_anchor")
+    text_iter_get_child_anchor :: proc(iter: ^TextIter) -> ^TextChildAnchor ---
+
+    @(link_name = "gtk_text_iter_get_toggled_tags")
+    text_iter_get_toggled_tags :: proc(iter: ^TextIter, toggled_on: glib.boolean) -> ^glib.SList ---
+
+    @(link_name = "gtk_text_iter_starts_tag")
+    text_iter_starts_tag :: proc(iter: ^TextIter, tag: ^TextTag) -> glib.boolean ---
+
+    @(link_name = "gtk_text_iter_ends_tag")
+    text_iter_ends_tag :: proc(iter: ^TextIter, tag: ^TextTag) -> glib.boolean ---
+
+    @(link_name = "gtk_text_iter_toggles_tag")
+    text_iter_toggles_tag :: proc(iter: ^TextIter, tag: ^TextTag) -> glib.boolean ---
+
+    @(link_name = "gtk_text_iter_has_tag")
+    text_iter_has_tag :: proc(iter: ^TextIter, tag: ^TextTag) -> glib.boolean ---
+
+    @(link_name = "gtk_text_iter_get_tags")
+    text_iter_get_tags :: proc(iter: ^TextIter) -> ^glib.SList ---
+
+    @(link_name = "gtk_text_iter_editable")
+    text_iter_editable :: proc(iter: ^TextIter, default_setting: glib.boolean) -> glib.boolean ---
+
+    @(link_name = "gtk_text_iter_can_insert")
+    text_iter_can_insert :: proc(iter: ^TextIter, default_editability: glib.boolean) -> glib.boolean ---
+
+    @(link_name = "gtk_text_iter_starts_word")
+    text_iter_starts_word :: proc(iter: ^TextIter) -> glib.boolean ---
+
+    @(link_name = "gtk_text_iter_ends_word")
+    text_iter_ends_word :: proc(iter: ^TextIter) -> glib.boolean ---
+
+    @(link_name = "gtk_text_iter_inside_word")
+    text_iter_inside_word :: proc(iter: ^TextIter) -> glib.boolean ---
+
+    @(link_name = "gtk_text_iter_starts_sentence")
+    text_iter_starts_sentence :: proc(iter: ^TextIter) -> glib.boolean ---
+
+    @(link_name = "gtk_text_iter_ends_sentence")
+    text_iter_ends_sentence :: proc(iter: ^TextIter) -> glib.boolean ---
+
+    @(link_name = "gtk_text_iter_inside_sentence")
+    text_iter_inside_sentence :: proc(iter: ^TextIter) -> glib.boolean ---
+
+    @(link_name = "gtk_text_iter_starts_line")
+    text_iter_starts_line :: proc(iter: ^TextIter) -> glib.boolean ---
+
+    @(link_name = "gtk_text_iter_ends_line")
+    text_iter_ends_line :: proc(iter: ^TextIter) -> glib.boolean ---
+
+    @(link_name = "gtk_text_iter_is_cursor_position")
+    text_iter_is_cursor_position :: proc(iter: ^TextIter) -> glib.boolean ---
+
+    @(link_name = "gtk_text_iter_get_chars_in_line")
+    text_iter_get_chars_in_line :: proc(iter: ^TextIter) -> i32 ---
+
+    @(link_name = "gtk_text_iter_get_bytes_in_line")
+    text_iter_get_bytes_in_line :: proc(iter: ^TextIter) -> i32 ---
+
+    @(link_name = "gtk_text_iter_get_language")
+    text_iter_get_language :: proc(iter: ^TextIter) -> ^pango.Language ---
+
+    @(link_name = "gtk_text_iter_is_end")
+    text_iter_is_end :: proc(iter: ^TextIter) -> glib.boolean ---
+
+    @(link_name = "gtk_text_iter_is_start")
+    text_iter_is_start :: proc(iter: ^TextIter) -> glib.boolean ---
+
+    @(link_name = "gtk_text_iter_forward_char")
+    text_iter_forward_char :: proc(iter: ^TextIter) -> glib.boolean ---
+
+    @(link_name = "gtk_text_iter_backward_char")
+    text_iter_backward_char :: proc(iter: ^TextIter) -> glib.boolean ---
+
+    @(link_name = "gtk_text_iter_forward_chars")
+    text_iter_forward_chars :: proc(iter: ^TextIter, count: i32) -> glib.boolean ---
+
+    @(link_name = "gtk_text_iter_backward_chars")
+    text_iter_backward_chars :: proc(iter: ^TextIter, count: i32) -> glib.boolean ---
+
+    @(link_name = "gtk_text_iter_forward_line")
+    text_iter_forward_line :: proc(iter: ^TextIter) -> glib.boolean ---
+
+    @(link_name = "gtk_text_iter_backward_line")
+    text_iter_backward_line :: proc(iter: ^TextIter) -> glib.boolean ---
+
+    @(link_name = "gtk_text_iter_forward_lines")
+    text_iter_forward_lines :: proc(iter: ^TextIter, count: i32) -> glib.boolean ---
+
+    @(link_name = "gtk_text_iter_backward_lines")
+    text_iter_backward_lines :: proc(iter: ^TextIter, count: i32) -> glib.boolean ---
+
+    @(link_name = "gtk_text_iter_forward_word_end")
+    text_iter_forward_word_end :: proc(iter: ^TextIter) -> glib.boolean ---
+
+    @(link_name = "gtk_text_iter_backward_word_start")
+    text_iter_backward_word_start :: proc(iter: ^TextIter) -> glib.boolean ---
+
+    @(link_name = "gtk_text_iter_forward_word_ends")
+    text_iter_forward_word_ends :: proc(iter: ^TextIter, count: i32) -> glib.boolean ---
+
+    @(link_name = "gtk_text_iter_backward_word_starts")
+    text_iter_backward_word_starts :: proc(iter: ^TextIter, count: i32) -> glib.boolean ---
+
+    @(link_name = "gtk_text_iter_forward_visible_line")
+    text_iter_forward_visible_line :: proc(iter: ^TextIter) -> glib.boolean ---
+
+    @(link_name = "gtk_text_iter_backward_visible_line")
+    text_iter_backward_visible_line :: proc(iter: ^TextIter) -> glib.boolean ---
+
+    @(link_name = "gtk_text_iter_forward_visible_lines")
+    text_iter_forward_visible_lines :: proc(iter: ^TextIter, count: i32) -> glib.boolean ---
+
+    @(link_name = "gtk_text_iter_backward_visible_lines")
+    text_iter_backward_visible_lines :: proc(iter: ^TextIter, count: i32) -> glib.boolean ---
+
+    @(link_name = "gtk_text_iter_forward_visible_word_end")
+    text_iter_forward_visible_word_end :: proc(iter: ^TextIter) -> glib.boolean ---
+
+    @(link_name = "gtk_text_iter_backward_visible_word_start")
+    text_iter_backward_visible_word_start :: proc(iter: ^TextIter) -> glib.boolean ---
+
+    @(link_name = "gtk_text_iter_forward_visible_word_ends")
+    text_iter_forward_visible_word_ends :: proc(iter: ^TextIter, count: i32) -> glib.boolean ---
+
+    @(link_name = "gtk_text_iter_backward_visible_word_starts")
+    text_iter_backward_visible_word_starts :: proc(iter: ^TextIter, count: i32) -> glib.boolean ---
+
+    @(link_name = "gtk_text_iter_forward_sentence_end")
+    text_iter_forward_sentence_end :: proc(iter: ^TextIter) -> glib.boolean ---
+
+    @(link_name = "gtk_text_iter_backward_sentence_start")
+    text_iter_backward_sentence_start :: proc(iter: ^TextIter) -> glib.boolean ---
+
+    @(link_name = "gtk_text_iter_forward_sentence_ends")
+    text_iter_forward_sentence_ends :: proc(iter: ^TextIter, count: i32) -> glib.boolean ---
+
+    @(link_name = "gtk_text_iter_backward_sentence_starts")
+    text_iter_backward_sentence_starts :: proc(iter: ^TextIter, count: i32) -> glib.boolean ---
+
+    @(link_name = "gtk_text_iter_forward_cursor_position")
+    text_iter_forward_cursor_position :: proc(iter: ^TextIter) -> glib.boolean ---
+
+    @(link_name = "gtk_text_iter_backward_cursor_position")
+    text_iter_backward_cursor_position :: proc(iter: ^TextIter) -> glib.boolean ---
+
+    @(link_name = "gtk_text_iter_forward_cursor_positions")
+    text_iter_forward_cursor_positions :: proc(iter: ^TextIter, count: i32) -> glib.boolean ---
+
+    @(link_name = "gtk_text_iter_backward_cursor_positions")
+    text_iter_backward_cursor_positions :: proc(iter: ^TextIter, count: i32) -> glib.boolean ---
+
+    @(link_name = "gtk_text_iter_forward_visible_cursor_position")
+    text_iter_forward_visible_cursor_position :: proc(iter: ^TextIter) -> glib.boolean ---
+
+    @(link_name = "gtk_text_iter_backward_visible_cursor_position")
+    text_iter_backward_visible_cursor_position :: proc(iter: ^TextIter) -> glib.boolean ---
+
+    @(link_name = "gtk_text_iter_forward_visible_cursor_positions")
+    text_iter_forward_visible_cursor_positions :: proc(iter: ^TextIter, count: i32) -> glib.boolean ---
+
+    @(link_name = "gtk_text_iter_backward_visible_cursor_positions")
+    text_iter_backward_visible_cursor_positions :: proc(iter: ^TextIter, count: i32) -> glib.boolean ---
+
+    @(link_name = "gtk_text_iter_set_offset")
+    text_iter_set_offset :: proc(iter: ^TextIter, char_offset: i32) ---
+
+    @(link_name = "gtk_text_iter_set_line")
+    text_iter_set_line :: proc(iter: ^TextIter, line_number: i32) ---
+
+    @(link_name = "gtk_text_iter_set_line_offset")
+    text_iter_set_line_offset :: proc(iter: ^TextIter, char_on_line: i32) ---
+
+    @(link_name = "gtk_text_iter_set_line_index")
+    text_iter_set_line_index :: proc(iter: ^TextIter, byte_on_line: i32) ---
+
+    @(link_name = "gtk_text_iter_forward_to_end")
+    text_iter_forward_to_end :: proc(iter: ^TextIter) ---
+
+    @(link_name = "gtk_text_iter_forward_to_line_end")
+    text_iter_forward_to_line_end :: proc(iter: ^TextIter) -> glib.boolean ---
+
+    @(link_name = "gtk_text_iter_set_visible_line_offset")
+    text_iter_set_visible_line_offset :: proc(iter: ^TextIter, char_on_line: i32) ---
+
+    @(link_name = "gtk_text_iter_set_visible_line_index")
+    text_iter_set_visible_line_index :: proc(iter: ^TextIter, byte_on_line: i32) ---
+
+    @(link_name = "gtk_text_iter_forward_to_tag_toggle")
+    text_iter_forward_to_tag_toggle :: proc(iter: ^TextIter, tag: ^TextTag) -> glib.boolean ---
+
+    @(link_name = "gtk_text_iter_backward_to_tag_toggle")
+    text_iter_backward_to_tag_toggle :: proc(iter: ^TextIter, tag: ^TextTag) -> glib.boolean ---
+
+    @(link_name = "gtk_text_iter_forward_find_char")
+    text_iter_forward_find_char :: proc(iter: ^TextIter, pred: TextCharPredicate, user_data: glib.pointer, limit: ^TextIter) -> glib.boolean ---
+
+    @(link_name = "gtk_text_iter_backward_find_char")
+    text_iter_backward_find_char :: proc(iter: ^TextIter, pred: TextCharPredicate, user_data: glib.pointer, limit: ^TextIter) -> glib.boolean ---
+
+    @(link_name = "gtk_text_iter_forward_search")
+    text_iter_forward_search :: proc(iter: ^TextIter, str: cstring, flags: TextSearchFlags, match_start: ^TextIter, match_end: ^TextIter, limit: ^TextIter) -> glib.boolean ---
+
+    @(link_name = "gtk_text_iter_backward_search")
+    text_iter_backward_search :: proc(iter: ^TextIter, str: cstring, flags: TextSearchFlags, match_start: ^TextIter, match_end: ^TextIter, limit: ^TextIter) -> glib.boolean ---
+
+    @(link_name = "gtk_text_iter_equal")
+    text_iter_equal :: proc(lhs: ^TextIter, rhs: ^TextIter) -> glib.boolean ---
+
+    @(link_name = "gtk_text_iter_compare")
+    text_iter_compare :: proc(lhs: ^TextIter, rhs: ^TextIter) -> i32 ---
+
+    @(link_name = "gtk_text_iter_in_range")
+    text_iter_in_range :: proc(iter: ^TextIter, start: ^TextIter, end: ^TextIter) -> glib.boolean ---
+
+    @(link_name = "gtk_text_iter_order")
+    text_iter_order :: proc(first: ^TextIter, second: ^TextIter) ---
+
+    @(link_name = "gtk_text_mark_get_type")
+    text_mark_get_type :: proc() -> gobj.Type ---
+
+    @(link_name = "gtk_text_mark_new")
+    text_mark_new :: proc(name: cstring, left_gravity: glib.boolean) -> ^TextMark ---
+
+    @(link_name = "gtk_text_mark_set_visible")
+    text_mark_set_visible :: proc(mark: ^TextMark, setting: glib.boolean) ---
+
+    @(link_name = "gtk_text_mark_get_visible")
+    text_mark_get_visible :: proc(mark: ^TextMark) -> glib.boolean ---
+
+    @(link_name = "gtk_text_mark_get_name")
+    text_mark_get_name :: proc(mark: ^TextMark) -> cstring ---
+
+    @(link_name = "gtk_text_mark_get_deleted")
+    text_mark_get_deleted :: proc(mark: ^TextMark) -> glib.boolean ---
+
+    @(link_name = "gtk_text_mark_get_buffer")
+    text_mark_get_buffer :: proc(mark: ^TextMark) -> ^TextBuffer ---
+
+    @(link_name = "gtk_text_mark_get_left_gravity")
+    text_mark_get_left_gravity :: proc(mark: ^TextMark) -> glib.boolean ---
+
+    @(link_name = "gtk_text_buffer_get_type")
+    text_buffer_get_type :: proc() -> gobj.Type ---
+
+    @(link_name = "gtk_text_buffer_new")
+    text_buffer_new :: proc(table: ^TextTagTable) -> ^TextBuffer ---
+
+    @(link_name = "gtk_text_buffer_get_line_count")
+    text_buffer_get_line_count :: proc(buffer: ^TextBuffer) -> i32 ---
+
+    @(link_name = "gtk_text_buffer_get_char_count")
+    text_buffer_get_char_count :: proc(buffer: ^TextBuffer) -> i32 ---
+
+    @(link_name = "gtk_text_buffer_get_tag_table")
+    text_buffer_get_tag_table :: proc(buffer: ^TextBuffer) -> ^TextTagTable ---
+
+    @(link_name = "gtk_text_buffer_set_text")
+    text_buffer_set_text :: proc(buffer: ^TextBuffer, text: cstring, len: i32) ---
+
+    @(link_name = "gtk_text_buffer_insert")
+    text_buffer_insert :: proc(buffer: ^TextBuffer, iter: ^TextIter, text: cstring, len: i32) ---
+
+    @(link_name = "gtk_text_buffer_insert_at_cursor")
+    text_buffer_insert_at_cursor :: proc(buffer: ^TextBuffer, text: cstring, len: i32) ---
+
+    @(link_name = "gtk_text_buffer_insert_interactive")
+    text_buffer_insert_interactive :: proc(buffer: ^TextBuffer, iter: ^TextIter, text: cstring, len: i32, default_editable: glib.boolean) -> glib.boolean ---
+
+    @(link_name = "gtk_text_buffer_insert_interactive_at_cursor")
+    text_buffer_insert_interactive_at_cursor :: proc(buffer: ^TextBuffer, text: cstring, len: i32, default_editable: glib.boolean) -> glib.boolean ---
+
+    @(link_name = "gtk_text_buffer_insert_range")
+    text_buffer_insert_range :: proc(buffer: ^TextBuffer, iter: ^TextIter, start: ^TextIter, end: ^TextIter) ---
+
+    @(link_name = "gtk_text_buffer_insert_range_interactive")
+    text_buffer_insert_range_interactive :: proc(buffer: ^TextBuffer, iter: ^TextIter, start: ^TextIter, end: ^TextIter, default_editable: glib.boolean) -> glib.boolean ---
+
+    @(link_name = "gtk_text_buffer_insert_with_tags")
+    text_buffer_insert_with_tags :: proc(buffer: ^TextBuffer, iter: ^TextIter, text: cstring, len: i32, first_tag: ^TextTag, #c_vararg var_args: ..any) ---
+
+    @(link_name = "gtk_text_buffer_insert_with_tags_by_name")
+    text_buffer_insert_with_tags_by_name :: proc(buffer: ^TextBuffer, iter: ^TextIter, text: cstring, len: i32, first_tag_name: cstring, #c_vararg var_args: ..any) ---
+
+    @(link_name = "gtk_text_buffer_insert_markup")
+    text_buffer_insert_markup :: proc(buffer: ^TextBuffer, iter: ^TextIter, markup: cstring, len: i32) ---
+
+    @(link_name = "gtk_text_buffer_delete")
+    text_buffer_delete :: proc(buffer: ^TextBuffer, start: ^TextIter, end: ^TextIter) ---
+
+    @(link_name = "gtk_text_buffer_delete_interactive")
+    text_buffer_delete_interactive :: proc(buffer: ^TextBuffer, start_iter: ^TextIter, end_iter: ^TextIter, default_editable: glib.boolean) -> glib.boolean ---
+
+    @(link_name = "gtk_text_buffer_backspace")
+    text_buffer_backspace :: proc(buffer: ^TextBuffer, iter: ^TextIter, interactive: glib.boolean, default_editable: glib.boolean) -> glib.boolean ---
+
+    @(link_name = "gtk_text_buffer_get_text")
+    text_buffer_get_text :: proc(buffer: ^TextBuffer, start: ^TextIter, end: ^TextIter, include_hidden_chars: glib.boolean) -> cstring ---
+
+    @(link_name = "gtk_text_buffer_get_slice")
+    text_buffer_get_slice :: proc(buffer: ^TextBuffer, start: ^TextIter, end: ^TextIter, include_hidden_chars: glib.boolean) -> cstring ---
+
+    @(link_name = "gtk_text_buffer_insert_paintable")
+    text_buffer_insert_paintable :: proc(buffer: ^TextBuffer, iter: ^TextIter, paintable: ^Paintable) ---
+
+    @(link_name = "gtk_text_buffer_insert_child_anchor")
+    text_buffer_insert_child_anchor :: proc(buffer: ^TextBuffer, iter: ^TextIter, anchor: ^TextChildAnchor) ---
+
+    @(link_name = "gtk_text_buffer_create_child_anchor")
+    text_buffer_create_child_anchor :: proc(buffer: ^TextBuffer, iter: ^TextIter) -> ^TextChildAnchor ---
+
+    @(link_name = "gtk_text_buffer_add_mark")
+    text_buffer_add_mark :: proc(buffer: ^TextBuffer, mark: ^TextMark, where_p: ^TextIter) ---
+
+    @(link_name = "gtk_text_buffer_create_mark")
+    text_buffer_create_mark :: proc(buffer: ^TextBuffer, mark_name: cstring, where_p: ^TextIter, left_gravity: glib.boolean) -> ^TextMark ---
+
+    @(link_name = "gtk_text_buffer_move_mark")
+    text_buffer_move_mark :: proc(buffer: ^TextBuffer, mark: ^TextMark, where_p: ^TextIter) ---
+
+    @(link_name = "gtk_text_buffer_delete_mark")
+    text_buffer_delete_mark :: proc(buffer: ^TextBuffer, mark: ^TextMark) ---
+
+    @(link_name = "gtk_text_buffer_get_mark")
+    text_buffer_get_mark :: proc(buffer: ^TextBuffer, name: cstring) -> ^TextMark ---
+
+    @(link_name = "gtk_text_buffer_move_mark_by_name")
+    text_buffer_move_mark_by_name :: proc(buffer: ^TextBuffer, name: cstring, where_p: ^TextIter) ---
+
+    @(link_name = "gtk_text_buffer_delete_mark_by_name")
+    text_buffer_delete_mark_by_name :: proc(buffer: ^TextBuffer, name: cstring) ---
+
+    @(link_name = "gtk_text_buffer_get_insert")
+    text_buffer_get_insert :: proc(buffer: ^TextBuffer) -> ^TextMark ---
+
+    @(link_name = "gtk_text_buffer_get_selection_bound")
+    text_buffer_get_selection_bound :: proc(buffer: ^TextBuffer) -> ^TextMark ---
+
+    @(link_name = "gtk_text_buffer_place_cursor")
+    text_buffer_place_cursor :: proc(buffer: ^TextBuffer, where_p: ^TextIter) ---
+
+    @(link_name = "gtk_text_buffer_select_range")
+    text_buffer_select_range :: proc(buffer: ^TextBuffer, ins: ^TextIter, bound: ^TextIter) ---
+
+    @(link_name = "gtk_text_buffer_apply_tag")
+    text_buffer_apply_tag :: proc(buffer: ^TextBuffer, tag: ^TextTag, start: ^TextIter, end: ^TextIter) ---
+
+    @(link_name = "gtk_text_buffer_remove_tag")
+    text_buffer_remove_tag :: proc(buffer: ^TextBuffer, tag: ^TextTag, start: ^TextIter, end: ^TextIter) ---
+
+    @(link_name = "gtk_text_buffer_apply_tag_by_name")
+    text_buffer_apply_tag_by_name :: proc(buffer: ^TextBuffer, name: cstring, start: ^TextIter, end: ^TextIter) ---
+
+    @(link_name = "gtk_text_buffer_remove_tag_by_name")
+    text_buffer_remove_tag_by_name :: proc(buffer: ^TextBuffer, name: cstring, start: ^TextIter, end: ^TextIter) ---
+
+    @(link_name = "gtk_text_buffer_remove_all_tags")
+    text_buffer_remove_all_tags :: proc(buffer: ^TextBuffer, start: ^TextIter, end: ^TextIter) ---
+
+    @(link_name = "gtk_text_buffer_create_tag")
+    text_buffer_create_tag :: proc(buffer: ^TextBuffer, tag_name: cstring, first_property_name: cstring, #c_vararg var_args: ..any) -> ^TextTag ---
+
+    @(link_name = "gtk_text_buffer_get_iter_at_line_offset")
+    text_buffer_get_iter_at_line_offset :: proc(buffer: ^TextBuffer, iter: ^TextIter, line_number: i32, char_offset: i32) -> glib.boolean ---
+
+    @(link_name = "gtk_text_buffer_get_iter_at_line_index")
+    text_buffer_get_iter_at_line_index :: proc(buffer: ^TextBuffer, iter: ^TextIter, line_number: i32, byte_index: i32) -> glib.boolean ---
+
+    @(link_name = "gtk_text_buffer_get_iter_at_offset")
+    text_buffer_get_iter_at_offset :: proc(buffer: ^TextBuffer, iter: ^TextIter, char_offset: i32) ---
+
+    @(link_name = "gtk_text_buffer_get_iter_at_line")
+    text_buffer_get_iter_at_line :: proc(buffer: ^TextBuffer, iter: ^TextIter, line_number: i32) -> glib.boolean ---
+
+    @(link_name = "gtk_text_buffer_get_start_iter")
+    text_buffer_get_start_iter :: proc(buffer: ^TextBuffer, iter: ^TextIter) ---
+
+    @(link_name = "gtk_text_buffer_get_end_iter")
+    text_buffer_get_end_iter :: proc(buffer: ^TextBuffer, iter: ^TextIter) ---
+
+    @(link_name = "gtk_text_buffer_get_bounds")
+    text_buffer_get_bounds :: proc(buffer: ^TextBuffer, start: ^TextIter, end: ^TextIter) ---
+
+    @(link_name = "gtk_text_buffer_get_iter_at_mark")
+    text_buffer_get_iter_at_mark :: proc(buffer: ^TextBuffer, iter: ^TextIter, mark: ^TextMark) ---
+
+    @(link_name = "gtk_text_buffer_get_iter_at_child_anchor")
+    text_buffer_get_iter_at_child_anchor :: proc(buffer: ^TextBuffer, iter: ^TextIter, anchor: ^TextChildAnchor) ---
+
+    @(link_name = "gtk_text_buffer_get_modified")
+    text_buffer_get_modified :: proc(buffer: ^TextBuffer) -> glib.boolean ---
+
+    @(link_name = "gtk_text_buffer_set_modified")
+    text_buffer_set_modified :: proc(buffer: ^TextBuffer, setting: glib.boolean) ---
+
+    @(link_name = "gtk_text_buffer_get_has_selection")
+    text_buffer_get_has_selection :: proc(buffer: ^TextBuffer) -> glib.boolean ---
+
+    @(link_name = "gtk_text_buffer_add_selection_clipboard")
+    text_buffer_add_selection_clipboard :: proc(buffer: ^TextBuffer, clipboard: ^Clipboard) ---
+
+    @(link_name = "gtk_text_buffer_remove_selection_clipboard")
+    text_buffer_remove_selection_clipboard :: proc(buffer: ^TextBuffer, clipboard: ^Clipboard) ---
+
+    @(link_name = "gtk_text_buffer_cut_clipboard")
+    text_buffer_cut_clipboard :: proc(buffer: ^TextBuffer, clipboard: ^Clipboard, default_editable: glib.boolean) ---
+
+    @(link_name = "gtk_text_buffer_copy_clipboard")
+    text_buffer_copy_clipboard :: proc(buffer: ^TextBuffer, clipboard: ^Clipboard) ---
+
+    @(link_name = "gtk_text_buffer_paste_clipboard")
+    text_buffer_paste_clipboard :: proc(buffer: ^TextBuffer, clipboard: ^Clipboard, override_location: ^TextIter, default_editable: glib.boolean) ---
+
+    @(link_name = "gtk_text_buffer_get_selection_bounds")
+    text_buffer_get_selection_bounds :: proc(buffer: ^TextBuffer, start: ^TextIter, end: ^TextIter) -> glib.boolean ---
+
+    @(link_name = "gtk_text_buffer_delete_selection")
+    text_buffer_delete_selection :: proc(buffer: ^TextBuffer, interactive: glib.boolean, default_editable: glib.boolean) -> glib.boolean ---
+
+    @(link_name = "gtk_text_buffer_get_selection_content")
+    text_buffer_get_selection_content :: proc(buffer: ^TextBuffer) -> ^ContentProvider ---
+
+    @(link_name = "gtk_text_buffer_get_can_undo")
+    text_buffer_get_can_undo :: proc(buffer: ^TextBuffer) -> glib.boolean ---
+
+    @(link_name = "gtk_text_buffer_get_can_redo")
+    text_buffer_get_can_redo :: proc(buffer: ^TextBuffer) -> glib.boolean ---
+
+    @(link_name = "gtk_text_buffer_get_enable_undo")
+    text_buffer_get_enable_undo :: proc(buffer: ^TextBuffer) -> glib.boolean ---
+
+    @(link_name = "gtk_text_buffer_set_enable_undo")
+    text_buffer_set_enable_undo :: proc(buffer: ^TextBuffer, enable_undo: glib.boolean) ---
+
+    @(link_name = "gtk_text_buffer_get_max_undo_levels")
+    text_buffer_get_max_undo_levels :: proc(buffer: ^TextBuffer) -> glib.uint_ ---
+
+    @(link_name = "gtk_text_buffer_set_max_undo_levels")
+    text_buffer_set_max_undo_levels :: proc(buffer: ^TextBuffer, max_undo_levels: glib.uint_) ---
+
+    @(link_name = "gtk_text_buffer_undo")
+    text_buffer_undo :: proc(buffer: ^TextBuffer) ---
+
+    @(link_name = "gtk_text_buffer_redo")
+    text_buffer_redo :: proc(buffer: ^TextBuffer) ---
+
+    @(link_name = "gtk_text_buffer_begin_irreversible_action")
+    text_buffer_begin_irreversible_action :: proc(buffer: ^TextBuffer) ---
+
+    @(link_name = "gtk_text_buffer_end_irreversible_action")
+    text_buffer_end_irreversible_action :: proc(buffer: ^TextBuffer) ---
+
+    @(link_name = "gtk_text_buffer_begin_user_action")
+    text_buffer_begin_user_action :: proc(buffer: ^TextBuffer) ---
+
+    @(link_name = "gtk_text_buffer_end_user_action")
+    text_buffer_end_user_action :: proc(buffer: ^TextBuffer) ---
+
+    @(link_name = "gtk_text_buffer_add_commit_notify")
+    text_buffer_add_commit_notify :: proc(buffer: ^TextBuffer, flags: TextBufferNotifyFlags, commit_notify: TextBufferCommitNotify, user_data: glib.pointer, destroy: glib.DestroyNotify) -> glib.uint_ ---
+
+    @(link_name = "gtk_text_buffer_remove_commit_notify")
+    text_buffer_remove_commit_notify :: proc(buffer: ^TextBuffer, commit_notify_handler: glib.uint_) ---
+
+    @(link_name = "gtk_text_view_get_type")
+    text_view_get_type :: proc() -> gobj.Type ---
+
+    @(link_name = "gtk_text_view_new")
+    text_view_new :: proc() -> ^Widget ---
+
+    @(link_name = "gtk_text_view_new_with_buffer")
+    text_view_new_with_buffer :: proc(buffer: ^TextBuffer) -> ^Widget ---
+
+    @(link_name = "gtk_text_view_set_buffer")
+    text_view_set_buffer :: proc(text_view: ^TextView, buffer: ^TextBuffer) ---
+
+    @(link_name = "gtk_text_view_get_buffer")
+    text_view_get_buffer :: proc(text_view: ^TextView) -> ^TextBuffer ---
+
+    @(link_name = "gtk_text_view_scroll_to_iter")
+    text_view_scroll_to_iter :: proc(text_view: ^TextView, iter: ^TextIter, within_margin: f64, use_align: glib.boolean, xalign: f64, yalign: f64) -> glib.boolean ---
+
+    @(link_name = "gtk_text_view_scroll_to_mark")
+    text_view_scroll_to_mark :: proc(text_view: ^TextView, mark: ^TextMark, within_margin: f64, use_align: glib.boolean, xalign: f64, yalign: f64) ---
+
+    @(link_name = "gtk_text_view_scroll_mark_onscreen")
+    text_view_scroll_mark_onscreen :: proc(text_view: ^TextView, mark: ^TextMark) ---
+
+    @(link_name = "gtk_text_view_move_mark_onscreen")
+    text_view_move_mark_onscreen :: proc(text_view: ^TextView, mark: ^TextMark) -> glib.boolean ---
+
+    @(link_name = "gtk_text_view_place_cursor_onscreen")
+    text_view_place_cursor_onscreen :: proc(text_view: ^TextView) -> glib.boolean ---
+
+    @(link_name = "gtk_text_view_get_visible_rect")
+    text_view_get_visible_rect :: proc(text_view: ^TextView, visible_rect: ^Rectangle) ---
+
+    @(link_name = "gtk_text_view_set_cursor_visible")
+    text_view_set_cursor_visible :: proc(text_view: ^TextView, setting: glib.boolean) ---
+
+    @(link_name = "gtk_text_view_get_cursor_visible")
+    text_view_get_cursor_visible :: proc(text_view: ^TextView) -> glib.boolean ---
+
+    @(link_name = "gtk_text_view_reset_cursor_blink")
+    text_view_reset_cursor_blink :: proc(text_view: ^TextView) ---
+
+    @(link_name = "gtk_text_view_get_cursor_locations")
+    text_view_get_cursor_locations :: proc(text_view: ^TextView, iter: ^TextIter, strong: ^Rectangle, weak: ^Rectangle) ---
+
+    @(link_name = "gtk_text_view_get_iter_location")
+    text_view_get_iter_location :: proc(text_view: ^TextView, iter: ^TextIter, location: ^Rectangle) ---
+
+    @(link_name = "gtk_text_view_get_iter_at_location")
+    text_view_get_iter_at_location :: proc(text_view: ^TextView, iter: ^TextIter, x: i32, y: i32) -> glib.boolean ---
+
+    @(link_name = "gtk_text_view_get_iter_at_position")
+    text_view_get_iter_at_position :: proc(text_view: ^TextView, iter: ^TextIter, trailing: ^i32, x: i32, y: i32) -> glib.boolean ---
+
+    @(link_name = "gtk_text_view_get_line_yrange")
+    text_view_get_line_yrange :: proc(text_view: ^TextView, iter: ^TextIter, y: ^i32, height: ^i32) ---
+
+    @(link_name = "gtk_text_view_get_line_at_y")
+    text_view_get_line_at_y :: proc(text_view: ^TextView, target_iter: ^TextIter, y: i32, line_top: ^i32) ---
+
+    @(link_name = "gtk_text_view_buffer_to_window_coords")
+    text_view_buffer_to_window_coords :: proc(text_view: ^TextView, win: TextWindowType, buffer_x: i32, buffer_y: i32, window_x: ^i32, window_y: ^i32) ---
+
+    @(link_name = "gtk_text_view_window_to_buffer_coords")
+    text_view_window_to_buffer_coords :: proc(text_view: ^TextView, win: TextWindowType, window_x: i32, window_y: i32, buffer_x: ^i32, buffer_y: ^i32) ---
+
+    @(link_name = "gtk_text_view_forward_display_line")
+    text_view_forward_display_line :: proc(text_view: ^TextView, iter: ^TextIter) -> glib.boolean ---
+
+    @(link_name = "gtk_text_view_backward_display_line")
+    text_view_backward_display_line :: proc(text_view: ^TextView, iter: ^TextIter) -> glib.boolean ---
+
+    @(link_name = "gtk_text_view_forward_display_line_end")
+    text_view_forward_display_line_end :: proc(text_view: ^TextView, iter: ^TextIter) -> glib.boolean ---
+
+    @(link_name = "gtk_text_view_backward_display_line_start")
+    text_view_backward_display_line_start :: proc(text_view: ^TextView, iter: ^TextIter) -> glib.boolean ---
+
+    @(link_name = "gtk_text_view_starts_display_line")
+    text_view_starts_display_line :: proc(text_view: ^TextView, iter: ^TextIter) -> glib.boolean ---
+
+    @(link_name = "gtk_text_view_move_visually")
+    text_view_move_visually :: proc(text_view: ^TextView, iter: ^TextIter, count: i32) -> glib.boolean ---
+
+    @(link_name = "gtk_text_view_im_context_filter_keypress")
+    text_view_im_context_filter_keypress :: proc(text_view: ^TextView, event: ^Event) -> glib.boolean ---
+
+    @(link_name = "gtk_text_view_reset_im_context")
+    text_view_reset_im_context :: proc(text_view: ^TextView) ---
+
+    @(link_name = "gtk_text_view_get_gutter")
+    text_view_get_gutter :: proc(text_view: ^TextView, win: TextWindowType) -> ^Widget ---
+
+    @(link_name = "gtk_text_view_set_gutter")
+    text_view_set_gutter :: proc(text_view: ^TextView, win: TextWindowType, widget: ^Widget) ---
+
+    @(link_name = "gtk_text_view_add_child_at_anchor")
+    text_view_add_child_at_anchor :: proc(text_view: ^TextView, child: ^Widget, anchor: ^TextChildAnchor) ---
+
+    @(link_name = "gtk_text_view_add_overlay")
+    text_view_add_overlay :: proc(text_view: ^TextView, child: ^Widget, xpos: i32, ypos: i32) ---
+
+    @(link_name = "gtk_text_view_move_overlay")
+    text_view_move_overlay :: proc(text_view: ^TextView, child: ^Widget, xpos: i32, ypos: i32) ---
+
+    @(link_name = "gtk_text_view_remove")
+    text_view_remove :: proc(text_view: ^TextView, child: ^Widget) ---
+
+    @(link_name = "gtk_text_view_set_wrap_mode")
+    text_view_set_wrap_mode :: proc(text_view: ^TextView, wrap_mode: WrapMode) ---
+
+    @(link_name = "gtk_text_view_get_wrap_mode")
+    text_view_get_wrap_mode :: proc(text_view: ^TextView) -> WrapMode ---
+
+    @(link_name = "gtk_text_view_set_editable")
+    text_view_set_editable :: proc(text_view: ^TextView, setting: glib.boolean) ---
+
+    @(link_name = "gtk_text_view_get_editable")
+    text_view_get_editable :: proc(text_view: ^TextView) -> glib.boolean ---
+
+    @(link_name = "gtk_text_view_set_overwrite")
+    text_view_set_overwrite :: proc(text_view: ^TextView, overwrite: glib.boolean) ---
+
+    @(link_name = "gtk_text_view_get_overwrite")
+    text_view_get_overwrite :: proc(text_view: ^TextView) -> glib.boolean ---
+
+    @(link_name = "gtk_text_view_set_accepts_tab")
+    text_view_set_accepts_tab :: proc(text_view: ^TextView, accepts_tab: glib.boolean) ---
+
+    @(link_name = "gtk_text_view_get_accepts_tab")
+    text_view_get_accepts_tab :: proc(text_view: ^TextView) -> glib.boolean ---
+
+    @(link_name = "gtk_text_view_set_pixels_above_lines")
+    text_view_set_pixels_above_lines :: proc(text_view: ^TextView, pixels_above_lines: i32) ---
+
+    @(link_name = "gtk_text_view_get_pixels_above_lines")
+    text_view_get_pixels_above_lines :: proc(text_view: ^TextView) -> i32 ---
+
+    @(link_name = "gtk_text_view_set_pixels_below_lines")
+    text_view_set_pixels_below_lines :: proc(text_view: ^TextView, pixels_below_lines: i32) ---
+
+    @(link_name = "gtk_text_view_get_pixels_below_lines")
+    text_view_get_pixels_below_lines :: proc(text_view: ^TextView) -> i32 ---
+
+    @(link_name = "gtk_text_view_set_pixels_inside_wrap")
+    text_view_set_pixels_inside_wrap :: proc(text_view: ^TextView, pixels_inside_wrap: i32) ---
+
+    @(link_name = "gtk_text_view_get_pixels_inside_wrap")
+    text_view_get_pixels_inside_wrap :: proc(text_view: ^TextView) -> i32 ---
+
+    @(link_name = "gtk_text_view_set_justification")
+    text_view_set_justification :: proc(text_view: ^TextView, justification: Justification) ---
+
+    @(link_name = "gtk_text_view_get_justification")
+    text_view_get_justification :: proc(text_view: ^TextView) -> Justification ---
+
+    @(link_name = "gtk_text_view_set_left_margin")
+    text_view_set_left_margin :: proc(text_view: ^TextView, left_margin: i32) ---
+
+    @(link_name = "gtk_text_view_get_left_margin")
+    text_view_get_left_margin :: proc(text_view: ^TextView) -> i32 ---
+
+    @(link_name = "gtk_text_view_set_right_margin")
+    text_view_set_right_margin :: proc(text_view: ^TextView, right_margin: i32) ---
+
+    @(link_name = "gtk_text_view_get_right_margin")
+    text_view_get_right_margin :: proc(text_view: ^TextView) -> i32 ---
+
+    @(link_name = "gtk_text_view_set_top_margin")
+    text_view_set_top_margin :: proc(text_view: ^TextView, top_margin: i32) ---
+
+    @(link_name = "gtk_text_view_get_top_margin")
+    text_view_get_top_margin :: proc(text_view: ^TextView) -> i32 ---
+
+    @(link_name = "gtk_text_view_set_bottom_margin")
+    text_view_set_bottom_margin :: proc(text_view: ^TextView, bottom_margin: i32) ---
+
+    @(link_name = "gtk_text_view_get_bottom_margin")
+    text_view_get_bottom_margin :: proc(text_view: ^TextView) -> i32 ---
+
+    @(link_name = "gtk_text_view_set_indent")
+    text_view_set_indent :: proc(text_view: ^TextView, indent: i32) ---
+
+    @(link_name = "gtk_text_view_get_indent")
+    text_view_get_indent :: proc(text_view: ^TextView) -> i32 ---
+
+    @(link_name = "gtk_text_view_set_tabs")
+    text_view_set_tabs :: proc(text_view: ^TextView, tabs: ^pango.TabArray) ---
+
+    @(link_name = "gtk_text_view_get_tabs")
+    text_view_get_tabs :: proc(text_view: ^TextView) -> ^pango.TabArray ---
+
+    @(link_name = "gtk_text_view_set_input_purpose")
+    text_view_set_input_purpose :: proc(text_view: ^TextView, purpose: InputPurpose) ---
+
+    @(link_name = "gtk_text_view_get_input_purpose")
+    text_view_get_input_purpose :: proc(text_view: ^TextView) -> InputPurpose ---
+
+    @(link_name = "gtk_text_view_set_input_hints")
+    text_view_set_input_hints :: proc(text_view: ^TextView, hints: InputHints) ---
+
+    @(link_name = "gtk_text_view_get_input_hints")
+    text_view_get_input_hints :: proc(text_view: ^TextView) -> InputHints ---
+
+    @(link_name = "gtk_text_view_set_monospace")
+    text_view_set_monospace :: proc(text_view: ^TextView, monospace: glib.boolean) ---
+
+    @(link_name = "gtk_text_view_get_monospace")
+    text_view_get_monospace :: proc(text_view: ^TextView) -> glib.boolean ---
+
+    @(link_name = "gtk_text_view_set_extra_menu")
+    text_view_set_extra_menu :: proc(text_view: ^TextView, model: ^gio.MenuModel) ---
+
+    @(link_name = "gtk_text_view_get_extra_menu")
+    text_view_get_extra_menu :: proc(text_view: ^TextView) -> ^gio.MenuModel ---
+
+    @(link_name = "gtk_text_view_get_rtl_context")
+    text_view_get_rtl_context :: proc(text_view: ^TextView) -> ^pango.Context ---
+
+    @(link_name = "gtk_text_view_get_ltr_context")
+    text_view_get_ltr_context :: proc(text_view: ^TextView) -> ^pango.Context ---
+
+    @(link_name = "gtk_test_accessible_has_role")
+    test_accessible_has_role :: proc(accessible: ^Accessible, role: AccessibleRole) -> glib.boolean ---
+
+    @(link_name = "gtk_test_accessible_has_property")
+    test_accessible_has_property :: proc(accessible: ^Accessible, property: AccessibleProperty) -> glib.boolean ---
+
+    @(link_name = "gtk_test_accessible_has_relation")
+    test_accessible_has_relation :: proc(accessible: ^Accessible, relation: AccessibleRelation) -> glib.boolean ---
+
+    @(link_name = "gtk_test_accessible_has_state")
+    test_accessible_has_state :: proc(accessible: ^Accessible, state: AccessibleState) -> glib.boolean ---
+
+    @(link_name = "gtk_test_accessible_check_property")
+    test_accessible_check_property :: proc(accessible: ^Accessible, property: AccessibleProperty, #c_vararg var_args: ..any) -> cstring ---
+
+    @(link_name = "gtk_test_accessible_check_relation")
+    test_accessible_check_relation :: proc(accessible: ^Accessible, relation: AccessibleRelation, #c_vararg var_args: ..any) -> cstring ---
+
+    @(link_name = "gtk_test_accessible_check_state")
+    test_accessible_check_state :: proc(accessible: ^Accessible, state: AccessibleState, #c_vararg var_args: ..any) -> cstring ---
+
+    @(link_name = "gtk_test_accessible_assertion_message_role")
+    test_accessible_assertion_message_role :: proc(domain: cstring, file: cstring, line: i32, func: cstring, expr: cstring, accessible: ^Accessible, expected_role: AccessibleRole, actual_role: AccessibleRole) ---
+
+    @(link_name = "gtk_test_init")
+    test_init :: proc(argcp: ^i32, argvp: ^^cstring, #c_vararg var_args: ..any) ---
+
+    @(link_name = "gtk_test_register_all_types")
+    test_register_all_types :: proc() ---
+
+    @(link_name = "gtk_test_list_all_types")
+    test_list_all_types :: proc(n_types: ^glib.uint_) -> ^gobj.Type ---
+
+    @(link_name = "gtk_test_widget_wait_for_draw")
+    test_widget_wait_for_draw :: proc(widget: ^Widget) ---
+
+    @(link_name = "gtk_tree_row_data_get_type")
+    tree_row_data_get_type :: proc() -> gobj.Type ---
+
+    @(link_name = "gtk_tree_drag_source_get_type")
+    tree_drag_source_get_type :: proc() -> gobj.Type ---
+
+    @(link_name = "gtk_tree_drag_source_row_draggable")
+    tree_drag_source_row_draggable :: proc(drag_source: ^TreeDragSource, path_p: ^TreePath) -> glib.boolean ---
+
+    @(link_name = "gtk_tree_drag_source_drag_data_delete")
+    tree_drag_source_drag_data_delete :: proc(drag_source: ^TreeDragSource, path_p: ^TreePath) -> glib.boolean ---
+
+    @(link_name = "gtk_tree_drag_source_drag_data_get")
+    tree_drag_source_drag_data_get :: proc(drag_source: ^TreeDragSource, path_p: ^TreePath) -> ^ContentProvider ---
+
+    @(link_name = "gtk_tree_drag_dest_get_type")
+    tree_drag_dest_get_type :: proc() -> gobj.Type ---
+
+    @(link_name = "gtk_tree_drag_dest_drag_data_received")
+    tree_drag_dest_drag_data_received :: proc(drag_dest: ^TreeDragDest, dest: ^TreePath, value: ^gobj.Value) -> glib.boolean ---
+
+    @(link_name = "gtk_tree_drag_dest_row_drop_possible")
+    tree_drag_dest_row_drop_possible :: proc(drag_dest: ^TreeDragDest, dest_path: ^TreePath, value: ^gobj.Value) -> glib.boolean ---
+
+    @(link_name = "gtk_tree_create_row_drag_content")
+    tree_create_row_drag_content :: proc(tree_model: ^TreeModel, path_p: ^TreePath) -> ^ContentProvider ---
+
+    @(link_name = "gtk_tree_get_row_drag_data")
+    tree_get_row_drag_data :: proc(value: ^gobj.Value, tree_model: ^^TreeModel, path_p: ^^TreePath) -> glib.boolean ---
+
+    @(link_name = "gtk_tree_list_model_get_type")
+    tree_list_model_get_type :: proc() -> gobj.Type ---
+
+    @(link_name = "gtk_tree_list_row_get_type")
+    tree_list_row_get_type :: proc() -> gobj.Type ---
+
+    @(link_name = "gtk_tree_list_model_new")
+    tree_list_model_new :: proc(root: ^gio.ListModel, passthrough: glib.boolean, autoexpand: glib.boolean, create_func: TreeListModelCreateModelFunc, user_data: glib.pointer, user_destroy: glib.DestroyNotify) -> ^TreeListModel ---
+
+    @(link_name = "gtk_tree_list_model_get_model")
+    tree_list_model_get_model :: proc(self: ^TreeListModel) -> ^gio.ListModel ---
+
+    @(link_name = "gtk_tree_list_model_get_passthrough")
+    tree_list_model_get_passthrough :: proc(self: ^TreeListModel) -> glib.boolean ---
+
+    @(link_name = "gtk_tree_list_model_set_autoexpand")
+    tree_list_model_set_autoexpand :: proc(self: ^TreeListModel, autoexpand: glib.boolean) ---
+
+    @(link_name = "gtk_tree_list_model_get_autoexpand")
+    tree_list_model_get_autoexpand :: proc(self: ^TreeListModel) -> glib.boolean ---
+
+    @(link_name = "gtk_tree_list_model_get_child_row")
+    tree_list_model_get_child_row :: proc(self: ^TreeListModel, position: glib.uint_) -> ^TreeListRow ---
+
+    @(link_name = "gtk_tree_list_model_get_row")
+    tree_list_model_get_row :: proc(self: ^TreeListModel, position: glib.uint_) -> ^TreeListRow ---
+
+    @(link_name = "gtk_tree_list_row_get_item")
+    tree_list_row_get_item :: proc(self: ^TreeListRow) -> glib.pointer ---
+
+    @(link_name = "gtk_tree_list_row_set_expanded")
+    tree_list_row_set_expanded :: proc(self: ^TreeListRow, expanded: glib.boolean) ---
+
+    @(link_name = "gtk_tree_list_row_get_expanded")
+    tree_list_row_get_expanded :: proc(self: ^TreeListRow) -> glib.boolean ---
+
+    @(link_name = "gtk_tree_list_row_is_expandable")
+    tree_list_row_is_expandable :: proc(self: ^TreeListRow) -> glib.boolean ---
+
+    @(link_name = "gtk_tree_list_row_get_position")
+    tree_list_row_get_position :: proc(self: ^TreeListRow) -> glib.uint_ ---
+
+    @(link_name = "gtk_tree_list_row_get_depth")
+    tree_list_row_get_depth :: proc(self: ^TreeListRow) -> glib.uint_ ---
+
+    @(link_name = "gtk_tree_list_row_get_children")
+    tree_list_row_get_children :: proc(self: ^TreeListRow) -> ^gio.ListModel ---
+
+    @(link_name = "gtk_tree_list_row_get_parent")
+    tree_list_row_get_parent :: proc(self: ^TreeListRow) -> ^TreeListRow ---
+
+    @(link_name = "gtk_tree_list_row_get_child_row")
+    tree_list_row_get_child_row :: proc(self: ^TreeListRow, position: glib.uint_) -> ^TreeListRow ---
+
+    @(link_name = "gtk_tree_expander_get_type")
+    tree_expander_get_type :: proc() -> gobj.Type ---
+
+    @(link_name = "gtk_tree_expander_new")
+    tree_expander_new :: proc() -> ^Widget ---
+
+    @(link_name = "gtk_tree_expander_get_child")
+    tree_expander_get_child :: proc(self: ^TreeExpander) -> ^Widget ---
+
+    @(link_name = "gtk_tree_expander_set_child")
+    tree_expander_set_child :: proc(self: ^TreeExpander, child: ^Widget) ---
+
+    @(link_name = "gtk_tree_expander_get_item")
+    tree_expander_get_item :: proc(self: ^TreeExpander) -> glib.pointer ---
+
+    @(link_name = "gtk_tree_expander_get_list_row")
+    tree_expander_get_list_row :: proc(self: ^TreeExpander) -> ^TreeListRow ---
+
+    @(link_name = "gtk_tree_expander_set_list_row")
+    tree_expander_set_list_row :: proc(self: ^TreeExpander, list_row: ^TreeListRow) ---
+
+    @(link_name = "gtk_tree_expander_get_indent_for_depth")
+    tree_expander_get_indent_for_depth :: proc(self: ^TreeExpander) -> glib.boolean ---
+
+    @(link_name = "gtk_tree_expander_set_indent_for_depth")
+    tree_expander_set_indent_for_depth :: proc(self: ^TreeExpander, indent_for_depth: glib.boolean) ---
+
+    @(link_name = "gtk_tree_expander_get_indent_for_icon")
+    tree_expander_get_indent_for_icon :: proc(self: ^TreeExpander) -> glib.boolean ---
+
+    @(link_name = "gtk_tree_expander_set_indent_for_icon")
+    tree_expander_set_indent_for_icon :: proc(self: ^TreeExpander, indent_for_icon: glib.boolean) ---
+
+    @(link_name = "gtk_tree_expander_get_hide_expander")
+    tree_expander_get_hide_expander :: proc(self: ^TreeExpander) -> glib.boolean ---
+
+    @(link_name = "gtk_tree_expander_set_hide_expander")
+    tree_expander_set_hide_expander :: proc(self: ^TreeExpander, hide_expander: glib.boolean) ---
+
+    @(link_name = "gtk_tree_list_row_sorter_get_type")
+    tree_list_row_sorter_get_type :: proc() -> gobj.Type ---
+
+    @(link_name = "gtk_tree_list_row_sorter_new")
+    tree_list_row_sorter_new :: proc(sorter: ^Sorter) -> ^TreeListRowSorter ---
+
+    @(link_name = "gtk_tree_list_row_sorter_get_sorter")
+    tree_list_row_sorter_get_sorter :: proc(self: ^TreeListRowSorter) -> ^Sorter ---
+
+    @(link_name = "gtk_tree_list_row_sorter_set_sorter")
+    tree_list_row_sorter_set_sorter :: proc(self: ^TreeListRowSorter, sorter: ^Sorter) ---
+
+    @(link_name = "gtk_tree_model_sort_get_type")
+    tree_model_sort_get_type :: proc() -> gobj.Type ---
+
+    @(link_name = "gtk_tree_model_sort_new_with_model")
+    tree_model_sort_new_with_model :: proc(child_model: ^TreeModel) -> ^TreeModel ---
+
+    @(link_name = "gtk_tree_model_sort_get_model")
+    tree_model_sort_get_model :: proc(tree_model: ^TreeModelSort) -> ^TreeModel ---
+
+    @(link_name = "gtk_tree_model_sort_convert_child_path_to_path")
+    tree_model_sort_convert_child_path_to_path :: proc(tree_model_sort: ^TreeModelSort, child_path: ^TreePath) -> ^TreePath ---
+
+    @(link_name = "gtk_tree_model_sort_convert_child_iter_to_iter")
+    tree_model_sort_convert_child_iter_to_iter :: proc(tree_model_sort: ^TreeModelSort, sort_iter: ^TreeIter, child_iter: ^TreeIter) -> glib.boolean ---
+
+    @(link_name = "gtk_tree_model_sort_convert_path_to_child_path")
+    tree_model_sort_convert_path_to_child_path :: proc(tree_model_sort: ^TreeModelSort, sorted_path: ^TreePath) -> ^TreePath ---
+
+    @(link_name = "gtk_tree_model_sort_convert_iter_to_child_iter")
+    tree_model_sort_convert_iter_to_child_iter :: proc(tree_model_sort: ^TreeModelSort, child_iter: ^TreeIter, sorted_iter: ^TreeIter) ---
+
+    @(link_name = "gtk_tree_model_sort_reset_default_sort_func")
+    tree_model_sort_reset_default_sort_func :: proc(tree_model_sort: ^TreeModelSort) ---
+
+    @(link_name = "gtk_tree_model_sort_clear_cache")
+    tree_model_sort_clear_cache :: proc(tree_model_sort: ^TreeModelSort) ---
+
+    @(link_name = "gtk_tree_model_sort_iter_is_valid")
+    tree_model_sort_iter_is_valid :: proc(tree_model_sort: ^TreeModelSort, iter: ^TreeIter) -> glib.boolean ---
+
+    @(link_name = "gtk_tree_selection_get_type")
+    tree_selection_get_type :: proc() -> gobj.Type ---
+
+    @(link_name = "gtk_tree_selection_set_mode")
+    tree_selection_set_mode :: proc(selection: ^TreeSelection, type: SelectionMode) ---
+
+    @(link_name = "gtk_tree_selection_get_mode")
+    tree_selection_get_mode :: proc(selection: ^TreeSelection) -> SelectionMode ---
+
+    @(link_name = "gtk_tree_selection_set_select_function")
+    tree_selection_set_select_function :: proc(selection: ^TreeSelection, func: TreeSelectionFunc, data: glib.pointer, destroy: glib.DestroyNotify) ---
+
+    @(link_name = "gtk_tree_selection_get_user_data")
+    tree_selection_get_user_data :: proc(selection: ^TreeSelection) -> glib.pointer ---
+
+    @(link_name = "gtk_tree_selection_get_tree_view")
+    tree_selection_get_tree_view :: proc(selection: ^TreeSelection) -> ^TreeView ---
+
+    @(link_name = "gtk_tree_selection_get_select_function")
+    tree_selection_get_select_function :: proc(selection: ^TreeSelection) -> TreeSelectionFunc ---
+
+    @(link_name = "gtk_tree_selection_get_selected")
+    tree_selection_get_selected :: proc(selection: ^TreeSelection, model: ^^TreeModel, iter: ^TreeIter) -> glib.boolean ---
+
+    @(link_name = "gtk_tree_selection_get_selected_rows")
+    tree_selection_get_selected_rows :: proc(selection: ^TreeSelection, model: ^^TreeModel) -> ^glib.List ---
+
+    @(link_name = "gtk_tree_selection_count_selected_rows")
+    tree_selection_count_selected_rows :: proc(selection: ^TreeSelection) -> i32 ---
+
+    @(link_name = "gtk_tree_selection_selected_foreach")
+    tree_selection_selected_foreach :: proc(selection: ^TreeSelection, func: TreeSelectionForeachFunc, data: glib.pointer) ---
+
+    @(link_name = "gtk_tree_selection_select_path")
+    tree_selection_select_path :: proc(selection: ^TreeSelection, path_p: ^TreePath) ---
+
+    @(link_name = "gtk_tree_selection_unselect_path")
+    tree_selection_unselect_path :: proc(selection: ^TreeSelection, path_p: ^TreePath) ---
+
+    @(link_name = "gtk_tree_selection_select_iter")
+    tree_selection_select_iter :: proc(selection: ^TreeSelection, iter: ^TreeIter) ---
+
+    @(link_name = "gtk_tree_selection_unselect_iter")
+    tree_selection_unselect_iter :: proc(selection: ^TreeSelection, iter: ^TreeIter) ---
+
+    @(link_name = "gtk_tree_selection_path_is_selected")
+    tree_selection_path_is_selected :: proc(selection: ^TreeSelection, path_p: ^TreePath) -> glib.boolean ---
+
+    @(link_name = "gtk_tree_selection_iter_is_selected")
+    tree_selection_iter_is_selected :: proc(selection: ^TreeSelection, iter: ^TreeIter) -> glib.boolean ---
+
+    @(link_name = "gtk_tree_selection_select_all")
+    tree_selection_select_all :: proc(selection: ^TreeSelection) ---
+
+    @(link_name = "gtk_tree_selection_unselect_all")
+    tree_selection_unselect_all :: proc(selection: ^TreeSelection) ---
+
+    @(link_name = "gtk_tree_selection_select_range")
+    tree_selection_select_range :: proc(selection: ^TreeSelection, start_path: ^TreePath, end_path: ^TreePath) ---
+
+    @(link_name = "gtk_tree_selection_unselect_range")
+    tree_selection_unselect_range :: proc(selection: ^TreeSelection, start_path: ^TreePath, end_path: ^TreePath) ---
+
+    @(link_name = "gtk_tree_store_get_type")
+    tree_store_get_type :: proc() -> gobj.Type ---
+
+    @(link_name = "gtk_tree_store_new")
+    tree_store_new :: proc(n_columns: i32, #c_vararg var_args: ..any) -> ^TreeStore ---
+
+    @(link_name = "gtk_tree_store_newv")
+    tree_store_newv :: proc(n_columns: i32, types: [^]gobj.Type) -> ^TreeStore ---
+
+    @(link_name = "gtk_tree_store_set_column_types")
+    tree_store_set_column_types :: proc(tree_store: ^TreeStore, n_columns: i32, types: [^]gobj.Type) ---
+
+    @(link_name = "gtk_tree_store_set_value")
+    tree_store_set_value :: proc(tree_store: ^TreeStore, iter: ^TreeIter, column: i32, value: ^gobj.Value) ---
+
+    @(link_name = "gtk_tree_store_set")
+    tree_store_set :: proc(tree_store: ^TreeStore, iter: ^TreeIter, #c_vararg var_args: ..any) ---
+
+    @(link_name = "gtk_tree_store_set_valuesv")
+    tree_store_set_valuesv :: proc(tree_store: ^TreeStore, iter: ^TreeIter, columns: [^]i32, values: [^]gobj.Value, n_values: i32) ---
+
+    // tree_store_set_valist skipped: its trailing va_list is dropped by runic, so it would be a wrong #c_vararg ..any call
+
+    @(link_name = "gtk_tree_store_remove")
+    tree_store_remove :: proc(tree_store: ^TreeStore, iter: ^TreeIter) -> glib.boolean ---
+
+    @(link_name = "gtk_tree_store_insert")
+    tree_store_insert :: proc(tree_store: ^TreeStore, iter: ^TreeIter, parent: ^TreeIter, position: i32) ---
+
+    @(link_name = "gtk_tree_store_insert_before")
+    tree_store_insert_before :: proc(tree_store: ^TreeStore, iter: ^TreeIter, parent: ^TreeIter, sibling: ^TreeIter) ---
+
+    @(link_name = "gtk_tree_store_insert_after")
+    tree_store_insert_after :: proc(tree_store: ^TreeStore, iter: ^TreeIter, parent: ^TreeIter, sibling: ^TreeIter) ---
+
+    @(link_name = "gtk_tree_store_insert_with_values")
+    tree_store_insert_with_values :: proc(tree_store: ^TreeStore, iter: ^TreeIter, parent: ^TreeIter, position: i32, #c_vararg var_args: ..any) ---
+
+    @(link_name = "gtk_tree_store_insert_with_valuesv")
+    tree_store_insert_with_valuesv :: proc(tree_store: ^TreeStore, iter: ^TreeIter, parent: ^TreeIter, position: i32, columns: [^]i32, values: [^]gobj.Value, n_values: i32) ---
+
+    @(link_name = "gtk_tree_store_prepend")
+    tree_store_prepend :: proc(tree_store: ^TreeStore, iter: ^TreeIter, parent: ^TreeIter) ---
+
+    @(link_name = "gtk_tree_store_append")
+    tree_store_append :: proc(tree_store: ^TreeStore, iter: ^TreeIter, parent: ^TreeIter) ---
+
+    @(link_name = "gtk_tree_store_is_ancestor")
+    tree_store_is_ancestor :: proc(tree_store: ^TreeStore, iter: ^TreeIter, descendant: ^TreeIter) -> glib.boolean ---
+
+    @(link_name = "gtk_tree_store_iter_depth")
+    tree_store_iter_depth :: proc(tree_store: ^TreeStore, iter: ^TreeIter) -> i32 ---
+
+    @(link_name = "gtk_tree_store_clear")
+    tree_store_clear :: proc(tree_store: ^TreeStore) ---
+
+    @(link_name = "gtk_tree_store_iter_is_valid")
+    tree_store_iter_is_valid :: proc(tree_store: ^TreeStore, iter: ^TreeIter) -> glib.boolean ---
+
+    @(link_name = "gtk_tree_store_reorder")
+    tree_store_reorder :: proc(tree_store: ^TreeStore, parent: ^TreeIter, new_order: ^i32) ---
+
+    @(link_name = "gtk_tree_store_swap")
+    tree_store_swap :: proc(tree_store: ^TreeStore, a: ^TreeIter, b: ^TreeIter) ---
+
+    @(link_name = "gtk_tree_store_move_before")
+    tree_store_move_before :: proc(tree_store: ^TreeStore, iter: ^TreeIter, position: ^TreeIter) ---
+
+    @(link_name = "gtk_tree_store_move_after")
+    tree_store_move_after :: proc(tree_store: ^TreeStore, iter: ^TreeIter, position: ^TreeIter) ---
+
+    @(link_name = "gtk_uri_launcher_get_type")
+    uri_launcher_get_type :: proc() -> gobj.Type ---
+
+    @(link_name = "gtk_uri_launcher_new")
+    uri_launcher_new :: proc(uri: cstring) -> ^UriLauncher ---
+
+    @(link_name = "gtk_uri_launcher_get_uri")
+    uri_launcher_get_uri :: proc(self: ^UriLauncher) -> cstring ---
+
+    @(link_name = "gtk_uri_launcher_set_uri")
+    uri_launcher_set_uri :: proc(self: ^UriLauncher, uri: cstring) ---
+
+    @(link_name = "gtk_uri_launcher_launch")
+    uri_launcher_launch :: proc(self: ^UriLauncher, parent: ^Window, cancellable: ^gio.Cancellable, callback: gio.AsyncReadyCallback, user_data: glib.pointer) ---
+
+    @(link_name = "gtk_uri_launcher_launch_finish")
+    uri_launcher_launch_finish :: proc(self: ^UriLauncher, result: ^gio.AsyncResult, error: ^^glib.Error) -> glib.boolean ---
+
+    @(link_name = "gtk_get_major_version")
+    get_major_version :: proc() -> glib.uint_ ---
+
+    @(link_name = "gtk_get_minor_version")
+    get_minor_version :: proc() -> glib.uint_ ---
+
+    @(link_name = "gtk_get_micro_version")
+    get_micro_version :: proc() -> glib.uint_ ---
+
+    @(link_name = "gtk_get_binary_age")
+    get_binary_age :: proc() -> glib.uint_ ---
+
+    @(link_name = "gtk_get_interface_age")
+    get_interface_age :: proc() -> glib.uint_ ---
+
+    @(link_name = "gtk_check_version")
+    check_version :: proc(required_major: glib.uint_, required_minor: glib.uint_, required_micro: glib.uint_) -> cstring ---
+
+    @(link_name = "gtk_video_get_type")
+    video_get_type :: proc() -> gobj.Type ---
+
+    @(link_name = "gtk_video_new")
+    video_new :: proc() -> ^Widget ---
+
+    @(link_name = "gtk_video_new_for_media_stream")
+    video_new_for_media_stream :: proc(stream: ^MediaStream) -> ^Widget ---
+
+    @(link_name = "gtk_video_new_for_file")
+    video_new_for_file :: proc(file: ^gio.File) -> ^Widget ---
+
+    @(link_name = "gtk_video_new_for_filename")
+    video_new_for_filename :: proc(filename: cstring) -> ^Widget ---
+
+    @(link_name = "gtk_video_new_for_resource")
+    video_new_for_resource :: proc(resource_path: cstring) -> ^Widget ---
+
+    @(link_name = "gtk_video_get_media_stream")
+    video_get_media_stream :: proc(self: ^Video) -> ^MediaStream ---
+
+    @(link_name = "gtk_video_set_media_stream")
+    video_set_media_stream :: proc(self: ^Video, stream: ^MediaStream) ---
+
+    @(link_name = "gtk_video_get_file")
+    video_get_file :: proc(self: ^Video) -> ^gio.File ---
+
+    @(link_name = "gtk_video_set_file")
+    video_set_file :: proc(self: ^Video, file: ^gio.File) ---
+
+    @(link_name = "gtk_video_set_filename")
+    video_set_filename :: proc(self: ^Video, filename: cstring) ---
+
+    @(link_name = "gtk_video_set_resource")
+    video_set_resource :: proc(self: ^Video, resource_path: cstring) ---
+
+    @(link_name = "gtk_video_get_autoplay")
+    video_get_autoplay :: proc(self: ^Video) -> glib.boolean ---
+
+    @(link_name = "gtk_video_set_autoplay")
+    video_set_autoplay :: proc(self: ^Video, autoplay: glib.boolean) ---
+
+    @(link_name = "gtk_video_get_loop")
+    video_get_loop :: proc(self: ^Video) -> glib.boolean ---
+
+    @(link_name = "gtk_video_set_loop")
+    video_set_loop :: proc(self: ^Video, loop: glib.boolean) ---
+
+    @(link_name = "gtk_video_get_graphics_offload")
+    video_get_graphics_offload :: proc(self: ^Video) -> GraphicsOffloadEnabled ---
+
+    @(link_name = "gtk_video_set_graphics_offload")
+    video_set_graphics_offload :: proc(self: ^Video, enabled: GraphicsOffloadEnabled) ---
+
+    @(link_name = "gtk_viewport_get_type")
+    viewport_get_type :: proc() -> gobj.Type ---
+
+    @(link_name = "gtk_viewport_new")
+    viewport_new :: proc(hadjustment: ^Adjustment, vadjustment: ^Adjustment) -> ^Widget ---
+
+    @(link_name = "gtk_viewport_get_scroll_to_focus")
+    viewport_get_scroll_to_focus :: proc(viewport: ^Viewport) -> glib.boolean ---
+
+    @(link_name = "gtk_viewport_set_scroll_to_focus")
+    viewport_set_scroll_to_focus :: proc(viewport: ^Viewport, scroll_to_focus: glib.boolean) ---
+
+    @(link_name = "gtk_viewport_set_child")
+    viewport_set_child :: proc(viewport: ^Viewport, child: ^Widget) ---
+
+    @(link_name = "gtk_viewport_get_child")
+    viewport_get_child :: proc(viewport: ^Viewport) -> ^Widget ---
+
+    @(link_name = "gtk_viewport_scroll_to")
+    viewport_scroll_to :: proc(viewport: ^Viewport, descendant: ^Widget, scroll: ^ScrollInfo) ---
+
+    @(link_name = "gtk_volume_button_get_type")
+    volume_button_get_type :: proc() -> gobj.Type ---
+
+    @(link_name = "gtk_volume_button_new")
+    volume_button_new :: proc() -> ^Widget ---
+
+    @(link_name = "gtk_widget_paintable_get_type")
+    widget_paintable_get_type :: proc() -> gobj.Type ---
+
+    @(link_name = "gtk_widget_paintable_new")
+    widget_paintable_new :: proc(widget: ^Widget) -> ^Paintable ---
+
+    @(link_name = "gtk_widget_paintable_get_widget")
+    widget_paintable_get_widget :: proc(self: ^WidgetPaintable) -> ^Widget ---
+
+    @(link_name = "gtk_widget_paintable_set_widget")
+    widget_paintable_set_widget :: proc(self: ^WidgetPaintable, widget: ^Widget) ---
+
+    @(link_name = "gtk_window_controls_get_type")
+    window_controls_get_type :: proc() -> gobj.Type ---
+
+    @(link_name = "gtk_window_controls_new")
+    window_controls_new :: proc(side: PackType) -> ^Widget ---
+
+    @(link_name = "gtk_window_controls_get_side")
+    window_controls_get_side :: proc(self: ^WindowControls) -> PackType ---
+
+    @(link_name = "gtk_window_controls_set_side")
+    window_controls_set_side :: proc(self: ^WindowControls, side: PackType) ---
+
+    @(link_name = "gtk_window_controls_get_decoration_layout")
+    window_controls_get_decoration_layout :: proc(self: ^WindowControls) -> cstring ---
+
+    @(link_name = "gtk_window_controls_set_decoration_layout")
+    window_controls_set_decoration_layout :: proc(self: ^WindowControls, layout: cstring) ---
+
+    @(link_name = "gtk_window_controls_get_empty")
+    window_controls_get_empty :: proc(self: ^WindowControls) -> glib.boolean ---
+
+    @(link_name = "gtk_window_group_get_type")
+    window_group_get_type :: proc() -> gobj.Type ---
+
+    @(link_name = "gtk_window_group_new")
+    window_group_new :: proc() -> ^WindowGroup ---
+
+    @(link_name = "gtk_window_group_add_window")
+    window_group_add_window :: proc(window_group: ^WindowGroup, window: ^Window) ---
+
+    @(link_name = "gtk_window_group_remove_window")
+    window_group_remove_window :: proc(window_group: ^WindowGroup, window: ^Window) ---
+
+    @(link_name = "gtk_window_group_list_windows")
+    window_group_list_windows :: proc(window_group: ^WindowGroup) -> ^glib.List ---
+
+    @(link_name = "gtk_window_handle_get_type")
+    window_handle_get_type :: proc() -> gobj.Type ---
+
+    @(link_name = "gtk_window_handle_new")
+    window_handle_new :: proc() -> ^Widget ---
+
+    @(link_name = "gtk_window_handle_get_child")
+    window_handle_get_child :: proc(self: ^WindowHandle) -> ^Widget ---
+
+    @(link_name = "gtk_window_handle_set_child")
+    window_handle_set_child :: proc(self: ^WindowHandle, child: ^Widget) ---
+
+}
+
+foreign import gtk4_runic "system:gtk-4"
+

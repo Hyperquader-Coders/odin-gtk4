@@ -1,0 +1,24 @@
+# odin-gtk4: its place in the binding graph
+# Render:  d2 diags/odin-gtk4.d2 diags/odin-gtk4.svg
+
+direction: down
+
+title: "odin-gtk4" {
+  shape: text
+  near: top-center
+  style.font-size: 28
+  style.bold: true
+}
+
+this: "odin-gtk4\nGTK 4, GDK and GSK 4.16.13" {
+  style.fill: "#eef6ff"
+}
+lib: "gtk4 (shared library)" {
+  style.fill: "#fff6e6"
+}
+consumers: "every other binding and every app\nimport \"gtk4:<pkg>\"" {
+  style.fill: "#f2f2f2"
+}
+
+consumers -> this: collection gtk4
+this -> lib: foreign import
