@@ -35,7 +35,7 @@ for p in $PACKAGES; do
 		printf '\n## %s\n\n```text\n' "$p"
 	fi
 	"$odin" doc "$p" "$@" -no-entry-point |
-		sed -e 's| */\* [0-9]*![0-9]* \*/||' |
+		sed -e 's| */\* [0-9]*![0-9]* \*/||' -e 's| */\* [A-Za-z0-9_]*:[^ ]*\.odin![0-9]* \*/||' |
 		awk -v hide="$HIDE" -v dedup="$DEDUP" '
 			/^\tfullpath:$/ { getline; next } # the path of this checkout, different on every machine
 			/^\t\/[^ ]*$/ { next }
