@@ -1,0 +1,132 @@
+# GDK's X11 backend, gdk/x11/gdkx.h. Generated with runic (docs/DECISIONS.md); GDK's own types are
+# gtk4's, Xlib's odin-x11's (x11:xlib).
+# build/gtk4 is a symlink to amber-gtk4-dev's headers, /usr/lib/amber-gtk4/include (scripts/generate.sh); build/sys to the system headers.
+version: 0
+platforms:
+  - Linux x86_64
+from:
+  language: c
+  shared.linux: 'libgtk-4.so'
+  headers: ../build/gtk4/gtk-4.0/gdk/x11/gdkx.h
+  includedirs:
+    - ../stdinc/
+    - ../build/gtk4/gtk-4.0/
+    - ../build/sys/usr/include/glib-2.0/
+    - ../build/sys/usr/lib/x86_64-linux-gnu/glib-2.0/include/
+    - ../build/sys/usr/include/cairo/
+    - ../build/sys/usr/include/pango-1.0/
+    - ../build/sys/usr/include/harfbuzz/
+    - ../build/sys/usr/include/gdk-pixbuf-2.0/
+    - ../build/sys/usr/include/graphene-1.0/
+    - ../build/sys/usr/lib/x86_64-linux-gnu/graphene-1.0/include/
+    - ../build/x11/
+  defines:
+    GLIB_DISABLE_DEPRECATION_WARNINGS: 1
+    GDK_DISABLE_DEPRECATION_WARNINGS: 1
+    GTK_DISABLE_DEPRECATION_WARNINGS: 1
+  load_all_includes: true
+  extern:
+    - "../stdinc/*"
+    - "../stdinc/sys/*"
+    - "../build/sys/usr/include/glib-2.0/glib/*"
+    - "../build/sys/usr/include/glib-2.0/glib/deprecated/*"
+    - "../build/sys/usr/include/glib-2.0/glib.h"
+    - "../build/sys/usr/include/glib-2.0/gobject/*"
+    - "../build/sys/usr/include/glib-2.0/glib-object.h"
+    - "../build/sys/usr/include/glib-2.0/gio/*"
+    - "../build/sys/usr/include/glib-2.0/gio.h"
+    - "../build/sys/usr/include/glib-2.0/gmodule/*"
+    - "../build/sys/usr/include/glib-2.0/gmodule.h"
+    - "../build/sys/usr/lib/x86_64-linux-gnu/glib-2.0/include/*"
+    - "../build/sys/usr/include/cairo/*"
+    - "../build/sys/usr/include/pango-1.0/pango/*"
+    - "../build/sys/usr/include/harfbuzz/*"
+    - "../build/sys/usr/include/gdk-pixbuf-2.0/gdk-pixbuf/*"
+    - "../build/sys/usr/include/graphene-1.0/*"
+    - "../build/sys/usr/lib/x86_64-linux-gnu/graphene-1.0/include/*"
+    - "../build/gtk4/gtk-4.0/gdk/*"
+    - "../build/gtk4/gtk-4.0/gdk/deprecated/*"
+    - "../build/gtk4/gtk-4.0/gsk/*"
+    - "../build/x11/X11/*"
+  ignore:
+    types:
+      - '*autoptr*'
+      - va_list
+    constants:
+      - '_*'
+      - 'GDK_VAR'
+      - 'GDK_*VERSION*'
+      - '*DEPRECATED*'
+      - '*AVAILABLE*'
+    functions:
+      - '*autoptr*'
+      - '*auto_cleanup*'
+to:
+  language: odin
+  package: gdkx
+  out: gdkx.odin
+  no_build_tag: true
+  detect:
+    parameters: declared
+    arrays:
+      display_text_property_to_text_list: [text]
+      free_compound_text: [ctext]
+      free_text_list: [list]
+  trim_prefix:
+    types:
+      - g
+      - G
+      - tk
+      - dk
+      - sk
+      - 'raphene_'
+      - 'cairo_'
+      - Pango
+    functions:
+      - gdk_x11_
+    constants:
+      - GDK_X11_
+      - GDK_
+    enum_type_name: true
+  extern:
+    sources:
+      "../stdinc/stdarg.h": "core:c/libc"
+      "../stdinc/stdio.h": "core:c/libc"
+      "../stdinc/pthread.h": "core:c/libc"
+      "../stdinc/sys/types.h": "core:sys/linux"
+      "../build/sys/usr/include/glib-2.0/glib/*": "glib glib:glib"
+      "../build/sys/usr/include/glib-2.0/glib.h": "glib glib:glib"
+      "../build/sys/usr/include/glib-2.0/glib/deprecated/*": "glib glib:glib"
+      "../build/sys/usr/lib/x86_64-linux-gnu/glib-2.0/include/*": "glib glib:glib"
+      "../build/sys/usr/include/glib-2.0/gobject/*": "gobj glib:gobject"
+      "../build/sys/usr/include/glib-2.0/glib-object.h": "gobj glib:gobject"
+      "../build/sys/usr/include/glib-2.0/gio/*": "gio glib:gio"
+      "../build/sys/usr/include/glib-2.0/gio.h": "gio glib:gio"
+      "../build/sys/usr/include/glib-2.0/gmodule/*": "gobj glib:gobject"
+      "../build/sys/usr/include/glib-2.0/gmodule.h": "gobj glib:gobject"
+      "../build/sys/usr/include/cairo/*": "cairo cairo:cairo"
+      "../build/sys/usr/include/pango-1.0/pango/*": "pango pango:pango"
+      "../build/sys/usr/include/gdk-pixbuf-2.0/gdk-pixbuf/*": "pixbuf pixbuf:gdkpixbuf"
+      "../build/sys/usr/include/graphene-1.0/*": "graphene graphene:graphene"
+      "../build/sys/usr/lib/x86_64-linux-gnu/graphene-1.0/include/*": "graphene graphene:graphene"
+      "../build/gtk4/gtk-4.0/gdk/*": "gtk gtk4:gtk4"
+      "../build/gtk4/gtk-4.0/gdk/deprecated/*": "gtk gtk4:gtk4"
+      "../build/gtk4/gtk-4.0/gsk/*": "gtk gtk4:gtk4"
+      "../build/x11/X11/*": "xlib x11:xlib"
+    # Names are kept whole, so GdkDisplay and Xlib's Display stay apart; GDK's and GLib's types
+    # take their binding's names here. check-generated fails on one missing.
+    remaps:
+      gboolean: boolean
+      gpointer: pointer
+      guchar: uchar
+      guint32: uint32
+      GType: Type
+      GdkAppLaunchContext: AppLaunchContext
+      GdkCursor: Cursor
+      GdkDevice: Device
+      GdkDisplay: Display
+      GdkDrag: Drag
+      GdkMonitor: Monitor
+      GdkRectangle: Rectangle
+      GdkSurface: Surface
+    trim_prefix: false

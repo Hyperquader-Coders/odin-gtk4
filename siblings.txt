@@ -1,0 +1,7 @@
+# The sibling bindings this one imports; make setup (or make init-siblings) clones the missing ones.
+AMBER_ROOT,https://github.com/Hyperquader-Coders/odin-glib
+AMBER_ROOT,https://github.com/Hyperquader-Coders/odin-cairo
+AMBER_ROOT,https://github.com/Hyperquader-Coders/odin-pango
+AMBER_ROOT,https://github.com/Hyperquader-Coders/odin-graphene
+AMBER_ROOT,https://github.com/Hyperquader-Coders/odin-gdk-pixbuf
+AMBER_ROOT,https://github.com/Hyperquader-Coders/odin-x11
