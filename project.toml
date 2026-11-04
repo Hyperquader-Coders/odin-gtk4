@@ -1,0 +1,40 @@
+# What odin-gtk4 is and needs: build is what a program on it needs (amber-gtk4-dev, the suite's
+# GTK bundle), test what only its own checks need. house-rules docs/PROJECT_TOML.md has the layout.
+[project]
+schema = "amber-project-1"
+name = "odin-gtk4"
+license = "LGPL-2.1-or-later"
+kind = "binding"
+summary = "Odin bindings for GTK 4, GDK and GSK, generated with runic"
+tags = [
+  "ai-assisted",
+  "bindings",
+  "gtk4",
+  "linux",
+  "odin",
+  "runic",
+]
+collection = "gtk4"
+
+[siblings.AMBER_ROOT]
+odin-glib = "https://github.com/Hyperquader-Coders/odin-glib"
+odin-cairo = "https://github.com/Hyperquader-Coders/odin-cairo"
+odin-pango = "https://github.com/Hyperquader-Coders/odin-pango"
+odin-graphene = "https://github.com/Hyperquader-Coders/odin-graphene"
+odin-gdk-pixbuf = "https://github.com/Hyperquader-Coders/odin-gdk-pixbuf"
+odin-x11 = "https://github.com/Hyperquader-Coders/odin-x11"
+
+[build]
+packages = [
+  "amber-gtk4-dev",
+]
+lib = [
+  "gtk4",
+  "gdkx",
+]
+
+[test]
+packages = [
+  "shellcheck",
+  "shfmt",
+]

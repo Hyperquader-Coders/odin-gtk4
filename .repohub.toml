@@ -1,0 +1,4 @@
+# RepositoryHub checks this repository against its template, packaging and licence
+# (repositoryhub docs/HYGIENE.md).
+template = "odin-lib"
+license = "LGPL-2.1-or-later"
